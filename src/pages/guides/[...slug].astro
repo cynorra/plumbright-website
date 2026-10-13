@@ -2,6 +2,7 @@
 import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import AuthorBox from "../../components/AuthorBox.astro";
+import OnThisPage from "../../components/OnThisPage.astro";
 import { getCollection, render } from "astro:content";
 import { articleSchema, breadcrumbSchema } from "../../lib/schema.js";
 import { AUTHOR } from "../../site.config.js";
@@ -12,14 +13,15 @@ export async function getStaticPaths() {
 }
 
 const { guide } = Astro.props;
-const { Content } = await render(guide);
+const { Content, headings } = await render(guide);
+const toc = headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug, text: h.text }));
 const { title, description, published, updated, tool } = guide.data;
 const path = `/guides/${guide.id}/`;
 
 const toolInfo = {
-  concrete: { href: "/concrete-calculator/", name: "Concrete calculator", blurb: "Cubic yards and bag counts for slabs, columns and post holes." },
-  tile: { href: "/tile-calculator/", name: "Tile calculator", blurb: "Tiles and boxes, with grout joint and layout waste." },
-  paint: { href: "/paint-calculator/", name: "Paint calculator", blurb: "Gallons and quarts for walls, ceilings and primer." },
+  concrete: { topic: "Concrete", href: "/concrete-calculator/", name: "Concrete calculator", blurb: "Cubic yards and bag counts for slabs, columns and post holes." },
+  tile: { topic: "Tile", href: "/tile-calculator/", name: "Tile calculator", blurb: "Tiles and boxes, with grout joint and layout waste." },
+  paint: { topic: "Paint", href: "/paint-calculator/", name: "Paint calculator", blurb: "Gallons and quarts for walls, ceilings and primer." },
 }[tool];
 
 const related = (await getCollection("guides", (g) => !g.data.draft && g.data.tool === tool && g.id !== guide.id)).slice(0, 4);
@@ -35,41 +37,45 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
   title={title}
   description={description}
   ogType="article"
+  published={published}
+  updated={updated}
   schema={[breadcrumbSchema(crumbs), articleSchema({ title, description, path, published, updated })]}
 >
-  <div class="mx-auto max-w-6xl px-4 pt-6">
-    <Breadcrumbs crumbs={crumbs} />
-    <h1 class="mt-4 text-3xl md:text-4xl font-extrabold max-w-[24ch]">{title}</h1>
-    <p class="mt-3 text-sm text-muted num">
-      By <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a> ·
-      <time datetime={published.toISOString()}>{fmtDate(published)}</time>
-      {updated && <> · Updated <time datetime={updated.toISOString()}>{fmtDate(updated)}</time></>}
-    </p>
-    <div class="tick-rule mt-6 max-w-md"></div>
+  <div class="relative overflow-hidden border-b">
+    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-6 pb-8">
+      <Breadcrumbs crumbs={crumbs} />
+      <p class="text-brand mt-5 text-sm font-medium">{toolInfo.topic} guide</p>
+      <h1 class="mt-2 max-w-[24ch] text-4xl font-extrabold md:text-5xl">{title}</h1>
+      <p class="text-muted-foreground mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+        <span>By <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a></span>
+        <span aria-hidden="true">·</span>
+        <span>Published <time datetime={published.toISOString()}>{fmtDate(published)}</time></span>
+        {updated && <><span aria-hidden="true">·</span><span>Updated <time datetime={updated.toISOString()}>{fmtDate(updated)}</time></span></>}
+      </p>
+    </div>
   </div>
 
-  <div class="mx-auto max-w-6xl px-4 mt-8 grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px]">
+  <div class="mx-auto mt-10 grid max-w-6xl gap-12 px-4 lg:grid-cols-[minmax(0,1fr)_260px]">
     <article class="prose-site min-w-0">
       <Content />
+      <AuthorBox published={published} updated={updated} />
     </article>
-    <aside class="min-w-0 lg:sticky lg:top-6 self-start flex flex-col gap-4" aria-label="Calculator and related guides">
-      <a href={toolInfo.href} class="block rounded-lg border border-accent bg-accent-soft p-5 no-underline text-ink">
-        <span class="text-xs uppercase tracking-wider font-semibold text-accent">Run your own numbers</span>
-        <span class="block font-display font-bold text-lg mt-1">{toolInfo.name} →</span>
-        <span class="block text-sm text-muted mt-1">{toolInfo.blurb}</span>
+    <aside class="flex min-w-0 flex-col gap-8 self-start lg:sticky lg:top-20" aria-label="Page navigation, calculator and related guides">
+      <OnThisPage items={toc} />
+      <a href={toolInfo.href} class="bg-brand-soft border-brand/30 hover:border-brand block rounded-xl border p-5 no-underline text-foreground transition-colors">
+        <span class="text-brand text-xs font-semibold tracking-wider uppercase">Run your own numbers</span>
+        <span class="font-display mt-1 block text-lg font-bold">{toolInfo.name} →</span>
+        <span class="text-muted-foreground mt-1 block text-sm">{toolInfo.blurb}</span>
       </a>
       {related.length > 0 && (
-        <div class="border border-line rounded-lg bg-surface p-5">
-          <h2 class="font-display font-bold text-sm uppercase tracking-wider text-muted">Related guides</h2>
-          <ul class="mt-3 grid gap-3">
+        <div>
+          <p class="text-muted-foreground mb-3 text-xs font-semibold tracking-wider uppercase">Related guides</p>
+          <ul class="grid gap-3 text-sm">
             {related.map((g) => <li><a href={`/guides/${g.id}/`} class="font-medium leading-snug">{g.data.title}</a></li>)}
           </ul>
         </div>
       )}
     </aside>
-  </div>
-
-  <div class="mx-auto max-w-6xl px-4">
-    <AuthorBox published={published} updated={updated} />
   </div>
 </Base>

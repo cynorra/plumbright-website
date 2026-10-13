@@ -1,6 +1,10 @@
 # Plumbright
 
-Ev projeleri için malzeme hesaplayıcıları ve rehberler. Astro 7 + Tailwind 4, tamamen statik site.
+Ev projeleri için malzeme hesaplayıcıları ve rehberler.
+
+**Stack:** Astro 7 (statik çıktı) · React 19 adacıkları · shadcn/ui (new-york, Radix) · Tailwind CSS 4 · Motion · Geist + Archivo yazı tipleri.
+
+Sayfalar düz HTML olarak üretilir; JavaScript yalnızca hesaplayıcılar, tema düğmesi ve mobil menü için yüklenir. Hesaplayıcıların varsayılan sonuçları da HTML'in içindedir, yani arama motorları ve yapay zekâ tarayıcıları sonucu JavaScript çalıştırmadan görür.
 
 ## Çalıştırma
 
@@ -22,7 +26,31 @@ Node 22 veya üstü gerekir.
 | `tests/calc.test.js` | Elle doğrulanmış örneklerle testler. Formül değiştirirsen önce testi güncelle. |
 | `src/pages/*-calculator.astro` | Araç sayfaları: hesaplayıcı + formül + örnek + tablolar + SSS. |
 | `src/content/guides/*.md` | Blog yazıları. |
+| `src/components/ui/` | shadcn/ui bileşenleri (button, input, label, card, tabs, select, switch, separator, badge, dropdown-menu, sheet, tooltip, toggle-group). |
+| `src/components/motion/` | Mikro animasyonlar: sonuç sayılarının yaya geçişi (Motion Primitives'ten uyarlandı, MIT) ve kayan seçim göstergesi. Hareket azaltma tercihine uyar. |
+| `src/components/calculators/` | Hesaplayıcı adacıkları. Girilen değerler adres çubuğuna yazılır, sonuç link olarak paylaşılabilir. |
+| `scripts/make-images.mjs` | Paylaşım görseli (og.png) ve ikonları üretir. Marka adını değiştirince tekrar çalıştır. |
+| `scripts/browser-check.mjs` | Gerçek tarayıcıda iki tema ve iki ekran genişliğinde ekran görüntüsü, taşma, konsol hatası ve etkileşim testleri. |
 | `src/pages/` diğerleri | Güven sayfaları: about, author, contact, privacy, terms, disclaimer, editorial-policy, methodology, 404. |
+
+## shadcn bileşeni eklemek
+
+`components.json` hazır. Kendi bilgisayarında:
+
+```bash
+npx shadcn@latest add accordion
+```
+
+Tema renkleri `src/styles/global.css` içindeki `:root` ve `.dark` bloklarında. `--brand` (turuncu) sadece önemli sayılar ve ana vurgular için; sayfada iki yerden fazla kullanma.
+
+## AEO / SEO / GEO
+
+- Her araç sayfası ilk cümlede cevabı veriyor; altında tek başına alıntılanabilir "Key numbers" kutusu var.
+- Şema: Organization, WebSite, Person, Article, BreadcrumbList, WebApplication.
+- Başlıklara otomatik id ve "On this page" menüsü; görünür kaynaklar bölümü.
+- `/llms.txt`: yapay zekâ asistanları için site özeti (Google buna ihtiyaç duymadığını söylüyor, diğer motorlar kullanabilir).
+- `robots.txt` Googlebot ve AdSense tarayıcısına açık; site haritası otomatik.
+- Open Graph ve Twitter kartları, her sayfada canonical, yayın ve güncelleme tarihleri.
 
 ## Yeni yazı eklemek
 

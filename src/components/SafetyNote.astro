@@ -1,8 +1,7 @@
 ---
 // Shown on structural topics (slabs, footings, posts, stairs).
 ---
-<div class="my-6 rounded-md px-4 py-3 text-sm max-w-[68ch]" style="background: var(--warn-bg); color: var(--warn-ink);" role="note">
-  <slot>
-    These numbers are for estimating materials. Footing size, slab thickness and reinforcement are set by your local building code and site conditions. Check with your building department before you pour anything structural.
-  </slot>
+<div class="bg-note text-note-foreground my-6 flex max-w-[68ch] gap-3 rounded-lg px-4 py-3 text-sm" role="note">
+  <svg class="mt-0.5 size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+  <p class="m-0"><slot>These numbers are for estimating materials. Footing size, slab thickness and reinforcement are set by your local building code and site conditions. Check with your building department before you pour anything structural.</slot></p>
 </div>

@@ -1,5 +1,6 @@
 ---
 import ToolLayout from "../layouts/ToolLayout.astro";
+import ConcreteCalculator from "../components/calculators/ConcreteCalculator.tsx";
 import SafetyNote from "../components/SafetyNote.astro";
 import { BAG_YIELDS, slabVolume, postHoleVolume, concreteOrder } from "../lib/calc/concrete.js";
 import { fmt } from "../lib/calc/util.js";
@@ -42,62 +43,19 @@ const postRows = [
   description="Work out cubic yards and the number of 40, 50, 60 or 80 lb bags for a slab, a round column or fence post holes, with waste included and the formula shown."
   lead={lead}
   published={new Date("2026-10-13")}
+  facts={[
+    { label: "1 cubic yard", value: "27 cu ft" },
+    { label: "80 lb bag of standard mix yields", value: "≈ 0.60 cu ft" },
+    { label: "80 lb bags per cubic yard", value: `${Math.ceil(27 / 0.6)} bags` },
+    { label: "Typical patio thickness", value: "4 in" },
+  ]}
+  sources={[
+    { label: "Methodology: formulas, bag yields and rounding", href: "/methodology/" },
+    { label: "International Code Council (publisher of the IRC)", href: "https://www.iccsafe.org/" },
+    { label: "Call 811 before you dig", href: "https://call811.com/" },
+  ]}
 >
-  <div slot="calculator" id="concrete-calc" class="grid md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
-    <form class="p-5 md:p-6 flex flex-col gap-5" novalidate>
-      <div>
-        <p class="font-semibold text-sm mb-2" id="shape-label">What are you pouring?</p>
-        <div class="seg" role="group" aria-labelledby="shape-label">
-          <button type="button" data-shape="slab" aria-pressed="true">Slab or patio</button>
-          <button type="button" data-shape="column" aria-pressed="false">Round column</button>
-          <button type="button" data-shape="posts" aria-pressed="false">Post holes</button>
-        </div>
-      </div>
-
-      <fieldset data-group="slab" class="grid gap-4 sm:grid-cols-3">
-        <legend class="sr-only">Slab dimensions</legend>
-        <div class="field"><label for="c-len">Length (ft)</label><input class="input" id="c-len" inputmode="decimal" value="10" /></div>
-        <div class="field"><label for="c-wid">Width (ft)</label><input class="input" id="c-wid" inputmode="decimal" value="10" /></div>
-        <div class="field"><label for="c-thk">Thickness (in)</label><input class="input" id="c-thk" inputmode="decimal" value="4" /><span class="hint">Patios and walks: 4 in</span></div>
-      </fieldset>
-
-      <fieldset data-group="column" class="grid gap-4 sm:grid-cols-3" hidden>
-        <legend class="sr-only">Column dimensions</legend>
-        <div class="field"><label for="c-dia">Diameter (in)</label><input class="input" id="c-dia" inputmode="decimal" value="12" /></div>
-        <div class="field"><label for="c-hgt">Height (ft)</label><input class="input" id="c-hgt" inputmode="decimal" value="4" /></div>
-        <div class="field"><label for="c-cnt">How many</label><input class="input" id="c-cnt" inputmode="numeric" value="1" /></div>
-      </fieldset>
-
-      <fieldset data-group="posts" class="grid gap-4 sm:grid-cols-2" hidden>
-        <legend class="sr-only">Post hole dimensions</legend>
-        <div class="field"><label for="p-n">Number of holes</label><input class="input" id="p-n" inputmode="numeric" value="10" /></div>
-        <div class="field"><label for="p-dia">Hole diameter (in)</label><input class="input" id="p-dia" inputmode="decimal" value="10" /><span class="hint">About 3× the post width</span></div>
-        <div class="field"><label for="p-dep">Hole depth (in)</label><input class="input" id="p-dep" inputmode="decimal" value="36" /></div>
-        <div class="field"><label for="p-grv">Gravel base (in)</label><input class="input" id="p-grv" inputmode="decimal" value="6" /><span class="hint">0 if none</span></div>
-        <div class="field"><label for="p-post">Post width (in)</label><input class="input" id="p-post" inputmode="decimal" value="3.5" /><span class="hint">A 4×4 is 3.5 in, a 6×6 is 5.5 in</span></div>
-      </fieldset>
-
-      <div class="field max-w-[12rem]">
-        <label for="c-waste">Extra for waste (%)</label>
-        <input class="input" id="c-waste" inputmode="decimal" value="10" />
-        <span class="hint">5–10% is typical</span>
-      </div>
-      <p id="c-error" class="text-sm" style="color: var(--err)" role="alert"></p>
-    </form>
-
-    <div class="p-5 md:p-6 border-t md:border-t-0 md:border-l border-line bg-bg rounded-b-xl md:rounded-bl-none md:rounded-r-xl" aria-live="polite">
-      <p class="text-xs uppercase tracking-wider text-muted font-semibold">You need</p>
-      <p class="mt-1"><span id="r-yd" class="num text-4xl font-semibold text-accent">–</span> <span class="text-muted">cubic yards</span></p>
-      <p class="text-sm text-muted num"><span id="r-ft">–</span> cu ft including waste</p>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Bag size</th><th>Bags</th></tr></thead>
-          <tbody id="r-bags"></tbody>
-        </table>
-      </div>
-      <p class="text-xs text-muted">Bag counts assume standard concrete mix. Check the yield printed on your bag.</p>
-    </div>
-  </div>
+  <ConcreteCalculator slot="calculator" client:load />
 
   <h2>How to use the concrete calculator</h2>
   <p>Pick the shape you are pouring, enter the dimensions and the calculator works out the volume in cubic feet and cubic yards. It then divides that volume by the yield of each common bag size, so you can compare buying 40, 50, 60 or 80 lb bags. Everything updates as you type.</p>
@@ -190,60 +148,3 @@ const postRows = [
   <p>No. Reinforcement takes up very little volume, so it does not change the concrete you order. It does matter for strength, so plan it separately.</p>
 </ToolLayout>
 
-<script>
-  import { slabVolume, columnVolume, postHoleVolume, concreteOrder } from "../lib/calc/concrete.js";
-  import { num, fmt } from "../lib/calc/util.js";
-
-  const root = document.getElementById("concrete-calc")!;
-  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
-  let shape = "slab";
-
-  function volume(): number {
-    if (shape === "slab") {
-      return slabVolume({ lengthFt: num($("c-len").value), widthFt: num($("c-wid").value), thicknessIn: num($("c-thk").value) });
-    }
-    if (shape === "column") {
-      const count = num($("c-cnt").value);
-      if (!Number.isFinite(count) || count < 1) throw new RangeError("Enter how many columns, 1 or more.");
-      return columnVolume({ diameterIn: num($("c-dia").value), heightFt: num($("c-hgt").value) }) * count;
-    }
-    return postHoleVolume({
-      holes: num($("p-n").value),
-      holeDiameterIn: num($("p-dia").value),
-      holeDepthIn: num($("p-dep").value),
-      gravelBaseIn: num($("p-grv").value) || 0,
-      postWidthIn: num($("p-post").value) || 0,
-    });
-  }
-
-  function update() {
-    const err = document.getElementById("c-error")!;
-    try {
-      const waste = num($("c-waste").value);
-      const o = concreteOrder(volume(), Number.isFinite(waste) ? waste : 0);
-      document.getElementById("r-yd")!.textContent = fmt(o.cubicYards);
-      document.getElementById("r-ft")!.textContent = fmt(o.totalCuFt);
-      document.getElementById("r-bags")!.innerHTML = o.bags
-        .map((b) => `<tr><td class="num">${b.weight} lb</td><td class="num">${b.count}</td></tr>`)
-        .join("");
-      err.textContent = "";
-    } catch (e) {
-      err.textContent = e instanceof Error ? e.message : "Check the values you entered.";
-      document.getElementById("r-yd")!.textContent = "–";
-      document.getElementById("r-ft")!.textContent = "–";
-      document.getElementById("r-bags")!.innerHTML = "";
-    }
-  }
-
-  root.querySelectorAll<HTMLButtonElement>("[data-shape]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      shape = btn.dataset.shape!;
-      root.querySelectorAll<HTMLButtonElement>("[data-shape]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-      root.querySelectorAll<HTMLElement>("[data-group]").forEach((g) => (g.hidden = g.dataset.group !== shape));
-      update();
-    });
-  });
-  root.addEventListener("input", update);
-  root.querySelector("form")!.addEventListener("submit", (e) => e.preventDefault());
-  update();
-</script>

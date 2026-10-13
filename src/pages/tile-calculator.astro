@@ -1,5 +1,6 @@
 ---
 import ToolLayout from "../layouts/ToolLayout.astro";
+import TileCalculator from "../components/calculators/TileCalculator.tsx";
 import { LAYOUTS, tileEstimate, tileCoverageSqFt } from "../lib/calc/tile.js";
 import { fmt } from "../lib/calc/util.js";
 
@@ -20,66 +21,18 @@ const lead100 = tileEstimate({ areaSqFt: 100, tileWidthIn: 12, tileLengthIn: 12,
   description="Find how many tiles and boxes you need for a floor or wall. Accounts for grout joint width and layout waste: straight, offset, diagonal or herringbone."
   lead={`Enter the room size, the tile size and your layout to see how many tiles and boxes to buy. A 100 sq ft floor in 12 × 12 in tile with 1/8 in grout and 10% waste takes ${lead100.tiles} tiles.`}
   published={new Date("2026-10-13")}
+  facts={[
+    { label: "Waste, straight or offset layout", value: `${LAYOUTS.straight.wastePct}%` },
+    { label: "Waste, diagonal layout", value: `${LAYOUTS.diagonal.wastePct}%` },
+    { label: "Waste, herringbone layout", value: `${LAYOUTS.herringbone.wastePct}%` },
+    { label: "12 × 12 in tiles for 100 sq ft", value: `${lead100.tiles} tiles` },
+  ]}
+  sources={[
+    { label: "Methodology: tile formulas and waste allowances", href: "/methodology/" },
+    { label: "How to measure an L-shaped room", href: "/guides/how-to-measure-an-l-shaped-room/" },
+  ]}
 >
-  <div slot="calculator" id="tile-calc" class="grid md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
-    <form class="p-5 md:p-6 flex flex-col gap-5" novalidate>
-      <div>
-        <p class="font-semibold text-sm mb-2" id="area-label">Area to tile</p>
-        <div class="seg" role="group" aria-labelledby="area-label">
-          <button type="button" data-area="dims" aria-pressed="true">Length × width</button>
-          <button type="button" data-area="sqft" aria-pressed="false">I know the sq ft</button>
-        </div>
-      </div>
-      <div data-areagroup="dims" class="grid gap-4 sm:grid-cols-2">
-        <div class="field"><label for="t-len">Length (ft)</label><input class="input" id="t-len" inputmode="decimal" value="10" /></div>
-        <div class="field"><label for="t-wid">Width (ft)</label><input class="input" id="t-wid" inputmode="decimal" value="10" /></div>
-      </div>
-      <div data-areagroup="sqft" class="grid gap-4 sm:grid-cols-2" hidden>
-        <div class="field"><label for="t-sqft">Area (sq ft)</label><input class="input" id="t-sqft" inputmode="decimal" value="100" /><span class="hint">Add up rooms and subtract cabinets or a tub</span></div>
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-3">
-        <div class="field"><label for="t-tw">Tile width (in)</label><input class="input" id="t-tw" inputmode="decimal" value="12" /></div>
-        <div class="field"><label for="t-tl">Tile length (in)</label><input class="input" id="t-tl" inputmode="decimal" value="12" /></div>
-        <div class="field"><label for="t-gr">Grout joint (in)</label><input class="input" id="t-gr" inputmode="decimal" value="0.125" /><span class="hint">1/8 = 0.125, 1/16 = 0.0625</span></div>
-      </div>
-
-      <div>
-        <p class="font-semibold text-sm mb-2" id="layout-label">Layout</p>
-        <div class="seg" role="group" aria-labelledby="layout-label">
-          {Object.entries(LAYOUTS).map(([key, l], i) => (
-            <button type="button" data-layout={key} data-waste={l.wastePct} aria-pressed={i === 0 ? "true" : "false"}>{l.label}</button>
-          ))}
-        </div>
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-3">
-        <div class="field"><label for="t-waste">Waste (%)</label><input class="input" id="t-waste" inputmode="decimal" value="10" /><span class="hint">Set by layout; edit if you like</span></div>
-        <div class="field">
-          <label for="t-boxtype">Box label shows</label>
-          <select class="input" id="t-boxtype">
-            <option value="sqft">Sq ft per box</option>
-            <option value="tiles">Tiles per box</option>
-          </select>
-        </div>
-        <div class="field"><label for="t-box">Per box</label><input class="input" id="t-box" inputmode="decimal" value="" placeholder="optional" /></div>
-      </div>
-      <p id="t-error" class="text-sm" style="color: var(--err)" role="alert"></p>
-    </form>
-
-    <div class="p-5 md:p-6 border-t md:border-t-0 md:border-l border-line bg-bg rounded-b-xl md:rounded-bl-none md:rounded-r-xl" aria-live="polite">
-      <p class="text-xs uppercase tracking-wider text-muted font-semibold">Buy</p>
-      <p class="mt-1"><span id="tr-tiles" class="num text-4xl font-semibold text-accent">–</span> <span class="text-muted">tiles</span></p>
-      <p class="mt-1" id="tr-boxes-row" hidden><span id="tr-boxes" class="num text-2xl font-semibold">–</span> <span class="text-muted">boxes</span></p>
-      <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-        <dt class="text-muted">Area</dt><dd class="num"><span id="tr-area">–</span> sq ft</dd>
-        <dt class="text-muted">With waste</dt><dd class="num"><span id="tr-areaw">–</span> sq ft</dd>
-        <dt class="text-muted">One tile covers</dt><dd class="num"><span id="tr-cov">–</span> sq ft</dd>
-        <dt class="text-muted">Before waste</dt><dd class="num"><span id="tr-net">–</span> tiles</dd>
-      </dl>
-      <p class="mt-4 text-xs text-muted">Buy every box from the same lot number. Color can shift between production runs.</p>
-    </div>
-  </div>
+  <TileCalculator slot="calculator" client:load />
 
   <h2>How to use the tile calculator</h2>
   <p>Enter the floor or wall size, the tile size and the grout joint you plan to use. Then choose the layout. The layout sets a typical waste allowance, which you can change. If you know how much one box covers, enter it to get a box count.</p>
@@ -147,62 +100,3 @@ const lead100 = tileEstimate({ areaSqFt: 100, tileWidthIn: 12, tileLengthIn: 12,
   <p>If the cabinets stay in place, yes. Tile under a dishwasher or range, though, so the appliance can come out at the same height.</p>
 </ToolLayout>
 
-<script>
-  import { tileEstimate, rectArea } from "../lib/calc/tile.js";
-  import { num, fmt } from "../lib/calc/util.js";
-
-  const root = document.getElementById("tile-calc")!;
-  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
-  let areaMode = "dims";
-
-  function update() {
-    const err = document.getElementById("t-error")!;
-    try {
-      const area = areaMode === "dims" ? rectArea(num($("t-len").value), num($("t-wid").value)) : num($("t-sqft").value);
-      const perBox = num($("t-box").value);
-      const boxType = ($("t-boxtype") as unknown as HTMLSelectElement).value;
-      const waste = num($("t-waste").value);
-      const r = tileEstimate({
-        areaSqFt: area,
-        tileWidthIn: num($("t-tw").value),
-        tileLengthIn: num($("t-tl").value),
-        groutIn: num($("t-gr").value) || 0,
-        wastePct: Number.isFinite(waste) ? waste : 0,
-        tilesPerBox: boxType === "tiles" ? perBox : undefined,
-        sqFtPerBox: boxType === "sqft" ? perBox : undefined,
-      });
-      document.getElementById("tr-tiles")!.textContent = fmt(r.tiles, 0);
-      document.getElementById("tr-area")!.textContent = fmt(r.areaSqFt);
-      document.getElementById("tr-areaw")!.textContent = fmt(r.areaWithWasteSqFt);
-      document.getElementById("tr-cov")!.textContent = fmt(r.coveragePerTileSqFt, 3);
-      document.getElementById("tr-net")!.textContent = fmt(r.netTiles, 1);
-      document.getElementById("tr-boxes-row")!.hidden = r.boxes === null;
-      if (r.boxes !== null) document.getElementById("tr-boxes")!.textContent = fmt(r.boxes, 0);
-      err.textContent = "";
-    } catch (e) {
-      err.textContent = e instanceof Error ? e.message : "Check the values you entered.";
-      ["tr-tiles", "tr-area", "tr-areaw", "tr-cov", "tr-net"].forEach((id) => (document.getElementById(id)!.textContent = "–"));
-      document.getElementById("tr-boxes-row")!.hidden = true;
-    }
-  }
-
-  root.querySelectorAll<HTMLButtonElement>("[data-area]").forEach((btn) =>
-    btn.addEventListener("click", () => {
-      areaMode = btn.dataset.area!;
-      root.querySelectorAll("[data-area]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-      root.querySelectorAll<HTMLElement>("[data-areagroup]").forEach((g) => (g.hidden = g.dataset.areagroup !== areaMode));
-      update();
-    }),
-  );
-  root.querySelectorAll<HTMLButtonElement>("[data-layout]").forEach((btn) =>
-    btn.addEventListener("click", () => {
-      root.querySelectorAll("[data-layout]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-      $("t-waste").value = btn.dataset.waste!;
-      update();
-    }),
-  );
-  root.addEventListener("input", update);
-  root.addEventListener("change", update);
-  root.querySelector("form")!.addEventListener("submit", (e) => e.preventDefault());
-  update();
-</script>

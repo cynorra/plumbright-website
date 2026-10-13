@@ -1,5 +1,6 @@
 ---
 import ToolLayout from "../layouts/ToolLayout.astro";
+import PaintCalculator from "../components/calculators/PaintCalculator.tsx";
 import { roomArea, paintEstimate, DOOR_SQFT, WINDOW_SQFT, DEFAULT_COVERAGE } from "../lib/calc/paint.js";
 import { fmt } from "../lib/calc/util.js";
 
@@ -30,46 +31,17 @@ const leadP = paintEstimate({ areaSqFt: leadA.walls, coats: 2 });
   description="Estimate gallons of paint and primer for a room. Subtracts doors and windows, handles ceilings and multiple coats, and tells you how many gallons and quarts to buy."
   lead={`Enter the room size, openings and number of coats to see how much paint to buy. Two coats on the walls of a 12 × 12 ft bedroom with 8 ft ceilings, one door and one window, take about ${fmt(leadP.paintGallons, 1)} gallons.`}
   published={new Date("2026-10-13")}
+  facts={[
+    { label: "One gallon covers", value: "250–400 sq ft" },
+    { label: "Standard interior door", value: `${DOOR_SQFT} sq ft` },
+    { label: "Average window", value: `${WINDOW_SQFT} sq ft` },
+    { label: "12 × 12 ft room, walls, 2 coats", value: `${fmt(leadP.paintGallons, 1)} gal` },
+  ]}
+  sources={[
+    { label: "Methodology: paint formulas and coverage", href: "/methodology/" },
+  ]}
 >
-  <div slot="calculator" id="paint-calc" class="grid md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
-    <form class="p-5 md:p-6 flex flex-col gap-5" novalidate>
-      <div class="grid gap-4 sm:grid-cols-3">
-        <div class="field"><label for="p-len">Room length (ft)</label><input class="input" id="p-len" inputmode="decimal" value="12" /></div>
-        <div class="field"><label for="p-wid">Room width (ft)</label><input class="input" id="p-wid" inputmode="decimal" value="12" /></div>
-        <div class="field"><label for="p-hgt">Wall height (ft)</label><input class="input" id="p-hgt" inputmode="decimal" value="8" /></div>
-      </div>
-      <div class="grid gap-4 sm:grid-cols-3">
-        <div class="field"><label for="p-doors">Doors</label><input class="input" id="p-doors" inputmode="numeric" value="1" /><span class="hint">{DOOR_SQFT} sq ft each</span></div>
-        <div class="field"><label for="p-wins">Windows</label><input class="input" id="p-wins" inputmode="numeric" value="1" /><span class="hint">{WINDOW_SQFT} sq ft each</span></div>
-        <div class="field"><label for="p-coats">Coats</label><input class="input" id="p-coats" inputmode="numeric" value="2" /></div>
-      </div>
-      <div class="grid gap-4 sm:grid-cols-3">
-        <div class="field"><label for="p-cov">Coverage (sq ft/gal)</label><input class="input" id="p-cov" inputmode="decimal" value={DEFAULT_COVERAGE} /><span class="hint">Check your can's label</span></div>
-      </div>
-      <div class="flex flex-wrap gap-x-6 gap-y-2">
-        <label class="flex items-center gap-2"><input type="checkbox" id="p-ceil" /> Include the ceiling</label>
-        <label class="flex items-center gap-2"><input type="checkbox" id="p-primer" /> I need primer (1 coat)</label>
-      </div>
-      <p id="p-error" class="text-sm" style="color: var(--err)" role="alert"></p>
-    </form>
-
-    <div class="p-5 md:p-6 border-t md:border-t-0 md:border-l border-line bg-bg rounded-b-xl md:rounded-bl-none md:rounded-r-xl" aria-live="polite">
-      <p class="text-xs uppercase tracking-wider text-muted font-semibold">Paint</p>
-      <p class="mt-1"><span id="pr-gal" class="num text-4xl font-semibold text-accent">–</span> <span class="text-muted">gallons</span></p>
-      <p class="text-sm">Buy: <strong id="pr-buy" class="num">–</strong></p>
-      <div id="pr-primer-row" hidden class="mt-4">
-        <p class="text-xs uppercase tracking-wider text-muted font-semibold">Primer</p>
-        <p class="num"><span id="pr-pgal">–</span> gal · buy <strong id="pr-pbuy">–</strong></p>
-      </div>
-      <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-        <dt class="text-muted">Walls</dt><dd class="num"><span id="pr-walls">–</span> sq ft</dd>
-        <dt class="text-muted">Openings</dt><dd class="num">− <span id="pr-open">–</span> sq ft</dd>
-        <dt class="text-muted">Ceiling</dt><dd class="num"><span id="pr-ceil">0</span> sq ft</dd>
-        <dt class="text-muted">To paint</dt><dd class="num"><span id="pr-total">–</span> sq ft</dd>
-      </dl>
-      <p class="mt-4 text-xs text-muted">Ceilings are usually a different paint. If you include the ceiling, buy it separately.</p>
-    </div>
-  </div>
+  <PaintCalculator slot="calculator" client:load />
 
   <h2>How to use the paint calculator</h2>
   <p>Measure the length and width of the room along the floor, and the wall height from floor to ceiling. Count the doors and windows. Choose the number of coats, then check the coverage on your paint can and enter it if it differs from {DEFAULT_COVERAGE} sq ft per gallon. The calculator shows the gallons you need and how to buy them in gallons and quarts.</p>
@@ -141,50 +113,3 @@ const leadP = paintEstimate({ areaSqFt: leadA.walls, coats: 2 });
   <p>Baseboards, door casings and window trim in an average room usually take less than a quart. Trim is normally a separate, glossier paint.</p>
 </ToolLayout>
 
-<script>
-  import { roomArea, paintEstimate } from "../lib/calc/paint.js";
-  import { num, fmt } from "../lib/calc/util.js";
-
-  const root = document.getElementById("paint-calc")!;
-  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
-  const buy = (p: { gallons: number; quarts: number }) =>
-    [p.gallons ? `${p.gallons} gal` : "", p.quarts ? `${p.quarts} qt` : ""].filter(Boolean).join(" + ") || "–";
-
-  function update() {
-    const err = document.getElementById("p-error")!;
-    try {
-      const a = roomArea({
-        lengthFt: num($("p-len").value),
-        widthFt: num($("p-wid").value),
-        heightFt: num($("p-hgt").value),
-        doors: num($("p-doors").value) || 0,
-        windows: num($("p-wins").value) || 0,
-        includeCeiling: $("p-ceil").checked,
-      });
-      const p = paintEstimate({
-        areaSqFt: a.total,
-        coats: num($("p-coats").value),
-        coverageSqFtPerGal: num($("p-cov").value),
-        primer: $("p-primer").checked,
-      });
-      document.getElementById("pr-gal")!.textContent = fmt(p.paintGallons, 1);
-      document.getElementById("pr-buy")!.textContent = buy(p.paintToBuy);
-      document.getElementById("pr-walls")!.textContent = fmt(a.grossWalls);
-      document.getElementById("pr-open")!.textContent = fmt(a.openings);
-      document.getElementById("pr-ceil")!.textContent = fmt(a.ceiling);
-      document.getElementById("pr-total")!.textContent = fmt(a.total);
-      document.getElementById("pr-primer-row")!.hidden = !$("p-primer").checked;
-      document.getElementById("pr-pgal")!.textContent = fmt(p.primerGallons, 1);
-      document.getElementById("pr-pbuy")!.textContent = buy(p.primerToBuy);
-      err.textContent = "";
-    } catch (e) {
-      err.textContent = e instanceof Error ? e.message : "Check the values you entered.";
-      ["pr-gal", "pr-buy", "pr-walls", "pr-open", "pr-total"].forEach((id) => (document.getElementById(id)!.textContent = "–"));
-    }
-  }
-
-  root.addEventListener("input", update);
-  root.addEventListener("change", update);
-  root.querySelector("form")!.addEventListener("submit", (e) => e.preventDefault());
-  update();
-</script>

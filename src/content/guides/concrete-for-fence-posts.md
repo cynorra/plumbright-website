@@ -75,4 +75,4 @@ Standard mix is mixed in a wheelbarrow first. It takes longer to set but often c
 - **Not bracing the post.** Check plumb on two adjacent faces and brace the post before the concrete stiffens.
 - **Buying exactly the calculated amount.** Holes are never perfect cylinders. Keep a spare bag or two.
 
-<div class="my-6 rounded-md px-4 py-3 text-sm" style="background: var(--warn-bg); color: var(--warn-ink);" role="note">Call 811 before you dig. In the US it is free and marks buried gas, power and water lines so you do not hit them.</div>
+<div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Call 811 before you dig. In the US it is free and marks buried gas, power and water lines so you do not hit them.</div>

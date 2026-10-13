@@ -19,11 +19,11 @@ const endpoint = SITE.contactFormEndpoint;
   {endpoint && (
     <>
       <h2>Send a message</h2>
-      <form action={endpoint} method="POST" class="not-prose grid gap-4 max-w-lg">
-        <div class="field"><label for="cf-name">Name</label><input class="input" id="cf-name" name="name" autocomplete="name" required /></div>
-        <div class="field"><label for="cf-email">Email</label><input class="input" id="cf-email" name="email" type="email" autocomplete="email" required /></div>
-        <div class="field"><label for="cf-msg">Message</label><textarea class="input" id="cf-msg" name="message" rows="6" required></textarea></div>
-        <button class="btn w-fit" type="submit">Send message</button>
+      <form action={endpoint} method="POST" class="grid max-w-lg gap-4">
+        <div class="grid gap-2"><label class="text-sm font-medium" for="cf-name">Name</label><input class="border-input bg-background dark:bg-input/30 h-10 w-full rounded-md border px-3 py-2 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]" id="cf-name" name="name" autocomplete="name" required /></div>
+        <div class="grid gap-2"><label class="text-sm font-medium" for="cf-email">Email</label><input class="border-input bg-background dark:bg-input/30 h-10 w-full rounded-md border px-3 py-2 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]" id="cf-email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="grid gap-2"><label class="text-sm font-medium" for="cf-msg">Message</label><textarea class="border-input bg-background dark:bg-input/30 w-full rounded-md border px-3 py-2 text-base shadow-xs outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]" id="cf-msg" name="message" rows="6" required></textarea></div>
+        <button class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 w-fit items-center rounded-md px-5 text-sm font-medium" type="submit">Send message</button>
       </form>
     </>
   )}

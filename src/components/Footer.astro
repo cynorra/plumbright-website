@@ -3,32 +3,32 @@ import Logo from "./Logo.astro";
 import { SITE, FOOTER_LINKS, NAV } from "../site.config.js";
 const year = new Date().getFullYear();
 ---
-<footer class="mt-20 border-t border-line bg-surface">
+<footer class="mt-20 border-t border-border bg-card">
   <div class="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-3">
     <div class="flex flex-col gap-2">
-      <a href="/" class="flex items-center gap-2 no-underline text-ink">
+      <a href="/" class="flex items-center gap-2 no-underline text-foreground">
         <Logo size={22} />
         <span class="font-display font-extrabold">{SITE.name}</span>
       </a>
-      <p class="text-sm text-muted max-w-xs">
+      <p class="text-sm text-muted-foreground max-w-xs">
         Calculators for home projects, with the formula, the assumptions and a worked example on every page.
       </p>
     </div>
     <nav aria-label="Calculators and guides">
-      <h2 class="text-xs uppercase tracking-wider text-muted mb-3">Projects</h2>
+      <h2 class="text-xs uppercase tracking-wider text-muted-foreground mb-3">Projects</h2>
       <ul class="grid gap-1 text-sm">
         {NAV.filter((n) => n.href !== "/about/").map((n) => <li><a href={n.href}>{n.label}</a></li>)}
       </ul>
     </nav>
     <nav aria-label="Site information">
-      <h2 class="text-xs uppercase tracking-wider text-muted mb-3">About this site</h2>
+      <h2 class="text-xs uppercase tracking-wider text-muted-foreground mb-3">About this site</h2>
       <ul class="grid grid-cols-2 gap-1 text-sm">
         {FOOTER_LINKS.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
       </ul>
     </nav>
   </div>
-  <div class="border-t border-line">
-    <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-muted">
+  <div class="border-t border-border">
+    <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-muted-foreground">
       © {year} {SITE.name}. Estimates are for planning. Check local building codes and product labels before you buy or build.
     </p>
   </div>

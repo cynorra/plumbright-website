@@ -1,0 +1,16 @@
+---
+interface Props { items: { id: string; text: string }[] }
+const { items } = Astro.props;
+---
+{items.length > 2 && (
+  <nav aria-label="On this page" class="text-sm">
+    <p class="text-muted-foreground mb-3 text-xs font-semibold tracking-wider uppercase">On this page</p>
+    <ol class="border-border grid gap-0.5 border-l">
+      {items.map((i) => (
+        <li>
+          <a href={`#${i.id}`} class="text-muted-foreground hover:text-foreground hover:border-brand -ml-px block border-l border-transparent py-1 pl-3 leading-snug no-underline">{i.text}</a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
