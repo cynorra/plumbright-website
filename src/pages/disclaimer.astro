@@ -1,0 +1,27 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE } from "../site.config.js";
+---
+<PageLayout
+  title="Disclaimer"
+  description={`${SITE.name}'s calculators give planning estimates. What they can and cannot tell you, and when to check with a building department or professional.`}
+  updated={new Date("2026-10-13")}
+>
+  <p>{SITE.name}'s calculators estimate the amount of material a project needs. They are a planning aid, not a design tool.</p>
+
+  <h2>What the estimates assume</h2>
+  <ul>
+    <li>Measurements you enter are accurate and in the units shown.</li>
+    <li>Product figures, such as bag yield and paint coverage, match common US products. Your product may differ: always check its label or data sheet.</li>
+    <li>Waste allowances are typical. Your project may need more.</li>
+  </ul>
+
+  <h2>What they do not cover</h2>
+  <p>The calculators do not decide how thick a slab must be, how deep a footing must go, how stairs must be built or whether a structure is safe. Those are set by your local building code, soil and site conditions, and in many cases require a permit or a licensed professional. Guides that touch on these topics say so.</p>
+
+  <h2>Safety</h2>
+  <p>Wet concrete is caustic and can burn skin. Cutting tile and concrete creates silica dust. Follow the safety directions on product packaging, wear the protective equipment they call for and call 811 before you dig.</p>
+
+  <h2>Advertising</h2>
+  <p>The site may show ads. Advertisers do not review or influence the calculators or guides, and an ad on a page is not an endorsement.</p>
+</PageLayout>

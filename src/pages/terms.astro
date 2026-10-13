@@ -1,0 +1,29 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE } from "../site.config.js";
+---
+<PageLayout
+  title="Terms of Use"
+  description={`The terms for using ${SITE.name}'s calculators and guides, including the limits of estimates and how content may be shared.`}
+  updated={new Date("2026-10-13")}
+>
+  <p>By using {SITE.name} ({SITE.domain}) you agree to these terms. If you do not agree, please do not use the site.</p>
+
+  <h2>Estimates, not professional advice</h2>
+  <p>The calculators and guides give estimates for planning purchases. They are not engineering, architectural or legal advice and do not replace your local building code, a building permit or a licensed professional. You are responsible for checking quantities, product labels and code requirements before you buy, build or pour. See the <a href="/disclaimer/">disclaimer</a>.</p>
+
+  <h2>Use of the site</h2>
+  <p>You may use the calculators and read the guides for personal and commercial projects at no cost. You may not copy the site's text, tables or code in bulk, scrape the site, or republish its content as your own. Quoting a short passage with a link back is fine.</p>
+
+  <h2>Accuracy</h2>
+  <p>We work to keep every page accurate and correct errors when we find them, but we cannot guarantee that the site is free of errors or always available.</p>
+
+  <h2>Limitation of liability</h2>
+  <p>To the extent the law allows, {SITE.name} is not liable for any loss or damage arising from the use of the site, including the cost of materials bought on the basis of an estimate.</p>
+
+  <h2>Links</h2>
+  <p>Links to other websites are provided for convenience. We are not responsible for their content.</p>
+
+  <h2>Changes</h2>
+  <p>These terms may change. The date at the top shows the latest version. Questions: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+</PageLayout>

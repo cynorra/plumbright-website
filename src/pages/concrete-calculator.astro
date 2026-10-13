@@ -1,0 +1,249 @@
+---
+import ToolLayout from "../layouts/ToolLayout.astro";
+import SafetyNote from "../components/SafetyNote.astro";
+import { BAG_YIELDS, slabVolume, postHoleVolume, concreteOrder } from "../lib/calc/concrete.js";
+import { fmt } from "../lib/calc/util.js";
+
+// Every number in the tables below comes from the same functions the
+// calculator runs, so the page and the tool can never disagree.
+const slabs = [
+  [4, 4, "Shed pad, AC pad"],
+  [8, 10, "Small patio"],
+  [10, 10, "Patio"],
+  [12, 12, "Patio, hot tub base"],
+  [10, 20, "Single-car driveway apron"],
+  [12, 24, "One-car garage floor"],
+  [20, 20, "Two-car parking pad"],
+].map(([l, w, use]) => {
+  const t = 4;
+  const o = concreteOrder(slabVolume({ lengthFt: l, widthFt: w, thicknessIn: t }), 10);
+  return { size: `${l} × ${w} ft`, use, yards: o.cubicYards, bags80: o.bags.find((b) => b.weight === 80).count };
+});
+
+const example = (() => {
+  const net = slabVolume({ lengthFt: 10, widthFt: 12, thicknessIn: 4 });
+  return { net, o: concreteOrder(net, 10) };
+})();
+
+const lead10 = concreteOrder(slabVolume({ lengthFt: 10, widthFt: 10, thicknessIn: 4 }), 10);
+const lead = `Enter the size of your slab, column or post holes to get cubic yards and the number of bags to buy. A 10 × 10 ft patio at 4 in thick needs about ${fmt(lead10.cubicYards)} cubic yards with 10% waste, or ${lead10.bags.find((b) => b.weight === 80).count} bags of 80 lb mix.`;
+
+const postRows = [
+  [8, 24], [10, 30], [10, 36], [12, 36], [12, 42],
+].map(([d, depth]) => {
+  const v = postHoleVolume({ holes: 1, holeDiameterIn: d, holeDepthIn: depth, gravelBaseIn: 6, postWidthIn: 3.5 });
+  const o = concreteOrder(v, 0);
+  return { d, depth, cuft: o.netCuFt, b50: o.bags.find((b) => b.weight === 50).count, b80: o.bags.find((b) => b.weight === 80).count };
+});
+---
+<ToolLayout
+  tool="concrete"
+  title="Concrete Calculator"
+  description="Work out cubic yards and the number of 40, 50, 60 or 80 lb bags for a slab, a round column or fence post holes, with waste included and the formula shown."
+  lead={lead}
+  published={new Date("2026-10-13")}
+>
+  <div slot="calculator" id="concrete-calc" class="grid md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
+    <form class="p-5 md:p-6 flex flex-col gap-5" novalidate>
+      <div>
+        <p class="font-semibold text-sm mb-2" id="shape-label">What are you pouring?</p>
+        <div class="seg" role="group" aria-labelledby="shape-label">
+          <button type="button" data-shape="slab" aria-pressed="true">Slab or patio</button>
+          <button type="button" data-shape="column" aria-pressed="false">Round column</button>
+          <button type="button" data-shape="posts" aria-pressed="false">Post holes</button>
+        </div>
+      </div>
+
+      <fieldset data-group="slab" class="grid gap-4 sm:grid-cols-3">
+        <legend class="sr-only">Slab dimensions</legend>
+        <div class="field"><label for="c-len">Length (ft)</label><input class="input" id="c-len" inputmode="decimal" value="10" /></div>
+        <div class="field"><label for="c-wid">Width (ft)</label><input class="input" id="c-wid" inputmode="decimal" value="10" /></div>
+        <div class="field"><label for="c-thk">Thickness (in)</label><input class="input" id="c-thk" inputmode="decimal" value="4" /><span class="hint">Patios and walks: 4 in</span></div>
+      </fieldset>
+
+      <fieldset data-group="column" class="grid gap-4 sm:grid-cols-3" hidden>
+        <legend class="sr-only">Column dimensions</legend>
+        <div class="field"><label for="c-dia">Diameter (in)</label><input class="input" id="c-dia" inputmode="decimal" value="12" /></div>
+        <div class="field"><label for="c-hgt">Height (ft)</label><input class="input" id="c-hgt" inputmode="decimal" value="4" /></div>
+        <div class="field"><label for="c-cnt">How many</label><input class="input" id="c-cnt" inputmode="numeric" value="1" /></div>
+      </fieldset>
+
+      <fieldset data-group="posts" class="grid gap-4 sm:grid-cols-2" hidden>
+        <legend class="sr-only">Post hole dimensions</legend>
+        <div class="field"><label for="p-n">Number of holes</label><input class="input" id="p-n" inputmode="numeric" value="10" /></div>
+        <div class="field"><label for="p-dia">Hole diameter (in)</label><input class="input" id="p-dia" inputmode="decimal" value="10" /><span class="hint">About 3× the post width</span></div>
+        <div class="field"><label for="p-dep">Hole depth (in)</label><input class="input" id="p-dep" inputmode="decimal" value="36" /></div>
+        <div class="field"><label for="p-grv">Gravel base (in)</label><input class="input" id="p-grv" inputmode="decimal" value="6" /><span class="hint">0 if none</span></div>
+        <div class="field"><label for="p-post">Post width (in)</label><input class="input" id="p-post" inputmode="decimal" value="3.5" /><span class="hint">A 4×4 is 3.5 in, a 6×6 is 5.5 in</span></div>
+      </fieldset>
+
+      <div class="field max-w-[12rem]">
+        <label for="c-waste">Extra for waste (%)</label>
+        <input class="input" id="c-waste" inputmode="decimal" value="10" />
+        <span class="hint">5–10% is typical</span>
+      </div>
+      <p id="c-error" class="text-sm" style="color: var(--err)" role="alert"></p>
+    </form>
+
+    <div class="p-5 md:p-6 border-t md:border-t-0 md:border-l border-line bg-bg rounded-b-xl md:rounded-bl-none md:rounded-r-xl" aria-live="polite">
+      <p class="text-xs uppercase tracking-wider text-muted font-semibold">You need</p>
+      <p class="mt-1"><span id="r-yd" class="num text-4xl font-semibold text-accent">–</span> <span class="text-muted">cubic yards</span></p>
+      <p class="text-sm text-muted num"><span id="r-ft">–</span> cu ft including waste</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Bag size</th><th>Bags</th></tr></thead>
+          <tbody id="r-bags"></tbody>
+        </table>
+      </div>
+      <p class="text-xs text-muted">Bag counts assume standard concrete mix. Check the yield printed on your bag.</p>
+    </div>
+  </div>
+
+  <h2>How to use the concrete calculator</h2>
+  <p>Pick the shape you are pouring, enter the dimensions and the calculator works out the volume in cubic feet and cubic yards. It then divides that volume by the yield of each common bag size, so you can compare buying 40, 50, 60 or 80 lb bags. Everything updates as you type.</p>
+  <ul>
+    <li><strong>Slab or patio:</strong> length and width in feet, thickness in inches. Use this for patios, walkways, shed pads, driveways and footing strips.</li>
+    <li><strong>Round column:</strong> the inside diameter of the tube form in inches and the height in feet.</li>
+    <li><strong>Post holes:</strong> the calculator subtracts the gravel base and the part of the hole the post fills, so you only pay for concrete you actually use.</li>
+  </ul>
+
+  <h2>How the volume is calculated</h2>
+  <p>Concrete is ordered by volume. Every shape comes down to area times depth, with all dimensions converted to feet first.</p>
+  <ul>
+    <li><strong>Slab:</strong> length × width × (thickness ÷ 12) = cubic feet</li>
+    <li><strong>Column:</strong> π × (diameter ÷ 24)² × height = cubic feet</li>
+    <li><strong>Post hole:</strong> (π × (hole diameter ÷ 2)² − post width²) × (depth − gravel) ÷ 1,728 = cubic feet per hole</li>
+    <li><strong>Cubic yards:</strong> cubic feet ÷ 27</li>
+    <li><strong>Bags:</strong> cubic feet ÷ bag yield, rounded up</li>
+  </ul>
+  <p>The waste allowance is added before anything is rounded. It covers concrete left in the mixer and wheelbarrow, low spots in the base and forms that bow out slightly. Full details and sources are on the <a href="/methodology/">methodology page</a>.</p>
+
+  <h2>Worked example: a 10 × 12 ft patio</h2>
+  <p>A 10 × 12 ft patio poured 4 inches thick:</p>
+  <ol>
+    <li>Convert the thickness to feet: 4 ÷ 12 = 0.333 ft.</li>
+    <li>Multiply: 10 × 12 × 0.333 = <strong>{fmt(example.net)} cu ft</strong>.</li>
+    <li>Add 10% for waste: {fmt(example.net)} × 1.10 = <strong>{fmt(example.o.totalCuFt)} cu ft</strong>.</li>
+    <li>Convert to yards: {fmt(example.o.totalCuFt)} ÷ 27 = <strong>{fmt(example.o.cubicYards)} cubic yards</strong>.</li>
+    <li>Bags of 80 lb mix: {fmt(example.o.totalCuFt)} ÷ 0.60 = {fmt(example.o.totalCuFt / 0.6)}, rounded up to <strong>{example.o.bags.find((b) => b.weight === 80).count} bags</strong>.</li>
+  </ol>
+
+  <h2>Bag yields</h2>
+  <p>A bag of dry mix makes less concrete than its weight suggests. These are the yields of standard concrete mix:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bag</th><th>Yield (cu ft)</th><th>Bags per cubic yard</th></tr></thead>
+      <tbody>
+        {BAG_YIELDS.map((b) => (
+          <tr><td class="num">{b.weight} lb</td><td class="num">{b.yieldCuFt}</td><td class="num">{Math.ceil(27 / b.yieldCuFt)}</td></tr>
+        ))}
+      </tbody>
+      <caption>Fast-setting, high-strength and lightweight mixes have different yields. The bag label is the final word.</caption>
+    </table>
+  </div>
+
+  <h2>Concrete for common slab sizes</h2>
+  <p>At 4 inches thick with 10% waste:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Slab</th><th>Typical use</th><th>Cubic yards</th><th>80 lb bags</th></tr></thead>
+      <tbody>
+        {slabs.map((r) => (
+          <tr><td class="num">{r.size}</td><td>{r.use}</td><td class="num">{fmt(r.yards)}</td><td class="num">{r.bags80}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <SafetyNote />
+
+  <h2>Concrete per fence post</h2>
+  <p>For one 4×4 post (3.5 in wide) with a 6 in gravel base, no waste added:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Hole diameter</th><th>Hole depth</th><th>Concrete (cu ft)</th><th>50 lb bags</th><th>80 lb bags</th></tr></thead>
+      <tbody>
+        {postRows.map((r) => (
+          <tr><td class="num">{r.d} in</td><td class="num">{r.depth} in</td><td class="num">{fmt(r.cuft)}</td><td class="num">{r.b50}</td><td class="num">{r.b80}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p>Post depth depends on the post height and on your frost line. Your local building department can tell you the required depth.</p>
+
+  <h2>Bags or ready-mix?</h2>
+  <p>Bags make sense for post holes, small pads and repairs, roughly up to one cubic yard. Past that, the bag count climbs fast: a single cubic yard is 45 bags of 80 lb mix, all mixed by hand or in a small mixer before the first batch starts to set. For bigger pours, call a local ready-mix supplier. Many have a minimum order or charge a short-load fee for small amounts, so ask before you book.</p>
+
+  <h2>Mistakes that leave you short</h2>
+  <ul>
+    <li><strong>Forgetting to convert inches to feet.</strong> Multiplying 10 × 10 × 4 gives 400, which is wrong by a factor of 12.</li>
+    <li><strong>Measuring the forms instead of the hole.</strong> Excavated subgrade is rarely flat. Measure depth in several spots and use the average.</li>
+    <li><strong>Skipping the waste allowance.</strong> Running out mid-pour leaves a cold joint, which is weaker and shows on the surface.</li>
+    <li><strong>Assuming every bag yields the same.</strong> Fast-setting post mix often yields less than standard mix of the same weight.</li>
+  </ul>
+
+  <h2>Questions people ask</h2>
+  <h3>How many 80 lb bags make a yard of concrete?</h3>
+  <p>45 bags. One cubic yard is 27 cubic feet, and an 80 lb bag of standard mix yields about 0.60 cubic feet.</p>
+  <h3>How thick should a concrete patio be?</h3>
+  <p>4 inches is the usual minimum for patios and walkways. Driveways and slabs that carry vehicles are often 5 to 6 inches. Local code and soil conditions decide the final number.</p>
+  <h3>Does the calculator include rebar or mesh?</h3>
+  <p>No. Reinforcement takes up very little volume, so it does not change the concrete you order. It does matter for strength, so plan it separately.</p>
+</ToolLayout>
+
+<script>
+  import { slabVolume, columnVolume, postHoleVolume, concreteOrder } from "../lib/calc/concrete.js";
+  import { num, fmt } from "../lib/calc/util.js";
+
+  const root = document.getElementById("concrete-calc")!;
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
+  let shape = "slab";
+
+  function volume(): number {
+    if (shape === "slab") {
+      return slabVolume({ lengthFt: num($("c-len").value), widthFt: num($("c-wid").value), thicknessIn: num($("c-thk").value) });
+    }
+    if (shape === "column") {
+      const count = num($("c-cnt").value);
+      if (!Number.isFinite(count) || count < 1) throw new RangeError("Enter how many columns, 1 or more.");
+      return columnVolume({ diameterIn: num($("c-dia").value), heightFt: num($("c-hgt").value) }) * count;
+    }
+    return postHoleVolume({
+      holes: num($("p-n").value),
+      holeDiameterIn: num($("p-dia").value),
+      holeDepthIn: num($("p-dep").value),
+      gravelBaseIn: num($("p-grv").value) || 0,
+      postWidthIn: num($("p-post").value) || 0,
+    });
+  }
+
+  function update() {
+    const err = document.getElementById("c-error")!;
+    try {
+      const waste = num($("c-waste").value);
+      const o = concreteOrder(volume(), Number.isFinite(waste) ? waste : 0);
+      document.getElementById("r-yd")!.textContent = fmt(o.cubicYards);
+      document.getElementById("r-ft")!.textContent = fmt(o.totalCuFt);
+      document.getElementById("r-bags")!.innerHTML = o.bags
+        .map((b) => `<tr><td class="num">${b.weight} lb</td><td class="num">${b.count}</td></tr>`)
+        .join("");
+      err.textContent = "";
+    } catch (e) {
+      err.textContent = e instanceof Error ? e.message : "Check the values you entered.";
+      document.getElementById("r-yd")!.textContent = "–";
+      document.getElementById("r-ft")!.textContent = "–";
+      document.getElementById("r-bags")!.innerHTML = "";
+    }
+  }
+
+  root.querySelectorAll<HTMLButtonElement>("[data-shape]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      shape = btn.dataset.shape!;
+      root.querySelectorAll<HTMLButtonElement>("[data-shape]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      root.querySelectorAll<HTMLElement>("[data-group]").forEach((g) => (g.hidden = g.dataset.group !== shape));
+      update();
+    });
+  });
+  root.addEventListener("input", update);
+  root.querySelector("form")!.addEventListener("submit", (e) => e.preventDefault());
+  update();
+</script>

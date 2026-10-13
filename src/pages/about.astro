@@ -1,0 +1,32 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE, AUTHOR } from "../site.config.js";
+---
+<PageLayout
+  title={`About ${SITE.name}`}
+  description={`${SITE.name} makes material calculators for home projects that show their formulas, assumptions and worked examples. Who runs it and how it works.`}
+  updated={new Date("2026-10-13")}
+>
+  <p>{SITE.name} helps you work out how much concrete, tile, paint and other material a home project needs before you buy it. Each calculator shows the formula it uses, the assumptions behind it and a worked example, so you can check the result yourself.</p>
+
+  <h2>Why this site exists</h2>
+  <p>Most material calculators give you a number and nothing else. When the number looks off, there is no way to tell whether the tool assumed the wrong bag size, skipped the grout joint or forgot to subtract a door. Being short on material means a second trip; ordering too much means money spent on boxes that sit in the garage.</p>
+  <p>{SITE.name} is built on a simple rule: no number without its working. If a calculator rounds, adds waste or uses a product figure, the page says where and why.</p>
+
+  <h2>Who runs it</h2>
+  <p>The site is built and written by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>, a computer engineer with a second major in industrial engineering. It is an independent project with no affiliation to any manufacturer or retailer.</p>
+
+  <h2>How the calculators are built</h2>
+  <ul>
+    <li>Every calculation is plain, published math. The <a href="/methodology/">methodology page</a> lists each formula and constant.</li>
+    <li>The calculation code is covered by automated tests with hand-checked examples.</li>
+    <li>Tables on the site are generated from the same code that runs the calculators.</li>
+    <li>Product figures, such as bag yields and paint coverage, come from labels and data sheets of common US products and are reviewed regularly.</li>
+  </ul>
+
+  <h2>How the site is funded</h2>
+  <p>The calculators are free and need no account. The site may show advertising to cover hosting and development. Advertisers do not influence the calculators or guides. See the <a href="/editorial-policy/">editorial policy</a>.</p>
+
+  <h2>Get in touch</h2>
+  <p>Corrections and suggestions are welcome. Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> or use the <a href="/contact/">contact page</a>.</p>
+</PageLayout>

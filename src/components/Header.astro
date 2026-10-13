@@ -1,0 +1,36 @@
+---
+import Logo from "./Logo.astro";
+import { SITE, NAV } from "../site.config.js";
+const path = Astro.url.pathname;
+---
+<header class="border-b border-line bg-surface">
+  <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
+    <a href="/" class="flex items-center gap-2 no-underline text-ink hover:text-ink">
+      <Logo />
+      <span class="font-display font-extrabold text-xl tracking-tight">{SITE.name}</span>
+    </a>
+
+    <nav aria-label="Main" class="hidden md:block">
+      <ul class="flex items-center gap-1">
+        {NAV.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              aria-current={path.startsWith(item.href) ? "page" : undefined}
+              class="px-3 py-2 rounded no-underline text-ink font-medium hover:bg-bg aria-[current=page]:text-accent"
+            >{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <details class="md:hidden relative">
+      <summary class="list-none cursor-pointer px-3 py-2 border border-line rounded font-medium">Menu</summary>
+      <ul class="absolute right-0 mt-2 w-48 bg-surface border border-line rounded shadow-lg py-1 z-20">
+        {NAV.map((item) => (
+          <li><a href={item.href} class="block px-4 py-2 no-underline text-ink hover:bg-bg">{item.label}</a></li>
+        ))}
+      </ul>
+    </details>
+  </div>
+</header>

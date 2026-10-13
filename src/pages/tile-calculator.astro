@@ -1,0 +1,208 @@
+---
+import ToolLayout from "../layouts/ToolLayout.astro";
+import { LAYOUTS, tileEstimate, tileCoverageSqFt } from "../lib/calc/tile.js";
+import { fmt } from "../lib/calc/util.js";
+
+const sizes = [
+  [4, 4], [3, 6], [6, 6], [12, 12], [12, 24], [18, 18], [24, 24], [6, 36], [8, 48],
+].map(([w, l]) => {
+  const r = tileEstimate({ areaSqFt: 100, tileWidthIn: w, tileLengthIn: l, groutIn: 0.125, wastePct: 10 });
+  return { label: `${w} × ${l} in`, cov: tileCoverageSqFt(w, l, 0.125), tiles: r.tiles };
+});
+
+const ex = tileEstimate({ areaSqFt: 10 * 12, tileWidthIn: 12, tileLengthIn: 24, groutIn: 0.125, wastePct: 15, sqFtPerBox: 15.5 });
+const exPlain = tileEstimate({ areaSqFt: 10 * 12, tileWidthIn: 12, tileLengthIn: 24, groutIn: 0.125, wastePct: 0 });
+const lead100 = tileEstimate({ areaSqFt: 100, tileWidthIn: 12, tileLengthIn: 12, groutIn: 0.125, wastePct: 10 });
+---
+<ToolLayout
+  tool="tile"
+  title="Tile Calculator"
+  description="Find how many tiles and boxes you need for a floor or wall. Accounts for grout joint width and layout waste: straight, offset, diagonal or herringbone."
+  lead={`Enter the room size, the tile size and your layout to see how many tiles and boxes to buy. A 100 sq ft floor in 12 × 12 in tile with 1/8 in grout and 10% waste takes ${lead100.tiles} tiles.`}
+  published={new Date("2026-10-13")}
+>
+  <div slot="calculator" id="tile-calc" class="grid md:grid-cols-[minmax(0,1fr)_minmax(0,22rem)]">
+    <form class="p-5 md:p-6 flex flex-col gap-5" novalidate>
+      <div>
+        <p class="font-semibold text-sm mb-2" id="area-label">Area to tile</p>
+        <div class="seg" role="group" aria-labelledby="area-label">
+          <button type="button" data-area="dims" aria-pressed="true">Length × width</button>
+          <button type="button" data-area="sqft" aria-pressed="false">I know the sq ft</button>
+        </div>
+      </div>
+      <div data-areagroup="dims" class="grid gap-4 sm:grid-cols-2">
+        <div class="field"><label for="t-len">Length (ft)</label><input class="input" id="t-len" inputmode="decimal" value="10" /></div>
+        <div class="field"><label for="t-wid">Width (ft)</label><input class="input" id="t-wid" inputmode="decimal" value="10" /></div>
+      </div>
+      <div data-areagroup="sqft" class="grid gap-4 sm:grid-cols-2" hidden>
+        <div class="field"><label for="t-sqft">Area (sq ft)</label><input class="input" id="t-sqft" inputmode="decimal" value="100" /><span class="hint">Add up rooms and subtract cabinets or a tub</span></div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-3">
+        <div class="field"><label for="t-tw">Tile width (in)</label><input class="input" id="t-tw" inputmode="decimal" value="12" /></div>
+        <div class="field"><label for="t-tl">Tile length (in)</label><input class="input" id="t-tl" inputmode="decimal" value="12" /></div>
+        <div class="field"><label for="t-gr">Grout joint (in)</label><input class="input" id="t-gr" inputmode="decimal" value="0.125" /><span class="hint">1/8 = 0.125, 1/16 = 0.0625</span></div>
+      </div>
+
+      <div>
+        <p class="font-semibold text-sm mb-2" id="layout-label">Layout</p>
+        <div class="seg" role="group" aria-labelledby="layout-label">
+          {Object.entries(LAYOUTS).map(([key, l], i) => (
+            <button type="button" data-layout={key} data-waste={l.wastePct} aria-pressed={i === 0 ? "true" : "false"}>{l.label}</button>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-3">
+        <div class="field"><label for="t-waste">Waste (%)</label><input class="input" id="t-waste" inputmode="decimal" value="10" /><span class="hint">Set by layout; edit if you like</span></div>
+        <div class="field">
+          <label for="t-boxtype">Box label shows</label>
+          <select class="input" id="t-boxtype">
+            <option value="sqft">Sq ft per box</option>
+            <option value="tiles">Tiles per box</option>
+          </select>
+        </div>
+        <div class="field"><label for="t-box">Per box</label><input class="input" id="t-box" inputmode="decimal" value="" placeholder="optional" /></div>
+      </div>
+      <p id="t-error" class="text-sm" style="color: var(--err)" role="alert"></p>
+    </form>
+
+    <div class="p-5 md:p-6 border-t md:border-t-0 md:border-l border-line bg-bg rounded-b-xl md:rounded-bl-none md:rounded-r-xl" aria-live="polite">
+      <p class="text-xs uppercase tracking-wider text-muted font-semibold">Buy</p>
+      <p class="mt-1"><span id="tr-tiles" class="num text-4xl font-semibold text-accent">–</span> <span class="text-muted">tiles</span></p>
+      <p class="mt-1" id="tr-boxes-row" hidden><span id="tr-boxes" class="num text-2xl font-semibold">–</span> <span class="text-muted">boxes</span></p>
+      <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
+        <dt class="text-muted">Area</dt><dd class="num"><span id="tr-area">–</span> sq ft</dd>
+        <dt class="text-muted">With waste</dt><dd class="num"><span id="tr-areaw">–</span> sq ft</dd>
+        <dt class="text-muted">One tile covers</dt><dd class="num"><span id="tr-cov">–</span> sq ft</dd>
+        <dt class="text-muted">Before waste</dt><dd class="num"><span id="tr-net">–</span> tiles</dd>
+      </dl>
+      <p class="mt-4 text-xs text-muted">Buy every box from the same lot number. Color can shift between production runs.</p>
+    </div>
+  </div>
+
+  <h2>How to use the tile calculator</h2>
+  <p>Enter the floor or wall size, the tile size and the grout joint you plan to use. Then choose the layout. The layout sets a typical waste allowance, which you can change. If you know how much one box covers, enter it to get a box count.</p>
+  <p>For an L-shaped room, split it into rectangles, add their areas and use the "I know the sq ft" option. Our <a href="/guides/how-to-measure-an-l-shaped-room/">guide to measuring odd-shaped rooms</a> walks through it.</p>
+
+  <h2>How the tile count is calculated</h2>
+  <p>Each tile covers its own face plus half the grout joint on every side. That adds one full joint to each dimension:</p>
+  <ul>
+    <li><strong>Coverage per tile (sq ft)</strong> = (tile width + joint) × (tile length + joint) ÷ 144</li>
+    <li><strong>Tiles before waste</strong> = area ÷ coverage per tile</li>
+    <li><strong>Tiles to buy</strong> = tiles before waste × (1 + waste %), rounded up</li>
+    <li><strong>Boxes</strong> = tiles ÷ tiles per box, or area with waste ÷ sq ft per box, rounded up</li>
+  </ul>
+  <p>The grout joint matters more with small tiles. With 4 × 4 in tile, a 1/8 in joint adds about 6% to the area each tile covers. With 24 × 24 in tile it adds about 1%.</p>
+
+  <h2>Waste by layout</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Layout</th><th>Typical waste</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Straight (grid)</td><td class="num">{LAYOUTS.straight.wastePct}%</td><td>Cuts only at the edges</td></tr>
+        <tr><td>Offset / brick</td><td class="num">{LAYOUTS.offset.wastePct}%</td><td>Offcuts from one row often start the next</td></tr>
+        <tr><td>Diagonal (45°)</td><td class="num">{LAYOUTS.diagonal.wastePct}%</td><td>Every edge tile is cut at an angle</td></tr>
+        <tr><td>Herringbone</td><td class="num">{LAYOUTS.herringbone.wastePct}%</td><td>Many angled cuts at every wall</td></tr>
+      </tbody>
+      <caption>Rules of thumb. Small rooms, many corners and large-format tile push waste higher.</caption>
+    </table>
+  </div>
+
+  <h2>Tiles per 100 sq ft by tile size</h2>
+  <p>Straight layout, 1/8 in grout joint, 10% waste:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tile size</th><th>One tile covers (sq ft)</th><th>Tiles per 100 sq ft</th></tr></thead>
+      <tbody>
+        {sizes.map((s) => <tr><td class="num">{s.label}</td><td class="num">{fmt(s.cov, 3)}</td><td class="num">{s.tiles}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Worked example: a 10 × 12 ft bathroom floor</h2>
+  <p>12 × 24 in porcelain, 1/8 in joints, laid in an offset pattern with a few extra cuts around the toilet and vanity, so 15% waste. The box says 15.5 sq ft.</p>
+  <ol>
+    <li>Area: 10 × 12 = <strong>120 sq ft</strong>.</li>
+    <li>Coverage per tile: (12.125 × 24.125) ÷ 144 = <strong>{fmt(ex.coveragePerTileSqFt, 3)} sq ft</strong>.</li>
+    <li>Tiles before waste: 120 ÷ {fmt(ex.coveragePerTileSqFt, 3)} = {fmt(exPlain.netTiles, 1)}.</li>
+    <li>With 15% waste: {fmt(exPlain.netTiles, 1)} × 1.15, rounded up = <strong>{ex.tiles} tiles</strong>.</li>
+    <li>Boxes: 120 × 1.15 = {fmt(ex.areaWithWasteSqFt)} sq ft ÷ 15.5 = <strong>{ex.boxes} boxes</strong>.</li>
+  </ol>
+
+  <h2>Mistakes that cost a second trip</h2>
+  <ul>
+    <li><strong>Buying exactly the area.</strong> Cuts, breakage and a few spares for future repairs all come out of the same boxes.</li>
+    <li><strong>Mixing lots.</strong> Boxes from different production runs can differ in shade. Check the lot number on each box.</li>
+    <li><strong>Ignoring the nominal size.</strong> A "12 × 24" tile can measure slightly less. Use the actual size on the box for tight layouts.</li>
+    <li><strong>Forgetting the walls.</strong> A tub surround or backsplash is a separate area. Calculate it on its own.</li>
+  </ul>
+
+  <h2>Questions people ask</h2>
+  <h3>How much extra tile should I buy?</h3>
+  <p>10% for a straight or offset layout in a simple room, 15% for diagonal, and 20% for herringbone. Keep a few spare tiles after the job in case one cracks later.</p>
+  <h3>Does grout width change how many tiles I need?</h3>
+  <p>Slightly. A wider joint means each tile covers a bit more area, so you need fewer tiles. The effect is largest with small tiles.</p>
+  <h3>Should I subtract the area under cabinets?</h3>
+  <p>If the cabinets stay in place, yes. Tile under a dishwasher or range, though, so the appliance can come out at the same height.</p>
+</ToolLayout>
+
+<script>
+  import { tileEstimate, rectArea } from "../lib/calc/tile.js";
+  import { num, fmt } from "../lib/calc/util.js";
+
+  const root = document.getElementById("tile-calc")!;
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
+  let areaMode = "dims";
+
+  function update() {
+    const err = document.getElementById("t-error")!;
+    try {
+      const area = areaMode === "dims" ? rectArea(num($("t-len").value), num($("t-wid").value)) : num($("t-sqft").value);
+      const perBox = num($("t-box").value);
+      const boxType = ($("t-boxtype") as unknown as HTMLSelectElement).value;
+      const waste = num($("t-waste").value);
+      const r = tileEstimate({
+        areaSqFt: area,
+        tileWidthIn: num($("t-tw").value),
+        tileLengthIn: num($("t-tl").value),
+        groutIn: num($("t-gr").value) || 0,
+        wastePct: Number.isFinite(waste) ? waste : 0,
+        tilesPerBox: boxType === "tiles" ? perBox : undefined,
+        sqFtPerBox: boxType === "sqft" ? perBox : undefined,
+      });
+      document.getElementById("tr-tiles")!.textContent = fmt(r.tiles, 0);
+      document.getElementById("tr-area")!.textContent = fmt(r.areaSqFt);
+      document.getElementById("tr-areaw")!.textContent = fmt(r.areaWithWasteSqFt);
+      document.getElementById("tr-cov")!.textContent = fmt(r.coveragePerTileSqFt, 3);
+      document.getElementById("tr-net")!.textContent = fmt(r.netTiles, 1);
+      document.getElementById("tr-boxes-row")!.hidden = r.boxes === null;
+      if (r.boxes !== null) document.getElementById("tr-boxes")!.textContent = fmt(r.boxes, 0);
+      err.textContent = "";
+    } catch (e) {
+      err.textContent = e instanceof Error ? e.message : "Check the values you entered.";
+      ["tr-tiles", "tr-area", "tr-areaw", "tr-cov", "tr-net"].forEach((id) => (document.getElementById(id)!.textContent = "–"));
+      document.getElementById("tr-boxes-row")!.hidden = true;
+    }
+  }
+
+  root.querySelectorAll<HTMLButtonElement>("[data-area]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      areaMode = btn.dataset.area!;
+      root.querySelectorAll("[data-area]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      root.querySelectorAll<HTMLElement>("[data-areagroup]").forEach((g) => (g.hidden = g.dataset.areagroup !== areaMode));
+      update();
+    }),
+  );
+  root.querySelectorAll<HTMLButtonElement>("[data-layout]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      root.querySelectorAll("[data-layout]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      $("t-waste").value = btn.dataset.waste!;
+      update();
+    }),
+  );
+  root.addEventListener("input", update);
+  root.addEventListener("change", update);
+  root.querySelector("form")!.addEventListener("submit", (e) => e.preventDefault());
+  update();
+</script>

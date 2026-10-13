@@ -1,0 +1,32 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE, AUTHOR } from "../site.config.js";
+---
+<PageLayout
+  title="Editorial Policy"
+  description={`How ${SITE.name} writes, checks and updates its calculators and guides, how AI tools are used, and how corrections are handled.`}
+  updated={new Date("2026-10-13")}
+>
+  <p>Every page on {SITE.name} is written and reviewed by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>. This page explains how.</p>
+
+  <h2>What we publish</h2>
+  <p>Calculators for estimating materials, and guides that explain how to measure, what the numbers mean and what to watch for. We only publish a guide when it adds something a reader can use: a worked example, a table, a diagram or a clear answer to a specific question.</p>
+
+  <h2>How numbers are checked</h2>
+  <ul>
+    <li>Formulas are published on the <a href="/methodology/">methodology page</a>.</li>
+    <li>Calculator code has automated tests with hand-worked examples.</li>
+    <li>Tables in guides are generated from that code, not typed by hand.</li>
+    <li>Product figures are checked against labels and data sheets, and building rules against the code that publishes them.</li>
+  </ul>
+
+  <h2>Use of AI tools</h2>
+  <!-- TODO: make sure this describes exactly how you work. Keep it accurate. -->
+  <p>We use AI tools to help research, outline and draft. A person reviews every page before it is published, rewrites it where needed and checks every number against the calculator code or a primary source. No page is published automatically.</p>
+
+  <h2>Independence</h2>
+  <p>{SITE.name} is independent. No manufacturer or retailer pays for coverage or reviews pages before publication. The site may show advertising; advertisers have no say in the content. If we ever add affiliate links, pages that contain them will say so.</p>
+
+  <h2>Updates and corrections</h2>
+  <p>Pages are reviewed at least once a year and whenever a product figure or code requirement changes. Each page shows the date it was last updated, and that date changes only when the content does. To report an error, use the <a href="/contact/">contact page</a>.</p>
+</PageLayout>

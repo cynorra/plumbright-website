@@ -1,0 +1,26 @@
+---
+import Base from "./Base.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { breadcrumbSchema } from "../lib/schema.js";
+
+interface Props {
+  title: string;
+  description: string;
+  updated: Date;
+  extraSchema?: object[];
+}
+const { title, description, updated, extraSchema = [] } = Astro.props;
+const crumbs = [{ name: "Home", path: "/" }, { name: title, path: Astro.url.pathname }];
+const date = updated.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+---
+<Base title={title} description={description} schema={[breadcrumbSchema(crumbs), ...extraSchema]}>
+  <div class="mx-auto max-w-6xl px-4 pt-6">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="mt-4 text-3xl md:text-4xl font-extrabold">{title}</h1>
+    <p class="mt-2 text-sm text-muted num">Last updated <time datetime={updated.toISOString()}>{date}</time></p>
+    <div class="tick-rule mt-6 max-w-md"></div>
+    <div class="prose-site mt-8">
+      <slot />
+    </div>
+  </div>
+</Base>

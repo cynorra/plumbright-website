@@ -1,0 +1,75 @@
+---
+import Base from "../../layouts/Base.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import AuthorBox from "../../components/AuthorBox.astro";
+import { getCollection, render } from "astro:content";
+import { articleSchema, breadcrumbSchema } from "../../lib/schema.js";
+import { AUTHOR } from "../../site.config.js";
+
+export async function getStaticPaths() {
+  const guides = await getCollection("guides", (g) => !g.data.draft);
+  return guides.map((guide) => ({ params: { slug: guide.id }, props: { guide } }));
+}
+
+const { guide } = Astro.props;
+const { Content } = await render(guide);
+const { title, description, published, updated, tool } = guide.data;
+const path = `/guides/${guide.id}/`;
+
+const toolInfo = {
+  concrete: { href: "/concrete-calculator/", name: "Concrete calculator", blurb: "Cubic yards and bag counts for slabs, columns and post holes." },
+  tile: { href: "/tile-calculator/", name: "Tile calculator", blurb: "Tiles and boxes, with grout joint and layout waste." },
+  paint: { href: "/paint-calculator/", name: "Paint calculator", blurb: "Gallons and quarts for walls, ceilings and primer." },
+}[tool];
+
+const related = (await getCollection("guides", (g) => !g.data.draft && g.data.tool === tool && g.id !== guide.id)).slice(0, 4);
+
+const crumbs = [
+  { name: "Home", path: "/" },
+  { name: "Guides", path: "/guides/" },
+  { name: title, path },
+];
+const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+---
+<Base
+  title={title}
+  description={description}
+  ogType="article"
+  schema={[breadcrumbSchema(crumbs), articleSchema({ title, description, path, published, updated })]}
+>
+  <div class="mx-auto max-w-6xl px-4 pt-6">
+    <Breadcrumbs crumbs={crumbs} />
+    <h1 class="mt-4 text-3xl md:text-4xl font-extrabold max-w-[24ch]">{title}</h1>
+    <p class="mt-3 text-sm text-muted num">
+      By <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a> ·
+      <time datetime={published.toISOString()}>{fmtDate(published)}</time>
+      {updated && <> · Updated <time datetime={updated.toISOString()}>{fmtDate(updated)}</time></>}
+    </p>
+    <div class="tick-rule mt-6 max-w-md"></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 mt-8 grid gap-12 lg:grid-cols-[minmax(0,1fr)_280px]">
+    <article class="prose-site min-w-0">
+      <Content />
+    </article>
+    <aside class="min-w-0 lg:sticky lg:top-6 self-start flex flex-col gap-4" aria-label="Calculator and related guides">
+      <a href={toolInfo.href} class="block rounded-lg border border-accent bg-accent-soft p-5 no-underline text-ink">
+        <span class="text-xs uppercase tracking-wider font-semibold text-accent">Run your own numbers</span>
+        <span class="block font-display font-bold text-lg mt-1">{toolInfo.name} →</span>
+        <span class="block text-sm text-muted mt-1">{toolInfo.blurb}</span>
+      </a>
+      {related.length > 0 && (
+        <div class="border border-line rounded-lg bg-surface p-5">
+          <h2 class="font-display font-bold text-sm uppercase tracking-wider text-muted">Related guides</h2>
+          <ul class="mt-3 grid gap-3">
+            {related.map((g) => <li><a href={`/guides/${g.id}/`} class="font-medium leading-snug">{g.data.title}</a></li>)}
+          </ul>
+        </div>
+      )}
+    </aside>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4">
+    <AuthorBox published={published} updated={updated} />
+  </div>
+</Base>

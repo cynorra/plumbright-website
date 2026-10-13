@@ -1,0 +1,30 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { SITE } from "../site.config.js";
+const endpoint = SITE.contactFormEndpoint;
+---
+<PageLayout
+  title="Contact"
+  description={`Contact ${SITE.name} to report an error, suggest a calculator or ask a question about a guide.`}
+  updated={new Date("2026-10-13")}
+>
+  <p>Email <strong><a href={`mailto:${SITE.email}`}>{SITE.email}</a></strong>. Replies usually come within two business days.</p>
+
+  <h2>Reporting an error</h2>
+  <p>If a calculator gives a number that looks wrong, include the values you entered and the result you expected. Corrections are checked and, when confirmed, fixed and noted with an updated date on the page.</p>
+
+  <h2>What we can't help with</h2>
+  <p>We can't give project-specific engineering, code compliance or contractor advice. For those, contact your local building department or a licensed professional.</p>
+
+  {endpoint && (
+    <>
+      <h2>Send a message</h2>
+      <form action={endpoint} method="POST" class="not-prose grid gap-4 max-w-lg">
+        <div class="field"><label for="cf-name">Name</label><input class="input" id="cf-name" name="name" autocomplete="name" required /></div>
+        <div class="field"><label for="cf-email">Email</label><input class="input" id="cf-email" name="email" type="email" autocomplete="email" required /></div>
+        <div class="field"><label for="cf-msg">Message</label><textarea class="input" id="cf-msg" name="message" rows="6" required></textarea></div>
+        <button class="btn w-fit" type="submit">Send message</button>
+      </form>
+    </>
+  )}
+</PageLayout>

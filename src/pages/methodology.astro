@@ -1,0 +1,69 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { BAG_YIELDS } from "../lib/calc/concrete.js";
+import { LAYOUTS } from "../lib/calc/tile.js";
+import { DOOR_SQFT, WINDOW_SQFT, DEFAULT_COVERAGE } from "../lib/calc/paint.js";
+---
+<PageLayout
+  title="Methodology"
+  description="Every formula, constant and assumption behind the concrete, tile and paint calculators, with where each figure comes from and how results are rounded."
+  updated={new Date("2026-10-13")}
+>
+  <p>This page lists every formula and constant the calculators use. The values shown here are read from the same code that runs the calculators, so they always match.</p>
+
+  <h2>General rules</h2>
+  <ul>
+    <li><strong>Units:</strong> US customary. Lengths in feet or inches, areas in square feet, volumes in cubic feet and cubic yards, paint in US gallons.</li>
+    <li><strong>Waste is added before rounding.</strong> Rounding happens once, at the end, and always up, so you are never told to buy less than you need.</li>
+    <li><strong>Product figures are typical, not universal.</strong> When a number depends on a product, the calculator lets you change it and the page tells you to check your label.</li>
+    <li><strong>Testing:</strong> each calculator is covered by automated tests with hand-worked examples. Tables on the site are generated from the tested code.</li>
+  </ul>
+
+  <h2>Concrete</h2>
+  <ul>
+    <li>Slab: length (ft) × width (ft) × thickness (in) ÷ 12</li>
+    <li>Round column: π × (diameter in ÷ 24)² × height (ft)</li>
+    <li>Post hole: (π × (diameter ÷ 2)² − post width²) × (hole depth − gravel base) ÷ 1,728, all in inches</li>
+    <li>Cubic yards: cubic feet ÷ 27</li>
+  </ul>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bag</th><th>Yield used (cu ft)</th></tr></thead>
+      <tbody>{BAG_YIELDS.map((b) => <tr><td class="num">{b.weight} lb</td><td class="num">{b.yieldCuFt}</td></tr>)}</tbody>
+      <caption>Yields of standard concrete mix as printed on common US bags. Fast-setting and specialty mixes differ.</caption>
+    </table>
+  </div>
+
+  <h2>Tile</h2>
+  <ul>
+    <li>Coverage per tile: (width + grout joint) × (length + grout joint) ÷ 144</li>
+    <li>Tiles: area ÷ coverage per tile × (1 + waste), rounded up</li>
+    <li>Boxes: tiles ÷ tiles per box, or area × (1 + waste) ÷ sq ft per box, rounded up</li>
+  </ul>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Layout</th><th>Default waste</th></tr></thead>
+      <tbody>{Object.values(LAYOUTS).map((l) => <tr><td>{l.label}</td><td class="num">{l.wastePct}%</td></tr>)}</tbody>
+      <caption>Planning rules of thumb used by installers. You can override them in the calculator.</caption>
+    </table>
+  </div>
+
+  <h2>Paint</h2>
+  <ul>
+    <li>Walls: 2 × (length + width) × height − openings</li>
+    <li>Door: {DOOR_SQFT} sq ft (a standard 3 × 7 ft interior door). Window: {WINDOW_SQFT} sq ft (a 3 × 5 ft average).</li>
+    <li>Gallons: area × coats ÷ coverage. Default coverage: {DEFAULT_COVERAGE} sq ft per gallon, the middle of the 250–400 range printed on most interior paint labels.</li>
+    <li>Buying: whole gallons plus quarts; three or more quarts round up to another gallon.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <!-- TODO: before launch, link each source below to the exact page you checked it against. -->
+  <ul>
+    <li>Concrete bag yields: labels and product data sheets of standard concrete mixes sold at US home centers.</li>
+    <li>Paint coverage: spread rates on labels and technical data sheets of interior latex paints from major US brands.</li>
+    <li>Slab, footing and stair guidance: the International Residential Code (IRC), as adopted by your state or city.</li>
+  </ul>
+
+  <h2>Corrections</h2>
+  <p>If you find an error, please <a href="/contact/">tell us</a>. Confirmed corrections are made promptly and the page's updated date changes.</p>
+</PageLayout>
