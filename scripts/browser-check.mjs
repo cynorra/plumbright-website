@@ -4,6 +4,7 @@
 //   CHROME_PATH=/path/to/chrome OUT=/tmp/shots node scripts/browser-check.mjs
 import { chromium } from "playwright-core";
 import { mkdirSync } from "node:fs";
+import { TOOLS } from "../src/lib/tools.js";
 
 const B = process.env.BASE ?? "http://localhost:4321";
 const OUT = process.env.OUT ?? "./.shots";
@@ -16,7 +17,7 @@ for (const [w, h, tag] of [[1280, 900, "desk"], [390, 844, "phone"]]) {
     const p = await b.newPage({ viewport: { width: w, height: h }, colorScheme: scheme });
     p.on("console", (m) => (m.type() === "error" || m.type() === "warning") && errors.push(`${tag}/${scheme}: ${m.text().slice(0, 200)}`));
     p.on("pageerror", (e) => errors.push(e.message));
-    for (const path of ["/", "/concrete-calculator/", "/tile-calculator/", "/paint-calculator/", "/guides/concrete-for-fence-posts/", "/about/"]) {
+    for (const path of ["/", "/calculators/", ...TOOLS.map((t) => t.href), "/guides/", "/guides/concrete-for-fence-posts/", "/about/"]) {
       await p.goto(B + path, { waitUntil: "networkidle" });
       await p.waitForTimeout(400);
       const overflow = await p.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
@@ -49,7 +50,37 @@ await p.goto(B + "/", { waitUntil: "networkidle" });
 await p.getByRole("tab", { name: "Paint" }).click();
 await p.waitForTimeout(900);
 const homePaint = await p.textContent(`[role=tabpanel] ${big}`);
+// Newer calculators
+await p.goto(B + "/square-footage-calculator/", { waitUntil: "networkidle" });
+await p.getByRole("button", { name: "Add another area" }).click();
+await p.fill("#ac-a2", "8");
+await p.fill("#ac-b2", "6");
+await p.waitForTimeout(900);
+const lshape = await p.textContent(big);
+await p.goto(B + "/flooring-calculator/", { waitUntil: "networkidle" });
+await p.getByRole("radio", { name: "Diagonal" }).click();
+await p.waitForTimeout(900);
+const floorWaste = await p.inputValue("#fl-waste");
+const floorBoxes = await p.textContent(big);
+await p.goto(B + "/stair-calculator/?rise=120", { waitUntil: "networkidle" });
+await p.waitForTimeout(900);
+const risers = await p.textContent(big);
+await p.fill("#st-tread", "9");
+await p.waitForTimeout(300);
+const codeWarn = await p.locator("[aria-label='Code checks'] .text-destructive").count();
+await p.goto(B + "/roofing-calculator/", { waitUntil: "networkidle" });
+await p.getByRole("radio", { name: "Hip" }).click();
+await p.waitForTimeout(900);
+const hipBundles = await p.textContent(big);
+await p.goto(B + "/deck-calculator/?l=20&w=12", { waitUntil: "networkidle" });
+await p.waitForTimeout(900);
+const deckBoards = await p.textContent(big);
+await p.goto(B + "/gravel-calculator/", { waitUntil: "networkidle" });
+const gravelSsr = await p.textContent(big);
+await p.goto(B + "/drywall-calculator/", { waitUntil: "networkidle" });
+const drywall = await p.textContent(big);
 const raw = await (await fetch(B + "/concrete-calculator/")).text();
 console.log({ fromUrl, posts, err, url, waste, tiles, homePaint, ssrHasResult: raw.includes(">1.36<"), ssrHasH2Ids: raw.includes('id="how-to-use-the-concrete-calculator"') });
+console.log({ lshape, floorWaste, floorBoxes, risers, codeWarn, hipBundles, deckBoards, gravelSsr, drywall });
 console.log("errors:", errors);
 await b.close();

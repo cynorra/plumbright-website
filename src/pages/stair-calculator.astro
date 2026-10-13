@@ -1,0 +1,100 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import SafetyNote from "../components/SafetyNote.astro";
+import StairCalculator from "../components/calculators/StairCalculator.tsx";
+import { IRC, stairLayout, toFraction } from "../lib/calc/stairs.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/stair-calculator/");
+const lead = stairLayout({ totalRiseIn: 108, targetRiserIn: 7.5, treadIn: 10.5 });
+const rises = [24, 30, 36, 48, 96, 102, 105, 108, 112, 120].map((r) => ({ rise: r, ...stairLayout({ totalRiseIn: r, targetRiserIn: 7.5, treadIn: 10.5 }) }));
+const deck = stairLayout({ totalRiseIn: 31, targetRiserIn: 7.5, treadIn: 11 });
+const ftIn = (inches: number) => {
+  const ft = Math.floor(inches / 12);
+  return `${ft} ft ${toFraction(inches - ft * 12)} in`;
+};
+---
+<ToolLayout
+  tool="stairs"
+  title="Stair Calculator"
+  description="Lay out stairs from the total rise: number of risers, riser height, treads, total run and stringer length, checked against IRC riser and tread limits."
+  lead={`Divide the total rise by your target riser height and round up to get the number of risers; divide the rise by that count for the exact riser. A 108 in rise gives ${lead.risers} risers of ${toFraction(lead.riserIn)} in and ${lead.treads} treads, which meets the IRC limit of ${toFraction(IRC.maxRiserIn)} in.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "Max riser (IRC R311.7.5.1)", value: `${toFraction(IRC.maxRiserIn)} in` },
+    { label: "Min tread (IRC R311.7.5.2)", value: `${IRC.minTreadIn} in` },
+    { label: "Max variation in a flight", value: `${toFraction(IRC.maxVariationIn)} in` },
+    { label: "Min headroom (IRC R311.7.2)", value: "6 ft 8 in" },
+  ]}
+  sources={[
+    { label: "Knox County residential stair handout: IRC R311.7 requirements", href: "https://www.KnoxCounty.org/codes/pdfs/construction_info/Stairs.pdf" },
+    { label: "American Wood Council: DCA 6 deck guide (deck stair details)", href: "https://awc.org/publications/dca/dca6/" },
+    { label: "Methodology: stair formulas", href: "/methodology/" },
+  ]}
+>
+  <StairCalculator slot="calculator" client:load />
+
+  <h2>How to use the stair calculator</h2>
+  <p>Measure the <strong>total rise</strong>: the vertical distance from the finished floor at the bottom to the finished floor at the top. Measure with the final flooring in mind. If the bottom will get 3/4 in hardwood later, the rise shrinks by 3/4 in, and your bottom step would come out short.</p>
+  <p>Enter the riser height you'd like. The calculator rounds the riser count up so no riser is taller than that, then splits the rise evenly. Enter the tread run (the horizontal depth of each step, measured nosing to nosing) and the stair width. The code checks update as you type.</p>
+
+  <h2>The math</h2>
+  <ul>
+    <li><strong>Risers</strong> = total rise ÷ target riser, rounded up</li>
+    <li><strong>Riser height</strong> = total rise ÷ risers</li>
+    <li><strong>Treads</strong> = risers − 1 (the top floor acts as the last step)</li>
+    <li><strong>Total run</strong> = treads × tread run</li>
+    <li><strong>Stringer length</strong> = risers × √(riser² + tread²)</li>
+    <li><strong>Comfort check</strong>: 2 × riser + tread should land near 24 to 25 in</li>
+  </ul>
+
+  <h2>Stair layouts by total rise</h2>
+  <p>Target riser 7 1/2 in, tread run 10 1/2 in:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Total rise</th><th>Risers</th><th>Riser height</th><th>Treads</th><th>Total run</th><th>Stringer</th></tr></thead>
+      <tbody>
+        {rises.map((r) => <tr><td class="num">{r.rise} in</td><td class="num">{r.risers}</td><td class="num">{toFraction(r.riserIn)} in</td><td class="num">{r.treads}</td><td class="num">{ftIn(r.totalRunIn)}</td><td class="num">{ftIn(r.stringerIn)}</td></tr>)}
+      </tbody>
+      <caption>Riser heights rounded to the nearest 1/16 in for marking. 96 to 120 in covers most floor-to-floor heights in houses.</caption>
+    </table>
+  </div>
+
+  <h2>IRC stair limits</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rule</th><th>Limit</th><th>Section</th></tr></thead>
+      <tbody>
+        <tr><td>Riser height</td><td class="num">{toFraction(IRC.maxRiserIn)} in max</td><td>R311.7.5.1</td></tr>
+        <tr><td>Tread depth</td><td class="num">{IRC.minTreadIn} in min</td><td>R311.7.5.2</td></tr>
+        <tr><td>Largest minus smallest riser or tread</td><td class="num">{toFraction(IRC.maxVariationIn)} in max</td><td>R311.7.5.1, .2</td></tr>
+        <tr><td>Nosing (where tread is under 11 in)</td><td class="num">{toFraction(IRC.nosingMinIn)} to {toFraction(IRC.nosingMaxIn)} in</td><td>R311.7.5.3</td></tr>
+        <tr><td>Headroom</td><td class="num">6 ft 8 in min</td><td>R311.7.2</td></tr>
+        <tr><td>Stair width</td><td class="num">{IRC.minWidthIn} in min</td><td>R311.7.1</td></tr>
+        <tr><td>Handrail height</td><td class="num">{IRC.handrailMinIn} to {IRC.handrailMaxIn} in</td><td>R311.7.8</td></tr>
+      </tbody>
+      <caption>From the International Residential Code. Many cities amend it; your building department has the final word.</caption>
+    </table>
+  </div>
+  <SafetyNote>The layout is a planning aid. Stair dimensions, guards, handrails, headroom and landings are set by your local building code and are checked at inspection. Confirm your plan with your building department before you cut stringers.</SafetyNote>
+
+  <h2>Worked example: deck stairs</h2>
+  <p>The deck surface is 31 in above the patio. You'd like risers near 7 1/2 in and 11 in treads (two 5.5 in boards).</p>
+  <ol>
+    <li>Risers: 31 ÷ 7.5 = 4.13, rounded up = <strong>{deck.risers}</strong>.</li>
+    <li>Riser height: 31 ÷ {deck.risers} = {fmt(deck.riserIn, 3)} in, about <strong>{toFraction(deck.riserIn)} in</strong>.</li>
+    <li>Treads: {deck.risers} − 1 = <strong>{deck.treads}</strong>; total run {deck.treads} × 11 = <strong>{deck.totalRunIn} in</strong>.</li>
+    <li>Stringer: {deck.risers} × √({fmt(deck.riserIn, 2)}² + 11²) = <strong>{ftIn(deck.stringerIn)}</strong>, so a {deck.boardFt} ft 2 × 12.</li>
+    <li>Comfort: 2 × {fmt(deck.riserIn, 2)} + 11 = {fmt(deck.comfort, 2)} in, inside the comfortable range.</li>
+  </ol>
+
+  <h2>Questions people ask</h2>
+  <h3>How many steps do I need for 8 feet?</h3>
+  <p>An 8 ft (96 in) rise is usually {rises.find((r) => r.rise === 96)!.risers} risers of {toFraction(rises.find((r) => r.rise === 96)!.riserIn)} in, which means {rises.find((r) => r.rise === 96)!.treads} treads. 14 risers of {toFraction(96 / 14)} in make a gentler stair but need one more tread of floor space. Floor-to-floor height is more than the ceiling height, because it includes the floor framing, so measure the actual rise.</p>
+  <h3>What is the most comfortable riser height?</h3>
+  <p>Between about 7 and 7 1/2 in, paired with a tread of 10 1/2 to 11 in. Use the 2 × riser + tread rule: 24 to 25 in feels natural to most people.</p>
+  <h3>Do treads count the nosing?</h3>
+  <p>The IRC measures tread depth from the front of one nosing to the front of the next, which equals the run of each step. The nosing projection itself (3/4 to 1 1/4 in) is added to the tread board's depth.</p>
+</ToolLayout>

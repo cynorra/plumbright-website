@@ -66,3 +66,38 @@ export function tileEstimate({
     boxes,
   };
 }
+
+/**
+ * Cubic inches of joint one pound of dry sanded cement grout fills once
+ * mixed. Mixed cement grout weighs roughly 120 to 140 lb per cubic foot and
+ * part of that is water, so a pound of powder fills about 12 to 15 cu in.
+ * We use the low end so the estimate leans toward one bag too many.
+ * Epoxy and premixed grouts differ: use the chart on the package.
+ */
+export const GROUT_CU_IN_PER_LB = 12;
+
+/**
+ * Grout for an area. Joint length per square foot is
+ * 144 x (tile width + tile length) / (tile width x tile length), and the
+ * joint is filled to the full tile thickness.
+ */
+export function groutEstimate({ areaSqFt, tileWidthIn, tileLengthIn, jointIn = 0.125, tileThicknessIn = 0.375, wastePct = 10, bagLb = 25 }) {
+  requirePositive(areaSqFt, "area");
+  requirePositive(tileWidthIn, "tile width");
+  requirePositive(tileLengthIn, "tile length");
+  requirePositive(jointIn, "joint width");
+  requirePositive(tileThicknessIn, "tile thickness");
+  requireNonNegative(wastePct, "waste percentage");
+  requirePositive(bagLb, "bag size");
+  const jointInPerSqFt = (144 * (tileWidthIn + tileLengthIn)) / (tileWidthIn * tileLengthIn);
+  const cuInPerSqFt = jointInPerSqFt * jointIn * tileThicknessIn;
+  const cuIn = areaSqFt * cuInPerSqFt * (1 + wastePct / 100);
+  const lb = cuIn / GROUT_CU_IN_PER_LB;
+  return {
+    jointFtPerSqFt: round(jointInPerSqFt / 12, 2),
+    cuIn: round(cuIn, 1),
+    lb: round(lb, 1),
+    bags: ceilSafe(lb / bagLb),
+    sqFtPerBag: round((bagLb * GROUT_CU_IN_PER_LB) / cuInPerSqFt, 0),
+  };
+}

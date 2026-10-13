@@ -1,0 +1,102 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import DrywallCalculator from "../components/calculators/DrywallCalculator.tsx";
+import { SHEETS, DOOR_SQFT, WINDOW_SQFT, MUD_GAL_PER_1000, TAPE_FT_PER_1000, drywallArea, drywallEstimate, screwsPerSheet } from "../lib/calc/drywall.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/drywall-calculator/");
+const a12 = drywallArea({ lengthFt: 12, widthFt: 12, heightFt: 8, doors: 1, windows: 1 });
+const e12 = drywallEstimate({ wallSqFt: a12.walls, ceilingSqFt: a12.ceiling, sheet: "4x8", wastePct: 10 });
+const rooms = [[10, 10], [10, 12], [12, 12], [12, 14], [14, 16], [16, 20]].map(([l, w]) => {
+  const a = drywallArea({ lengthFt: l, widthFt: w, heightFt: 8, doors: 1, windows: 1 });
+  const s8 = drywallEstimate({ wallSqFt: a.walls, ceilingSqFt: a.ceiling, sheet: "4x8" });
+  const s12 = drywallEstimate({ wallSqFt: a.walls, ceilingSqFt: a.ceiling, sheet: "4x12" });
+  return { room: `${l} × ${w} ft`, area: a.total, s8: s8.sheets, s12: s12.sheets };
+});
+const screwRows = Object.keys(SHEETS).map((k) => ({ k, wall16: screwsPerSheet(k, "wall", 16), wall24: screwsPerSheet(k, "wall", 24), ceil: screwsPerSheet(k, "ceiling", 16) }));
+---
+<ToolLayout
+  tool="drywall"
+  title="Drywall Calculator"
+  description="Estimate drywall sheets for a room's walls and ceiling, plus screws, joint compound and tape. Supports 4×8, 4×10 and 4×12 sheets and 16 or 24 in framing."
+  lead={`Add up the wall and ceiling area, subtract doors and windows, add 10% and divide by the sheet area. A 12 × 12 ft room with 8 ft walls, one door and one window takes ${e12.sheets} sheets of 4 × 8 drywall, ceiling included.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "4 × 8 sheet", value: "32 sq ft" },
+    { label: "4 × 12 sheet", value: "48 sq ft" },
+    { label: "12 × 12 room, walls + ceiling", value: `${e12.sheets} sheets (4 × 8)` },
+    { label: "Joint compound per 1,000 sq ft", value: `about ${MUD_GAL_PER_1000} gal` },
+  ]}
+  sources={[
+    { label: "USG: how much joint compound to finish 1,000 sq ft of wallboard", href: "https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html" },
+    { label: "Walls & Ceilings: attachment of gypsum board (screw spacing per ASTM C840 / GA-216)", href: "https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board" },
+    { label: "Methodology: drywall formulas", href: "/methodology/" },
+  ]}
+>
+  <DrywallCalculator slot="calculator" client:load />
+
+  <h2>How to use the drywall calculator</h2>
+  <p>For a single room, enter its length, width and wall height, and how many doors and windows it has. Leave the ceiling switched on if you're hanging it too. For a basement, an addition or a few walls, choose <strong>I know the sq ft</strong> and enter the wall and ceiling areas yourself.</p>
+  <p>Pick the sheet size you'll hang. Larger sheets mean fewer seams to tape but are heavier to lift; 4 × 12 sheets weigh about half again as much as 4 × 8s. Framing spacing changes how many screws each sheet needs.</p>
+
+  <h2>How the estimate is calculated</h2>
+  <ul>
+    <li><strong>Wall area</strong> = 2 × (length + width) × wall height − openings</li>
+    <li><strong>Openings</strong>: {DOOR_SQFT} sq ft per door, {WINDOW_SQFT} sq ft per window</li>
+    <li><strong>Sheets</strong> = area × (1 + waste) ÷ sheet area, rounded up, for walls and ceiling separately</li>
+    <li><strong>Screws</strong> = sheets × screws per sheet (table below)</li>
+    <li><strong>Joint compound</strong>: about {MUD_GAL_PER_1000} gallons per 1,000 sq ft of board, based on USG's figure of roughly two 4.5-gallon pails</li>
+    <li><strong>Paper tape</strong>: about {TAPE_FT_PER_1000} ft per 1,000 sq ft of board</li>
+  </ul>
+  <p>Openings are subtracted, but many hangers don't subtract small windows: they hang a full sheet and cut the opening out. The 10% waste allowance covers that kind of offcut.</p>
+
+  <h2>Screws per sheet</h2>
+  <p>Common maximum spacing for single-layer screw attachment is 12 in on ceilings, and 16 in on walls framed 16 in on center (12 in when studs are 24 in apart). Counted for sheets hung across the framing:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Sheet</th><th>Walls, 16 in framing</th><th>Walls, 24 in framing</th><th>Ceiling, 16 in framing</th></tr></thead>
+      <tbody>
+        {screwRows.map((r) => <tr><td class="num">{r.k.replace("x", " × ")} ft</td><td class="num">{r.wall16}</td><td class="num">{r.wall24}</td><td class="num">{r.ceil}</td></tr>)}
+      </tbody>
+      <caption>Fire-rated and other listed assemblies have their own fastener schedules. Follow those when they apply.</caption>
+    </table>
+  </div>
+
+  <h2>Sheets for common room sizes</h2>
+  <p>8 ft walls, one door, one window, ceiling included, 10% waste:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Room</th><th>Area (sq ft)</th><th>4 × 8 sheets</th><th>4 × 12 sheets</th></tr></thead>
+      <tbody>
+        {rooms.map((r) => <tr><td class="num">{r.room}</td><td class="num">{fmt(r.area, 0)}</td><td class="num">{r.s8}</td><td class="num">{r.s12}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Worked example: a 12 × 12 ft bedroom</h2>
+  <ol>
+    <li>Walls: 2 × (12 + 12) × 8 = 384 sq ft, minus a door ({DOOR_SQFT}) and a window ({WINDOW_SQFT}) = <strong>{fmt(a12.walls)} sq ft</strong>.</li>
+    <li>Ceiling: 12 × 12 = <strong>{fmt(a12.ceiling)} sq ft</strong>.</li>
+    <li>Wall sheets: {fmt(a12.walls)} × 1.10 ÷ 32 = {fmt((a12.walls * 1.1) / 32)}, rounded up = <strong>{e12.wallSheets}</strong>.</li>
+    <li>Ceiling sheets: {fmt(a12.ceiling)} × 1.10 ÷ 32 = {fmt((a12.ceiling * 1.1) / 32)}, rounded up = <strong>{e12.ceilingSheets}</strong>.</li>
+    <li>Screws: {e12.wallSheets} × 28 + {e12.ceilingSheets} × 35 = <strong>{e12.screws}</strong>. A 1 lb box of 1 1/4 in screws is usually a few hundred, so plan on about two boxes, or one 5 lb box.</li>
+    <li>Joint compound: {e12.boardSqFt} sq ft of board ≈ <strong>{fmt(e12.mudGal, 1)} gallons</strong>, about {e12.mudPails} pails. Tape: about <strong>{e12.tapeFt} ft</strong>.</li>
+  </ol>
+
+  <h2>Mistakes that cost a trip back</h2>
+  <ul>
+    <li><strong>Forgetting the ceiling sheets</strong> or treating them as wall sheets. Ceilings usually take 1/2 in sag-resistant or 5/8 in board, which may be a different product.</li>
+    <li><strong>Wrong board for wet areas.</strong> Bathrooms need moisture-resistant board, and tile in a shower needs a cement or foam backer, not drywall.</li>
+    <li><strong>Ignoring wall height.</strong> With 9 ft walls, 4 × 8 sheets hung horizontally leave a 1 ft strip; 54 in wide board or vertical 4 × 10s avoid it.</li>
+  </ul>
+
+  <h2>Questions people ask</h2>
+  <h3>How many sheets of drywall do I need for a 12 × 12 room?</h3>
+  <p>{e12.sheets} sheets of 4 × 8 for the walls and ceiling, with 8 ft walls, one door, one window and 10% waste. Without the ceiling, {e12.wallSheets}.</p>
+  <h3>Should I subtract doors and windows?</h3>
+  <p>Subtract doors. Windows are worth subtracting in a big room with many of them; in a small room the offcuts rarely get reused, so the waste allowance absorbs them either way.</p>
+  <h3>4 × 8 or 4 × 12 sheets?</h3>
+  <p>4 × 12 sheets cut the number of butt joints, which are the hardest seams to finish flat. 4 × 8 sheets are easier to carry up stairs and handle alone. If you're working by yourself, 4 × 8 is usually the right call.</p>
+</ToolLayout>

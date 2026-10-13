@@ -3,18 +3,18 @@ import Base from "../../layouts/Base.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import { breadcrumbSchema } from "../../lib/schema.js";
+import { TOOLS } from "../../lib/tools.js";
 
-const labels = { concrete: "Concrete", tile: "Tile", paint: "Paint" } as const;
 const all = (await getCollection("guides", (g) => !g.data.draft))
   .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
-const groups = (Object.keys(labels) as (keyof typeof labels)[])
-  .map((k) => ({ key: k, label: labels[k], items: all.filter((g) => g.data.tool === k) }))
+const groups = TOOLS
+  .map((t) => ({ key: t.key, label: t.topic, href: t.href, name: t.name, items: all.filter((g) => g.data.tool === t.key) }))
   .filter((g) => g.items.length > 0);
 const crumbs = [{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" }];
 ---
 <Base
   title="Project Guides"
-  description="Step-by-step guides for measuring, estimating and buying materials for concrete, tile and paint projects, each with worked examples and tables."
+  description="Guides to measuring, estimating and buying materials for concrete, tile, flooring, drywall, decks, roofs and more, each with worked examples and tables."
   schema={[breadcrumbSchema(crumbs)]}
 >
   <div class="mx-auto max-w-6xl px-4 pt-6">
@@ -25,7 +25,10 @@ const crumbs = [{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" 
 
     {groups.map((group) => (
       <section class="mt-10" aria-labelledby={`g-${group.key}`}>
-        <h2 id={`g-${group.key}`} class="text-xl font-extrabold">{group.label}</h2>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h2 id={`g-${group.key}`} class="text-xl font-extrabold">{group.label}</h2>
+          <a href={group.href} class="text-sm font-medium">{group.name} →</a>
+        </div>
         <ul class="mt-4 grid gap-5 md:grid-cols-2">
           {group.items.map((g) => (
             <li class="border-t border-border pt-4">

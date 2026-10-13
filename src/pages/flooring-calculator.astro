@@ -1,0 +1,98 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import FlooringCalculator from "../components/calculators/FlooringCalculator.tsx";
+import { FLOORING_LAYOUTS, COMPLEX_ROOM_EXTRA, flooringEstimate, plankLayoutWaste } from "../lib/calc/flooring.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/flooring-calculator/");
+const lead = flooringEstimate({ areaSqFt: 15 * 12, sqFtPerBox: 22, wastePct: 10 });
+const ex = flooringEstimate({ areaSqFt: 14 * 11 + 3 * 2.5, sqFtPerBox: 23.64, wastePct: 15, pricePerSqFt: 2.79, underlaymentRollSqFt: 100 });
+const boxSizes = [18, 20, 22, 24, 28];
+const roomSizes = [[10, 10], [12, 12], [12, 15], [15, 20], [20, 25]];
+const boxTable = roomSizes.map(([a, b]) => ({ room: `${a} × ${b} ft`, sqft: a * b, boxes: boxSizes.map((p) => flooringEstimate({ areaSqFt: a * b, sqFtPerBox: p, wastePct: 10 }).boxes) }));
+const geo = [[5, 8], [10, 10], [12, 12], [15, 20]].map(([a, b]) => ({ room: `${a} × ${b} ft`, ...plankLayoutWaste({ roomLengthFt: b, roomWidthFt: a, plankLengthIn: 48, plankWidthIn: 7 }) }));
+---
+<ToolLayout
+  tool="flooring"
+  title="Flooring Calculator"
+  description="Work out how many boxes of laminate, vinyl plank or engineered wood flooring to buy, with waste by layout, underlayment rolls and total cost."
+  lead={`Multiply the room's length by its width, add 10% for a straight layout, then divide by the square feet in one box and round up. A 15 × 12 ft room with 22 sq ft boxes needs ${lead.boxes} boxes.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "Waste, straight layout", value: `${FLOORING_LAYOUTS.straight.wastePct}%` },
+    { label: "Waste, diagonal layout", value: `${FLOORING_LAYOUTS.diagonal.wastePct}%` },
+    { label: "Waste, herringbone", value: `${FLOORING_LAYOUTS.herringbone.wastePct}%` },
+    { label: "15 × 12 ft room, 22 sq ft boxes", value: `${lead.boxes} boxes` },
+  ]}
+  sources={[
+    { label: "Methodology: flooring formulas and waste allowances", href: "/methodology/" },
+    { label: "Square footage calculator for odd-shaped rooms", href: "/square-footage-calculator/" },
+  ]}
+>
+  <FlooringCalculator slot="calculator" client:load />
+
+  <h2>How to use the flooring calculator</h2>
+  <p>Enter the room's length and width, or the total square feet if you're doing several rooms. Then enter how many square feet one box covers. Every box of laminate and vinyl plank prints this on the end label, and it varies a lot between products, so don't guess it.</p>
+  <p>Choose your layout. Straight is the usual way to lay planks; diagonal and herringbone need more cuts. If the room has closets, several doorways or many corners, switch on the extra {COMPLEX_ROOM_EXTRA}%. Add a price per square foot to see what the boxes will cost, and an underlayment roll size if your flooring doesn't have a pad attached.</p>
+
+  <h2>The formula</h2>
+  <ul>
+    <li><strong>Area</strong> = length × width (add rooms together)</li>
+    <li><strong>Area with waste</strong> = area × (1 + waste %)</li>
+    <li><strong>Boxes</strong> = area with waste ÷ sq ft per box, rounded up</li>
+    <li><strong>Cost</strong> = boxes × sq ft per box × price per sq ft, because you pay for whole boxes</li>
+    <li><strong>Underlayment rolls</strong> = area ÷ sq ft per roll, rounded up</li>
+  </ul>
+
+  <h2>Boxes needed by room size</h2>
+  <p>Straight layout, 10% waste. Box sizes are in square feet per box.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Room</th><th>Sq ft</th>{boxSizes.map((p) => <th>{p} sq ft box</th>)}</tr></thead>
+      <tbody>
+        {boxTable.map((r) => <tr><td class="num">{r.room}</td><td class="num">{r.sqft}</td>{r.boxes.map((b) => <td class="num">{b}</td>)}</tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Where the 10% actually goes</h2>
+  <p>We modeled a straight plank layout row by row: 48 × 7 in planks, joints staggered at least 8 in between rows, offcuts 8 in or longer reused to start the next row, and the last row ripped to width. In a plain rectangle with no doorways, the cuts alone waste this much:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Room</th><th>Rows</th><th>Planks used</th><th>Cutting waste</th></tr></thead>
+      <tbody>
+        {geo.map((g) => <tr><td class="num">{g.room}</td><td class="num">{g.rows}</td><td class="num">{g.planks}</td><td class="num">{fmt(g.wastePct, 1)}%</td></tr>)}
+      </tbody>
+      <caption>Geometry only. Small rooms waste the most because every row ends in a cut.</caption>
+    </table>
+  </div>
+  <p>The rest of a 10% allowance covers what a model can't: boards with damaged tongues, doorway and closet cuts, walls that aren't straight, and a few planks kept for future repairs. That's why small rooms, closets and hallways should get the higher allowance.</p>
+
+  <h2>Worked example: a bedroom with a closet</h2>
+  <p>A 14 × 11 ft bedroom with a 3 × 2.5 ft closet, vinyl plank at 23.64 sq ft per box, $2.79 per sq ft. The closet and two doorways make it a "complex" room, so 15% waste.</p>
+  <ol>
+    <li>Area: 14 × 11 + 3 × 2.5 = 154 + 7.5 = <strong>{fmt(ex.areaSqFt)} sq ft</strong>.</li>
+    <li>With 15% waste: {fmt(ex.areaSqFt)} × 1.15 = <strong>{fmt(ex.withWasteSqFt)} sq ft</strong>.</li>
+    <li>Boxes: {fmt(ex.withWasteSqFt)} ÷ 23.64 = {fmt(ex.withWasteSqFt / 23.64)}, rounded up = <strong>{ex.boxes} boxes</strong>.</li>
+    <li>Cost: {ex.boxes} × 23.64 = {fmt(ex.boughtSqFt)} sq ft × $2.79 = <strong>${fmt(ex.cost!, 2)}</strong>.</li>
+    <li>Underlayment: {fmt(ex.areaSqFt)} ÷ 100 = <strong>{ex.underlaymentRolls} rolls</strong>, if the planks have no attached pad.</li>
+  </ol>
+
+  <h2>Before you buy</h2>
+  <ul>
+    <li><strong>Check the lot number.</strong> Like tile, flooring varies slightly in color between production runs. Buy all boxes at once.</li>
+    <li><strong>Let it acclimate.</strong> Many laminate and wood products ask for 24 to 48 hours in the room before installation. Check the instructions in the box.</li>
+    <li><strong>Count transitions.</strong> Each doorway to a different floor needs a transition strip, sold separately.</li>
+    <li><strong>Baseboard and quarter round</strong> are bought in linear feet: roughly the room's perimeter minus door openings.</li>
+  </ul>
+
+  <h2>Questions people ask</h2>
+  <h3>How much extra flooring should I buy?</h3>
+  <p>10% for a straight layout in an ordinary room, 15% for diagonal or for rooms with closets and many corners, and about 20% for herringbone. Keep any full leftover box for repairs.</p>
+  <h3>Can I return unopened boxes?</h3>
+  <p>Many stores accept unopened boxes, which is one reason to round up rather than down. Check the store's return policy before you buy, especially for special-order products.</p>
+  <h3>Do I need underlayment for vinyl plank?</h3>
+  <p>Many vinyl plank products have a pad attached and say not to add another. Others need a separate underlayment. Follow the manufacturer's instructions; adding the wrong pad can void the warranty.</p>
+</ToolLayout>

@@ -1,0 +1,91 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import GravelCalculator from "../components/calculators/GravelCalculator.tsx";
+import { MATERIALS, gravelVolume, gravelOrder, coveragePerYard } from "../lib/calc/gravel.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/gravel-calculator/");
+const lead = gravelOrder({ cuFt: gravelVolume({ lengthFt: 20, widthFt: 10, depthIn: 4 }).cuFt, lbPerYd: MATERIALS.crushed.lbPerYd });
+const depths = [2, 3, 4, 6, 8, 12].map((dIn) => ({ dIn, cov: coveragePerYard(dIn) }));
+const walk = gravelVolume({ lengthFt: 40, widthFt: 3, depthIn: 3 });
+const walkO = gravelOrder({ cuFt: walk.cuFt, lbPerYd: MATERIALS.pea.lbPerYd });
+const pad = gravelVolume({ lengthFt: 12, widthFt: 10, depthIn: 4 });
+const padO = gravelOrder({ cuFt: pad.cuFt, lbPerYd: MATERIALS.crusherRun.lbPerYd, compactPct: MATERIALS.crusherRun.compactPct });
+const padNoComp = gravelOrder({ cuFt: pad.cuFt, lbPerYd: MATERIALS.crusherRun.lbPerYd, compactPct: 0 });
+---
+<ToolLayout
+  tool="gravel"
+  title="Gravel Calculator"
+  description="Find how many cubic yards and tons of gravel, crushed stone, sand or topsoil you need for a driveway, path or patio base, with bag counts for small jobs."
+  lead={`Multiply length × width × depth in feet, then divide by 27 for cubic yards. A 20 × 10 ft area 4 inches deep takes ${fmt(lead.cubicYards)} cubic yards of crushed stone, about ${fmt(lead.tons)} tons.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "1 cubic yard", value: "27 cu ft" },
+    { label: "1 yd³ at 4 in deep covers", value: `${fmt(coveragePerYard(4), 0)} sq ft` },
+    { label: "Crushed stone, per yd³", value: `≈ ${fmt(MATERIALS.crushed.lbPerYd / 2000, 2)} tons` },
+    { label: "Crusher run, per yd³", value: `≈ ${fmt(MATERIALS.crusherRun.lbPerYd / 2000, 2)} tons` },
+  ]}
+  sources={[
+    { label: "Select Sand & Gravel: how much a yard of crushed stone weighs", href: "https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/" },
+    { label: "Methodology: volume and weight formulas", href: "/methodology/" },
+  ]}
+>
+  <GravelCalculator slot="calculator" client:load />
+
+  <h2>How to use the gravel calculator</h2>
+  <p>Enter the length and width of the area in feet (or the diameter of a round bed) and the depth in inches. Choose the material. The weight fills in with a typical value for that material; if your supplier quotes a different weight per yard, type it in, because that's the number they'll bill by.</p>
+  <p>For a base that you'll compact, such as crusher run under pavers or a shed, the compaction allowance adds extra: loose stone settles when it's compacted, so you need more than the finished volume. Decorative stone that isn't compacted needs none.</p>
+
+  <h2>The formula</h2>
+  <ul>
+    <li><strong>Volume (cu ft)</strong> = length (ft) × width (ft) × depth (in) ÷ 12</li>
+    <li><strong>Cubic yards</strong> = cubic feet × (1 + compaction %) ÷ 27</li>
+    <li><strong>Tons</strong> = cubic yards × pounds per cubic yard ÷ 2,000</li>
+    <li><strong>Bags</strong> = cubic feet ÷ cubic feet per bag, rounded up</li>
+  </ul>
+
+  <h2>Weight per cubic yard by material</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Material</th><th>Lb per yd³ (used)</th><th>Tons per yd³</th><th>Compaction allowance</th></tr></thead>
+      <tbody>
+        {Object.values(MATERIALS).map((m) => <tr><td>{m.label}</td><td class="num">{fmt(m.lbPerYd, 0)}</td><td class="num">{fmt(m.lbPerYd / 2000, 2)}</td><td class="num">{m.compactPct ? `${m.compactPct}%` : "none"}</td></tr>)}
+      </tbody>
+      <caption>Typical values; stone type and moisture move them by 10% or more. Wet sand weighs noticeably more than dry. Your supplier's figure wins.</caption>
+    </table>
+  </div>
+
+  <h2>How far one cubic yard goes</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Depth</th><th>One cubic yard covers</th></tr></thead>
+      <tbody>
+        {depths.map((r) => <tr><td class="num">{r.dIn} in</td><td class="num">{fmt(r.cov, 0)} sq ft</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Worked examples</h2>
+  <h3>A pea gravel path</h3>
+  <p>40 ft long, 3 ft wide, 3 in deep: 40 × 3 × 3 ÷ 12 = <strong>{fmt(walk.cuFt)} cu ft</strong>. Divide by 27 = <strong>{fmt(walkO.cubicYards)} yd³</strong>, about {fmt(walkO.tons)} tons. In 0.5 cu ft bags that's {walkO.bags} bags, so bulk delivery makes sense.</p>
+  <h3>A compacted shed base</h3>
+  <p>12 × 10 ft, 4 in of crusher run after compaction: {fmt(pad.cuFt)} cu ft finished. Adding {MATERIALS.crusherRun.compactPct}% for compaction gives {fmt(padO.cuFt)} cu ft = <strong>{fmt(padO.cubicYards)} yd³</strong>, about {fmt(padO.tons)} tons. Without the allowance you'd order {fmt(padNoComp.cubicYards)} yd³ and end up with a thin base.</p>
+
+  <h2>Depth guide</h2>
+  <ul>
+    <li><strong>Decorative stone in beds:</strong> 2 to 3 in.</li>
+    <li><strong>Walkways:</strong> 3 to 4 in of surface stone, over a compacted base on soft ground.</li>
+    <li><strong>Patio or shed base:</strong> 4 to 6 in of compacted crusher run.</li>
+    <li><strong>Gravel driveway:</strong> 8 to 12 in total, built in layers.</li>
+  </ul>
+
+  <h2>Questions people ask</h2>
+  <h3>How much does a cubic yard of gravel weigh?</h3>
+  <p>Most gravel and crushed stone weigh about 1.3 to 1.5 tons per cubic yard. Clean crushed stone is around 2,700 lb; crusher run, with its fines, can reach about 3,000 lb.</p>
+  <h3>Is it cheaper to buy gravel in bags or bulk?</h3>
+  <p>For anything past roughly one cubic yard, bulk is almost always cheaper, even with a delivery fee. 54 bags of 0.5 cu ft make one yard, and carrying them is real work.</p>
+  <h3>Should I order extra?</h3>
+  <p>Round up to the next half yard or the next ton. Suppliers rarely deliver less than a yard, and a little extra fills low spots.</p>
+</ToolLayout>

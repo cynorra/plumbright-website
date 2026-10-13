@@ -6,6 +6,7 @@ import OnThisPage from "../../components/OnThisPage.astro";
 import { getCollection, render } from "astro:content";
 import { articleSchema, breadcrumbSchema } from "../../lib/schema.js";
 import { AUTHOR } from "../../site.config.js";
+import { TOOL_BY_KEY } from "../../lib/tools.js";
 
 export async function getStaticPaths() {
   const guides = await getCollection("guides", (g) => !g.data.draft);
@@ -18,11 +19,7 @@ const toc = headings.filter((h) => h.depth === 2).map((h) => ({ id: h.slug, text
 const { title, description, published, updated, tool } = guide.data;
 const path = `/guides/${guide.id}/`;
 
-const toolInfo = {
-  concrete: { topic: "Concrete", href: "/concrete-calculator/", name: "Concrete calculator", blurb: "Cubic yards and bag counts for slabs, columns and post holes." },
-  tile: { topic: "Tile", href: "/tile-calculator/", name: "Tile calculator", blurb: "Tiles and boxes, with grout joint and layout waste." },
-  paint: { topic: "Paint", href: "/paint-calculator/", name: "Paint calculator", blurb: "Gallons and quarts for walls, ceilings and primer." },
-}[tool];
+const toolInfo = TOOL_BY_KEY[tool];
 
 const related = (await getCollection("guides", (g) => !g.data.draft && g.data.tool === tool && g.id !== guide.id)).slice(0, 4);
 

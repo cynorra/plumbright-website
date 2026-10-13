@@ -7,7 +7,7 @@ export const SITE = {
   url: "https://plumbright.com",
   tagline: "Material calculators and planning guides for home projects",
   description:
-    "Free calculators for concrete, tile, paint and other home projects, with the formulas, assumptions and worked examples behind every number.",
+    "Free calculators for concrete, tile, flooring, drywall, decks, roofing and other home projects, with the formulas, assumptions and worked examples behind every number.",
   language: "en-US",
   locale: "en_US",
   foundingYear: 2026,
@@ -49,9 +49,10 @@ export const AUTHOR = {
 };
 
 export const NAV = [
+  { href: "/calculators/", label: "Calculators" },
   { href: "/concrete-calculator/", label: "Concrete" },
   { href: "/tile-calculator/", label: "Tile" },
-  { href: "/paint-calculator/", label: "Paint" },
+  { href: "/flooring-calculator/", label: "Flooring" },
   { href: "/guides/", label: "Guides" },
   { href: "/about/", label: "About" },
 ];

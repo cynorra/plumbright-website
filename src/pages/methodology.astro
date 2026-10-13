@@ -4,10 +4,18 @@ import PageLayout from "../layouts/PageLayout.astro";
 import { BAG_YIELDS } from "../lib/calc/concrete.js";
 import { LAYOUTS } from "../lib/calc/tile.js";
 import { DOOR_SQFT, WINDOW_SQFT, DEFAULT_COVERAGE } from "../lib/calc/paint.js";
+import { GROUT_CU_IN_PER_LB } from "../lib/calc/tile.js";
+import { FLOORING_LAYOUTS, COMPLEX_ROOM_EXTRA } from "../lib/calc/flooring.js";
+import { MUD_GAL_PER_1000, TAPE_FT_PER_1000 } from "../lib/calc/drywall.js";
+import { MATERIALS } from "../lib/calc/gravel.js";
+import { DECKING_SPANS } from "../lib/calc/deck.js";
+import { IRC, toFraction } from "../lib/calc/stairs.js";
+import { BUNDLES_PER_SQUARE, ROOF_STYLES, UNDERLAYMENT_ROLL_SQFT } from "../lib/calc/roofing.js";
+import { SQM_PER_SQFT, SQFT_PER_ACRE } from "../lib/calc/area.js";
 ---
 <PageLayout
   title="Methodology"
-  description="Every formula, constant and assumption behind the concrete, tile and paint calculators, with where each figure comes from and how results are rounded."
+  description="Every formula, constant and assumption behind the Plumbright calculators, with where each figure comes from and how results are rounded."
   updated={pageDates("/methodology/").updated ?? pageDates("/methodology/").published}
 >
   <p>This page lists every formula and constant the calculators use. The values shown here are read from the same code that runs the calculators, so they always match.</p>
@@ -40,6 +48,7 @@ import { DOOR_SQFT, WINDOW_SQFT, DEFAULT_COVERAGE } from "../lib/calc/paint.js";
     <li>Coverage per tile: (width + grout joint) × (length + grout joint) ÷ 144</li>
     <li>Tiles: area ÷ coverage per tile × (1 + waste), rounded up</li>
     <li>Boxes: tiles ÷ tiles per box, or area × (1 + waste) ÷ sq ft per box, rounded up</li>
+    <li>Grout: joint length per sq ft = 144 × (tile width + tile length) ÷ (tile width × tile length), in inches; volume = joint length × joint width × tile thickness; one pound of dry sanded grout is taken to fill {GROUT_CU_IN_PER_LB} cu in, the low end of typical values, so the estimate leans high.</li>
   </ul>
   <div class="table-wrap">
     <table>
@@ -57,12 +66,65 @@ import { DOOR_SQFT, WINDOW_SQFT, DEFAULT_COVERAGE } from "../lib/calc/paint.js";
     <li>Buying: whole gallons plus quarts; three or more quarts round up to another gallon.</li>
   </ul>
 
+  <h2>Square footage</h2>
+  <ul>
+    <li>Rectangle: length × width. Triangle: base × height ÷ 2. Circle: π × (diameter ÷ 2)². Trapezoid: (side 1 + side 2) ÷ 2 × height.</li>
+    <li>1 sq ft = {SQM_PER_SQFT} m² (exact). 1 sq yd = 9 sq ft. 1 acre = {SQFT_PER_ACRE.toLocaleString("en-US")} sq ft.</li>
+    <li>Board feet: thickness (in) × width (in) × length (ft) ÷ 12, using nominal sizes.</li>
+  </ul>
+
+  <h2>Flooring</h2>
+  <ul>
+    <li>Boxes: area × (1 + waste) ÷ sq ft per box, rounded up. Cost is charged on whole boxes.</li>
+    <li>Default waste: {Object.values(FLOORING_LAYOUTS).map((l) => `${l.label.toLowerCase()} ${l.wastePct}%`).join(", ")}; plus {COMPLEX_ROOM_EXTRA}% for rooms with closets, many corners or several doorways.</li>
+    <li>The cutting-waste tables come from a row-by-row model: joints staggered at least 8 in, offcuts of 8 in or more reused, last row ripped to width.</li>
+  </ul>
+
+  <h2>Drywall</h2>
+  <ul>
+    <li>Sheets: (walls + ceiling − openings) × (1 + waste) ÷ sheet area, rounded up, walls and ceiling counted separately.</li>
+    <li>Screws: sheets hung across the framing; 12 in spacing on ceilings, 16 in on walls framed 16 in on center, 12 in on walls framed 24 in on center.</li>
+    <li>Joint compound: {MUD_GAL_PER_1000} gal per 1,000 sq ft of board (USG: about two 4.5-gallon pails). Paper tape: {TAPE_FT_PER_1000} ft per 1,000 sq ft.</li>
+  </ul>
+
+  <h2>Gravel, sand and soil</h2>
+  <ul>
+    <li>Volume: length × width × depth (in) ÷ 12; cubic yards = cubic feet ÷ 27; tons = cubic yards × lb per cubic yard ÷ 2,000.</li>
+    <li>Weights used: {Object.values(MATERIALS).map((m) => `${m.label} ${m.lbPerYd.toLocaleString("en-US")} lb/yd³`).join("; ")}. A compaction allowance (crusher run 15%, sand and topsoil 10%) is added for bases that will be compacted.</li>
+  </ul>
+
+  <h2>Decks</h2>
+  <ul>
+    <li>Rows: deck width ÷ (board width + gap), rounded up. Each row is filled with whole boards; offcuts of 2 ft or more are reused.</li>
+    <li>Joists: deck length ÷ spacing + 1. Screws: rows × joists × 2.</li>
+    <li>Board spans from IRC 2021 Table R507.7: {DECKING_SPANS.map((d) => `${d.decking} ${d.perpendicular} in (${d.diagonal} in diagonal)`).join("; ")}.</li>
+  </ul>
+
+  <h2>Stairs</h2>
+  <ul>
+    <li>Risers: total rise ÷ target riser, rounded up; riser height = rise ÷ risers; treads = risers − 1.</li>
+    <li>Stringer length: risers × √(riser² + tread²).</li>
+    <li>Checks against IRC R311.7: riser ≤ {toFraction(IRC.maxRiserIn)} in, tread ≥ {IRC.minTreadIn} in, width ≥ {IRC.minWidthIn} in. Comfort rule: 2 × riser + tread between 24 and 25.5 in.</li>
+  </ul>
+
+  <h2>Roofing</h2>
+  <ul>
+    <li>Pitch multiplier: √(1 + (rise ÷ 12)²). Roof area = footprint × multiplier. Hip length per foot of run: √(2 + (rise ÷ 12)²).</li>
+    <li>Bundles: squares × (1 + waste) × {BUNDLES_PER_SQUARE}, rounded up. Waste: gable {ROOF_STYLES.gable.wastePct}%, hip {ROOF_STYLES.hip.wastePct}%.</li>
+    <li>Underlayment: one roll per {UNDERLAYMENT_ROLL_SQFT.toLocaleString("en-US")} sq ft (a typical synthetic roll). Drip edge: 10 ft pieces.</li>
+  </ul>
+
   <h2>Sources</h2>
   <!-- TODO: before launch, link each source below to the exact page you checked it against. -->
   <ul>
     <li>Concrete bag yields: labels and product data sheets of standard concrete mixes sold at US home centers.</li>
     <li>Paint coverage: spread rates on labels and technical data sheets of interior latex paints from major US brands.</li>
-    <li>Slab, footing and stair guidance: the International Residential Code (IRC), as adopted by your state or city.</li>
+    <li>Slab, footing and stair guidance: the International Residential Code (IRC), as adopted by your state or city. Stair limits checked against <a href="https://www.KnoxCounty.org/codes/pdfs/construction_info/Stairs.pdf" rel="noopener">a county summary of IRC R311.7</a>.</li>
+    <li>Deck spans: IRC 2021 Tables R507.6 and R507.7, as printed in <a href="https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf" rel="noopener">Anne Arundel County's deck guide</a>; <a href="https://awc.org/publications/dca/dca6/" rel="noopener">AWC DCA 6</a>.</li>
+    <li>Drywall: <a href="https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html" rel="noopener">USG joint compound estimate</a>; screw spacing per ASTM C840 and GA-216 as summarized by <a href="https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board" rel="noopener">Walls &amp; Ceilings</a>.</li>
+    <li>Gravel weights: <a href="https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/" rel="noopener">a quarry supplier's published figures</a> and typical supplier ranges.</li>
+    <li>Shingles: <a href="https://www.gaf.com/en-us/blog/your-home/how-many-bundles-of-shingles-are-in-a-square---63a47862-f7e1-4e73-abcf-8d09917a8b8d" rel="noopener">GAF on bundles per square</a>.</li>
+    <li>Unit conversions: <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" rel="noopener">NIST SP 811, Appendix B</a>.</li>
   </ul>
 
   <h2>Corrections</h2>

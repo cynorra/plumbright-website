@@ -12,6 +12,7 @@
 // never put it in the site build).
 import { readdirSync, readFileSync } from "node:fs";
 import { loadEnv } from "vite";
+import { guideRow } from "../src/lib/frontmatter.js";
 
 const env = { ...loadEnv("production", process.cwd(), ""), ...process.env };
 const URL_ = env.SUPABASE_URL?.replace(/\/$/, "");
@@ -25,30 +26,10 @@ if (!dry && (!URL_ || !KEY)) {
   process.exit(1);
 }
 
-function parse(file) {
-  const text = readFileSync(new URL(`../src/content/guides/${file}`, import.meta.url), "utf8");
-  const m = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  if (!m) throw new Error(`${file}: missing frontmatter`);
-  const fm = {};
-  for (const line of m[1].split("\n")) {
-    const kv = line.match(/^(\w+):\s*(.*)$/);
-    if (kv) fm[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, "");
-  }
-  for (const k of ["title", "description", "published", "tool"]) {
-    if (!fm[k]) throw new Error(`${file}: frontmatter is missing "${k}"`);
-  }
-  const isDraft = fm.draft === "true";
-  return {
-    slug: file.replace(/\.md$/, ""),
-    title: fm.title,
-    description: fm.description,
-    body_md: m[2].trim() + "\n",
-    tool: fm.tool,
-    status: isDraft ? "draft" : "published",
-    // Noon UTC keeps the calendar date the same across US time zones.
-    published_at: isDraft ? null : `${fm.published}T12:00:00Z`,
-  };
-}
+const parse = (file) => {
+  const { content_updated_at, author_slug, ...row } = guideRow(file, readFileSync(new URL(`../src/content/guides/${file}`, import.meta.url), "utf8"));
+  return row; // the database sets content_updated_at and author_slug itself
+};
 
 const files = readdirSync(new URL("../src/content/guides/", import.meta.url))
   .filter((f) => f.endsWith(".md"))

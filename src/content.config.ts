@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 import type { Loader } from "astro/loaders";
-import { glob } from "astro/loaders";
-import { useSupabase, fetchLiveArticles, day, updatedDay } from "./lib/articles-source.js";
+import { useSupabase, liveArticles, day, updatedDay } from "./lib/articles-source.js";
+import { TOOL_KEYS } from "./lib/tools.js";
 
 const schema = z.object({
   title: z.string().max(80),
@@ -9,16 +9,19 @@ const schema = z.object({
   published: z.coerce.date(),
   updated: z.coerce.date().optional(),
   // Which calculator this guide supports: drives the tool box and internal links.
-  tool: z.enum(["concrete", "tile", "paint"]),
+  tool: z.enum(TOOL_KEYS as [string, ...string[]]),
   draft: z.boolean().default(false),
 });
 
-/** Live articles from Supabase, rendered to HTML at build time. */
-const supabaseArticles: Loader = {
-  name: "supabase-articles",
+/**
+ * Live articles (Supabase, or local Markdown before the database exists),
+ * rendered to HTML at build time. Drafts and future-dated guides are left out.
+ */
+const articles: Loader = {
+  name: "articles",
   async load({ store, parseData, renderMarkdown, generateDigest, logger }) {
-    const rows = await fetchLiveArticles();
-    logger.info(`Loaded ${rows.length} live article(s) from Supabase`);
+    const rows = await liveArticles();
+    logger.info(`Loaded ${rows.length} live article(s) from ${useSupabase ? "Supabase" : "src/content/guides"}`);
     store.clear();
     for (const row of rows) {
       const data = await parseData({
@@ -44,7 +47,7 @@ const supabaseArticles: Loader = {
 };
 
 const guides = defineCollection({
-  loader: useSupabase ? supabaseArticles : glob({ pattern: "**/*.md", base: "./src/content/guides" }),
+  loader: articles,
   schema,
 });
 

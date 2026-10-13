@@ -1,0 +1,98 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import AreaCalculator from "../components/calculators/AreaCalculator.tsx";
+import { shapeArea, totalArea, convertArea, SQM_PER_SQFT, SQFT_PER_ACRE } from "../lib/calc/area.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/square-footage-calculator/");
+const rooms = [[10, 10], [10, 12], [12, 12], [12, 14], [14, 16], [15, 20], [20, 20], [24, 24]].map(([a, b]) => ({ a, b, ...convertArea(a * b) }));
+const lshape = totalArea([
+  { shape: "rectangle", a: 14, b: 12 },
+  { shape: "rectangle", a: 8, b: 6 },
+]);
+const withIsland = totalArea([
+  { shape: "rectangle", a: 16, b: 13 },
+  { shape: "rectangle", a: 6, b: 3, subtract: true },
+]);
+const circle12 = shapeArea("circle", 12);
+const bay = shapeArea("trapezoid", 8, 5, 2);
+---
+<ToolLayout
+  tool="area"
+  title="Square Footage Calculator"
+  description="Find the square footage of a room, an L-shaped space or any shape. Add or subtract areas and get square yards, square meters and acres too."
+  lead={`Multiply length by width in feet to get square feet: a 12 × 14 ft room is ${fmt(12 * 14)} sq ft. For L-shapes and odd rooms, add up to four shapes and subtract cut-outs; the calculator shows square yards, square meters and acres as well.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "Rectangle", value: "length × width" },
+    { label: "1 square yard", value: "9 sq ft" },
+    { label: "1 square foot", value: `${SQM_PER_SQFT} m²` },
+    { label: "1 acre", value: `${fmt(SQFT_PER_ACRE, 0)} sq ft` },
+  ]}
+  sources={[
+    { label: "NIST Guide to the SI, Appendix B: conversion factors (foot, square foot, acre)", href: "https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" },
+    { label: "How to measure an L-shaped room", href: "/guides/how-to-measure-an-l-shaped-room/" },
+    { label: "Methodology: formulas and rounding", href: "/methodology/" },
+  ]}
+>
+  <AreaCalculator slot="calculator" client:load />
+
+  <h2>How to use the square footage calculator</h2>
+  <p>Pick a shape and enter its sizes in feet. For a room that isn't a plain rectangle, split it into simple shapes and use <strong>Add another area</strong> for each one. To take something out, such as a kitchen island you won't floor under or a fireplace hearth, add it as a separate area and switch on <strong>Subtract this area</strong>.</p>
+  <p>Measurements in feet and inches need converting first: divide the inches by 12. 10 ft 6 in is 10.5 ft, and 10 ft 9 in is 10.75 ft.</p>
+
+  <h2>Square footage formulas by shape</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Shape</th><th>Formula</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Rectangle or square</td><td>length × width</td><td class="num">12 × 14 = {fmt(shapeArea("rectangle", 12, 14))} sq ft</td></tr>
+        <tr><td>Triangle</td><td>base × height ÷ 2</td><td class="num">10 × 6 ÷ 2 = {fmt(shapeArea("triangle", 10, 6))} sq ft</td></tr>
+        <tr><td>Circle</td><td>π × (diameter ÷ 2)²</td><td class="num">12 ft across = {fmt(circle12)} sq ft</td></tr>
+        <tr><td>Trapezoid</td><td>(side 1 + side 2) ÷ 2 × height</td><td class="num">(8 + 5) ÷ 2 × 2 = {fmt(bay)} sq ft</td></tr>
+      </tbody>
+      <caption>A triangle's height is measured square to its base, not along the sloped side. A bay window floor is usually a trapezoid.</caption>
+    </table>
+  </div>
+
+  <h2>Worked example: an L-shaped living room</h2>
+  <p>The main part of the room is 14 × 12 ft. A dining nook 8 ft wide sticks out 6 ft on one side.</p>
+  <ol>
+    <li>Main rectangle: 14 × 12 = <strong>168 sq ft</strong>.</li>
+    <li>Nook: 8 × 6 = <strong>48 sq ft</strong>.</li>
+    <li>Total: 168 + 48 = <strong>{fmt(lshape.sqft)} sq ft</strong>, or {fmt(convertArea(lshape.sqft).sqyd)} square yards.</li>
+  </ol>
+  <p>Split along any line you like: the total is the same as long as the pieces don't overlap. Our <a href="/guides/how-to-measure-an-l-shaped-room/">L-shaped room guide</a> shows both ways with a drawing.</p>
+  <p>With a cut-out: a 16 × 13 ft kitchen with a 6 × 3 ft island you won't tile under is 208 − 18 = <strong>{fmt(withIsland.sqft)} sq ft</strong>.</p>
+
+  <h2>Common room sizes in square feet</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Room</th><th>Square feet</th><th>Square yards</th><th>Square meters</th></tr></thead>
+      <tbody>
+        {rooms.map((r) => <tr><td class="num">{r.a} × {r.b} ft</td><td class="num">{fmt(r.sqft)}</td><td class="num">{fmt(r.sqyd)}</td><td class="num">{fmt(r.sqm)}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Measuring tips that keep the number right</h2>
+  <ul>
+    <li><strong>Measure wall to wall at floor level</strong>, not along baseboards that might be thicker in places.</li>
+    <li><strong>Measure both ends of each wall.</strong> Old rooms are rarely square. Use the larger number when buying material.</li>
+    <li><strong>Include closets</strong> if the flooring goes into them; most flooring does.</li>
+    <li><strong>Round up to the next half foot</strong> for material estimates. Rounding down is how projects come up one box short.</li>
+    <li><strong>Sketch the room</strong> and write each measurement on the drawing. It makes the split into rectangles obvious.</li>
+  </ul>
+
+  <h2>Questions people ask</h2>
+  <h3>How do I calculate square feet from inches?</h3>
+  <p>Multiply length by width in inches, then divide by 144 (12 × 12). A 48 × 30 in rug is 1,440 ÷ 144 = 10 sq ft.</p>
+  <h3>How do I convert square feet to square yards?</h3>
+  <p>Divide by 9, because a square yard is 3 ft × 3 ft. 180 sq ft is 20 square yards. Carpet is still often priced by the square yard.</p>
+  <h3>Is square footage the same as linear feet?</h3>
+  <p>No. Linear feet measure length only, like baseboard or a board. Square feet measure a surface. You need both: square feet for the floor, linear feet for the trim around it.</p>
+  <h3>Does a home's listed square footage include the walls?</h3>
+  <p>Listings and appraisals usually measure from the outside of exterior walls, so the listed figure is larger than the sum of the rooms measured inside. For buying material, always measure the room itself.</p>
+</ToolLayout>

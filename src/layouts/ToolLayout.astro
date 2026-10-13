@@ -10,7 +10,7 @@ import { addHeadingIds } from "../lib/toc.js";
 import { AUTHOR } from "../site.config.js";
 
 interface Props {
-  tool: "concrete" | "tile" | "paint";
+  tool: string; // a key from src/lib/tools.js
   title: string;        // <title> and H1
   description: string;  // meta description
   lead: string;         // answer-first sentence under the H1

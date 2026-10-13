@@ -5,6 +5,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatedNumber } from "@/components/motion/animated-number";
+import { Switch } from "@/components/ui/switch";
+import { Segmented } from "@/components/motion/segmented";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 /** Number input with its unit shown inside the field ("ft", "in", "%"). */
 export function NumField({
@@ -180,4 +183,87 @@ export function safe<T>(fn: () => T): { result: T | null; error: string } {
   } catch (e) {
     return { result: null, error: e instanceof Error ? e.message : "Check the values you entered." };
   }
+}
+
+/** A labeled on/off switch whose value is "1" or "0" (so it fits URL state). */
+export function SwitchField({ id, label, value, onChange }: { id: string; label: string; value: string; onChange: (v: string) => void }) {
+  return (
+    <div className="flex items-center gap-3">
+      <Switch id={id} checked={value === "1"} onCheckedChange={(c) => onChange(c ? "1" : "0")} />
+      <Label htmlFor={id}>{label}</Label>
+    </div>
+  );
+}
+
+/** A labeled dropdown. */
+export function SelectField({
+  id,
+  label,
+  value,
+  onChange,
+  options,
+  hint,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  options: { value: string; label: string }[];
+  hint?: string;
+}) {
+  return (
+    <div className="grid min-w-0 content-start gap-2">
+      <Label htmlFor={id}>{label}</Label>
+      <Select value={value} onValueChange={onChange}>
+        <SelectTrigger id={id} className="w-full">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((o) => (
+            <SelectItem key={o.value} value={o.value}>
+              {o.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      {hint && <p className="text-muted-foreground text-xs leading-snug">{hint}</p>}
+    </div>
+  );
+}
+
+/** Pass/fail row for code checks. */
+export function CheckRow({ ok, label, value }: { ok: boolean; label: string; value: string }) {
+  return (
+    <li className="flex items-center justify-between gap-3 text-sm">
+      <span className="flex items-center gap-2">
+        {ok ? <CheckIcon className="text-brand size-4 shrink-0" /> : <TriangleAlertIcon className="text-destructive size-4 shrink-0" />}
+        <span>{label}</span>
+      </span>
+      <span className={cn("num", !ok && "text-destructive font-semibold")}>{value}</span>
+    </li>
+  );
+}
+
+/** Shared two-column shell: inputs on the left, results on the right. */
+export function CalcShell({ compact, form, result }: { compact?: boolean; form: React.ReactNode; result: React.ReactNode }) {
+  return (
+    <div className={cn("grid md:grid-cols-[minmax(0,1fr)_minmax(0,21rem)]", compact && "md:grid-cols-[minmax(0,1fr)_minmax(0,17rem)]")}>
+      <form className="flex min-w-0 flex-col gap-6 p-5 md:p-6" onSubmit={(e) => e.preventDefault()} noValidate>
+        {form}
+      </form>
+      <ResultPanel className={compact ? "md:rounded-r-xl" : "rounded-b-xl md:rounded-bl-none md:rounded-r-xl"}>{result}</ResultPanel>
+    </div>
+  );
+}
+
+/** A labeled segmented control for 2 to 4 choices. */
+export function SegField({ id, label, value, onChange, options }: { id: string; label: string; value: string; onChange: (v: string) => void; options: { value: string; label: string }[] }) {
+  return (
+    <div className="grid gap-2">
+      <span id={`${id}-label`} className="text-sm font-medium">
+        {label}
+      </span>
+      <Segmented value={value} onChange={onChange} labelledBy={`${id}-label`} options={options} />
+    </div>
+  );
 }

@@ -3,15 +3,20 @@
 //   Supabase at build time and rendered to static HTML.
 // - Not set: the Markdown files in src/content/guides/ are used (local work,
 //   first launch before the database exists).
+// Either way, only "live" guides are built: not drafts, and not guides whose
+// publish date is still in the future. Set PREVIEW_FUTURE=1 to see
+// scheduled local guides while writing them (never in a deploy).
 // Used by both the content collection and the sitemap, so they always agree.
 import { loadEnv } from "vite";
 import { readdirSync, readFileSync } from "node:fs";
+import { guideRow } from "./frontmatter.js";
 
 const env = { ...loadEnv(process.env.NODE_ENV ?? "production", process.cwd(), ""), ...process.env };
 
 export const SUPABASE_URL = env.SUPABASE_URL?.replace(/\/$/, "") ?? "";
 const SUPABASE_ANON_KEY = env.SUPABASE_ANON_KEY ?? "";
 export const useSupabase = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
+export const previewFuture = env.PREVIEW_FUTURE === "1";
 
 const COLUMNS = "slug,title,description,body_md,tool,published_at,content_updated_at,author_slug";
 
@@ -45,22 +50,28 @@ export function updatedDay(row) {
   return upd && upd > pub ? upd : undefined;
 }
 
-/** Local Markdown guides: { slug: lastmodDay } for the sitemap. */
-export function localGuideDates() {
+/** Every local guide file as an articles row (drafts and scheduled included). */
+export function localRows() {
   const dir = new URL("../content/guides/", import.meta.url);
-  const map = {};
-  for (const file of readdirSync(dir).filter((f) => f.endsWith(".md"))) {
-    const fm = readFileSync(new URL(file, dir), "utf8").split("---")[1] ?? "";
-    if (/^draft:\s*true/m.test(fm)) continue;
-    const pick = (k) => fm.match(new RegExp(`^${k}:\\s*["']?([0-9-]+)`, "m"))?.[1];
-    map[file.replace(/\.md$/, "")] = pick("updated") ?? pick("published");
-  }
-  return map;
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => guideRow(f, readFileSync(new URL(f, dir), "utf8")));
 }
 
-/** { slug: lastmodDay } from whichever source is active. */
+/** Local guides that would be live right now, newest first. */
+export function localLiveArticles(now = new Date()) {
+  return localRows()
+    .filter((r) => r.status === "published" && (previewFuture || new Date(r.published_at) <= now))
+    .sort((a, b) => b.published_at.localeCompare(a.published_at));
+}
+
+/** Live articles from whichever source is active. */
+export async function liveArticles() {
+  return useSupabase ? fetchLiveArticles() : localLiveArticles();
+}
+
+/** { slug: lastmodDay } for the sitemap. */
 export async function guideLastmods() {
-  if (!useSupabase) return localGuideDates();
-  const rows = await fetchLiveArticles();
+  const rows = await liveArticles();
   return Object.fromEntries(rows.map((r) => [r.slug, updatedDay(r) ?? day(r.published_at)]));
 }

@@ -1,0 +1,104 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import SafetyNote from "../components/SafetyNote.astro";
+import DeckCalculator from "../components/calculators/DeckCalculator.tsx";
+import { DECKING_SPANS, SOUTHERN_PINE_JOIST_SPANS, deckEstimate } from "../lib/calc/deck.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/deck-calculator/");
+const lead = deckEstimate({ lengthFt: 16, widthFt: 12, boardLengthFt: 16, wastePct: 5 });
+const sizes = [[8, 8], [10, 10], [12, 12], [16, 12], [20, 12], [16, 16], [24, 16]].map(([l, w]) => {
+  const pick = [8, 10, 12, 16, 20].includes(l) ? l : 16;
+  const r = deckEstimate({ lengthFt: l, widthFt: w, boardLengthFt: pick, wastePct: 5 });
+  return { size: `${l} × ${w} ft`, board: pick, ...r };
+});
+const ex = deckEstimate({ lengthFt: 20, widthFt: 12, boardLengthFt: 16, wastePct: 5 });
+const ex20 = deckEstimate({ lengthFt: 20, widthFt: 12, boardLengthFt: 20, wastePct: 5 });
+---
+<ToolLayout
+  tool="deck"
+  title="Deck Calculator"
+  description="Count deck boards, joists and screws for a rectangular deck. Uses real board lengths, reuses long offcuts and shows joist spacing limits from the IRC."
+  lead={`Divide the deck's width by the board width plus the gap to get rows, then fill each row with boards. A 16 × 12 ft deck with 5.5 in boards and 3/16 in gaps takes ${lead.rows} rows: ${lead.boards} sixteen-foot boards with 5% extra, ${lead.joists} joists and about ${fmt(lead.screws, 0)} screws.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "5/4 wood decking, max joist spacing", value: `${DECKING_SPANS[0].perpendicular} in` },
+    { label: "Same, laid diagonally", value: `${DECKING_SPANS[0].diagonal} in` },
+    { label: "2x wood decking, max spacing", value: `${DECKING_SPANS[1].perpendicular} in` },
+    { label: "16 × 12 ft deck", value: `${lead.boards} boards (16 ft)` },
+  ]}
+  sources={[
+    { label: "Anne Arundel County deck guide, based on the 2021 IRC (Tables R507.6 and R507.7)", href: "https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf" },
+    { label: "American Wood Council: DCA 6, Prescriptive Residential Wood Deck Construction Guide", href: "https://awc.org/publications/dca/dca6/" },
+    { label: "Methodology: deck formulas", href: "/methodology/" },
+  ]}
+>
+  <DeckCalculator slot="calculator" client:load />
+
+  <h2>How to use the deck calculator</h2>
+  <p><strong>Length</strong> is the direction your deck boards run; <strong>width</strong> is the distance across them. On most attached decks the boards run parallel to the house, so the length is the side along the house.</p>
+  <p>Enter the board's actual face width: a nominal 6 in deck board, wood or composite, is about 5.5 in wide. Choose the board length you'll buy. Longer boards mean fewer butt joints but cost more per foot and are harder to haul. The gap is the space between boards; composite makers usually specify it, often 3/16 in.</p>
+
+  <h2>How the boards are counted</h2>
+  <ul>
+    <li><strong>Rows</strong> = deck width (in) ÷ (board width + gap), rounded up</li>
+    <li><strong>Boards</strong>: each row is filled with as few full boards as possible. When a row needs a short piece, an offcut of 2 ft or longer from an earlier row is used first.</li>
+    <li><strong>Extra</strong>: 5% more boards for splits, warped boards and a bad cut</li>
+    <li><strong>Joists</strong> = deck length (in) ÷ joist spacing + 1, not counting rim or doubled joists</li>
+    <li><strong>Screws</strong> = rows × joists × 2 (two screws where each board crosses each joist)</li>
+  </ul>
+  <p>Butt joints between boards must land on a joist, and many builders double the joist there. If you plan joints in advance, a pattern of 16 ft and 8 ft boards can stagger them neatly.</p>
+
+  <h2>Boards for common deck sizes</h2>
+  <p>5.5 in boards, 3/16 in gaps, joists 16 in on center, 5% extra:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Deck</th><th>Board length</th><th>Rows</th><th>Boards</th><th>Joists</th><th>Screws</th></tr></thead>
+      <tbody>
+        {sizes.map((s) => <tr><td class="num">{s.size}</td><td class="num">{s.board} ft</td><td class="num">{s.rows}</td><td class="num">{s.boards}</td><td class="num">{s.joists}</td><td class="num">{fmt(s.screws, 0)}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Joist spacing for deck boards</h2>
+  <p>The IRC limits how far deck boards may span between joists (Table R507.7, boards over three or more joists):</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Decking</th><th>Boards square to joists</th><th>Boards on a 45° diagonal</th></tr></thead>
+      <tbody>
+        {DECKING_SPANS.map((s) => <tr><td>{s.decking}</td><td class="num">{s.perpendicular} in on center</td><td class="num">{s.diagonal} in on center</td></tr>)}
+      </tbody>
+      <caption>Composite and PVC boards: use the span on the product's evaluation report. Many allow 16 in straight and 12 in diagonal.</caption>
+    </table>
+  </div>
+  <p>Joists themselves have span limits by size, species and spacing. For southern pine at a 40 psf live load, the 2021 IRC lists:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Joist</th><th>12 in on center</th><th>16 in on center</th><th>24 in on center</th></tr></thead>
+      <tbody>
+        {SOUTHERN_PINE_JOIST_SPANS.map((r) => <tr><td class="num">{r.size}</td><td class="num">{r.at12}</td><td class="num">{r.at16}</td><td class="num">{r.at24}</td></tr>)}
+      </tbody>
+      <caption>Other species have shorter spans. Cantilevers, snow loads and hot tubs change everything: check your local code.</caption>
+    </table>
+  </div>
+  <SafetyNote>Board counts are for buying materials. Ledger attachment, footings, beams, joist spans and railings are set by your local building code, and most decks need a permit. Confirm the structure with your building department before you build.</SafetyNote>
+
+  <h2>Worked example: a 20 × 12 ft deck with 16 ft boards</h2>
+  <ol>
+    <li>Rows: 12 ft = 144 in. (144 + 3/16) ÷ (5.5 + 3/16) = 25.4, rounded up = <strong>{ex.rows} rows</strong>.</li>
+    <li>Each row is 20 ft: one 16 ft board plus a 4 ft piece. The first row's 4 ft piece comes from a new board, leaving a 12 ft offcut; that offcut supplies the next three rows' 4 ft pieces.</li>
+    <li>Boards: <strong>{ex.boardsBeforeWaste}</strong> before extras, <strong>{ex.boards}</strong> with 5%. With 20 ft boards it would be {ex20.boards} boards and no butt joints at all.</li>
+    <li>Joists at 16 in: 240 ÷ 16 + 1 = <strong>{ex.joists}</strong>, each 12 ft long.</li>
+    <li>Screws: {ex.rows} × {ex.joists} × 2 = <strong>{fmt(ex.screws, 0)}</strong>. Buy a 1,000-count box, or hidden fasteners if your boards use them.</li>
+  </ol>
+
+  <h2>Questions people ask</h2>
+  <h3>How many deck boards do I need for a 12 × 12 deck?</h3>
+  <p>{sizes.find((s) => s.size === "12 × 12 ft")!.boards} twelve-foot boards, with 5.5 in boards, 3/16 in gaps and 5% extra.</p>
+  <h3>Should deck boards run parallel or perpendicular to the house?</h3>
+  <p>Usually parallel, so the joists run out from the house and hang from the ledger. Diagonal boards look good but need closer joist spacing and about 10% more material.</p>
+  <h3>How far apart should deck joists be?</h3>
+  <p>16 in on center is the most common choice and works for 5/4 wood and most composite boards laid straight. Diagonal decking usually needs 12 in.</p>
+</ToolLayout>

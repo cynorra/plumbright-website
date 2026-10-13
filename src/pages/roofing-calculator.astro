@@ -1,0 +1,82 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import RoofingCalculator from "../components/calculators/RoofingCalculator.tsx";
+import { ROOF_STYLES, BUNDLES_PER_SQUARE, pitchMultiplier, pitchAngle, roofEstimate } from "../lib/calc/roofing.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/roofing-calculator/");
+const lead = roofEstimate({ lengthFt: 40, widthFt: 30, rise: 6, style: "gable" });
+const pitches = [2, 3, 4, 5, 6, 7, 8, 9, 10, 12].map((p) => ({ p, m: pitchMultiplier(p), a: pitchAngle(p) }));
+const hip = roofEstimate({ lengthFt: 50, widthFt: 28, rise: 5, style: "hip" });
+const hipRun = 14;
+---
+<ToolLayout
+  tool="roofing"
+  title="Roofing Calculator"
+  description="Estimate roof area from the house footprint and pitch, then squares, shingle bundles, ridge cap, starter strip, drip edge and underlayment for gable and hip roofs."
+  lead={`Multiply the footprint (including overhangs) by the pitch multiplier to get roof area, divide by 100 for squares, add waste and multiply by ${BUNDLES_PER_SQUARE} bundles per square. A 40 × 30 ft gable roof at 6/12 is ${fmt(lead.roofSqFt, 0)} sq ft and takes ${lead.bundles} bundles with 10% waste.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "1 roofing square", value: "100 sq ft" },
+    { label: "Bundles per square (most shingles)", value: `${BUNDLES_PER_SQUARE}` },
+    { label: "6/12 pitch multiplier", value: `${fmt(pitchMultiplier(6), 3)}` },
+    { label: "Waste, gable / hip", value: `${ROOF_STYLES.gable.wastePct}% / ${ROOF_STYLES.hip.wastePct}%` },
+  ]}
+  sources={[
+    { label: "GAF: how many bundles of shingles are in a square", href: "https://www.gaf.com/en-us/blog/your-home/how-many-bundles-of-shingles-are-in-a-square---63a47862-f7e1-4e73-abcf-8d09917a8b8d" },
+    { label: "Methodology: roofing formulas", href: "/methodology/" },
+  ]}
+>
+  <RoofingCalculator slot="calculator" client:load />
+
+  <h2>How to use the roofing calculator</h2>
+  <p>You don't need to climb on the roof. Measure the house's footprint from the ground, then add the overhangs: if the eaves stick out 12 in on each side, add 2 ft to each dimension. Choose the pitch and whether the roof is a gable (two slopes meeting at a ridge, flat triangle ends) or a hip (four slopes).</p>
+  <p>Not sure of the pitch? From the attic, hold a level against a rafter, measure 12 in along the level, and measure straight up to the rafter. That number is the rise: 6 in means 6/12.</p>
+
+  <h2>How roof area is calculated</h2>
+  <p>A sloped roof covers more area than the footprint under it. The <strong>pitch multiplier</strong> converts one to the other:</p>
+  <ul>
+    <li><strong>Pitch multiplier</strong> = √(1 + (rise ÷ 12)²)</li>
+    <li><strong>Roof area</strong> = footprint length × width × multiplier. This works for gable and hip roofs alike, as long as every plane has the same pitch.</li>
+    <li><strong>Squares</strong> = roof area ÷ 100</li>
+    <li><strong>Bundles</strong> = squares × (1 + waste) × bundles per square, rounded up</li>
+  </ul>
+
+  <h2>Pitch multiplier chart</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pitch</th><th>Angle</th><th>Multiplier</th><th>1,000 sq ft footprint becomes</th></tr></thead>
+      <tbody>
+        {pitches.map((r) => <tr><td class="num">{r.p}/12</td><td class="num">{fmt(r.a, 1)}°</td><td class="num">{fmt(r.m, 3)}</td><td class="num">{fmt(1000 * r.m, 0)} sq ft</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Edges and trim</h2>
+  <ul>
+    <li><strong>Starter strip</strong> runs along the eaves, and many installers also run it up the rakes of a gable.</li>
+    <li><strong>Drip edge</strong> covers eaves and rakes, sold in 10 ft pieces.</li>
+    <li><strong>Ridge cap</strong> covers the ridge and, on a hip roof, every hip. Hip length per foot of run is √(2 + (rise ÷ 12)²).</li>
+    <li><strong>Underlayment</strong>: synthetic rolls often cover 10 squares; felt rolls cover far less. Check the roll's label.</li>
+  </ul>
+
+  <h2>Worked example: a hip roof</h2>
+  <p>A 48 × 26 ft house with 12 in overhangs is a 50 × 28 ft footprint. The roof is a 5/12 hip.</p>
+  <ol>
+    <li>Multiplier: √(1 + (5 ÷ 12)²) = <strong>{fmt(hip.multiplier, 3)}</strong>.</li>
+    <li>Roof area: 50 × 28 × {fmt(hip.multiplier, 3)} = <strong>{fmt(hip.roofSqFt, 0)} sq ft</strong> = {fmt(hip.squares)} squares.</li>
+    <li>With 15% waste for a hip roof: {fmt(hip.squaresWithWaste)} squares × 3 = <strong>{hip.bundles} bundles</strong>.</li>
+    <li>Ridge: 50 − 28 = {fmt(hip.ridgeFt, 0)} ft. Each hip: {hipRun} ft run × √(2 + (5 ÷ 12)²) = {fmt(hip.hipsFt / 4, 1)} ft, four of them = {fmt(hip.hipsFt, 0)} ft. Ridge cap: <strong>{fmt(hip.ridgeCapFt, 0)} ft</strong>.</li>
+    <li>Eaves all the way around: 2 × (50 + 28) = <strong>{fmt(hip.eavesFt, 0)} ft</strong> of starter and drip edge ({hip.dripEdgePieces} pieces).</li>
+  </ol>
+
+  <h2>Questions people ask</h2>
+  <h3>How many bundles of shingles do I need for 1,000 sq ft of roof?</h3>
+  <p>1,000 sq ft is 10 squares. With 10% waste, 11 squares × 3 = 33 bundles of standard 3-tab or architectural shingles.</p>
+  <h3>Does every shingle come 3 bundles to a square?</h3>
+  <p>Most do, but not all. Some heavier designer shingles come 4 or even 5 bundles to a square. The wrapper states the coverage per bundle; trust it over any rule of thumb.</p>
+  <h3>How much waste should I add?</h3>
+  <p>About 10% for a simple gable roof and 15% for a hip roof or a cut-up roof with valleys and dormers. Ridge cap is usually bought separately from field shingles.</p>
+</ToolLayout>
