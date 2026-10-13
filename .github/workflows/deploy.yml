@@ -1,0 +1,66 @@
+# Build from Supabase, deploy to Cloudflare Pages, then ping IndexNow.
+#
+# Runs:
+#  - on every push to main (code or local guide changes)
+#  - every day at 13:05 UTC, so scheduled articles go live on their date
+#  - when Supabase calls it (Database Webhook -> repository_dispatch "articles-changed")
+#  - by hand from the Actions tab
+#
+# Repository secrets needed:
+#   SUPABASE_URL, SUPABASE_ANON_KEY            (read-only; the service key is NOT needed here)
+#   CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
+# Repository variable:
+#   CLOUDFLARE_PAGES_PROJECT                   (the Pages project name)
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "5 13 * * *"
+  repository_dispatch:
+    types: [articles-changed]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Calculator tests
+        run: npm test
+
+      - name: Build (guides come from Supabase)
+        run: npm run build
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+
+      - name: Refuse to ship a noindexed production site
+        run: |
+          if grep -l 'content="noindex' dist/*.html dist/*/index.html | grep -v '^dist/404.html$'; then
+            echo "noindex found on a public page"; exit 1
+          fi
+
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler@4.142.0 pages deploy dist --project-name "${{ vars.CLOUDFLARE_PAGES_PROJECT }}" --branch main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Tell IndexNow what changed in the last 2 days
+        run: npm run indexnow -- --since "$(date -u -d '2 days ago' +%F)"
+        continue-on-error: true

@@ -25,7 +25,10 @@ Node 22 veya üstü gerekir.
 | `src/lib/calc/` | Hesaplama mantığı (beton, fayans, boya). Tarayıcıda, build sırasında tablolarda ve testlerde aynı kod çalışır. |
 | `tests/calc.test.js` | Elle doğrulanmış örneklerle testler. Formül değiştirirsen önce testi güncelle. |
 | `src/pages/*-calculator.astro` | Araç sayfaları: hesaplayıcı + formül + örnek + tablolar + SSS. |
-| `src/content/guides/*.md` | Blog yazıları. |
+| `src/content/guides/*.md` | Yazıların Markdown kaynağı; `push-guides` ile Supabase'e yüklenir. Supabase ayarlı değilse site doğrudan bunları kullanır. |
+| `src/lib/articles-source.js` | Yazıları Supabase'den (ya da yerelden) okuyan tek nokta; içerik koleksiyonu ve sitemap bunu kullanır. |
+| `supabase/` | Veritabanı şeması (migration) ve isteğe bağlı otomatik yayın tetikleyicisi. |
+| `.github/workflows/deploy.yml` | Build, Cloudflare yükleme ve IndexNow; her gün ve her değişiklikte. |
 | `src/components/ui/` | shadcn/ui bileşenleri (button, input, label, card, tabs, select, switch, separator, badge, dropdown-menu, sheet, tooltip, toggle-group). |
 | `src/components/motion/` | Mikro animasyonlar: sonuç sayılarının yaylı geçişi (Motion Primitives'ten uyarlandı, MIT) ve kayan seçim göstergesi. Hareket azaltma tercihine uyar. |
 | `src/components/calculators/` | Hesaplayıcı adacıkları. Girilen değerler adres çubuğuna yazılır, sonuç link olarak paylaşılabilir. |
@@ -72,9 +75,44 @@ Yayına aldıktan sonra senin yapacakların:
 
 Hiçbir araç bir sayfanın AI cevaplarında ne zaman ve nasıl görüneceğini garanti etmez; yapabileceğimiz, sayfaların taranabilir, güncel ve alıntılanabilir olmasını sağlamak.
 
-## Yeni yazı eklemek
+## Backend: yazılar Supabase'de
 
-`src/content/guides/` içine `yazi-adi.md` oluştur:
+```
+Supabase (articles tablosu)  --build sırasında okunur-->  Astro  -->  statik HTML  -->  Cloudflare Pages
+        ^                                                                                  |
+        | push-guides.mjs (servis anahtarı, senin bilgisayarın)        IndexNow bildirimi <-+
+```
+
+- Yazılar Supabase'de durur, site **build sırasında** onları çeker ve düz HTML'e çevirir. Ziyaretçi ve tarayıcı tarafında Supabase'e hiç istek gitmez: hız, SEO ve güvenlik için en sağlam yol.
+- Herkese açık okuma Row Level Security ile sınırlı: anonim anahtar sadece `status = 'published'` ve yayın zamanı geçmiş yazıları görür, hiçbir şey yazamaz.
+- `published_at` ileri bir tarihse yazı zamanlanmış olur; günlük build o tarih gelince yayınlar. Yazıları 3–4 haftaya yaymak için bunu kullan.
+- Bir yazının metni değişince `content_updated_at` otomatik atanır; sitedeki "Updated" tarihi ve sitemap `lastmod` buradan gelir. Sadece durum değişirse tarih değişmez.
+- Supabase'e ulaşılamazsa build hata verir ve yayın yapılmaz; canlı site eski haliyle kalır. Yazısı eksik bir site asla yayına çıkmaz.
+- Supabase ayarlı değilse (`.env` yoksa) site `src/content/guides/` içindeki Markdown dosyalarını kullanır.
+
+### Kurulum (bir kez)
+
+1. supabase.com'da proje aç (bölge: ABD).
+2. **SQL Editor**'de `supabase/migrations/20261013000000_articles.sql` dosyasını çalıştır. Supabase CLI kullanıyorsan `supabase db push`.
+3. **Project Settings > API**'den URL, `anon` ve `service_role` anahtarlarını al; `.env.example` dosyasını `.env` olarak kopyalayıp doldur.
+4. Mevcut yazıları yükle: `npm run push-guides`.
+5. GitHub reposunda **Settings > Secrets and variables > Actions**:
+   - Secrets: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `CLOUDFLARE_API_TOKEN` (yetki: Cloudflare Pages: Edit), `CLOUDFLARE_ACCOUNT_ID`
+   - Variable: `CLOUDFLARE_PAGES_PROJECT` (Pages proje adı)
+   - Servis anahtarını buraya **koyma**; build'in buna ihtiyacı yok.
+6. Cloudflare'de Pages projesini **Direct Upload** türünde oluştur (Git bağlantısı olmadan); yayını GitHub Actions yapıyor, iki ayrı build çakışmasın.
+7. İsteğe bağlı: yazı değişince beklemeden yayın için `supabase/optional/deploy_on_change.sql` (içindeki adımları izle). Bu olmadan da her gün 13:05 UTC'de otomatik build var.
+
+### Yeni yazı yayınlamak
+
+1. `src/content/guides/` içine Markdown dosyası yaz (aşağıdaki şablon), `npm run dev` ile kontrol et.
+2. Yayın tarihini `published` alanına yaz. Bugün ise hemen, ileri bir tarihse o gün yayınlanır. Taslak için `draft: true`.
+3. `npm run push-guides yazi-adi` ile sadece o yazıyı yükle (`--dry-run` ile önce ne olacağını gör).
+4. Yayın: anında (webhook kuruluysa), Actions sekmesinden elle ya da ertesi günkü otomatik build ile. Build sonrası IndexNow bildirimi otomatik.
+
+Supabase panelinden de düzenleme yapabilirsin (Table Editor); kısıtlar hatalı slug, eksik açıklama ve tarihsiz yayını reddeder.
+
+### Dosya şablonu
 
 ```markdown
 ---
@@ -89,10 +127,9 @@ tool: tile        # concrete | tile | paint
 
 Kurallar:
 - `published` gerçek yayın tarihi olsun; geriye tarih atma.
-- Yeni bir sayfa (yazı dışında) eklersen tarihini `src/page-dates.js` dosyasına da ekle; eklemezsen build hata verir.
-- İçerik değişmediyse `updated` ekleme.
-- Tablolardaki rakamları elle yazma; `node` ile `src/lib/calc/` fonksiyonlarını çalıştırıp çıkan değerleri kullan.
-- Taslak için `draft: true` ekle; yayında görünmez.
+- Yazı dışında yeni bir sayfa eklersen tarihini `src/page-dates.js` dosyasına ekle; eklemezsen build hata verir.
+- Tablolardaki rakamları elle yazma; `src/lib/calc/` fonksiyonlarını `node` ile çalıştırıp çıkan değerleri kullan.
+- Sadece değişen yazıyı yükle. Hepsini yeniden yüklemek zarar vermez, ama gereksiz build tetikler.
 
 ## Yayına almadan önce yapılacaklar
 
@@ -104,14 +141,11 @@ Kurallar:
 - [ ] `src/pages/methodology.astro` içindeki "Sources" bölümünde her kaynağı kontrol ettiğin sayfaya linkle (torba verimi, boya kapsama oranı, IRC).
 - [ ] İletişim formu istersen bir form servisi (Formspree, Basin vb.) aç ve `contactFormEndpoint` alanına URL'yi yaz.
 
-## Cloudflare Pages ile yayın
+## Yayın
 
-1. Projeyi GitHub'a yükle.
-2. Cloudflare Pages → Create project → GitHub reposunu seç.
-3. Build command: `npm run build`, Output directory: `dist`, ortam değişkeni `NODE_VERSION=22`.
-4. Custom domain bölümünden domaini bağla.
-5. Cloudflare'de **Security → Bots** ayarlarında yapay zekâ/bot engelleme açıksa Googlebot ve AdSense tarayıcısının (Mediapartners-Google) engellenmediğini kontrol et.
-6. Google Search Console'a domaini ekle, `https://alanadin.com/sitemap-index.xml` site haritasını gönder.
+Yayın `.github/workflows/deploy.yml` ile otomatik: testler, Supabase'den build, canlı sitede `noindex` kontrolü, Cloudflare Pages'e yükleme ve IndexNow bildirimi. Kurulum adımları yukarıda "Backend" bölümünde.
+
+Cloudflare'de domaini Pages projesine bağladıktan sonra **AI Crawl Control / Bots** ayarlarını "Tüm arama motorlarında ve yapay zekâlarda indekslenme" bölümündeki gibi kontrol et.
 
 ## AdSense başvurusu
 
