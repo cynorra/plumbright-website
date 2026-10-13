@@ -27,7 +27,7 @@ Node 22 veya üstü gerekir.
 | `src/pages/*-calculator.astro` | Araç sayfaları: hesaplayıcı + formül + örnek + tablolar + SSS. |
 | `src/content/guides/*.md` | Blog yazıları. |
 | `src/components/ui/` | shadcn/ui bileşenleri (button, input, label, card, tabs, select, switch, separator, badge, dropdown-menu, sheet, tooltip, toggle-group). |
-| `src/components/motion/` | Mikro animasyonlar: sonuç sayılarının yaya geçişi (Motion Primitives'ten uyarlandı, MIT) ve kayan seçim göstergesi. Hareket azaltma tercihine uyar. |
+| `src/components/motion/` | Mikro animasyonlar: sonuç sayılarının yaylı geçişi (Motion Primitives'ten uyarlandı, MIT) ve kayan seçim göstergesi. Hareket azaltma tercihine uyar. |
 | `src/components/calculators/` | Hesaplayıcı adacıkları. Girilen değerler adres çubuğuna yazılır, sonuç link olarak paylaşılabilir. |
 | `scripts/make-images.mjs` | Paylaşım görseli (og.png) ve ikonları üretir. Marka adını değiştirince tekrar çalıştır. |
 | `scripts/browser-check.mjs` | Gerçek tarayıcıda iki tema ve iki ekran genişliğinde ekran görüntüsü, taşma, konsol hatası ve etkileşim testleri. |
