@@ -1,11 +1,12 @@
 ---
+import { pageDates } from "../page-dates.js";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE } from "../site.config.js";
 ---
 <PageLayout
   title="Terms of Use"
   description={`The terms for using ${SITE.name}'s calculators and guides, including the limits of estimates and how content may be shared.`}
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/terms/").updated ?? pageDates("/terms/").published}
 >
   <p>By using {SITE.name} ({SITE.domain}) you agree to these terms. If you do not agree, please do not use the site.</p>
 

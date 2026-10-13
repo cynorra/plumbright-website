@@ -1,11 +1,12 @@
 ---
+import { pageDates } from "../page-dates.js";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE } from "../site.config.js";
 ---
 <PageLayout
   title="Disclaimer"
   description={`${SITE.name}'s calculators give planning estimates. What they can and cannot tell you, and when to check with a building department or professional.`}
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/disclaimer/").updated ?? pageDates("/disclaimer/").published}
 >
   <p>{SITE.name}'s calculators estimate the amount of material a project needs. They are a planning aid, not a design tool.</p>
 

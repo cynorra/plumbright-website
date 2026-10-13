@@ -1,4 +1,5 @@
 ---
+import { pageDates } from "../../page-dates.js";
 import PageLayout from "../../layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import { AUTHOR, SITE } from "../../site.config.js";
@@ -20,7 +21,7 @@ const person = {
 <PageLayout
   title={AUTHOR.name}
   description={`${AUTHOR.name} builds the calculators on ${SITE.name} and writes its guides. Background, how he works and how to reach him.`}
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/author/eren-simsir/").updated ?? pageDates("/author/eren-simsir/").published}
   extraSchema={[person]}
 >
   <p><strong>{AUTHOR.name}</strong> is the founder and editor of {SITE.name}. He builds every calculator on the site and writes the guides that explain them.</p>

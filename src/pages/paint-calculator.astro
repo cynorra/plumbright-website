@@ -1,4 +1,5 @@
 ---
+import { pageDates } from "../page-dates.js";
 import ToolLayout from "../layouts/ToolLayout.astro";
 import PaintCalculator from "../components/calculators/PaintCalculator.tsx";
 import { roomArea, paintEstimate, DOOR_SQFT, WINDOW_SQFT, DEFAULT_COVERAGE } from "../lib/calc/paint.js";
@@ -30,7 +31,8 @@ const leadP = paintEstimate({ areaSqFt: leadA.walls, coats: 2 });
   title="Paint Calculator"
   description="Estimate gallons of paint and primer for a room. Subtracts doors and windows, handles ceilings and multiple coats, and tells you how many gallons and quarts to buy."
   lead={`Enter the room size, openings and number of coats to see how much paint to buy. Two coats on the walls of a 12 × 12 ft bedroom with 8 ft ceilings, one door and one window, take about ${fmt(leadP.paintGallons, 1)} gallons.`}
-  published={new Date("2026-10-13")}
+  published={pageDates("/paint-calculator/").published}
+  updated={pageDates("/paint-calculator/").updated}
   facts={[
     { label: "One gallon covers", value: "250–400 sq ft" },
     { label: "Standard interior door", value: `${DOOR_SQFT} sq ft` },

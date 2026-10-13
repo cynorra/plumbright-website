@@ -1,4 +1,5 @@
 ---
+import { pageDates } from "../page-dates.js";
 import PageLayout from "../layouts/PageLayout.astro";
 import { BAG_YIELDS } from "../lib/calc/concrete.js";
 import { LAYOUTS } from "../lib/calc/tile.js";
@@ -7,7 +8,7 @@ import { DOOR_SQFT, WINDOW_SQFT, DEFAULT_COVERAGE } from "../lib/calc/paint.js";
 <PageLayout
   title="Methodology"
   description="Every formula, constant and assumption behind the concrete, tile and paint calculators, with where each figure comes from and how results are rounded."
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/methodology/").updated ?? pageDates("/methodology/").published}
 >
   <p>This page lists every formula and constant the calculators use. The values shown here are read from the same code that runs the calculators, so they always match.</p>
 

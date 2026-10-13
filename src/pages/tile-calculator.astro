@@ -1,4 +1,5 @@
 ---
+import { pageDates } from "../page-dates.js";
 import ToolLayout from "../layouts/ToolLayout.astro";
 import TileCalculator from "../components/calculators/TileCalculator.tsx";
 import { LAYOUTS, tileEstimate, tileCoverageSqFt } from "../lib/calc/tile.js";
@@ -20,7 +21,8 @@ const lead100 = tileEstimate({ areaSqFt: 100, tileWidthIn: 12, tileLengthIn: 12,
   title="Tile Calculator"
   description="Find how many tiles and boxes you need for a floor or wall. Accounts for grout joint width and layout waste: straight, offset, diagonal or herringbone."
   lead={`Enter the room size, the tile size and your layout to see how many tiles and boxes to buy. A 100 sq ft floor in 12 × 12 in tile with 1/8 in grout and 10% waste takes ${lead100.tiles} tiles.`}
-  published={new Date("2026-10-13")}
+  published={pageDates("/tile-calculator/").published}
+  updated={pageDates("/tile-calculator/").updated}
   facts={[
     { label: "Waste, straight or offset layout", value: `${LAYOUTS.straight.wastePct}%` },
     { label: "Waste, diagonal layout", value: `${LAYOUTS.diagonal.wastePct}%` },

@@ -1,11 +1,12 @@
 ---
+import { pageDates } from "../page-dates.js";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE, AUTHOR } from "../site.config.js";
 ---
 <PageLayout
   title={`About ${SITE.name}`}
   description={`${SITE.name} makes material calculators for home projects that show their formulas, assumptions and worked examples. Who runs it and how it works.`}
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/about/").updated ?? pageDates("/about/").published}
 >
   <p>{SITE.name} helps you work out how much concrete, tile, paint and other material a home project needs before you buy it. Each calculator shows the formula it uses, the assumptions behind it and a worked example, so you can check the result yourself.</p>
 

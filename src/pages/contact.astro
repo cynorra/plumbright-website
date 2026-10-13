@@ -1,4 +1,5 @@
 ---
+import { pageDates } from "../page-dates.js";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE } from "../site.config.js";
 const endpoint = SITE.contactFormEndpoint;
@@ -6,7 +7,7 @@ const endpoint = SITE.contactFormEndpoint;
 <PageLayout
   title="Contact"
   description={`Contact ${SITE.name} to report an error, suggest a calculator or ask a question about a guide.`}
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/contact/").updated ?? pageDates("/contact/").published}
 >
   <p>Email <strong><a href={`mailto:${SITE.email}`}>{SITE.email}</a></strong>. Replies usually come within two business days.</p>
 

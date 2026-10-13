@@ -1,4 +1,5 @@
 ---
+import { pageDates } from "../page-dates.js";
 import ToolLayout from "../layouts/ToolLayout.astro";
 import ConcreteCalculator from "../components/calculators/ConcreteCalculator.tsx";
 import SafetyNote from "../components/SafetyNote.astro";
@@ -42,7 +43,8 @@ const postRows = [
   title="Concrete Calculator"
   description="Work out cubic yards and the number of 40, 50, 60 or 80 lb bags for a slab, a round column or fence post holes, with waste included and the formula shown."
   lead={lead}
-  published={new Date("2026-10-13")}
+  published={pageDates("/concrete-calculator/").published}
+  updated={pageDates("/concrete-calculator/").updated}
   facts={[
     { label: "1 cubic yard", value: "27 cu ft" },
     { label: "80 lb bag of standard mix yields", value: "≈ 0.60 cu ft" },

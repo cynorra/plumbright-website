@@ -21,6 +21,19 @@ export const SITE = {
 
   // Filled in after AdSense approval. Keep empty until then.
   adsensePublisherId: "",
+
+  // Search engine ownership verification (meta tag method). Paste only the
+  // content="..." value each tool gives you. Bing can also import from Google
+  // Search Console, in which case its tag is not needed.
+  verification: {
+    google: "",
+    bing: "", // msvalidate.01
+    yandex: "",
+  },
+
+  // IndexNow key (Bing, Yandex, Seznam, Naver and others). Served at
+  // /indexnow-key.txt. Any 8–128 character hex string works; keep it stable.
+  indexNowKey: "d28c5a05a99f5176adf74a2dd2414fd5",
 };
 
 export const AUTHOR = {

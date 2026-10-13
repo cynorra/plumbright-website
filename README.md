@@ -52,6 +52,26 @@ Tema renkleri `src/styles/global.css` içindeki `:root` ve `.dark` bloklarında.
 - `robots.txt` Googlebot ve AdSense tarayıcısına açık; site haritası otomatik.
 - Open Graph ve Twitter kartları, her sayfada canonical, yayın ve güncelleme tarihleri.
 
+## Tüm arama motorlarında ve yapay zekâlarda indekslenme
+
+Kod tarafı hazır:
+- `robots.txt` tüm arama motorlarına ve AI tarayıcılarına (Googlebot, Bingbot, Applebot, OAI-SearchBot, Claude-SearchBot, PerplexityBot, GPTBot, ClaudeBot, CCBot ve diğerleri) adıyla açık. İstemediğin satırı `src/pages/robots.txt.ts` içinden sil.
+- Sitemap'te her sayfanın gerçek içerik tarihi `lastmod` olarak var. Tarihler `src/page-dates.js` (sayfalar) ve yazıların frontmatter'ı (`published` / `updated`) üzerinden geliyor. **Bir sayfanın tarihini sadece içeriği değiştiğinde güncelle**; Bing ve Google yeniden taramayı buna göre yapıyor.
+- IndexNow: anahtar `src/site.config.js` içinde, `/indexnow-key.txt` adresinde yayında.
+- Her sayfada `max-snippet:-1, max-image-preview:large` robots etiketi: arama motorları ve AI özetleri sayfadan istediği uzunlukta alıntı yapabilir.
+- Doğrulama etiketleri için `SITE.verification` alanları hazır.
+
+Yayına aldıktan sonra senin yapacakların:
+
+1. **Google Search Console:** Domaini ekle (DNS doğrulaması en kolayı), `sitemap-index.xml` gönder. Google AI Overviews ve Gemini, Google dizinini kullanıyor.
+2. **Bing Webmaster Tools:** "Import from Google Search Console" ile tek tıkla ekle. Sitemap'i gönder. Bing dizini Copilot'u ve DuckDuckGo sonuçlarını besliyor.
+3. **IndexNow:** Her yayından sonra `npm run build && npm run indexnow -- --since YYYY-MM-DD` (o tarihten beri değişen sayfalar). Bing, Yandex, Seznam ve Naver'a anında bildirir. Google IndexNow kullanmaz, sitemap'i okur.
+4. **Yandex Webmaster** (isteğe bağlı): ABD trafiği için şart değil.
+5. **Cloudflare ayarları (kritik):** Cloudflare, reklam gösteren sayfalarda AI tarayıcılarını varsayılan olarak engelleyebiliyor ve robots.txt'ye kendi satırlarını ekleyebiliyor. Panelde **AI Crawl Control / Bots** bölümünde arama ve AI tarayıcılarının **izinli** olduğunu, "managed robots.txt" özelliğinin kapalı olduğunu kontrol et. Sonra `https://alanadin.com/robots.txt` adresini aç ve dosyanın bu projedekiyle aynı olduğunu doğrula.
+6. **Kontrol:** Bing Webmaster Tools'taki URL denetimi ve Search Console'daki "URL Denetimi" ile birkaç sayfanın canlı halini test et.
+
+Hiçbir araç bir sayfanın AI cevaplarında ne zaman ve nasıl görüneceğini garanti etmez; yapabileceğimiz, sayfaların taranabilir, güncel ve alıntılanabilir olmasını sağlamak.
+
 ## Yeni yazı eklemek
 
 `src/content/guides/` içine `yazi-adi.md` oluştur:
@@ -69,6 +89,7 @@ tool: tile        # concrete | tile | paint
 
 Kurallar:
 - `published` gerçek yayın tarihi olsun; geriye tarih atma.
+- Yeni bir sayfa (yazı dışında) eklersen tarihini `src/page-dates.js` dosyasına da ekle; eklemezsen build hata verir.
 - İçerik değişmediyse `updated` ekleme.
 - Tablolardaki rakamları elle yazma; `node` ile `src/lib/calc/` fonksiyonlarını çalıştırıp çıkan değerleri kullan.
 - Taslak için `draft: true` ekle; yayında görünmez.

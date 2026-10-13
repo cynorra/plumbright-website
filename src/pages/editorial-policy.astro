@@ -1,11 +1,12 @@
 ---
+import { pageDates } from "../page-dates.js";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE, AUTHOR } from "../site.config.js";
 ---
 <PageLayout
   title="Editorial Policy"
   description={`How ${SITE.name} writes, checks and updates its calculators and guides, how AI tools are used, and how corrections are handled.`}
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/editorial-policy/").updated ?? pageDates("/editorial-policy/").published}
 >
   <p>Every page on {SITE.name} is written and reviewed by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>. This page explains how.</p>
 

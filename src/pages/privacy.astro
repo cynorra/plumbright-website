@@ -1,11 +1,12 @@
 ---
+import { pageDates } from "../page-dates.js";
 import PageLayout from "../layouts/PageLayout.astro";
 import { SITE } from "../site.config.js";
 ---
 <PageLayout
   title="Privacy Policy"
   description={`How ${SITE.name} handles data: what the calculators store, how advertising cookies from Google and its partners work, and how to opt out.`}
-  updated={new Date("2026-10-13")}
+  updated={pageDates("/privacy/").updated ?? pageDates("/privacy/").published}
 >
   <p>This policy explains what information {SITE.name} ({SITE.domain}) collects, how it is used and the choices you have. If you have questions, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
 
