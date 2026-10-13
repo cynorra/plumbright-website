@@ -49,6 +49,9 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
+      - name: Every internal link resolves; no guide links to an unpublished one
+        run: node scripts/check-links.mjs
+
       - name: Refuse to ship a noindexed production site
         run: |
           if grep -l 'content="noindex' dist/*.html dist/*/index.html | grep -v '^dist/404.html$'; then

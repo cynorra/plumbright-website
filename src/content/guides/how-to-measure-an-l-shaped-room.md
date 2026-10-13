@@ -12,18 +12,18 @@ To find the area of an L-shaped room, **split it into two rectangles, find the a
 <figure class="my-6">
 <svg viewBox="0 0 370 250" role="img" aria-labelledby="lshape-title" class="w-full max-w-md">
   <title id="lshape-title">An L-shaped room split into rectangle A, 8 by 12 feet, and rectangle B, 6 by 7 feet</title>
-  <rect x="40" y="20" width="160" height="200" fill="var(--accent-soft)" stroke="var(--ink)" stroke-width="2"/>
-  <rect x="200" y="103" width="120" height="117" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
-  <line x1="200" y1="103" x2="200" y2="220" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 4"/>
-  <text x="120" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">A</text>
-  <text x="260" y="168" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">B</text>
-  <text x="120" y="14" text-anchor="middle" font-size="13" fill="var(--muted)">8 ft</text>
-  <text x="260" y="97" text-anchor="middle" font-size="13" fill="var(--muted)">6 ft</text>
-  <text x="180" y="242" text-anchor="middle" font-size="13" fill="var(--muted)">14 ft</text>
-  <text x="30" y="125" text-anchor="end" font-size="13" fill="var(--muted)">12 ft</text>
-  <text x="326" y="166" text-anchor="start" font-size="13" fill="var(--muted)">7 ft</text>
+  <rect x="40" y="20" width="160" height="200" fill="var(--brand-soft)" stroke="var(--foreground)" stroke-width="2"/>
+  <rect x="200" y="103" width="120" height="117" fill="var(--card)" stroke="var(--foreground)" stroke-width="2"/>
+  <line x1="200" y1="103" x2="200" y2="220" stroke="var(--brand)" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="120" y="125" text-anchor="middle" font-size="22" font-weight="700" fill="var(--foreground)">A</text>
+  <text x="260" y="168" text-anchor="middle" font-size="22" font-weight="700" fill="var(--foreground)">B</text>
+  <text x="120" y="14" text-anchor="middle" font-size="13" fill="var(--muted-foreground)">8 ft</text>
+  <text x="260" y="97" text-anchor="middle" font-size="13" fill="var(--muted-foreground)">6 ft</text>
+  <text x="180" y="242" text-anchor="middle" font-size="13" fill="var(--muted-foreground)">14 ft</text>
+  <text x="30" y="125" text-anchor="end" font-size="13" fill="var(--muted-foreground)">12 ft</text>
+  <text x="326" y="166" text-anchor="start" font-size="13" fill="var(--muted-foreground)">7 ft</text>
 </svg>
-<figcaption class="text-sm text-muted mt-2">Cut the L along one wall line. Each piece is a plain rectangle.</figcaption>
+<figcaption class="text-sm text-muted-foreground mt-2">Cut the L along one wall line. Each piece is a plain rectangle.</figcaption>
 </figure>
 
 1. Draw a rough sketch of the room. It does not need to be to scale.

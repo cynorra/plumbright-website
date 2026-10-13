@@ -11,7 +11,7 @@ Sayfalar düz HTML olarak üretilir; JavaScript yalnızca hesaplayıcılar, tema
 ```bash
 npm install
 npm run dev      # http://localhost:4321
-npm test         # hesaplama testleri (11 test)
+npm test         # hesaplama testleri (24 test)
 npm run build    # dist/ klasörüne statik site
 ```
 
@@ -22,8 +22,9 @@ Node 22 veya üstü gerekir.
 | Klasör / dosya | Ne işe yarar |
 | --- | --- |
 | `src/site.config.js` | Marka adı, domain, e-posta, yazar bilgileri, menü. Domain değişirse sadece burayı değiştir. |
-| `src/lib/calc/` | Hesaplama mantığı (beton, fayans, boya). Tarayıcıda, build sırasında tablolarda ve testlerde aynı kod çalışır. |
-| `tests/calc.test.js` | Elle doğrulanmış örneklerle testler. Formül değiştirirsen önce testi güncelle. |
+| `src/lib/tools.js` | 10 hesaplayıcının tek listesi. Menü, hesaplayıcılar sayfası, footer, yazı kenar kutusu, llms.txt ve yazı şemasındaki `tool` alanı buradan okunur. |
+| `src/lib/calc/` | Hesaplama mantığı (beton, fayans+derz, boya, zemin, alçıpan, çakıl, deck, merdiven, çatı, alan). Tarayıcıda, build sırasında tablolarda ve testlerde aynı kod çalışır. |
+| `tests/*.test.js` | Elle doğrulanmış örneklerle testler. Formül değiştirirsen önce testi güncelle. |
 | `src/pages/*-calculator.astro` | Araç sayfaları: hesaplayıcı + formül + örnek + tablolar + SSS. |
 | `src/content/guides/*.md` | Yazıların Markdown kaynağı; `push-guides` ile Supabase'e yüklenir. Supabase ayarlı değilse site doğrudan bunları kullanır. |
 | `src/lib/articles-source.js` | Yazıları Supabase'den (ya da yerelden) okuyan tek nokta; içerik koleksiyonu ve sitemap bunu kullanır. |
@@ -33,6 +34,8 @@ Node 22 veya üstü gerekir.
 | `src/components/motion/` | Mikro animasyonlar: sonuç sayılarının yaylı geçişi (Motion Primitives'ten uyarlandı, MIT) ve kayan seçim göstergesi. Hareket azaltma tercihine uyar. |
 | `src/components/calculators/` | Hesaplayıcı adacıkları. Girilen değerler adres çubuğuna yazılır, sonuç link olarak paylaşılabilir. |
 | `scripts/make-images.mjs` | Paylaşım görseli (og.png) ve ikonları üretir. Marka adını değiştirince tekrar çalıştır. |
+| `scripts/check-links.mjs` | Build sonrası: tüm iç linkler var mı, zamanlanmış bir yazı kendinden sonra yayınlanacak bir yazıya link veriyor mu. Deploy'da otomatik çalışır. |
+| `scripts/reschedule.mjs` | Yayın tarihi kayarsa henüz yayınlanmamış yazıların tarihlerini sırasını bozmadan yeniden dağıtır. |
 | `scripts/browser-check.mjs` | Gerçek tarayıcıda iki tema ve iki ekran genişliğinde ekran görüntüsü, taşma, konsol hatası ve etkileşim testleri. |
 | `src/pages/` diğerleri | Güven sayfaları: about, author, contact, privacy, terms, disclaimer, editorial-policy, methodology, 404. |
 
@@ -88,12 +91,12 @@ Supabase (articles tablosu)  --build sırasında okunur-->  Astro  -->  statik H
 - `published_at` ileri bir tarihse yazı zamanlanmış olur; günlük build o tarih gelince yayınlar. Yazıları 3–4 haftaya yaymak için bunu kullan.
 - Bir yazının metni değişince `content_updated_at` otomatik atanır; sitedeki "Updated" tarihi ve sitemap `lastmod` buradan gelir. Sadece durum değişirse tarih değişmez.
 - Supabase'e ulaşılamazsa build hata verir ve yayın yapılmaz; canlı site eski haliyle kalır. Yazısı eksik bir site asla yayına çıkmaz.
-- Supabase ayarlı değilse (`.env` yoksa) site `src/content/guides/` içindeki Markdown dosyalarını kullanır.
+- Supabase ayarlı değilse (`.env` yoksa) site `src/content/guides/` içindeki Markdown dosyalarını kullanır. Aynı kural geçerli: taslaklar ve tarihi gelmemiş yazılar siteye girmez. Yazarken hepsini görmek için `PREVIEW_FUTURE=1 npm run dev`.
 
 ### Kurulum (bir kez)
 
 1. supabase.com'da proje aç (bölge: ABD).
-2. **SQL Editor**'de `supabase/migrations/20261013000000_articles.sql` dosyasını çalıştır. Supabase CLI kullanıyorsan `supabase db push`.
+2. **SQL Editor**'de `supabase/migrations/` içindeki dosyaları sırayla çalıştır (önce `20261013000000_articles.sql`, sonra `20261014000000_more_tools.sql`). Supabase CLI kullanıyorsan `supabase db push`.
 3. **Project Settings > API**'den URL, `anon` ve `service_role` anahtarlarını al; `.env.example` dosyasını `.env` olarak kopyalayıp doldur.
 4. Mevcut yazıları yükle: `npm run push-guides`.
 5. GitHub reposunda **Settings > Secrets and variables > Actions**:
@@ -119,7 +122,7 @@ Supabase panelinden de düzenleme yapabilirsin (Table Editor); kısıtlar hatal�
 title: "Başlık (en fazla 80 karakter)"
 description: "Meta açıklama, 70–165 karakter."
 published: 2026-10-20
-tool: tile        # concrete | tile | paint
+tool: tile        # concrete | tile | paint | flooring | drywall | gravel | deck | stairs | roofing | area
 ---
 
 İlk paragraf sorunun cevabı...
@@ -129,7 +132,22 @@ Kurallar:
 - `published` gerçek yayın tarihi olsun; geriye tarih atma.
 - Yazı dışında yeni bir sayfa eklersen tarihini `src/page-dates.js` dosyasına ekle; eklemezsen build hata verir.
 - Tablolardaki rakamları elle yazma; `src/lib/calc/` fonksiyonlarını `node` ile çalıştırıp çıkan değerleri kullan.
+- Bir yazıdan başka yazıya link verirken sadece **daha önce** yayınlanan yazılara link ver. `node scripts/check-links.mjs` bunu kontrol eder.
 - Sadece değişen yazıyı yükle. Hepsini yeniden yüklemek zarar vermez, ama gereksiz build tetikler.
+
+## Yayın takvimi (25 yazı)
+
+2 yazı 13 Ekim'de, kalan 23 yazı 14 Ekim – 9 Kasım arasında, Pazartesi–Cumartesi her gün bir tane olacak şekilde zamanlandı. Hepsini bugün Supabase'e yükleyebilirsin (`npm run push-guides`); her biri kendi tarihinde günlük build ile yayına girer ve IndexNow'a bildirilir.
+
+Site bu tarihlerden sonra yayına girecekse, tarihleri kaydır ki hepsi aynı gün çıkmasın:
+
+```bash
+node scripts/reschedule.mjs 2026-11-16 --dry-run   # önce bak
+node scripts/reschedule.mjs 2026-11-16             # uygula
+npm run push-guides                                 # Supabase'i güncelle
+```
+
+`--per-week 4` ile haftada 4 yazıya düşürebilirsin. Sıra korunur, böylece yazılar arası linkler hep yayında olan yazıları gösterir.
 
 ## Yayına almadan önce yapılacaklar
 
@@ -138,7 +156,7 @@ Kurallar:
 - [ ] `public/images/eren-simsir.jpg` olarak gerçek bir fotoğraf koy (yazar kutusu şu an baş harfleri gösteriyor).
 - [ ] `src/pages/author/eren-simsir.astro` içindeki geçmiş bilgilerini gözden geçir; yayınlamak istemediğin satırı sil.
 - [ ] `src/pages/editorial-policy.astro` içindeki yapay zekâ kullanımı paragrafının gerçek çalışma şeklini anlattığından emin ol.
-- [ ] `src/pages/methodology.astro` içindeki "Sources" bölümünde her kaynağı kontrol ettiğin sayfaya linkle (torba verimi, boya kapsama oranı, IRC).
+- [ ] `src/pages/methodology.astro` içindeki "Sources" bölümünde her kaynağı kontrol ettiğin sayfaya linkle (yeni araçların kaynakları linkli; kalanlar: torba verimi ve boya kapsama oranı).
 - [ ] İletişim formu istersen bir form servisi (Formspree, Basin vb.) aç ve `contactFormEndpoint` alanına URL'yi yaz.
 
 ## Yayın
