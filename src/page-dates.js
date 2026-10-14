@@ -5,7 +5,7 @@
 // Guides keep their dates in their own frontmatter (published / updated).
 
 export const PAGE_DATES = {
-  "/": { published: "2026-10-13" },
+  "/": { published: "2026-10-13", updated: "2026-10-14" },
   "/concrete-calculator/": { published: "2026-10-13" },
   "/tile-calculator/": { published: "2026-10-13" },
   "/paint-calculator/": { published: "2026-10-13" },
@@ -16,12 +16,17 @@ export const PAGE_DATES = {
   "/stair-calculator/": { published: "2026-10-13" },
   "/roofing-calculator/": { published: "2026-10-13" },
   "/square-footage-calculator/": { published: "2026-10-13" },
-  "/calculators/": { published: "2026-10-13" },
+  "/calculators/": { published: "2026-10-13", updated: "2026-10-14" },
+  "/mulch-calculator/": { published: "2026-10-14" },
+  "/fence-calculator/": { published: "2026-10-14" },
+  "/brick-calculator/": { published: "2026-10-14" },
+  "/wallpaper-calculator/": { published: "2026-10-14" },
+  "/carpet-calculator/": { published: "2026-10-14" },
   "/guides/": { published: "2026-10-13" },
   "/about/": { published: "2026-10-13" },
   "/author/eren-simsir/": { published: "2026-10-13" },
   "/contact/": { published: "2026-10-13" },
-  "/methodology/": { published: "2026-10-13" },
+  "/methodology/": { published: "2026-10-13", updated: "2026-10-14" },
   "/editorial-policy/": { published: "2026-10-13" },
   "/privacy/": { published: "2026-10-13" },
   "/terms/": { published: "2026-10-13" },

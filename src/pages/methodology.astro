@@ -12,6 +12,9 @@ import { DECKING_SPANS } from "../lib/calc/deck.js";
 import { IRC, toFraction } from "../lib/calc/stairs.js";
 import { BUNDLES_PER_SQUARE, ROOF_STYLES, UNDERLAYMENT_ROLL_SQFT } from "../lib/calc/roofing.js";
 import { SQM_PER_SQFT, SQFT_PER_ACRE } from "../lib/calc/area.js";
+import { UNITS, BRICK_WASTE_PCT, MORTAR_WASTE_PCT, BRICKS_PER_80LB_BAG, BLOCKS_PER_80LB_BAG } from "../lib/calc/masonry.js";
+import { TRIM_IN as WP_TRIM } from "../lib/calc/wallpaper.js";
+import { TRIM_IN as CARPET_TRIM } from "../lib/calc/carpet.js";
 ---
 <PageLayout
   title="Methodology"
@@ -114,6 +117,37 @@ import { SQM_PER_SQFT, SQFT_PER_ACRE } from "../lib/calc/area.js";
     <li>Underlayment: one roll per {UNDERLAYMENT_ROLL_SQFT.toLocaleString("en-US")} sq ft (a typical synthetic roll). Drip edge: 10 ft pieces.</li>
   </ul>
 
+  <h2>Mulch and soil</h2>
+  <ul>
+    <li>Cubic feet = area × depth (in) ÷ 12; cubic yards = cubic feet ÷ 27; bags = cubic feet ÷ bag size (1.5, 2 or 3 cu ft), rounded up. A top-up counts only target depth minus existing depth.</li>
+    <li>Depth guidance from Iowa State University Extension: 3 to 4 in of wood chips or bark on well-drained sites, 2 to 3 in on heavy soils, 6 in clear of trunks.</li>
+  </ul>
+
+  <h2>Fences</h2>
+  <ul>
+    <li>Sections = (length − gate openings) ÷ post spacing, rounded up. Posts = sections + 1 + one per gate. Rails: 2 per section up to 4 ft tall, 3 above.</li>
+    <li>Pickets = fence line ÷ (picket width + gap) + 5%. Concrete per post uses the post-hole formula above, with a 6 in gravel base and 10% extra.</li>
+  </ul>
+
+  <h2>Brick and block</h2>
+  <ul>
+    <li>Units per sq ft and mortar per 1,000 units (3/8 in joints) from BIA Technical Note 10: {Object.values(UNITS).filter((u) => u.mortarPer1000).map((u) => `${u.label} ${u.perSqFt} per sq ft, ${u.mortarPer1000} cu ft mortar per 1,000`).join("; ")}. Concrete block: 1.125 per sq ft.</li>
+    <li>Allowances: {BRICK_WASTE_PCT}% extra units, {MORTAR_WASTE_PCT}% extra mortar (BIA suggests at least 5% and 15 to 25%).</li>
+    <li>Bags: one 80 lb bag of QUIKRETE Mason Mix lays up to {BRICKS_PER_80LB_BAG} standard bricks or {BLOCKS_PER_80LB_BAG} blocks (data sheet). Other brick sizes are converted through mortar volume.</li>
+  </ul>
+
+  <h2>Wallpaper</h2>
+  <ul>
+    <li>Strip length = wall height + {WP_TRIM} in, rounded up to whole pattern repeats; half-drop adds half a repeat. Strips per roll = roll length ÷ strip length, rounded down.</li>
+    <li>Strips = (wall width − 3 ft per door) ÷ roll width, rounded up. Rolls = strips ÷ strips per roll, rounded up. Windows are not subtracted.</li>
+  </ul>
+
+  <h2>Carpet</h2>
+  <ul>
+    <li>Drops = room dimension across the roll ÷ roll width, rounded up; cut length = the other dimension + {CARPET_TRIM} in per end. Both directions are tried and the one using less carpet is shown.</li>
+    <li>Pad = room area + 5%. Tack strip = perimeter − doorways.</li>
+  </ul>
+
   <h2>Sources</h2>
   <!-- TODO: before launch, link each source below to the exact page you checked it against. -->
   <ul>
@@ -124,6 +158,9 @@ import { SQM_PER_SQFT, SQFT_PER_ACRE } from "../lib/calc/area.js";
     <li>Drywall: <a href="https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html" rel="noopener">USG joint compound estimate</a>; screw spacing per ASTM C840 and GA-216 as summarized by <a href="https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board" rel="noopener">Walls &amp; Ceilings</a>.</li>
     <li>Gravel weights: <a href="https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/" rel="noopener">a quarry supplier's published figures</a> and typical supplier ranges.</li>
     <li>Shingles: <a href="https://www.gaf.com/en-us/blog/your-home/how-many-bundles-of-shingles-are-in-a-square---63a47862-f7e1-4e73-abcf-8d09917a8b8d" rel="noopener">GAF on bundles per square</a>.</li>
+    <li>Brick and mortar: <a href="https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf" rel="noopener">BIA Technical Note 10</a>; <a href="https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf" rel="noopener">QUIKRETE Mason Mix data sheet</a>.</li>
+    <li>Mulch depth: <a href="https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs" rel="noopener">Iowa State University Extension</a>.</li>
+    <li>Wallpaper roll sizes: <a href="https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls" rel="noopener">Selected Wallpapers</a> and maker labels.</li>
     <li>Unit conversions: <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" rel="noopener">NIST SP 811, Appendix B</a>.</li>
   </ul>
 

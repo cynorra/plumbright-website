@@ -1,0 +1,82 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import SafetyNote from "../components/SafetyNote.astro";
+import FenceCalculator from "../components/calculators/FenceCalculator.tsx";
+import { fenceEstimate } from "../lib/calc/fence.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/fence-calculator/");
+const lead = fenceEstimate({ lengthFt: 100, gates: 1 });
+const runs = [50, 75, 100, 150, 200].map((L) => ({ L, r8: fenceEstimate({ lengthFt: L, gates: 1 }), r6: fenceEstimate({ lengthFt: L, gates: 1, spacingFt: 6 }) }));
+const picket = fenceEstimate({ lengthFt: 60, heightFt: 4, gates: 1, gateWidthFt: 3.5, picketWidthIn: 3.5, gapIn: 2.5 });
+---
+<ToolLayout
+  tool="fence"
+  title="Fence Calculator"
+  description="Count posts, rails, pickets and bags of concrete for a wood privacy or picket fence, with gates, post spacing and post hole size."
+  lead={`Divide the fence length (minus gates) by the post spacing to get sections; posts = sections + 1, plus one per gate. A 100 ft privacy fence, 6 ft tall, with posts 8 ft apart and one 4 ft gate takes ${lead.posts} posts, ${lead.rails} rails, about ${fmt(lead.pickets, 0)} pickets and ${lead.bags80} bags of 80 lb concrete.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "Common post spacing", value: "6 or 8 ft" },
+    { label: "Rails, fences over 4 ft", value: "3 per section" },
+    { label: "1×6 pickets per 8 ft section (no gap)", value: `${Math.ceil(96 / 5.5)}` },
+    { label: "100 ft privacy fence, 1 gate", value: `${lead.posts} posts` },
+  ]}
+  sources={[
+    { label: "Call 811: free utility marking before you dig", href: "https://call811.com/" },
+    { label: "How many bags of concrete per fence post", href: "/guides/concrete-for-fence-posts/" },
+    { label: "Methodology: fence formulas", href: "/methodology/" },
+  ]}
+>
+  <FenceCalculator slot="calculator" client:load />
+
+  <h2>How to use the fence calculator</h2>
+  <p>Enter the total length of the fence line in feet, including gate openings, and the fence height. Choose the post spacing: 8 ft on center is common for wood privacy fences built with 8 ft rails; 6 ft makes a stiffer fence in windy places and with heavier boards. Add your gates and their width.</p>
+  <p>For pickets, enter the actual width (a 1×6 is 5.5 in, a 1×4 is 3.5 in) and the gap between pickets: 0 for a privacy fence, a few inches for a picket fence. The hole size drives the concrete count.</p>
+
+  <h2>How the materials are counted</h2>
+  <ul>
+    <li><strong>Fence line</strong> = total length − gate openings</li>
+    <li><strong>Sections</strong> = fence line ÷ post spacing, rounded up</li>
+    <li><strong>Posts</strong> = sections + 1 + one per gate (each gate needs a post on both sides)</li>
+    <li><strong>Rails</strong> = sections × 2 for fences up to 4 ft, × 3 for taller fences</li>
+    <li><strong>Pickets</strong> = fence line (in) ÷ (picket width + gap), plus 5% for splits and bad boards</li>
+    <li><strong>Concrete</strong>: each hole's volume minus the post and a 6 in gravel base, plus 10%, in 80 or 50 lb bags</li>
+  </ul>
+  <p>The count is for one straight run. Each corner on a fence line is just another post, so if your run has corners that don't fall on a regular post position, add one post per corner.</p>
+
+  <h2>Materials by fence length</h2>
+  <p>6 ft privacy fence, 1×6 pickets with no gap, one 4 ft gate, 10 in holes 30 in deep:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Length</th><th>Posts, 8 ft spacing</th><th>Rails</th><th>Pickets</th><th>80 lb bags</th><th>Posts, 6 ft spacing</th></tr></thead>
+      <tbody>
+        {runs.map((x) => <tr><td class="num">{x.L} ft</td><td class="num">{x.r8.posts}</td><td class="num">{x.r8.rails}</td><td class="num">{fmt(x.r8.pickets, 0)}</td><td class="num">{x.r8.bags80}</td><td class="num">{x.r6.posts}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Worked example: a picket fence</h2>
+  <p>A 60 ft front-yard picket fence, 4 ft tall, with one 3 1/2 ft gate. 1×4 pickets (3.5 in) with 2 1/2 in gaps, posts 8 ft apart.</p>
+  <ol>
+    <li>Fence line: 60 − 3.5 = <strong>{fmt(picket.fenceLineFt)} ft</strong>.</li>
+    <li>Sections: {fmt(picket.fenceLineFt)} ÷ 8 = {fmt(picket.fenceLineFt / 8)}, rounded up = <strong>{picket.sections}</strong>. Posts: {picket.sections} + 1 + 1 = <strong>{picket.posts}</strong>.</li>
+    <li>Rails: a 4 ft fence takes 2 per section, so <strong>{picket.rails}</strong>.</li>
+    <li>Pickets: {fmt(picket.fenceLineFt * 12, 0)} in ÷ 6 in (3.5 + 2.5) = {fmt((picket.fenceLineFt * 12) / 6, 0)}, plus 5% = <strong>{picket.pickets}</strong>.</li>
+    <li>Concrete: <strong>{picket.bags80} bags</strong> of 80 lb mix for {picket.posts} holes.</li>
+  </ol>
+
+  <h2>Post length and depth</h2>
+  <p>A common rule is to bury about a third of the post's above-ground height, and always below your frost line. A 6 ft fence on 8 ft posts leaves 2 ft in the ground; set on a 6 in gravel base, that's a 30 in hole. In cold climates, the frost line can be deeper than that; your building department can tell you its depth. Gate posts carry the most load, so many builders use 6×6 posts or deeper holes there.</p>
+  <SafetyNote>Call 811 before you dig: it's free and marks buried lines. Many cities and HOAs limit fence height (often 4 ft in front yards and 6 ft in back yards) and require a permit, and the fence must sit on your side of the property line.</SafetyNote>
+
+  <h2>Questions people ask</h2>
+  <h3>How many pickets for an 8 ft section?</h3>
+  <p>With 1×6 pickets (5.5 in) and no gap, 96 ÷ 5.5 = 17.5, so 18 pickets. With 1×4 pickets and 2 1/2 in gaps, 96 ÷ 6 = 16.</p>
+  <h3>Should fence posts be 6 or 8 ft apart?</h3>
+  <p>8 ft is standard for wood fences because rails come in 8 ft lengths. Use 6 ft for heavy boards, tall fences, windy sites and vinyl panels sized for 6 ft.</p>
+  <h3>How much concrete per fence post?</h3>
+  <p>A 4×4 post in a 10 in hole, 30 in deep with 6 in of gravel, takes about 0.92 cu ft: 2 bags of 80 lb mix. Our <a href="/guides/concrete-for-fence-posts/">fence post concrete guide</a> has a chart by hole size.</p>
+</ToolLayout>

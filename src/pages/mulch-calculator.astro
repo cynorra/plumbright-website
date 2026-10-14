@@ -1,0 +1,94 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import MulchCalculator from "../components/calculators/MulchCalculator.tsx";
+import { DEPTHS, BAG_SIZES, mulchEstimate, coverage, bagsPerYard, bedArea } from "../lib/calc/mulch.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/mulch-calculator/");
+const lead = mulchEstimate({ areaSqFt: 200, depthIn: 3 });
+const depths = [1, 2, 3, 4].map((dIn) => [dIn, coverage(27, dIn), ...BAG_SIZES.map((b) => coverage(b, dIn))]);
+const beds = [[10, 4], [20, 3], [20, 10], [30, 6], [50, 4]].map(([l, w]) => ({ l, w, r: mulchEstimate({ areaSqFt: l * w, depthIn: 3 }) }));
+const ring = mulchEstimate({ areaSqFt: bedArea({ shape: "circle", diameterFt: 8 }), depthIn: 3 });
+const top = mulchEstimate({ areaSqFt: 300, depthIn: 3, existingIn: 1.5 });
+---
+<ToolLayout
+  tool="mulch"
+  title="Mulch Calculator"
+  description="Work out how many bags or cubic yards of mulch, compost or garden soil you need for a bed, a tree ring or a top-up, at any depth."
+  lead={`Multiply the bed's length × width (ft) by the depth in inches ÷ 12 to get cubic feet, then divide by 27 for cubic yards. A 200 sq ft bed at 3 inches takes ${fmt(lead.cuFt)} cu ft: ${fmt(lead.cubicYards)} cubic yards, or ${lead.bags.find((b) => b.size === 2)!.count} bags of 2 cu ft.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "Bags of 2 cu ft in a cubic yard", value: `${bagsPerYard(2)}` },
+    { label: "Bags of 3 cu ft in a cubic yard", value: `${bagsPerYard(3)}` },
+    { label: "1 yd³ at 3 in deep covers", value: `${fmt(coverage(27, 3), 0)} sq ft` },
+    { label: "Recommended depth (wood chips)", value: "2–4 in" },
+  ]}
+  sources={[
+    { label: "Iowa State University Extension: how deep the mulch layer should be around trees and shrubs", href: "https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs" },
+    { label: "Methodology: volume formulas", href: "/methodology/" },
+  ]}
+>
+  <MulchCalculator slot="calculator" client:load />
+
+  <h2>How to use the mulch calculator</h2>
+  <p>Measure the bed's length and width in feet, or the diameter of a round tree ring, and enter the depth you want. If the bed already has some mulch on it, enter that depth under <strong>Already there</strong> and the calculator only counts the top-up. The result shows bulk cubic yards and bag counts for the three common bag sizes.</p>
+  <p>The same math works for compost, garden soil and topsoil sold by the bag or the yard; only the depth changes.</p>
+
+  <h2>The formula</h2>
+  <ul>
+    <li><strong>Cubic feet</strong> = area (sq ft) × depth (in) ÷ 12</li>
+    <li><strong>Cubic yards</strong> = cubic feet ÷ 27</li>
+    <li><strong>Bags</strong> = cubic feet ÷ cubic feet per bag, rounded up</li>
+    <li><strong>Round bed</strong>: area = 3.1416 × (diameter ÷ 2)²</li>
+  </ul>
+
+  <h2>How far a yard or a bag goes</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Depth</th><th>1 cubic yard covers</th>{BAG_SIZES.map((b) => <th>{b} cu ft bag covers</th>)}</tr></thead>
+      <tbody>
+        {depths.map(([dIn, yd, ...bags]) => <tr><td class="num">{dIn} in</td><td class="num">{fmt(yd, 0)} sq ft</td>{bags.map((c) => <td class="num">{fmt(c, 1)} sq ft</td>)}</tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Mulch for common bed sizes</h2>
+  <p>At 3 inches deep:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Bed</th><th>Sq ft</th><th>Cubic yards</th>{BAG_SIZES.map((b) => <th>{b} cu ft bags</th>)}</tr></thead>
+      <tbody>
+        {beds.map((b) => <tr><td class="num">{b.l} × {b.w} ft</td><td class="num">{b.l * b.w}</td><td class="num">{fmt(b.r.cubicYards)}</td>{b.r.bags.map((x) => <td class="num">{x.count}</td>)}</tr>)}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How deep to mulch</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Where</th><th>Depth</th></tr></thead>
+      <tbody>{DEPTHS.map((x) => <tr><td>{x.use}</td><td>{x.depth}</td></tr>)}</tbody>
+      <caption>Iowa State University Extension recommends 3 to 4 in of wood chips or shredded bark on well-drained sites and 2 to 3 in on heavy soils, kept at least 6 in from tree trunks.</caption>
+    </table>
+  </div>
+  <p>More isn't better. Mulch piled too deep keeps soil wet and starves roots of air, and mulch heaped against a trunk (a "mulch volcano") invites rot and rodents.</p>
+
+  <h2>Worked examples</h2>
+  <h3>A tree ring</h3>
+  <p>An 8 ft circle around a young tree at 3 in: area 3.1416 × 4² = 50.3 sq ft, volume {fmt(ring.cuFt)} cu ft, so <strong>{ring.bags.find((b) => b.size === 2)!.count} bags of 2 cu ft</strong>. Leave a bare ring around the trunk itself.</p>
+  <h3>Topping up</h3>
+  <p>300 sq ft of beds that still have about 1 1/2 in of old mulch, brought back to 3 in: only 1 1/2 in is new, so {fmt(top.cuFt)} cu ft = <strong>{fmt(top.cubicYards)} yd³</strong>. Measuring the old layer first can halve the order.</p>
+
+  <h2>Bags or bulk?</h2>
+  <p>A cubic yard is 13.5 bags of 2 cu ft or 9 bags of 3 cu ft. Past about 2 cubic yards, bulk mulch from a landscape yard is usually much cheaper per yard, even with delivery. Bags make sense for small beds, for keeping the driveway clean, and when you want a specific dyed or bagged product.</p>
+
+  <h2>Questions people ask</h2>
+  <h3>How many bags of mulch do I need for 100 sq ft?</h3>
+  <p>At 3 in deep, 100 sq ft takes 25 cu ft: 13 bags of 2 cu ft or 9 bags of 3 cu ft.</p>
+  <h3>How many square feet does a yard of mulch cover?</h3>
+  <p>{fmt(coverage(27, 2), 0)} sq ft at 2 in, {fmt(coverage(27, 3), 0)} sq ft at 3 in and {fmt(coverage(27, 4), 0)} sq ft at 4 in.</p>
+  <h3>Does mulch settle?</h3>
+  <p>Fresh, fluffy mulch settles and breaks down over the season. Many gardeners apply a little extra, or plan a 1 in top-up each year.</p>
+</ToolLayout>

@@ -1,0 +1,75 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import CarpetCalculator from "../components/calculators/CarpetCalculator.tsx";
+import { TRIM_IN, carpetEstimate } from "../lib/calc/carpet.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/carpet-calculator/");
+const lead = carpetEstimate({ lengthFt: 14, widthFt: 12 });
+const rooms = [[10, 10], [11, 12], [12, 14], [12, 16], [13, 15], [15, 18], [16, 20]].map(([w, l]) => {
+  const r = carpetEstimate({ lengthFt: l, widthFt: w });
+  const r15 = carpetEstimate({ lengthFt: l, widthFt: w, rollWidthFt: 15 });
+  return { room: `${w} × ${l} ft`, sqyd: r.roomSqYd, buy: r.buySqYd, seams: r.seams, waste: r.wastePct, buy15: r15.buySqYd };
+});
+const ex = carpetEstimate({ lengthFt: 18, widthFt: 15 });
+---
+<ToolLayout
+  tool="carpet"
+  title="Carpet Calculator"
+  description="Find how many square yards of carpet to buy from a 12 ft roll, with seams, waste, pad and tack strip, for any rectangular room."
+  lead={`Carpet comes off a roll, usually 12 ft wide, so you buy full-width pieces, not the room's area. A 12 × 14 ft room is ${fmt(lead.roomSqYd)} sq yd, but one 12 ft × ${fmt(lead.cutLengthFt)} ft piece is ${fmt(lead.buySqYd)} sq yd. Rooms wider than the roll need seams and often far more carpet.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "Standard roll width", value: "12 ft" },
+    { label: "1 square yard", value: "9 sq ft" },
+    { label: "Trim allowance per cut end", value: `${TRIM_IN} in` },
+    { label: "12 × 14 ft room", value: `${fmt(lead.buySqYd)} sq yd` },
+  ]}
+  sources={[{ label: "Methodology: carpet formulas", href: "/methodology/" }, { label: "Square footage calculator", href: "/square-footage-calculator/" }]}
+>
+  <CarpetCalculator slot="calculator" client:load />
+
+  <h2>How to use the carpet calculator</h2>
+  <p>Enter the room's length and width and the roll width of the carpet you're considering (most broadloom is 12 ft; some lines also come 13 1/2 or 15 ft). The calculator tries the carpet running both ways and picks the one that uses less, then shows how many pieces ("drops") it takes, the seams, the waste, and the pad and tack strip.</p>
+
+  <h2>How carpet is planned</h2>
+  <ul>
+    <li><strong>Drops</strong> = room dimension across the roll ÷ roll width, rounded up</li>
+    <li><strong>Cut length</strong> = the other dimension + {TRIM_IN} in at each end for trimming</li>
+    <li><strong>Carpet to buy</strong> = drops × roll width × cut length, in sq yd (÷ 9)</li>
+    <li><strong>Seams</strong> = drops − 1. All pieces run the same direction so the pile looks the same on both sides of a seam.</li>
+    <li><strong>Pad</strong>: room area + 5%, in sq yd. Pad has no direction, so it uses offcuts freely.</li>
+    <li><strong>Tack strip</strong>: the room's perimeter minus doorways.</li>
+  </ul>
+
+  <h2>Carpet by room size</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Room</th><th>Room (sq yd)</th><th>Buy, 12 ft roll (sq yd)</th><th>Seams</th><th>Waste</th><th>Buy, 15 ft roll (sq yd)</th></tr></thead>
+      <tbody>
+        {rooms.map((r) => <tr><td class="num">{r.room}</td><td class="num">{fmt(r.sqyd)}</td><td class="num">{fmt(r.buy)}</td><td class="num">{r.seams}</td><td class="num">{fmt(r.waste, 1)}%</td><td class="num">{fmt(r.buy15)}</td></tr>)}
+      </tbody>
+      <caption>Waste is the share of purchased carpet that doesn't end up in the room. An installer may use part of a wide offcut in a closet.</caption>
+    </table>
+  </div>
+  <p>The jump happens just past 12 ft. A 12 ft wide room uses one drop with almost no waste; a 13 ft wide room needs a second 12 ft drop to cover 1 ft, unless a 13 1/2 or 15 ft roll is available.</p>
+
+  <h2>Worked example: a 15 × 18 ft living room</h2>
+  <ol>
+    <li>Run the carpet along the 18 ft side: 15 ft across needs 2 drops, each 18 ft 6 in long: 2 × 12 × 18.5 = 444 sq ft.</li>
+    <li>Run it along the 15 ft side: 18 ft across also needs 2 drops, each 15 ft 6 in: 2 × 12 × 15.5 = <strong>372 sq ft</strong>. Less carpet, so this wins.</li>
+    <li>Buy <strong>{fmt(ex.buySqYd)} sq yd</strong> for a {fmt(ex.roomSqYd)} sq yd room, with {ex.seams} seam. Waste: {fmt(ex.wastePct, 1)}%.</li>
+    <li>Pad: <strong>{ex.padSqYd} sq yd</strong>. Tack strip: about <strong>{fmt(ex.tackStripFt, 0)} ft</strong>.</li>
+  </ol>
+  <p>The same room from a 15 ft roll is a single 15 × 18.5 ft piece, {fmt((15 * 18.5) / 9)} sq yd, with no seam. When a room is just over 12 ft wide, ask whether the carpet comes in a wider roll.</p>
+
+  <h2>Questions people ask</h2>
+  <h3>How do I convert square feet to square yards?</h3>
+  <p>Divide by 9. A 12 × 14 ft room is 168 sq ft, or 18.67 sq yd.</p>
+  <h3>Where should seams go?</h3>
+  <p>Out of main traffic paths and, where possible, running toward the main light source (usually a window), where they show least. Installers also avoid seams in doorways.</p>
+  <h3>Do stores measure for me?</h3>
+  <p>Many carpet retailers measure for free and quote from their own seam plan. Use this calculator to check that quote; a big difference usually means a different seam plan or extra for stairs and closets.</p>
+</ToolLayout>

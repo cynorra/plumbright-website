@@ -1,0 +1,77 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import SafetyNote from "../components/SafetyNote.astro";
+import BrickCalculator from "../components/calculators/BrickCalculator.tsx";
+import { UNITS, BRICK_WASTE_PCT, MORTAR_WASTE_PCT, BRICKS_PER_80LB_BAG, BLOCKS_PER_80LB_BAG, masonryEstimate, wallArea } from "../lib/calc/masonry.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/brick-calculator/");
+const lead = masonryEstimate({ areaSqFt: 100 });
+const units = Object.entries(UNITS).map(([k, u]) => {
+  const r = masonryEstimate({ areaSqFt: 100, unit: k });
+  return { label: u.label, per: u.perSqFt, mortar: u.mortarPer1000, units: r.units, bags: r.bags };
+});
+const exArea = wallArea({ lengthFt: 24, heightFt: 3 });
+const ex = masonryEstimate({ areaSqFt: exArea, unit: "modular" });
+const blk = masonryEstimate({ areaSqFt: wallArea({ lengthFt: 30, heightFt: 4 }), unit: "block" });
+---
+<ToolLayout
+  tool="brick"
+  title="Brick and Block Calculator"
+  description="Estimate bricks or concrete blocks and bags of mortar for a wall. Uses Brick Industry Association quantities per square foot and mortar per 1,000 brick."
+  lead={`Multiply the wall area by the units per square foot: about 6.75 modular bricks or 1.125 concrete blocks (8 × 8 × 16 in) per sq ft, then add 5%. A 100 sq ft wall of modular brick takes ${lead.units} bricks and about ${lead.bags} bags of 80 lb mortar mix.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "Modular brick per sq ft", value: `${UNITS.modular.perSqFt}` },
+    { label: "8 × 8 × 16 blocks per sq ft", value: `${UNITS.block.perSqFt}` },
+    { label: "Mortar per 1,000 modular brick", value: `${UNITS.modular.mortarPer1000} cu ft` },
+    { label: "80 lb Mason Mix lays up to", value: `${BRICKS_PER_80LB_BAG} brick / ${BLOCKS_PER_80LB_BAG} block` },
+  ]}
+  sources={[
+    { label: "Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry", href: "https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf" },
+    { label: "QUIKRETE Mason Mix data sheet (bricks and blocks per 80 lb bag)", href: "https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf" },
+    { label: "Methodology: masonry formulas", href: "/methodology/" },
+  ]}
+>
+  <BrickCalculator slot="calculator" client:load />
+
+  <h2>How to use the brick calculator</h2>
+  <p>Enter the wall's length and height in feet and choose the unit: one of four common brick sizes or a standard 8 × 8 × 16 in concrete block. Doors and windows are subtracted at 21 and 15 sq ft. The result is for a single wythe (one brick thick) with standard 3/8 in mortar joints. For a double-wythe wall, double the count.</p>
+
+  <h2>The formula</h2>
+  <ul>
+    <li><strong>Units</strong> = wall area × units per sq ft × (1 + {BRICK_WASTE_PCT}%), rounded up. The Brick Industry Association (BIA) suggests adding at least 5% for brick.</li>
+    <li><strong>Mortar (brick)</strong> = net bricks ÷ 1,000 × mortar per 1,000 brick × (1 + {MORTAR_WASTE_PCT}%). BIA suggests adding 15 to 25% for mortar.</li>
+    <li><strong>Bags</strong>: QUIKRETE says one 80 lb bag of Mason Mix lays up to {BRICKS_PER_80LB_BAG} standard bricks or {BLOCKS_PER_80LB_BAG} blocks. For other brick sizes we convert by mortar volume.</li>
+  </ul>
+
+  <h2>Units and mortar by type</h2>
+  <p>Per 100 sq ft of wall, single wythe, with the allowances above:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Unit</th><th>Per sq ft</th><th>Mortar per 1,000 (cu ft)</th><th>Units for 100 sq ft</th><th>80 lb bags</th></tr></thead>
+      <tbody>
+        {units.map((u) => <tr><td>{u.label}</td><td class="num">{u.per}</td><td class="num">{u.mortar ?? "–"}</td><td class="num">{u.units}</td><td class="num">{u.bags}</td></tr>)}
+      </tbody>
+      <caption>Brick figures from BIA Technical Note 10 (3/8 in joints). Block: 144 ÷ (16 × 8) = 1.125 per sq ft.</caption>
+    </table>
+  </div>
+
+  <h2>Worked examples</h2>
+  <h3>A garden wall in brick</h3>
+  <p>24 ft long, 3 ft high, one wythe of modular brick: {fmt(exArea, 0)} sq ft × 6.75 = {fmt(ex.netUnits, 0)} bricks, plus 5% = <strong>{ex.units} bricks</strong>. Mortar: {fmt(ex.mortarCuFt!)} cu ft with the allowance, about <strong>{ex.bags} bags</strong> of 80 lb mix.</p>
+  <h3>A block wall</h3>
+  <p>30 ft long and 4 ft high (six courses of 8 in block): 120 sq ft × 1.125 = 135 blocks, plus 5% = <strong>{blk.units} blocks</strong>, and about <strong>{blk.bags} bags</strong> of mortar mix. Cap blocks, if used, are counted by length: 30 ft ÷ 16 in = 23 caps.</p>
+
+  <SafetyNote>Masonry walls are heavy. Footings, reinforcement, and drainage behind any retaining wall are set by local code and soil conditions; walls over about 4 ft, or that hold back soil, usually need engineering and a permit.</SafetyNote>
+
+  <h2>Questions people ask</h2>
+  <h3>How many bricks are in a square foot?</h3>
+  <p>About 6.75 modular bricks with 3/8 in joints. Queen bricks are about 5.5 per sq ft and king bricks about 4.55.</p>
+  <h3>How many concrete blocks for a 100 sq ft wall?</h3>
+  <p>112.5 standard 8 × 8 × 16 in blocks, so 119 with 5% extra.</p>
+  <h3>Mortar mix or masonry cement?</h3>
+  <p>Bagged mortar mix (like Type S or Type N) has sand already in it; you only add water. Masonry cement must be mixed with sand on site. For most DIY walls, premixed mortar is easier. Type S is common for structural and below-grade work, Type N for above-grade veneer and general use.</p>
+</ToolLayout>

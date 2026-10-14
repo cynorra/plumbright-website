@@ -79,7 +79,14 @@ await p.goto(B + "/gravel-calculator/", { waitUntil: "networkidle" });
 const gravelSsr = await p.textContent(big);
 await p.goto(B + "/drywall-calculator/", { waitUntil: "networkidle" });
 const drywall = await p.textContent(big);
+const wave2 = {};
+for (const [path, key] of [["/mulch-calculator/", "mulch"], ["/fence-calculator/?len=80", "fencePosts"], ["/brick-calculator/?unit=block", "blocks"], ["/wallpaper-calculator/?rep=0", "rolls"], ["/carpet-calculator/?l=18&w=15", "carpetSqYd"]]) {
+  await p.goto(B + path, { waitUntil: "networkidle" });
+  await p.waitForTimeout(900);
+  wave2[key] = await p.textContent(big);
+}
 const raw = await (await fetch(B + "/concrete-calculator/")).text();
+console.log(wave2);
 console.log({ fromUrl, posts, err, url, waste, tiles, homePaint, ssrHasResult: raw.includes(">1.36<"), ssrHasH2Ids: raw.includes('id="how-to-use-the-concrete-calculator"') });
 console.log({ lshape, floorWaste, floorBoxes, risers, codeWarn, hipBundles, deckBoards, gravelSsr, drywall });
 console.log("errors:", errors);

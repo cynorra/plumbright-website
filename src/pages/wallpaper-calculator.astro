@@ -1,0 +1,80 @@
+---
+import { pageDates } from "../page-dates.js";
+import ToolLayout from "../layouts/ToolLayout.astro";
+import WallpaperCalculator from "../components/calculators/WallpaperCalculator.tsx";
+import { ROLLS, TRIM_IN, DOOR_WIDTH_FT, wallpaperEstimate } from "../lib/calc/wallpaper.js";
+import { fmt } from "../lib/calc/util.js";
+
+const d = pageDates("/wallpaper-calculator/");
+const R = ROLLS.usDouble;
+const lead = wallpaperEstimate({ wallWidthFt: 48, heightFt: 8, rollWidthIn: R.widthIn, rollLengthFt: R.lengthFt, repeatIn: 21, doors: 1 });
+const rooms = [[10, 10], [12, 12], [12, 14], [14, 16], [16, 20]].map(([l, w]) => {
+  const run = (rep: number, h = 8) => wallpaperEstimate({ wallWidthFt: 2 * (l + w), heightFt: h, rollWidthIn: R.widthIn, rollLengthFt: R.lengthFt, repeatIn: rep, doors: 1 }).rolls;
+  return { room: `${l} × ${w} ft`, plain: run(0), r21: run(21), r9ft: run(21, 9) };
+});
+const accent = wallpaperEstimate({ wallWidthFt: 14, heightFt: 8, rollWidthIn: R.widthIn, rollLengthFt: R.lengthFt, repeatIn: 25.25, match: "half" });
+---
+<ToolLayout
+  tool="wallpaper"
+  title="Wallpaper Calculator"
+  description="Count rolls of wallpaper strip by strip, the way installers do: wall width ÷ roll width for strips, roll length ÷ strip length for strips per roll, with the pattern repeat."
+  lead={`Count strips, not square feet: divide the wall width by the roll width for the number of strips, then divide the roll length by the strip length (wall height plus trim, rounded up to the pattern repeat). A 12 × 12 ft room with 8 ft walls, one door and a 21 in repeat takes ${lead.strips} strips at ${lead.stripsPerRoll} per roll: ${lead.rolls} double rolls.`}
+  published={d.published}
+  updated={d.updated}
+  facts={[
+    { label: "US double roll (typical)", value: "20.5 in × 33 ft" },
+    { label: "European roll", value: "20.9 in × 32.8 ft" },
+    { label: "Trim allowance per strip", value: `${TRIM_IN} in` },
+    { label: "12 × 12 room, 21 in repeat", value: `${lead.rolls} rolls` },
+  ]}
+  sources={[
+    { label: "Selected Wallpapers: European rolls vs double rolls (roll sizes)", href: "https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls" },
+    { label: "Methodology: wallpaper formulas", href: "/methodology/" },
+  ]}
+>
+  <WallpaperCalculator slot="calculator" client:load />
+
+  <h2>How to use the wallpaper calculator</h2>
+  <p>Choose a whole room or one wall, enter the size and the wall height, and pick the roll size. Then enter the <strong>pattern repeat</strong> printed on the label: the vertical distance after which the pattern starts over. Use 0 for a plain or random-match paper. If the label says "half drop," choose that match type.</p>
+  <p>Roll sizes vary by maker, so check the label for the width and length and type them in if they don't match a preset.</p>
+
+  <h2>Why strips, not square feet</h2>
+  <p>Dividing wall area by roll area underestimates. Each roll is cut into full-height strips, and whatever is left at the end of the roll is usually too short for another strip. With a pattern, every strip also has to start at the same point in the pattern, which wastes more. Counting strips handles both:</p>
+  <ul>
+    <li><strong>Strip length</strong> = wall height + {TRIM_IN} in trim, rounded up to a whole number of pattern repeats</li>
+    <li><strong>Half-drop match</strong>: add half a repeat per strip on average</li>
+    <li><strong>Strips per roll</strong> = roll length ÷ strip length, rounded down</li>
+    <li><strong>Strips needed</strong> = (wall width − {DOOR_WIDTH_FT} ft per door) ÷ roll width, rounded up</li>
+    <li><strong>Rolls</strong> = strips needed ÷ strips per roll, rounded up</li>
+  </ul>
+  <p>Windows aren't subtracted. The short pieces above and below a window still need matched paper, and they rarely come out of offcuts.</p>
+
+  <h2>Rolls for common rooms</h2>
+  <p>US double rolls (20.5 in × 33 ft), one door:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Room</th><th>8 ft walls, no repeat</th><th>8 ft walls, 21 in repeat</th><th>9 ft walls, 21 in repeat</th></tr></thead>
+      <tbody>
+        {rooms.map((r) => <tr><td class="num">{r.room}</td><td class="num">{r.plain}</td><td class="num">{r.r21}</td><td class="num">{r.r9ft}</td></tr>)}
+      </tbody>
+      <caption>A 9 ft wall with a 21 in repeat needs 126 in strips, so only 3 fit a 33 ft roll, the same as an 8 ft wall: the extra foot costs little.</caption>
+    </table>
+  </div>
+
+  <h2>Worked example: an accent wall</h2>
+  <p>One 14 ft wall, 8 ft high, with a large 25 1/4 in half-drop pattern, US double rolls.</p>
+  <ol>
+    <li>Strip length: 96 + 4 = 100 in, rounded up to 4 repeats = 101 in, plus half a repeat for the drop match = <strong>{fmt(accent.dropIn, 1)} in</strong>.</li>
+    <li>Strips per roll: 396 ÷ {fmt(accent.dropIn, 1)} = {fmt(396 / accent.dropIn, 2)} → <strong>{accent.stripsPerRoll}</strong>.</li>
+    <li>Strips: 168 in ÷ 20.5 = {fmt(168 / 20.5, 2)} → <strong>{accent.strips}</strong>.</li>
+    <li>Rolls: {accent.strips} ÷ {accent.stripsPerRoll} = <strong>{accent.rolls} double rolls</strong>. Only about {accent.usedPct}% of the paper ends up on the wall.</li>
+  </ol>
+
+  <h2>Questions people ask</h2>
+  <h3>How many square feet does a roll of wallpaper cover?</h3>
+  <p>A US double roll of 20.5 in × 33 ft is about 56 sq ft of paper, but after trimming and pattern matching it typically covers less, often around 45 sq ft for a plain paper and less for large repeats.</p>
+  <h3>Are rolls priced single but sold double?</h3>
+  <p>Often, in the US. A price "per single roll" usually means you must buy double rolls at twice the price. Check how the rolls are sold before comparing.</p>
+  <h3>Should I buy extra?</h3>
+  <p>Yes: one extra roll from the same batch (dye lot). A later batch can differ in color, and some patterns are discontinued.</p>
+</ToolLayout>

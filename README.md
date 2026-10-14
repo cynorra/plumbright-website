@@ -11,7 +11,7 @@ Sayfalar düz HTML olarak üretilir; JavaScript yalnızca hesaplayıcılar, tema
 ```bash
 npm install
 npm run dev      # http://localhost:4321
-npm test         # hesaplama testleri (24 test)
+npm test         # hesaplama testleri (30 test)
 npm run build    # dist/ klasörüne statik site
 ```
 
@@ -22,8 +22,8 @@ Node 22 veya üstü gerekir.
 | Klasör / dosya | Ne işe yarar |
 | --- | --- |
 | `src/site.config.js` | Marka adı, domain, e-posta, yazar bilgileri, menü. Domain değişirse sadece burayı değiştir. |
-| `src/lib/tools.js` | 10 hesaplayıcının tek listesi. Menü, hesaplayıcılar sayfası, footer, yazı kenar kutusu, llms.txt ve yazı şemasındaki `tool` alanı buradan okunur. |
-| `src/lib/calc/` | Hesaplama mantığı (beton, fayans+derz, boya, zemin, alçıpan, çakıl, deck, merdiven, çatı, alan). Tarayıcıda, build sırasında tablolarda ve testlerde aynı kod çalışır. |
+| `src/lib/tools.js` | 15 hesaplayıcının tek listesi. Menü, hesaplayıcılar sayfası, footer, yazı kenar kutusu, llms.txt ve yazı şemasındaki `tool` alanı buradan okunur. |
+| `src/lib/calc/` | Hesaplama mantığı (beton, fayans+derz, boya, zemin, alçıpan, çakıl, deck, merdiven, çatı, alan, malç/toprak, çit, tuğla/blok/parke taşı, duvar kağıdı, halı). Tarayıcıda, build sırasında tablolarda ve testlerde aynı kod çalışır. |
 | `tests/*.test.js` | Elle doğrulanmış örneklerle testler. Formül değiştirirsen önce testi güncelle. |
 | `src/pages/*-calculator.astro` | Araç sayfaları: hesaplayıcı + formül + örnek + tablolar + SSS. |
 | `src/content/guides/*.md` | Yazıların Markdown kaynağı; `push-guides` ile Supabase'e yüklenir. Supabase ayarlı değilse site doğrudan bunları kullanır. |
@@ -96,7 +96,7 @@ Supabase (articles tablosu)  --build sırasında okunur-->  Astro  -->  statik H
 ### Kurulum (bir kez)
 
 1. supabase.com'da proje aç (bölge: ABD).
-2. **SQL Editor**'de `supabase/migrations/` içindeki dosyaları sırayla çalıştır (önce `20261013000000_articles.sql`, sonra `20261014000000_more_tools.sql`). Supabase CLI kullanıyorsan `supabase db push`.
+2. **SQL Editor**'de `supabase/migrations/` içindeki dosyaları sırayla çalıştır (`20261013000000_articles.sql`, `20261014000000_more_tools.sql`, `20261015000000_wave2_tools.sql`). Supabase CLI kullanıyorsan `supabase db push`.
 3. **Project Settings > API**'den URL, `anon` ve `service_role` anahtarlarını al; `.env.example` dosyasını `.env` olarak kopyalayıp doldur.
 4. Mevcut yazıları yükle: `npm run push-guides`.
 5. GitHub reposunda **Settings > Secrets and variables > Actions**:
@@ -122,7 +122,7 @@ Supabase panelinden de düzenleme yapabilirsin (Table Editor); kısıtlar hatal�
 title: "Başlık (en fazla 80 karakter)"
 description: "Meta açıklama, 70–165 karakter."
 published: 2026-10-20
-tool: tile        # concrete | tile | paint | flooring | drywall | gravel | deck | stairs | roofing | area
+tool: tile        # concrete | tile | paint | flooring | drywall | gravel | deck | stairs | roofing | area | mulch | fence | brick | wallpaper | carpet
 ---
 
 İlk paragraf sorunun cevabı...
@@ -135,9 +135,9 @@ Kurallar:
 - Bir yazıdan başka yazıya link verirken sadece **daha önce** yayınlanan yazılara link ver. `node scripts/check-links.mjs` bunu kontrol eder.
 - Sadece değişen yazıyı yükle. Hepsini yeniden yüklemek zarar vermez, ama gereksiz build tetikler.
 
-## Yayın takvimi (25 yazı)
+## Yayın takvimi (40 yazı)
 
-2 yazı 13 Ekim'de, kalan 23 yazı 14 Ekim – 9 Kasım arasında, Pazartesi–Cumartesi her gün bir tane olacak şekilde zamanlandı. Hepsini bugün Supabase'e yükleyebilirsin (`npm run push-guides`); her biri kendi tarihinde günlük build ile yayına girer ve IndexNow'a bildirilir.
+2 yazı 13 Ekim'de, 23 yazı 14 Ekim – 9 Kasım arasında (onay dalgası), 15 yazı 10 – 26 Kasım arasında (ikinci dalga: malç, çit, tuğla/blok, duvar kağıdı, halı), Pazartesi–Cumartesi her gün bir tane olacak şekilde zamanlandı. Hepsini bugün Supabase'e yükleyebilirsin (`npm run push-guides`); her biri kendi tarihinde günlük build ile yayına girer ve IndexNow'a bildirilir.
 
 Site bu tarihlerden sonra yayına girecekse, tarihleri kaydır ki hepsi aynı gün çıkmasın:
 

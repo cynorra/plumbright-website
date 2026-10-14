@@ -11,6 +11,7 @@ import { DECKING_SPANS } from "../lib/calc/deck.js";
 import { IRC } from "../lib/calc/stairs.js";
 import { BUNDLES_PER_SQUARE, ROOF_STYLES } from "../lib/calc/roofing.js";
 import { TOOLS } from "../lib/tools.js";
+import { UNITS, BRICKS_PER_80LB_BAG, BLOCKS_PER_80LB_BAG } from "../lib/calc/masonry.js";
 
 // A plain-text map of the site for AI assistants and answer engines
 // (llmstxt.org format). Google says it does not need this; other engines may use it.
@@ -44,6 +45,11 @@ ${guides.map((g) => `- [${g.data.title}](${u(`/guides/${g.id}/`)}): ${g.data.des
 - Deck board spans (IRC 2021 Table R507.7): ${DECKING_SPANS.map((d) => `${d.decking} ${d.perpendicular} in on center (${d.diagonal} in diagonal)`).join("; ")}.
 - Stairs (IRC R311.7): riser max ${IRC.maxRiserIn} in; tread min ${IRC.minTreadIn} in; variation max ${IRC.maxVariationIn} in; headroom min 6 ft 8 in; width min ${IRC.minWidthIn} in.
 - Roofing: 1 square = 100 sq ft; ${BUNDLES_PER_SQUARE} bundles per square for most shingles; pitch multiplier = sqrt(1 + (rise/12)^2); waste ${ROOF_STYLES.gable.wastePct}% gable, ${ROOF_STYLES.hip.wastePct}% hip.
+- Mulch: cubic yards = sq ft x depth (in) / 12 / 27; 13.5 bags of 2 cu ft or 9 bags of 3 cu ft per cubic yard; depth 2-4 in (Iowa State Extension), 6 in clear of trunks.
+- Fence: posts = sections + 1 + one per gate; 3 rails per section above 4 ft; 1x6 pickets (5.5 in) at no gap = about 17.5 per 8 ft section.
+- Brick (BIA Technical Note 10, 3/8 in joints): ${Object.values(UNITS).map((u) => `${u.label} ${u.perSqFt}/sq ft`).join("; ")}. 80 lb Mason Mix lays up to ${BRICKS_PER_80LB_BAG} bricks or ${BLOCKS_PER_80LB_BAG} blocks.
+- Wallpaper: count strips; strip = wall height + 4 in rounded up to the pattern repeat; US double roll typically 20.5 in x 33 ft.
+- Carpet: bought in full roll-width drops (usually 12 ft wide) + 3 in trim per end; 1 sq yd = 9 sq ft.
 
 ## About
 
