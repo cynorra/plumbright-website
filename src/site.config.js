@@ -2,18 +2,18 @@
 // here and every page, meta tag and schema block follows.
 
 export const SITE = {
-  name: "Plumbright",
-  domain: "plumbright.com",
-  url: "https://plumbright.com",
+  name: "Material Guides",
+  domain: "materialguides.com",
+  url: "https://materialguides.com",
   tagline: "Material calculators and planning guides for home projects",
   description:
-    "Free calculators for concrete, tile, flooring, drywall, decks, roofing and other home projects, with the formulas, assumptions and worked examples behind every number.",
+    "Free calculators and technical guides for concrete, tile, flooring, drywall, decks, roofing and other home projects, with the formulas, assumptions and worked examples behind every number.",
   language: "en-US",
   locale: "en_US",
   foundingYear: 2026,
 
-  // TODO before launch: a real inbox on your own domain.
-  email: "hello@plumbright.com",
+  // Editorial & contact email
+  email: "hello@materialguides.com",
 
   // Optional. A form backend URL (Formspree, Basin, Cloudflare Worker...).
   // Leave empty and the contact page shows the email address only.

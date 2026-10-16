@@ -210,26 +210,65 @@ export async function liveArticles() {
 }
 ```
 
-### C. Otomatik FAQ & Schema Üretici (`src/lib/toc.js` + `src/lib/schema.js`)
-Sayfa içindeki soruları otomatik yakalar:
+### C. Kapsamlı JSON-LD Şemaları (`src/lib/schema.js`) - E-E-A-T & AEO/GEO Omurgası
+Arama motorları ve LLM'ler (ChatGPT, Perplexity) için tam semantik bağlantı kurar:
 ```javascript
-// src/lib/toc.js içine eklenen FAQ ayrıştırıcı:
-export function extractFaqItems(html) {
-  const faqSection = html.split(/<h2[^>]*id="questions-people-ask"[^>]*>|<h2[^>]*>Questions people ask<\/h2>/i)[1];
-  if (!faqSection) return [];
-  const afterH2 = faqSection.split(/<h2[^>]*>/i)[0];
-  const items = [];
-  const regex = /<h3[^>]*>([\s\S]*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
-  let match;
-  while ((match = regex.exec(afterH2)) !== null) {
-    const q = match[1].replace(/<[^>]+>/g, "").trim();
-    const a = match[2].replace(/<[^>]+>/g, "").trim();
-    if (q && a) items.push({ q, a });
-  }
-  return items;
+import { SITE, AUTHOR } from "../site.config.js";
+
+const abs = (path) => new URL(path, SITE.url).href;
+
+export const personRef = { "@id": `${SITE.url}/author/${AUTHOR.slug}/#person` };
+export const orgRef = { "@id": `${SITE.url}/#organization` };
+
+// 1. Ekmek Kırıntısı (Breadcrumb)
+export function breadcrumbSchema(crumbs) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: abs(c.path),
+    })),
+  };
 }
 
-// src/lib/schema.js içine eklenen FAQ şeması:
+// 2. Teknik Makale Şeması (Google News & AI Citation için)
+export function articleSchema({ title, description, path, published, updated }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    mainEntityOfPage: abs(path),
+    datePublished: published.toISOString().slice(0, 10),
+    dateModified: (updated ?? published).toISOString().slice(0, 10),
+    author: personRef,
+    publisher: orgRef,
+    inLanguage: SITE.language,
+  };
+}
+
+// 3. Hesap Makinesi / Web Aracı Şeması
+export function calculatorSchema({ name, description, path, updated }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name,
+    description,
+    url: abs(path),
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any (runs in the browser)",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    author: personRef,
+    publisher: orgRef,
+    dateModified: updated,
+  };
+}
+
+// 4. Otomatik FAQ Şeması (Zengin Snippet & Sesli/AI Yanıtlar)
 export function faqSchema(items) {
   if (!items || items.length === 0) return null;
   return {
@@ -244,7 +283,84 @@ export function faqSchema(items) {
 }
 ```
 
-### D. Arama Motorları & AI Bot Uç Noktaları (`robots.txt.ts` & `llms.txt.ts`)
+### D. Global Head & AdSense Entegrasyonu (`src/layouts/Base.astro`)
+Tüm sayfalarda meta etiketleri, Organization/WebSite şemalarını ve AdSense scriptini otomatik yöneten standart head mimarisi:
+```astro
+---
+import { SITE, AUTHOR } from "../site.config.js";
+
+const { title, description, schema = [], noindex = false, ogType = "website", ogImage = "/og.png", published, updated } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ogImageUrl = new URL(ogImage, SITE.url).href;
+
+// Site Genel Şemaları (Graph ID ile birbirine bağlı)
+const siteSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE.url}/#organization`,
+    name: SITE.name,
+    url: SITE.url,
+    logo: { "@type": "ImageObject", url: `${SITE.url}/logo-512.png`, width: 512, height: 512 },
+    email: SITE.email,
+    founder: { "@id": `${SITE.url}/author/${AUTHOR.slug}/#person` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE.url}/#website`,
+    name: SITE.name,
+    url: SITE.url,
+    inLanguage: SITE.language,
+    publisher: { "@id": `${SITE.url}/#organization` },
+  },
+];
+const allSchema = [...siteSchema, ...schema];
+---
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | {SITE.name}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
+    
+    <!-- AI & AEO Keşif Bağlantısı -->
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site summary" />
+    <meta name="author" content={AUTHOR.name} />
+
+    <!-- OpenGraph & Twitter Cards -->
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    {published && <meta property="article:published_time" content={published.toISOString()} />}
+    {(updated || published) && <meta property="article:modified_time" content={(updated ?? published).toISOString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tüm JSON-LD Şemalarının Enjeksiyonu -->
+    {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <!-- Google AdSense (site.config.js içinde Publisher ID doluysa otomatik yüklenir) -->
+    {SITE.adsensePublisherId && (
+      <script
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsensePublisherId}`}
+        crossorigin="anonymous"
+      ></script>
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+```
+
+### E. Arama Motorları & AI Bot Uç Noktaları (`robots.txt.ts` & `llms.txt.ts`)
 
 Botların siteyi JavaScript çalıştırmadan, sıfır gecikmeyle ve hatasız okuması için gerekli dinamik uç noktalar:
 
@@ -606,4 +722,88 @@ Yeni bir fikir/niş belirlediğinde izlenecek adımlar:
    * Proje adı girilir (örn: `siteadi`) ve "Create project" denir.
 6. **GitHub Secrets:**
    * Yukarıdaki **Bölüm 8 Tablosundaki** 4 Secret ve 1 Variable girilir.
-7. **Bitti & Yayında:** GitHub Actions workflow'u tetiklenir veya bir commit atılır; site Cloudflare Pages üzerinden canlıya çıkar. Google Search Console'a `https://siteadi.com/sitemap-index.xml` verilir, 2-3 hafta sonra AdSense başvurusu yapılır.
+7. **Bitti & Yayında:** GitHub Actions workflow'u tetiklenir veya bir commit atılır; site Cloudflare üzerinden canlıya çıkar. Google Search Console'a `https://siteadi.com/sitemap-index.xml` verilir, 2-3 hafta sonra AdSense başvurusu yapılır.
+
+---
+
+## 10. Alan Adı (Domain) Satın Alma, DNS & Cloudflare Custom Domain Kurulum Rehberi
+
+Yeni bir domain alındığında (Hostinger, GoDaddy, Namecheap vb.) sıfır hata ve sıfır bekleme ile Cloudflare Worker/Pages'e bağlama prosedürü:
+
+---
+
+### A. Adım Adım Kusursuz Kurulum Sırası (Tam Sıralı Akış)
+
+```
+[1. Domain Satın Alındı] 
+        │
+        ▼
+[2. Cloudflare'e Domain Ekle ("Free Plan")] ──► Cloudflare 2 adet NS adresi verir
+        │
+        ▼
+[3. Hostinger/Registrar'a Git] ───────────────► "Özel Ad Sunucuları" seçip Cloudflare NS'lerini yapıştır
+        │
+        ▼
+[4. Cloudflare DNS Temizliği (KRİTİK!)] ──────► DNS > Records sekmesindeki eski "A" ve "CNAME" park kayıtlarını SİL
+        │
+        ▼
+[5. Overview Doğrulaması] ─────────────────────► "Check nameservers now" tıkla -> Yeşil tik ("Active") gör
+        │
+        ▼
+[6. Worker / Pages Custom Domain Ekle] ───────► Settings > Domains & Routes > "+ Add" > "Custom Domain"
+```
+
+---
+
+### B. Detaylı Ekran & Tıklama Rehberi
+
+#### 1. Adım: Cloudflare'e Domaini Tanıtma
+1. [dash.cloudflare.com](https://dash.cloudflare.com/) adresine girin.
+2. Sağ üstteki mavi **"Add a site"** butonuna tıklayın.
+3. Domain adını yazın (örn: `materialguides.com`) ve **Continue** deyin.
+4. Plan seçim ekranında en alttaki **"Free" ($0)** seçeneğini işaretleyip onaylayın.
+5. Cloudflare mevcut kayıtları tarayıp size 2 adet Nameserver verecektir:
+   * Örnek: `benedict.ns.cloudflare.com` ve `jillian.ns.cloudflare.com`
+   * Bu iki adresi kopyalayın.
+
+#### 2. Adım: Domain Sağlayıcısında (Hostinger vb.) Nameserver Değiştirme
+1. Domaini aldığınız panele gidin (Hostinger: **hPanel > Alan Adları > domaininiz**).
+2. Sol menüden **DNS / Ad Sunucuları (Nameservers)** sekmesine tıklayın.
+3. **"Ad sunucularını değiştir (Change Nameservers)"** butonuna basın.
+4. **"Özel ad sunucuları (Use own nameservers)"** seçeneğini işaretleyin.
+5. Oradaki varsayılan sunucuları (`apollo.dns-parking.com` vb.) silip Cloudflare'in verdiği 2 adresi yapıştırın ve **Kaydet** deyin.
+   > **Önemli Not:** Hostinger'daki işiniz burada bitti! Hostinger DNS paneline bir daha dokunmayın.
+
+#### 3. Adım: Cloudflare DNS'teki Eski Park Kayıtlarını Temizleme (Hata Önleme)
+1. Cloudflare Dashboard'da sol menüden **DNS > Records** (Kayıtlar) bölümüne girin.
+2. Tabloda registrar'dan otomatik kopyalanmış eski park kayıtlarını görün:
+   * `domaininiz.com` -> **Type: A** (örn: `2.57.91.91`)
+   * `www.domaininiz.com` -> **Type: CNAME**
+3. Bu satırların sağındaki **Edit > Delete (Sil)** butonuna basarak **MUTLAKA SİLİN**.
+   *(TXT formatındaki Google Search Console doğrulama kayıtlarını silmeyin, onlar kalabilir).*
+
+#### 4. Adım: Nameserver Onayını Tetikleme
+1. Sol menüden en üstteki **Overview** (Genel Bakış) sayfasına gelin.
+2. Sağ tarafta veya ortada bulunan mavi **"Check nameservers now"** butonuna basın.
+3. Sayfayı yenileyin (F5). Ekranda **"Your domain is now protected by Cloudflare"** yeşil tikini görün.
+
+#### 5. Adım: Worker / Pages'e Custom Domain Bağlama (Doğru ve Resmi Yöntem)
+1. Sol menüden **Compute (Workers & Pages)** > **Workers & Pages** bölümüne girin.
+2. Deploy ettiğiniz projeye (örn: `plumbright-website`) tıklayın.
+3. Üstteki sekmelerden **Settings** (Ayarlar) sekmesine geçin.
+4. Sol menüden **Domains & Routes** (Alan Adları ve Rotalar) seçeneğine tıklayın.
+5. Sağdaki mavi **"+ Add"** butonuna basıp açılan menüden **"Custom Domain"** seçin *(Route DEĞİL, Custom Domain!)*.
+6. Kutuya ana domaininizi yazın: `materialguides.com` ve **Add Custom Domain** deyin.
+7. Tekrar mavi **"+ Add"** > **"Custom Domain"** deyin ve bu sefer `www.materialguides.com` yazıp kaydedin.
+8. Cloudflare SSL sertifikasını ve DNS yönlendirmesini 15-30 saniye içinde kendisi tamamlar. Siteniz HTTPS ile yayına girer.
+
+---
+
+### C. Yaşanan 2 Kritik Hata ve Çözüm Formülü
+
+| Karşılaşılan Hata | Gerçek Sebebi | Anında Çözümü |
+| :--- | :--- | :--- |
+| **`Hostname already has externally managed DNS records (A, CNAME, etc)`** | Hostinger'ın park IP'si (`2.57.91.91`) hala Cloudflare DNS tablosunda duruyor veya site henüz Cloudflare tarafından "Active" onayını almamıştır. | **1.** Cloudflare Overview'dan *"Check nameservers now"* de.<br>**2.** DNS > Records'a git, domaininize ait eski `A` ve `CNAME` kayıtlarını **Delete (Sil)** yap.<br>**3.** Tekrar Custom Domain ekle. |
+| **`Connection timed out (Error 522)`** | Custom Domain kullanmak yerine, elle "Workers Route" ekleyip DNS'e dummy IP girildiğinde Cloudflare arkada fiziksel bir origin sunucu arar ve zaman aşımına uğrar. | **1.** DNS'e manuel IP girmeyin.<br>**2.** Workers Route yerine doğrudan **Settings > Domains & Routes > Custom Domain** resmi özelliğini kullanın. Cloudflare sunucu aramadan doğrudan Edge üzerinden sitenizi açar. |
+
+
