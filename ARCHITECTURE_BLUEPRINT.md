@@ -482,7 +482,59 @@ jobs:
 
 ---
 
-## 7. Yeni Niş Site Ölçekleme Kontrol Listesi (5 Dakikada Yeni Site)
+## 7. Kritik Detaylar (AdSense ads.txt & Anında Tetikleme Webhook)
+
+### A. Otomatik `ads.txt` Dosyası
+AdSense hesabında gelir kaybı ve uyarı yaşamamak için `public/ads.txt` dosyası mutlaka eklenmelidir:
+```
+google.com, pub-4674211063760769, DIRECT, f08c47fec0942fa0
+```
+*(Tüm siteler aynı AdSense yayıncı kimliğini kullandığı için bu satır her sitede sabittir).*
+
+### B. Supabase Webhook ile Anında Deploy (Opsiyonel ama Önerilir)
+Günlük TSİ 16:05 cron'unu beklemeden, veritabanına yeni bir makale basıldığı anda GitHub Actions'ı tetiklemek için Supabase SQL Editor'de çalıştırılacak tetikleyici:
+```sql
+-- 1. Database > Extensions: "pg_net" eklentisini açın
+-- 2. GitHub Personal Access Token (repo dispatch izinli) oluşturun
+create or replace function public.request_site_rebuild()
+returns trigger language plpgsql security definer as $$
+begin
+  perform net.http_post(
+    url := 'https://api.github.com/repos/KULLANICI_ADI/REPO_ADI/dispatches',
+    body := jsonb_build_object('event_type', 'articles-changed'),
+    headers := jsonb_build_object(
+      'Authorization', 'Bearer GITHUB_PAT_TOKENINIZ',
+      'Accept', 'application/vnd.github+json',
+      'User-Agent', 'supabase-pg-net'
+    )
+  );
+  return null;
+end;
+$$;
+
+drop trigger if exists articles_request_rebuild on public.articles;
+create trigger articles_request_rebuild
+after insert or update on public.articles
+for each statement execute function public.request_site_rebuild();
+```
+
+---
+
+## 8. GitHub Secrets & Variables Tam Tablosu (Eksiksiz Çetele)
+
+GitHub Repo > **Settings > Secrets and variables > Actions**:
+
+| Tür | İsim | Değer / Açıklama |
+| :--- | :--- | :--- |
+| **Secret** | `SUPABASE_URL` | Supabase > Project Settings > API > Project URL |
+| **Secret** | `SUPABASE_ANON_KEY` | Supabase > Project Settings > API > anon public key |
+| **Secret** | `CLOUDFLARE_ACCOUNT_ID` | `500e418c58f83d22b8573faa44d2e71d` *(Tüm sitelerde aynı)* |
+| **Secret** | `CLOUDFLARE_API_TOKEN` | Cloudflare > My Profile > API Tokens > Cloudflare Pages Token |
+| **Variable** | `CLOUDFLARE_PAGES_PROJECT` | Cloudflare Pages'te oluşturduğunuz proje adı (örn: `plumbright`) |
+
+---
+
+## 9. Yeni Niş Site Ölçekleme Kontrol Listesi (5 Dakikada Yeni Site)
 
 Yeni bir fikir/niş belirlediğinde izlenecek adımlar:
 
@@ -493,15 +545,9 @@ Yeni bir fikir/niş belirlediğinde izlenecek adımlar:
    * Sol menüden **SQL Editor** açılır ve bu belgedeki **"Bölüm 3: Supabase Kurulumu"** başlığı altındaki birleştirilmiş SQL sorgusunun tamamı yapıştırılıp **"Run"** tuşuna basılır (Tablo, RLS ve güvenlik kuralları 3 saniyede kurulur).
    * **Project Settings > API** bölümünden `Project URL`, `anon public key` ve `service_role secret` kopyalanır.
 4. **İçerik:** 30-40 adet Markdown rehber `src/content/guides/` içine atılır ve yerel `.env` dosyasına anahtarlar yazıldıktan sonra `node scripts/push-guides.mjs` ile Supabase'e basılır.
-5. **Cloudflare Pages & GitHub Entegrasyonu:**
+5. **Cloudflare Pages:**
    * Cloudflare Dashboard (`dash.cloudflare.com`) > **Workers & Pages** > **Create application** > **Pages** > **Direct Upload** seçilir.
    * Proje adı girilir (örn: `siteadi`) ve "Create project" denir.
-   * GitHub reponuzda **Settings > Secrets and variables > Actions** sayfasına gidilir:
-     * **Repository Secrets:**
-       * `SUPABASE_URL`
-       * `SUPABASE_ANON_KEY`
-       * `CLOUDFLARE_ACCOUNT_ID` (Global sabit: `500e418c58f83d22b8573faa44d2e71d`)
-       * `CLOUDFLARE_API_TOKEN` (Cloudflare Pages izinli API Token)
-     * **Repository Variables:**
-       * `CLOUDFLARE_PAGES_PROJECT` (Cloudflare'deki proje adı)
-6. **Bitti & Yayında:** GitHub Actions workflow'u tetiklenir veya bir commit atılır; site Cloudflare Pages üzerinden canlıya çıkar. Google Search Console'a `https://siteadi.com/sitemap-index.xml` verilir, 2-3 hafta sonra AdSense başvurusu yapılır.
+6. **GitHub Secrets:**
+   * Yukarıdaki **Bölüm 8 Tablosundaki** 4 Secret ve 1 Variable girilir.
+7. **Bitti & Yayında:** GitHub Actions workflow'u tetiklenir veya bir commit atılır; site Cloudflare Pages üzerinden canlıya çıkar. Google Search Console'a `https://siteadi.com/sitemap-index.xml` verilir, 2-3 hafta sonra AdSense başvurusu yapılır.
