@@ -298,6 +298,141 @@ if (!res.ok) console.error("Error:", await res.text());
 else console.log(`Successfully pushed ${rows.length} articles.`);
 ```
 
+### B. Kırık Link ve Zamanlama Kontrol Betiği (`scripts/check-links.mjs`)
+Build sonrası hiçbir kırık linkin ve henüz yayınlanmamış makalelere verilen linklerin canlıya çıkmamasını garantiler:
+
+```javascript
+import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
+import { join } from "node:path";
+import { localRows } from "../src/lib/articles-source.js";
+
+const DIST = new URL("../dist/", import.meta.url).pathname;
+const problems = [];
+
+function walk(dir) {
+  return readdirSync(dir).flatMap((f) => {
+    const p = join(dir, f);
+    return statSync(p).isDirectory() ? walk(p) : p.endsWith(".html") ? [p] : [];
+  });
+}
+
+if (existsSync(DIST)) {
+  for (const file of walk(DIST)) {
+    const html = readFileSync(file, "utf8");
+    for (const [, href] of html.matchAll(/href="(\/[^"#?]*)/g)) {
+      if (href.startsWith("//")) continue;
+      const target = join(DIST, href);
+      const ok = href.endsWith("/") ? existsSync(join(target, "index.html")) : existsSync(target);
+      if (!ok) problems.push(`${file.replace(DIST, "/")} -> ${href}`);
+    }
+  }
+}
+
+const rows = localRows();
+const date = Object.fromEntries(rows.map((r) => [r.slug, r.published_at]));
+for (const r of rows) {
+  for (const m of r.body_md.matchAll(/\]\(\/guides\/([^/)]+)\/?\)|href="\/guides\/([^/"]+)/g)) {
+    const slug = m[1] ?? m[2];
+    if (!(slug in date)) problems.push(`${r.slug}: links to missing guide ${slug}`);
+    else if (r.published_at && date[slug] && date[slug] > r.published_at) {
+      problems.push(`${r.slug} (${r.published_at.slice(0, 10)}) links to ${slug}, which publishes later (${date[slug].slice(0, 10)})`);
+    }
+  }
+}
+
+if (problems.length) {
+  console.error(`${problems.length} link problem(s):\n` + [...new Set(problems)].join("\n"));
+  process.exit(1);
+}
+console.log("Links OK");
+```
+
+### C. Makale Yayın Tarihlerini Yeniden Dağıtma (`scripts/reschedule.mjs`)
+Makale yayın takvimini otomatik olarak günlere yayar (haftada 4, 5 veya 6 gün):
+
+```javascript
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+
+const args = process.argv.slice(2);
+const start = args.find((a) => /^\d{4}-\d{2}-\d{2}$/.test(a));
+const dry = args.includes("--dry-run");
+const perWeek = Number(args[args.indexOf("--per-week") + 1]) || 6;
+if (!start) {
+  console.error("Usage: node scripts/reschedule.mjs YYYY-MM-DD [--dry-run] [--per-week N]");
+  process.exit(1);
+}
+
+const DAYS = { 3: [1, 3, 5], 4: [1, 2, 4, 5], 5: [1, 2, 3, 4, 5], 6: [1, 2, 3, 4, 5, 6], 7: [0, 1, 2, 3, 4, 5, 6] }[perWeek];
+if (!DAYS) throw new Error("--per-week must be 3 to 7");
+
+const dir = new URL("../src/content/guides/", import.meta.url);
+const today = new Date().toISOString().slice(0, 10);
+const files = readdirSync(dir)
+  .filter((f) => f.endsWith(".md"))
+  .map((f) => {
+    const text = readFileSync(new URL(f, dir), "utf8");
+    return { f, text, date: text.match(/^published:\s*(\S+)/m)?.[1] };
+  })
+  .filter((g) => g.date && g.date > today && !/^draft:\s*true/m.test(g.text))
+  .sort((a, b) => a.date.localeCompare(b.date) || a.f.localeCompare(b.f));
+
+let d = new Date(`${start}T12:00:00Z`);
+const next = () => {
+  while (!DAYS.includes(d.getUTCDay())) d.setUTCDate(d.getUTCDate() + 1);
+  const out = d.toISOString().slice(0, 10);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return out;
+};
+for (const g of files) {
+  const nd = next();
+  console.log(`${g.date} -> ${nd}  ${g.f}`);
+  if (!dry) writeFileSync(new URL(g.f, dir), g.text.replace(/^published:\s*\S+/m, `published: ${nd}`));
+}
+```
+
+### D. Arama Motorlarına Anında Bildirim (`scripts/indexnow.mjs`)
+Bing, Yandex, Seznam gibi arama motorlarına yeni yayınlanan sayfaları anında indeksletir:
+
+```javascript
+import { readFileSync, readdirSync } from "node:fs";
+import { SITE } from "../src/site.config.js";
+
+const args = process.argv.slice(2);
+const since = args.includes("--since") ? args[args.indexOf("--since") + 1] : null;
+const dry = args.includes("--dry-run");
+
+const dist = new URL("../dist/", import.meta.url);
+const files = readdirSync(dist).filter((f) => /^sitemap-\d+\.xml$/.test(f));
+if (!files.length) throw new Error("No sitemap in dist/. Run npm run build first.");
+
+const urls = [];
+for (const f of files) {
+  const xml = readFileSync(new URL(f, dist), "utf8");
+  for (const m of xml.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
+    const [, loc, lastmod] = m;
+    if (!since || (lastmod && lastmod.slice(0, 10) >= since)) urls.push(loc);
+  }
+}
+
+if (!urls.length) process.exit(0);
+
+const body = {
+  host: new URL(SITE.url).host,
+  key: SITE.indexNowKey,
+  keyLocation: `${SITE.url}/indexnow-key.txt`,
+  urlList: urls.slice(0, 10000),
+};
+
+if (dry) process.exit(0);
+
+const res = await fetch("https://api.indexnow.org/indexnow", {
+  method: "POST",
+  headers: { "Content-Type": "application/json; charset=utf-8" },
+  body: JSON.stringify(body),
+});
+console.log(`IndexNow responded ${res.status} ${res.statusText}`);
+```
+
 ---
 
 ## 6. Otomatik Cron & Deploy (`.github/workflows/deploy.yml`)
