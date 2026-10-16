@@ -48,12 +48,11 @@ export const AUTHOR = {
 };
 
 export const NAV = [
+  { href: "/guides/", label: "Guides & Articles" },
   { href: "/calculators/", label: "Calculators" },
-  { href: "/concrete-calculator/", label: "Concrete" },
-  { href: "/tile-calculator/", label: "Tile" },
-  { href: "/flooring-calculator/", label: "Flooring" },
-  { href: "/guides/", label: "Guides" },
   { href: "/about/", label: "About" },
+  { href: "/methodology/", label: "Methodology" },
+  { href: "/contact/", label: "Contact" },
 ];
 
 export const FOOTER_LINKS = [

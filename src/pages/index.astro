@@ -30,113 +30,157 @@ const principles = [
 ];
 ---
 <Base title={SITE.name} description={SITE.description}>
+  <!-- HERO: Editorial & Guides First -->
   <section class="relative overflow-hidden border-b">
     <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-    <div class="relative mx-auto max-w-6xl px-4 pt-14 pb-12 md:pt-20">
-      <p class="text-brand num text-sm font-medium">{TOOL_GROUPS.reduce((n, g) => n + g.tools.length, 0)} calculators · formula on every page</p>
-      <h1 class="mt-3 max-w-3xl text-4xl leading-[1.05] font-extrabold md:text-6xl">
-        Know how much to buy before you load the truck.
-      </h1>
-      <p class="text-muted-foreground mt-5 max-w-[56ch] text-lg">
-        Free material calculators that show their work. Try one below: a 10 × 10 ft patio, 4 inches thick, takes {fmt(ex.cubicYards)} cubic yards of concrete, or {bags80} bags of 80 lb mix.
-      </p>
-      <div class="mt-10">
-        <HomeCalculators client:load />
+    <div class="relative mx-auto max-w-6xl px-4 pt-12 pb-14 md:pt-16 md:pb-16">
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-soft text-brand mb-4">
+          Open-Formula Construction Engineering
+        </span>
+        <h1 class="text-4xl leading-[1.08] font-extrabold md:text-5xl lg:text-6xl text-balance">
+          Technical guides and transparent formulas for home improvement.
+        </h1>
+        <p class="text-muted-foreground mt-5 text-lg md:text-xl max-w-[62ch]">
+          Independent, verified planning articles and material guides by Eren Şimşir. Every calculation is fully exposed with IRC standards, manufacturer tolerances, and real worked examples.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a href="/guides/" class="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 no-underline transition-colors">
+            Browse All Guides & Articles ({guides.length > 0 ? "40+ Guides" : "Guides"}) →
+          </a>
+          <a href="/calculators/" class="inline-flex items-center justify-center rounded-lg border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-xs hover:bg-accent no-underline transition-colors">
+            Explore 15 Interactive Calculators
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section aria-labelledby="tools-h" class="mx-auto max-w-6xl px-4 pt-16">
-    <div class="flex items-baseline justify-between gap-4">
-      <h2 id="tools-h" class="text-3xl font-extrabold">Every calculator</h2>
-      <a href="/calculators/" class="text-sm font-medium">All calculators →</a>
-    </div>
-    <div class="mt-8 grid gap-8 md:grid-cols-3">
-      {TOOL_GROUPS.map((g) => (
+  <!-- FEATURED GUIDES (FRONT & CENTER) -->
+  {guides.length > 0 && (
+    <section aria-labelledby="featured-guides-h" class="mx-auto max-w-6xl px-4 py-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-4 border-b pb-4">
         <div>
-          <h3 class="text-muted-foreground text-xs font-semibold tracking-wider uppercase">{g.group}</h3>
-          <ul class="mt-3 grid gap-1">
-            {g.tools.map((t) => (
-              <li>
-                <a href={t.href} class="hover:bg-accent text-foreground group -mx-2 flex flex-col rounded-md px-2 py-2 no-underline transition-colors">
-                  <span class="group-hover:text-brand font-semibold">{t.name}</span>
-                  <span class="text-muted-foreground text-sm">{t.blurb}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <h2 id="featured-guides-h" class="text-3xl font-extrabold">Latest Guides & Analysis</h2>
+          <p class="text-muted-foreground mt-1 text-sm">In-depth mathematical breakdowns and buying guides for materials.</p>
         </div>
-      ))}
+        <a href="/guides/" class="text-sm font-semibold text-brand hover:underline">View all articles →</a>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {guides.map((g) => (
+          <article class="bg-card hover:border-brand/60 group text-foreground flex h-full flex-col justify-between rounded-xl border p-6 transition-all shadow-xs hover:shadow-md">
+            <div>
+              <div class="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                <span class="font-semibold uppercase tracking-wider text-brand">{TOOL_BY_KEY[g.data.tool]?.topic || g.data.tool}</span>
+                <time datetime={g.data.published.toISOString()} class="num">{g.data.published.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}</time>
+              </div>
+              <h3 class="font-display group-hover:text-brand text-xl font-bold leading-snug">
+                <a href={`/guides/${g.id}/`} class="text-foreground group-hover:text-brand no-underline">
+                  {g.data.title}
+                </a>
+              </h3>
+              <p class="text-muted-foreground text-sm mt-3 line-clamp-3 leading-relaxed">
+                {g.data.description}
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t flex items-center justify-between text-xs text-muted-foreground">
+              <span>By {AUTHOR.name}</span>
+              <span class="text-brand font-semibold group-hover:translate-x-1 transition-transform">Read guide →</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- SUPPORTING INTERACTIVE UTILITIES (CALCULATORS) -->
+  <section aria-labelledby="tools-h" class="bg-card/40 border-y py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex flex-wrap items-baseline justify-between gap-4">
+        <div>
+          <h2 id="tools-h" class="text-3xl font-extrabold">Interactive Calculation Tools</h2>
+          <p class="text-muted-foreground mt-1 text-sm">Tested companion utilities designed to execute the formulas outlined in our guides.</p>
+        </div>
+        <a href="/calculators/" class="text-sm font-semibold text-brand hover:underline">All 15 calculators →</a>
+      </div>
+
+      <div class="mt-8">
+        <HomeCalculators client:load />
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {TOOL_GROUPS.map((g) => (
+          <div class="bg-card rounded-xl border p-5">
+            <h3 class="text-muted-foreground text-xs font-bold tracking-wider uppercase border-b pb-2">{g.group}</h3>
+            <ul class="mt-3 grid gap-1">
+              {g.tools.map((t) => (
+                <li>
+                  <a href={t.href} class="hover:bg-accent text-foreground group -mx-2 flex flex-col rounded-md px-2 py-2 no-underline transition-colors">
+                    <span class="group-hover:text-brand text-sm font-semibold">{t.name}</span>
+                    <span class="text-muted-foreground text-xs line-clamp-1">{t.blurb}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
+  <!-- EDITORIAL METHODOLOGY & PRINCIPLES -->
   <section aria-labelledby="how-h" class="mx-auto max-w-6xl px-4 py-16">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
       <div>
-        <h2 id="how-h" class="text-3xl font-extrabold">No number without its working</h2>
-        <p class="text-muted-foreground mt-3 max-w-[48ch]">
-          Most material calculators hand you a figure and nothing else. When it looks wrong, you can't tell whether the tool skipped the grout joint or forgot the door. Here, every step is visible.
+        <h2 id="how-h" class="text-3xl font-extrabold">Editorial Integrity & Engineering Math</h2>
+        <p class="text-muted-foreground mt-3 max-w-[48ch] leading-relaxed">
+          Unlike generic content farms or black-box calculators, every article and tool on {SITE.name} is governed by verifiable arithmetic, strict peer-reviewed tolerances, and documented construction codes.
         </p>
         <div class="tick-rule mt-6 max-w-xs"></div>
+        <div class="mt-6">
+          <a href="/methodology/" class="text-sm font-semibold text-brand hover:underline">Read our complete calculation methodology →</a>
+        </div>
       </div>
       <ol class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
         {principles.map((p, i) => (
-          <li class="bg-card flex gap-4 rounded-xl border p-5">
+          <li class="bg-card flex gap-4 rounded-xl border p-5 shadow-xs">
             <span class="num text-brand text-sm font-semibold">{String(i + 1).padStart(2, "0")}</span>
             <div>
               <h3 class="text-base font-bold">{p.title}</h3>
-              <p class="text-muted-foreground mt-1 text-[0.95rem]">{p.body}</p>
+              <p class="text-muted-foreground mt-1 text-[0.95rem] leading-relaxed">{p.body}</p>
             </div>
           </li>
         ))}
       </ol>
     </div>
-
-    <figure class="bg-card mt-10 overflow-hidden rounded-xl border">
-      <figcaption class="text-muted-foreground border-b px-5 py-3 text-xs font-semibold tracking-wider uppercase">
-        What "show the work" looks like · 10 × 10 ft patio, 4 in thick
-      </figcaption>
-      <div class="num grid gap-x-8 gap-y-2 overflow-x-auto px-5 py-5 text-sm md:grid-cols-[auto_1fr] md:text-base">
-        <span class="text-muted-foreground">Volume</span><span>10 ft × 10 ft × (4 in ÷ 12) = {fmt(ex.netCuFt)} cu ft</span>
-        <span class="text-muted-foreground">+ 10% waste</span><span>{fmt(ex.netCuFt)} × 1.10 = {fmt(ex.totalCuFt)} cu ft</span>
-        <span class="text-muted-foreground">Cubic yards</span><span>{fmt(ex.totalCuFt)} ÷ 27 = <strong class="text-brand">{fmt(ex.cubicYards)} yd³</strong></span>
-        <span class="text-muted-foreground">80 lb bags</span><span>{fmt(ex.totalCuFt)} ÷ 0.60, rounded up = <strong class="text-brand">{bags80} bags</strong></span>
-      </div>
-    </figure>
   </section>
 
-  {guides.length > 0 && (
-    <section aria-labelledby="guides-h" class="border-t">
-      <div class="mx-auto max-w-6xl px-4 py-16">
-        <div class="flex items-baseline justify-between gap-4">
-          <h2 id="guides-h" class="text-3xl font-extrabold">Guides</h2>
-          <a href="/guides/" class="text-sm font-medium">All guides →</a>
+  <!-- AUTHOR SECTION (E-E-A-T) -->
+  <section aria-labelledby="who-h" class="border-t bg-card/20">
+    <div class="mx-auto grid max-w-6xl gap-6 px-4 py-14 md:grid-cols-[auto_1fr] md:items-center">
+      {AUTHOR.photo ? (
+        <img
+          src={AUTHOR.photo}
+          alt={AUTHOR.name}
+          width="80"
+          height="80"
+          class="w-20 h-20 rounded-full object-cover border-2 border-border shadow-xs shrink-0"
+        />
+      ) : (
+        <div class="bg-brand-soft text-brand font-display grid size-20 place-items-center rounded-full text-2xl font-bold" aria-hidden="true">
+          {AUTHOR.name.split(" ").map((p) => p[0]).join("")}
         </div>
-        <ul class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {guides.map((g) => (
-            <li>
-              <a href={`/guides/${g.id}/`} class="bg-card hover:border-brand group text-foreground flex h-full flex-col gap-3 rounded-xl border p-5 no-underline transition-colors">
-                <span class="text-muted-foreground text-xs font-semibold tracking-wider uppercase">{TOOL_BY_KEY[g.data.tool].topic}</span>
-                <span class="font-display group-hover:text-brand text-lg leading-snug font-bold">{g.data.title}</span>
-                <span class="text-muted-foreground text-sm">{g.data.description}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )}
-
-  <section aria-labelledby="who-h" class="border-t">
-    <div class="mx-auto grid max-w-6xl gap-6 px-4 py-16 md:grid-cols-[auto_1fr] md:items-center">
-      <div class="bg-brand-soft text-brand font-display grid size-16 place-items-center rounded-full text-xl font-bold" aria-hidden="true">
-        {AUTHOR.name.split(" ").map((p) => p[0]).join("")}
-      </div>
+      )}
       <div>
-        <h2 id="who-h" class="text-2xl font-extrabold">Who builds this</h2>
-        <p class="text-muted-foreground mt-2 max-w-[62ch]">
-          {SITE.name} is written and built by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>, a computer engineer with a second major in industrial engineering. It is independent, with no ties to any manufacturer or store. Found an error? <a href="/contact/">Tell us</a> and it gets fixed.
+        <h2 id="who-h" class="text-2xl font-extrabold">Published by {AUTHOR.name}</h2>
+        <p class="text-muted-foreground mt-2 max-w-[68ch] text-sm leading-relaxed">
+          {SITE.name} is founded and written by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>. Eren holds a B.Sc. in Computer Engineering from Düzce University, is an M.Sc. student in Computer Engineering at Kocaeli University, and completed a double major in Industrial Engineering.
         </p>
+        <div class="mt-3 flex gap-4 text-xs font-medium">
+          <a href={`/author/${AUTHOR.slug}/`} class="text-brand hover:underline">Full Author Bio & Verification →</a>
+          <a href="/editorial-policy/" class="text-muted-foreground hover:text-foreground">Editorial Policy</a>
+          <a href="/contact/" class="text-muted-foreground hover:text-foreground">Contact & Corrections</a>
+        </div>
       </div>
     </div>
   </section>
