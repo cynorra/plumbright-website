@@ -24,6 +24,21 @@ const person = {
   updated={pageDates("/author/eren-simsir/").updated ?? pageDates("/author/eren-simsir/").published}
   extraSchema={[person]}
 >
+  <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 not-prose">
+    <img
+      src={AUTHOR.photo}
+      alt={AUTHOR.name}
+      width="160"
+      height="160"
+      class="w-36 h-36 rounded-full object-cover border-2 border-border shadow-md shrink-0"
+    />
+    <div>
+      <p class="text-xl font-bold">{AUTHOR.name}</p>
+      <p class="text-sm text-brand font-medium mt-1">{AUTHOR.role}</p>
+      <p class="text-sm text-muted-foreground mt-3 max-w-xl">{AUTHOR.shortBio}</p>
+    </div>
+  </div>
+
   <p><strong>{AUTHOR.name}</strong> is the founder, editor, and lead developer of {SITE.name}. He holds a B.Sc. in Computer Engineering from Düzce University, is currently pursuing his Master's (M.Sc.) in Computer Engineering at Kocaeli University, and completed a double major in Industrial Engineering.</p>
 
   <h2>Education & Credentials</h2>

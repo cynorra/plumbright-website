@@ -6,7 +6,17 @@ const fmt = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month:
 const initials = AUTHOR.name.split(" ").map((p) => p[0]).join("");
 ---
 <aside class="mt-12 border border-border rounded-lg bg-card p-5 flex gap-4 items-start max-w-[68ch]" aria-label="About the author">
-  <div class="shrink-0 w-14 h-14 rounded-full bg-brand-soft text-brand grid place-items-center font-display font-bold text-lg" aria-hidden="true">{initials}</div>
+  {AUTHOR.photo ? (
+    <img
+      src={AUTHOR.photo}
+      alt={AUTHOR.name}
+      width="56"
+      height="56"
+      class="shrink-0 w-14 h-14 rounded-full object-cover border border-border shadow-xs"
+    />
+  ) : (
+    <div class="shrink-0 w-14 h-14 rounded-full bg-brand-soft text-brand grid place-items-center font-display font-bold text-lg" aria-hidden="true">{initials}</div>
+  )}
   <div class="min-w-0">
     <p class="font-semibold">
       Written by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>
