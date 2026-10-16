@@ -353,10 +353,20 @@ Yeni bir fikir/niş belirlediğinde izlenecek adımlar:
 
 1. **Repo Kopyalama:** Bu repo şablon olarak kopyalanır (`template repo`).
 2. **Yapılandırma:** `src/site.config.js` içinde `SITE.name`, `SITE.domain` ve araç tanımları güncellenir.
-3. **Supabase Aç:** Yeni bir Supabase projesi açılıp yukarıdaki **SQL şeması** yapıştırılır.
-4. **İçerik:** 30-40 adet Markdown rehber `src/content/guides/` içine atılır ve `node scripts/push-guides.mjs` ile Supabase'e basılır.
-5. **GitHub & Cloudflare:**
-   * Cloudflare'de proje oluşturulur.
-   * GitHub Secrets'a `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN` girilir.
-   * `CLOUDFLARE_PAGES_PROJECT` variable olarak tanımlanır.
-6. **Bitti:** Proje canlıya alınır; Google Search Console'a sitemap verilir, 2-3 hafta sonra AdSense'e başvurulur.
+3. **Supabase Veritabanı Açma & SQL:**
+   * Supabase'de yeni ücretsiz bir proje açılır (`app.supabase.com`).
+   * Sol menüden **SQL Editor** açılır ve bu belgedeki **"Bölüm 3: Supabase Kurulumu"** başlığı altındaki birleştirilmiş SQL sorgusunun tamamı yapıştırılıp **"Run"** tuşuna basılır (Tablo, RLS ve güvenlik kuralları 3 saniyede kurulur).
+   * **Project Settings > API** bölümünden `Project URL`, `anon public key` ve `service_role secret` kopyalanır.
+4. **İçerik:** 30-40 adet Markdown rehber `src/content/guides/` içine atılır ve yerel `.env` dosyasına anahtarlar yazıldıktan sonra `node scripts/push-guides.mjs` ile Supabase'e basılır.
+5. **Cloudflare Pages & GitHub Entegrasyonu:**
+   * Cloudflare Dashboard (`dash.cloudflare.com`) > **Workers & Pages** > **Create application** > **Pages** > **Direct Upload** seçilir.
+   * Proje adı girilir (örn: `siteadi`) ve "Create project" denir.
+   * GitHub reponuzda **Settings > Secrets and variables > Actions** sayfasına gidilir:
+     * **Repository Secrets:**
+       * `SUPABASE_URL`
+       * `SUPABASE_ANON_KEY`
+       * `CLOUDFLARE_ACCOUNT_ID` (Global sabit: `500e418c58f83d22b8573faa44d2e71d`)
+       * `CLOUDFLARE_API_TOKEN` (Cloudflare Pages izinli API Token)
+     * **Repository Variables:**
+       * `CLOUDFLARE_PAGES_PROJECT` (Cloudflare'deki proje adı)
+6. **Bitti & Yayında:** GitHub Actions workflow'u tetiklenir veya bir commit atılır; site Cloudflare Pages üzerinden canlıya çıkar. Google Search Console'a `https://siteadi.com/sitemap-index.xml` verilir, 2-3 hafta sonra AdSense başvurusu yapılır.
