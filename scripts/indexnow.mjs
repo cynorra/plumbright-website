@@ -7,7 +7,7 @@
 //   node scripts/indexnow.mjs --dry-run       # print, don't send
 //
 // Run it after the new version is live, so the engines fetch the new content.
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { SITE } from "../src/site.config.js";
 
 const args = process.argv.slice(2);
@@ -15,15 +15,28 @@ const since = args.includes("--since") ? args[args.indexOf("--since") + 1] : nul
 const dry = args.includes("--dry-run");
 
 const dist = new URL("../dist/", import.meta.url);
-const files = readdirSync(dist).filter((f) => /^sitemap-\d+\.xml$/.test(f));
-if (!files.length) throw new Error("No sitemap in dist/. Run npm run build first.");
-
 const urls = [];
-for (const f of files) {
-  const xml = readFileSync(new URL(f, dist), "utf8");
-  for (const m of xml.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
-    const [, loc, lastmod] = m;
-    if (!since || (lastmod && lastmod.slice(0, 10) >= since)) urls.push(loc);
+
+if (existsSync(dist)) {
+  const files = readdirSync(dist).filter((f) => /^sitemap-\d+\.xml$/.test(f));
+  for (const f of files) {
+    const xml = readFileSync(new URL(f, dist), "utf8");
+    for (const m of xml.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
+      const [, loc, lastmod] = m;
+      if (!since || (lastmod && lastmod.slice(0, 10) >= since)) urls.push(loc);
+    }
+  }
+} else {
+  // If dist does not exist, fetch directly from live site sitemap-0.xml
+  const sitemapUrl = `${SITE.url.replace(/\/$/, "")}/sitemap-0.xml`;
+  console.log(`Local dist/ not found. Fetching live sitemap from ${sitemapUrl}...`);
+  const res = await fetch(sitemapUrl);
+  if (res.ok) {
+    const xml = await res.text();
+    for (const m of xml.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
+      const [, loc, lastmod] = m;
+      if (!since || (lastmod && lastmod.slice(0, 10) >= since)) urls.push(loc);
+    }
   }
 }
 if (!urls.length) {

@@ -566,7 +566,7 @@ for (const g of files) {
 Bing, Yandex, Seznam gibi arama motorlarına yeni yayınlanan sayfaları anında indeksletir:
 
 ```javascript
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { SITE } from "../src/site.config.js";
 
 const args = process.argv.slice(2);
@@ -574,15 +574,27 @@ const since = args.includes("--since") ? args[args.indexOf("--since") + 1] : nul
 const dry = args.includes("--dry-run");
 
 const dist = new URL("../dist/", import.meta.url);
-const files = readdirSync(dist).filter((f) => /^sitemap-\d+\.xml$/.test(f));
-if (!files.length) throw new Error("No sitemap in dist/. Run npm run build first.");
-
 const urls = [];
-for (const f of files) {
-  const xml = readFileSync(new URL(f, dist), "utf8");
-  for (const m of xml.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
-    const [, loc, lastmod] = m;
-    if (!since || (lastmod && lastmod.slice(0, 10) >= since)) urls.push(loc);
+
+if (existsSync(dist)) {
+  const files = readdirSync(dist).filter((f) => /^sitemap-\d+\.xml$/.test(f));
+  for (const f of files) {
+    const xml = readFileSync(new URL(f, dist), "utf8");
+    for (const m of xml.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
+      const [, loc, lastmod] = m;
+      if (!since || (lastmod && lastmod.slice(0, 10) >= since)) urls.push(loc);
+    }
+  }
+} else {
+  // dist yoksa doğrudan canlı sitedeki sitemap-0.xml'den çeker
+  const sitemapUrl = `${SITE.url.replace(/\/$/, "")}/sitemap-0.xml`;
+  const res = await fetch(sitemapUrl);
+  if (res.ok) {
+    const xml = await res.text();
+    for (const m of xml.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>([^<]+)<\/lastmod>)?/g)) {
+      const [, loc, lastmod] = m;
+      if (!since || (lastmod && lastmod.slice(0, 10) >= since)) urls.push(loc);
+    }
   }
 }
 
