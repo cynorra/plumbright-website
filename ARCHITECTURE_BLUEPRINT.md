@@ -30,10 +30,12 @@ Bu belge; sıfır sunucu maliyetiyle çalışan, tamamen otonom yayın akışın
 
 Tüm niş sitelerinizde tek merkezden aynı hesapları ve kimliği kullanabilmeniz için sabit bilgiler:
 
-### A. Reklam & Cloudflare Hesap Bilgileri
+### A. Reklam & Cloudflare & IndexNow Hesap Bilgileri
 * **Google AdSense Yayıncı Kimliği (Publisher ID):** `pub-4674211063760769`
 * **Google AdSense Müşteri Kimliği:** `9067139789`
 * **Cloudflare Account ID:** `500e418c58f83d22b8573faa44d2e71d`
+* **IndexNow API Global Anahtarı:** `d28c5a05a99f5176adf74a2dd2414fd5`
+* **IndexNow API Endpoint:** `https://api.indexnow.org/indexnow` *(Tüm sitelerde aynı anahtar kullanılabilir)*
 
 ### B. Ortak Yazar & E-E-A-T Profili (Tüm Siteler İçin Standart)
 AdSense onayını hızlandıran gerçek mühendislik kimliği tüm sitelerde aynı kalacaktır:
