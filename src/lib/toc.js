@@ -26,3 +26,20 @@ export function addHeadingIds(html) {
   });
   return { html: out, toc };
 }
+
+/** Extracts questions (<h3>) and answers (<p>) following "Questions people ask" */
+export function extractFaqItems(html) {
+  const faqSection = html.split(/<h2[^>]*id="questions-people-ask"[^>]*>|<h2[^>]*>Questions people ask<\/h2>/i)[1];
+  if (!faqSection) return [];
+  const afterH2 = faqSection.split(/<h2[^>]*>/i)[0];
+  const items = [];
+  const regex = /<h3[^>]*>([\s\S]*?)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/gi;
+  let match;
+  while ((match = regex.exec(afterH2)) !== null) {
+    const q = match[1].replace(/<[^>]+>/g, "").trim();
+    const a = match[2].replace(/<[^>]+>/g, "").trim();
+    if (q && a) items.push({ q, a });
+  }
+  return items;
+}
+

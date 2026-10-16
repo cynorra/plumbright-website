@@ -50,3 +50,19 @@ export function calculatorSchema({ name, description, path, updated }) {
     dateModified: updated,
   };
 }
+
+export function faqSchema(items) {
+  if (!items || items.length === 0) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+}

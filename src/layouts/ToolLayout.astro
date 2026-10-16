@@ -5,8 +5,8 @@ import AuthorBox from "../components/AuthorBox.astro";
 import OnThisPage from "../components/OnThisPage.astro";
 import KeyFacts from "../components/KeyFacts.astro";
 import { getCollection } from "astro:content";
-import { breadcrumbSchema, calculatorSchema } from "../lib/schema.js";
-import { addHeadingIds } from "../lib/toc.js";
+import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/schema.js";
+import { addHeadingIds, extractFaqItems } from "../lib/toc.js";
 import { AUTHOR } from "../site.config.js";
 
 interface Props {
@@ -29,6 +29,8 @@ const guides = (await getCollection("guides", (g) => !g.data.draft && g.data.too
 const bodyHtml = await Astro.slots.render("default");
 const { html, toc } = addHeadingIds(bodyHtml);
 const fullToc = [...toc, ...(sources.length ? [{ id: "sources", text: "Sources" }] : [])];
+const faqItems = extractFaqItems(html);
+const faq = faqSchema(faqItems);
 
 const lastDate = updated ?? published;
 const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" });
@@ -36,6 +38,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
 const schema = [
   breadcrumbSchema(crumbs),
   calculatorSchema({ name: title, description, path, updated: lastDate.toISOString().slice(0, 10) }),
+  ...(faq ? [faq] : []),
 ];
 ---
 <Base title={title} description={description} schema={schema} published={published} updated={updated}>
