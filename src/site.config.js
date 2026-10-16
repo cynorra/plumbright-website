@@ -64,4 +64,5 @@ export const FOOTER_LINKS = [
   { href: "/privacy/", label: "Privacy policy" },
   { href: "/terms/", label: "Terms of use" },
   { href: "/disclaimer/", label: "Disclaimer" },
+  { href: "/rss.xml", label: "RSS Feed" },
 ];
