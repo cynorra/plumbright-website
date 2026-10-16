@@ -242,6 +242,60 @@ export function faqSchema(items) {
 }
 ```
 
+### D. Arama Motorları & AI Bot Uç Noktaları (`robots.txt.ts` & `llms.txt.ts`)
+
+Botların siteyi JavaScript çalıştırmadan, sıfır gecikmeyle ve hatasız okuması için gerekli dinamik uç noktalar:
+
+#### 1. Tam İzinli ve Ayrıştırılmış `robots.txt` (`src/pages/robots.txt.ts`)
+```typescript
+import type { APIRoute } from "astro";
+import { SITE } from "../site.config.js";
+
+const BOTS = [
+  // Arama Motorları
+  "Googlebot", "Googlebot-Image", "Bingbot", "Applebot", "DuckDuckBot", "YandexBot", "Baiduspider",
+  // AdSense Taraması (AdSense onayı için hayati)
+  "Mediapartners-Google", "AdsBot-Google",
+  // Yapay Zeka Arama ve Yanıt Motorları (AEO / GEO)
+  "OAI-SearchBot", "ChatGPT-User", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User",
+  // Yapay Zeka Eğitim Botları
+  "GPTBot", "ClaudeBot", "Google-Extended", "Applebot-Extended", "CCBot", "meta-externalagent"
+];
+
+export const GET: APIRoute = () => {
+  const groups = BOTS.map((b) => `User-agent: ${b}\nAllow: /`).join("\n\n");
+  const body = `# ${SITE.name}: open to all search engines and AI crawlers.\n\nUser-agent: *\nAllow: /\n\n${groups}\n\nSitemap: ${SITE.url}/sitemap-index.xml\n`;
+  return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+};
+```
+
+#### 2. AI Özet ve Çıplak Bilgi Uç Noktası (`src/pages/llms.txt.ts`)
+LLM'lerin (ChatGPT, Perplexity vb.) sitenizi tek bir istekte hatasız hafızasına alabilmesi için standart özet:
+```typescript
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
+import { SITE, AUTHOR } from "../site.config.js";
+import { TOOLS } from "../lib/tools.js";
+
+export const GET: APIRoute = async () => {
+  const u = (p: string) => new URL(p, SITE.url).href;
+  const guides = (await getCollection("guides", (g) => !g.data.draft)).sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+  const body = `# ${SITE.name}\n\n> ${SITE.description} Written by ${AUTHOR.name}.\n\n## Calculators\n\n${TOOLS.map((t) => `- [${t.name}](${u(t.href)}): ${t.blurb}`).join("\n")}\n\n## Guides\n\n${guides.map((g) => `- [${g.data.title}](${u(`/guides/${g.id}/`)}): ${g.data.description}`).join("\n")}\n`;
+  return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+};
+```
+
+#### 3. Bing Sahiplik Doğrulama Dosyası (`src/pages/indexnow-key.txt.ts`)
+```typescript
+import type { APIRoute } from "astro";
+import { SITE } from "../site.config.js";
+
+export const GET: APIRoute = () =>
+  new Response(SITE.indexNowKey, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+```
+
+
 ---
 
 ## 5. Makaleleri Supabase'e Otomatik Basma Betiği (`scripts/push-guides.mjs`)
