@@ -26,13 +26,36 @@ Bu belge; sıfır sunucu maliyetiyle çalışan, tamamen otonom yayın akışın
 
 ---
 
-## 2. AdSense & SEO/AEO Onay Kuralları (Scale Ederken Değişmez İlkeler)
+## 2. Global Sabitler (Tüm Sitelerde Ortak Olan Bilgiler)
+
+Tüm niş sitelerinizde tek merkezden aynı hesapları ve kimliği kullanabilmeniz için sabit bilgiler:
+
+### A. Reklam & Cloudflare Hesap Bilgileri
+* **Google AdSense Yayıncı Kimliği (Publisher ID):** `pub-4674211063760769`
+* **Google AdSense Müşteri Kimliği:** `9067139789`
+* **Cloudflare Account ID:** `500e418c58f83d22b8573faa44d2e71d`
+
+### B. Ortak Yazar & E-E-A-T Profili (Tüm Siteler İçin Standart)
+AdSense onayını hızlandıran gerçek mühendislik kimliği tüm sitelerde aynı kalacaktır:
+* **İsim:** `Eren Şimşir`
+* **Slug:** `eren-simsir`
+* **Unvan:** `Founder, Editor & Software Engineer`
+* **Görsel Yolu:** `public/images/eren-simsir.jpg` (Vesikalık portre)
+* **LinkedIn:** `https://www.linkedin.com/in/ernsmsr/`
+* **GitHub:** `https://github.com/cynorra`
+* **Akademik Arka Plan:** Kocaeli Üniversitesi Bilgisayar Mühendisliği Yüksek Lisans (M.Sc. ongoing), Düzce Üniversitesi Bilgisayar Mühendisliği Lisans (B.Sc. 2025), Endüstri Mühendisliği Çift Anadal.
+* **Kısa Biyografi (Short Bio):**
+  > *"Computer engineer (M.Sc. student at Kocaeli University, B.Sc. Düzce University) with a double major in industrial engineering. Dedicated to developing accurate, open-formula calculations and technical planning guides."*
+
+---
+
+## 3. AdSense & SEO/AEO Onay Kuralları (Scale Ederken Değişmez İlkeler)
 
 Yeni bir niş site açarken şu formülden asla sapılmamalıdır:
 
 1. **Editoryal Öncelikli Ana Sayfa:** Sitenin ana sayfası sadece hesap makinesi/araç kutusu olmamalıdır. En üstte teknik rehberler ve makaleler (Hero + Featured Articles), hemen altında bu makalelerdeki formülleri çalıştıran yardımcı interaktif araçlar (Calculators) yer almalıdır.
 2. **E-E-A-T (Deneyim, Uzmanlık, Otorite, Güvenilirlik):**
-   * Yazar sayfası (`/author/[slug]/`) gerçek bir akademik/mühendislik biyografisi ve vesikalık fotoğrafla sunulmalıdır.
+   * Yazar sayfası (`/author/[slug]/`) yukarıdaki akademik/mühendislik biyografisi ve vesikalık fotoğrafla sunulmalıdır.
    * `About`, `Methodology`, `Editorial Policy`, `Privacy Policy`, `Terms of Use`, `Disclaimer`, `Contact` sayfaları eksiksiz olmalıdır.
 3. **FAQPage Schema (Zengin Sonuçlar):** Her hesaplama/rehber sayfasının altındaki Sıkça Sorulan Sorular bölümü derleme anında JSON-LD `FAQPage` şemasına dönüştürülmelidir.
 4. **LLMs.txt (AEO & GEO):** Yapay zeka arama motorları için kök dizinde `/llms.txt` özeti bulunmalıdır.
