@@ -31,11 +31,14 @@ if (!urls.length) {
   process.exit(0);
 }
 
+const baseUrl = process.env.INDEXNOW_URL || SITE.url;
+const host = process.env.INDEXNOW_HOST || new URL(baseUrl).host;
+
 const body = {
-  host: new URL(SITE.url).host,
+  host,
   key: SITE.indexNowKey,
-  keyLocation: `${SITE.url}/indexnow-key.txt`,
-  urlList: urls.slice(0, 10000),
+  keyLocation: `${baseUrl}/indexnow-key.txt`,
+  urlList: urls.map((u) => (baseUrl !== SITE.url ? u.replace(SITE.url, baseUrl) : u)).slice(0, 10000),
 };
 console.log(`Submitting ${body.urlList.length} URL(s) to IndexNow${dry ? " (dry run)" : ""}:`);
 for (const u of body.urlList) console.log("  " + u);
