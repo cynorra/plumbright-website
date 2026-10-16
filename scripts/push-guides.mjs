@@ -10,11 +10,28 @@
 //   published: 2026-10-20    -> goes live on that date (a future date schedules it)
 // Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY (never commit the service key,
 // never put it in the site build).
-import { readdirSync, readFileSync } from "node:fs";
-import { loadEnv } from "vite";
+import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { guideRow } from "../src/lib/frontmatter.js";
 
-const env = { ...loadEnv("production", process.cwd(), ""), ...process.env };
+const parseDotEnv = () => {
+  const env = { ...process.env };
+  if (existsSync(".env")) {
+    const lines = readFileSync(".env", "utf8").split(/\r?\n/);
+    for (const l of lines) {
+      const trimmed = l.trim();
+      if (!trimmed || trimmed.startsWith("#")) continue;
+      const eq = trimmed.indexOf("=");
+      if (eq > 0) {
+        const k = trimmed.slice(0, eq).trim();
+        const v = trimmed.slice(eq + 1).trim().replace(/^["']|["']$/g, "");
+        if (!env[k]) env[k] = v;
+      }
+    }
+  }
+  return env;
+};
+
+const env = parseDotEnv();
 const URL_ = env.SUPABASE_URL?.replace(/\/$/, "");
 const KEY = env.SUPABASE_SERVICE_ROLE_KEY;
 const args = process.argv.slice(2);
