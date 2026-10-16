@@ -39,13 +39,12 @@ export const SITE = {
 export const AUTHOR = {
   name: "Eren Şimşir",
   slug: "eren-simsir",
-  role: "Founder and editor",
-  // TODO: put a real photo at public/images/eren-simsir.jpg (square, 400x400+).
+  role: "Founder, Editor & Software Engineer",
   photo: "/images/eren-simsir.jpg",
-  linkedin: "https://www.linkedin.com/in/ernsmsr",
+  linkedin: "https://www.linkedin.com/in/ernsmsr/",
   github: "https://github.com/cynorra",
   shortBio:
-    "Computer engineer with a second major in industrial engineering. I build the calculators on this site and write the guides that explain the math behind them.",
+    "Computer engineer (M.Sc. student at Kocaeli University, B.Sc. Düzce University) with a double major in industrial engineering. Dedicated to developing accurate, open-formula construction calculators and technical planning guides.",
 };
 
 export const NAV = [
