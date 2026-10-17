@@ -96,6 +96,7 @@ const allSchema = [...siteSchema, ...schema];
 
     {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
+    {SITE.adsensePublisherId && <meta name="google-adsense-account" content={SITE.adsensePublisherId} />}
     {SITE.adsensePublisherId && (
       <script
         async

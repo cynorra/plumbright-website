@@ -20,7 +20,7 @@ export const SITE = {
   contactFormEndpoint: "",
 
   // Google AdSense Publisher ID
-  adsensePublisherId: "pub-4674211063760769",
+  adsensePublisherId: "ca-pub-4674211063760769",
 
   // Search engine ownership verification (meta tag method). Paste only the
   // content="..." value each tool gives you. Bing can also import from Google
