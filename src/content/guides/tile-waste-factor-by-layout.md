@@ -36,7 +36,7 @@ A 10 × 12 ft floor (120 sq ft) in 12 × 24 in porcelain with 1/8 in joints, sol
 </table>
 </div>
 
-Going from straight to herringbone on this floor costs about 1 extra boxes. That difference is worth knowing before you fall in love with a pattern at the showroom. The [tile calculator](/tile-calculator/) sets the waste automatically when you pick a layout.
+Going from straight to herringbone on this floor costs about one extra box. That difference is worth knowing before you fall in love with a pattern at the showroom. The [tile calculator](/tile-calculator/) sets the waste automatically when you pick a layout.
 
 ## Why small rooms waste more
 

@@ -82,7 +82,7 @@ export function BigResult({ label, value, decimals = 2, unit, sub }: { label: st
           <span className="num text-muted-foreground text-5xl font-semibold">–</span>
         ) : (
           <AnimatedNumber value={value} decimals={decimals} className="text-brand text-5xl font-semibold tracking-tight" />
-        )}
+        )}{" "}
         <span className="text-muted-foreground">{unit}</span>
       </p>
       {sub && <p className="text-muted-foreground num mt-1 text-sm">{sub}</p>}

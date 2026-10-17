@@ -1,5 +1,5 @@
 import * as React from "react";
-import { motion, useReducedMotion, useSpring, useTransform } from "motion/react";
+import { useMotionValueEvent, useReducedMotion, useSpring, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -30,10 +30,17 @@ export function AnimatedNumber({
     else spring.set(value);
   }, [spring, value, reduce]);
 
+  // The animated figure is painted from a data attribute via CSS, so it never
+  // enters the text content (crawlers would otherwise read the number twice).
+  const ref = React.useRef<HTMLSpanElement>(null);
+  useMotionValueEvent(display, "change", (v) => {
+    if (ref.current) ref.current.dataset.v = v;
+  });
+
   return (
     <span className={cn("num tabular-nums", className)}>
       <span className="sr-only">{format(value)}</span>
-      <motion.span aria-hidden="true">{display}</motion.span>
+      <span ref={ref} aria-hidden="true" data-v={format(value)} className="before:content-[attr(data-v)]" />
     </span>
   );
 }

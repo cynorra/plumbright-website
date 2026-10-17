@@ -46,7 +46,7 @@ const principles = [
         </p>
         <div class="mt-6 flex flex-wrap gap-4">
           <a href="/guides/" class="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 no-underline transition-colors">
-            Browse All Guides & Articles ({guides.length > 0 ? "40+ Guides" : "Guides"}) →
+            Browse All Guides & Articles ({guides.length > 0 ? `${guides.length} Guides` : "Guides"}) →
           </a>
           <a href="/calculators/" class="inline-flex items-center justify-center rounded-lg border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-xs hover:bg-accent no-underline transition-colors">
             Explore 15 Interactive Calculators
@@ -174,7 +174,7 @@ const principles = [
       <div>
         <h2 id="who-h" class="text-2xl font-extrabold">Published by {AUTHOR.name}</h2>
         <p class="text-muted-foreground mt-2 max-w-[68ch] text-sm leading-relaxed">
-          {SITE.name} is founded and written by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>. Eren holds a B.Sc. in Computer Engineering from Düzce University, is an M.Sc. student in Computer Engineering at Kocaeli University, and completed a double major in Industrial Engineering.
+          {SITE.name} is founded and written by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>. Eren holds a B.Sc. in Computer Engineering from Düzce University, is an M.Sc. student in Computer Engineering at Kocaeli University, and is completing a double major in Industrial Engineering.
         </p>
         <div class="mt-3 flex gap-4 text-xs font-medium">
           <a href={`/author/${AUTHOR.slug}/`} class="text-brand hover:underline">Full Author Bio & Verification →</a>

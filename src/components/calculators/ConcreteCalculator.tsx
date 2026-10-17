@@ -103,6 +103,7 @@ export default function ConcreteCalculator({ compact = false }: { compact?: bool
             {(result?.bags ?? []).map((b) => (
               <li key={b.weight} className="bg-card rounded-md border px-3 py-2">
                 <AnimatedNumber value={b.count} decimals={0} className="block text-xl font-semibold" />
+                <span className="sr-only"> × </span>
                 <span className="text-muted-foreground text-xs">{b.weight} lb bags</span>
               </li>
             ))}
