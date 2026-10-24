@@ -1,0 +1,64 @@
+# Automated Daily Blog Publisher for Checkpoint Brief
+# Runs every day at 04:00 UTC:
+# 1. Runs generate-guide.mjs to generate the next zero-click resistant guide
+# 2. Pushes the article to Supabase database (status: published, with published_at date)
+# 3. Commits the newly generated markdown file back to the git repository
+# 4. Git push triggers deploy.yml which builds and deploys to Cloudflare Pages!
+
+name: Daily Auto-Blog Generator & Publisher
+
+on:
+  schedule:
+    # Runs every day at 04:00 UTC (07:00 AM Turkey time)
+    - cron: "0 4 * * *"
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI anytime
+
+concurrency:
+  group: auto-blog
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate and publish next guide
+        run: node scripts/generate-guide.mjs --publish
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+      - name: Commit and push new guide to repo
+        run: |
+          git config --global user.name "Checkpoint Brief Bot"
+          git config --global user.email "bot@checkpointbrief.com"
+          git add src/content/guides/
+          if git diff --staged --quiet; then
+            echo "No new guide changes to commit."
+          else
+            git commit -m "content: auto-generated daily zero-click guide"
+            git push origin main
+          fi
+
+      - name: Trigger and verify deploy
+        run: |
+          echo "Triggering site deployment to Cloudflare Pages..."
+          gh workflow run deploy.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
