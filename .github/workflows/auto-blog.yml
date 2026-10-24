@@ -1,4 +1,4 @@
-# Automated Daily Blog Publisher for Checkpoint Brief
+# Automated Daily Blog Publisher for Plumbright
 # Runs every day at 04:00 UTC:
 # 1. Runs generate-guide.mjs to generate the next zero-click resistant guide
 # 2. Pushes the article to Supabase database (status: published, with published_at date)
@@ -46,8 +46,8 @@ jobs:
 
       - name: Commit and push new guide to repo
         run: |
-          git config --global user.name "Checkpoint Brief Bot"
-          git config --global user.email "bot@checkpointbrief.com"
+          git config --global user.name "Plumbright Bot"
+          git config --global user.email "bot@plumbright.com"
           git add src/content/guides/
           if git diff --staged --quiet; then
             echo "No new guide changes to commit."
