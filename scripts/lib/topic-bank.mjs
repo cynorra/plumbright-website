@@ -37,7 +37,7 @@ export const CONTENT_FORMATS = [
 export const ZERO_CLICK_TOPIC_BANK = [
  {
  topic: 'Concrete Slab Thickness for Sheds, Patios and Driveways',
- slug: 'concrete-slab-thickness-shed-patio-driveway',
+ slug: 'how-many-bags-of-concrete-for-10x10-slab',
  tool: 'concrete',
  primaryKeyword: 'concrete slab thickness shed patio driveway',
  formatType: 'Code & Thickness Decision Matrix',
