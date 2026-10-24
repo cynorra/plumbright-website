@@ -27,8 +27,8 @@ export function guideRow(file, text) {
     body_md: body,
     tool: fm.tool,
     status: isDraft ? "draft" : "published",
-    // Noon UTC keeps the calendar date the same across US time zones.
-    published_at: isDraft ? null : `${fm.published}T12:00:00Z`,
+    // 00:00 UTC ensures scheduled articles for today become live immediately on today's build
+    published_at: isDraft ? null : `${fm.published}T00:00:00Z`,
     // Local files carry an explicit updated date instead of a trigger.
     content_updated_at: fm.updated ? `${fm.updated}T12:00:00Z` : null,
     author_slug: "eren-simsir",
