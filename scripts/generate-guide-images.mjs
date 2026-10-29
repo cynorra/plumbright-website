@@ -400,3 +400,4 @@ for (const [tool, data] of Object.entries(CATEGORY_GRAPHICS)) {
 }
 
 console.log("\nAll 15 category blueprint thumbnails generated successfully!");
+

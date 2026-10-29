@@ -112,3 +112,4 @@ fs.writeFileSync("prompts.txt", txt, "utf8");
 fs.writeFileSync("prompts.json", JSON.stringify(items, null, 2), "utf8");
 
 console.log("Created prompts.txt and prompts.json successfully!");
+

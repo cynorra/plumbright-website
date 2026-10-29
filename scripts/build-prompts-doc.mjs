@@ -116,3 +116,4 @@ guides.forEach((g, idx) => {
 
 fs.writeFileSync("GUIDE_IMAGE_PROMPTS.md", doc, "utf8");
 console.log("Successfully generated GUIDE_IMAGE_PROMPTS.md for", guides.length, "guides");
+
