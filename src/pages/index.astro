@@ -6,6 +6,7 @@ import { slabVolume, concreteOrder } from "../lib/calc/concrete.js";
 import { fmt } from "../lib/calc/util.js";
 import { SITE, AUTHOR } from "../site.config.js";
 import { TOOL_BY_KEY, TOOL_GROUPS } from "../lib/tools.js";
+import { getGuideCoverImage } from "../lib/guide-images.js";
 
 const ex = concreteOrder(slabVolume({ lengthFt: 10, widthFt: 10, thicknessIn: 4 }), 10);
 const bags80 = ex.bags.find((b) => b.weight === 80)!.count;
@@ -85,8 +86,8 @@ const principles = [
           <article class="lg:col-span-7 bg-card rounded-2xl border overflow-hidden shadow-xs hover:shadow-md hover:border-brand/50 transition-all flex flex-col group">
             <a href={`/guides/${leadGuide.id}/`} class="relative block overflow-hidden aspect-video bg-slate-900 border-b">
               <img
-                src={`/images/guides/${leadGuide.data.tool}.svg`}
-                alt={`${leadGuide.data.title} technical blueprint`}
+                src={getGuideCoverImage(leadGuide.id, leadGuide.data.tool)}
+                alt={`${leadGuide.data.title} technical illustration`}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="eager"
               />
@@ -140,7 +141,7 @@ const principles = [
               <article class="bg-card rounded-2xl border overflow-hidden shadow-xs hover:shadow-md hover:border-brand/50 transition-all flex flex-col sm:flex-row lg:flex-col flex-1 group">
                 <a href={`/guides/${g.id}/`} class="relative block sm:w-2/5 lg:w-full aspect-video bg-slate-900 border-b sm:border-b-0 sm:border-r lg:border-r-0 lg:border-b shrink-0 overflow-hidden">
                   <img
-                    src={`/images/guides/${g.data.tool}.svg`}
+                    src={getGuideCoverImage(g.id, g.data.tool)}
                     alt={g.data.title}
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
@@ -191,7 +192,7 @@ const principles = [
               <article class="bg-card hover:border-brand/60 group text-foreground flex h-full flex-col justify-between rounded-xl border overflow-hidden transition-all shadow-xs hover:shadow-md">
                 <a href={`/guides/${g.id}/`} class="relative block aspect-video overflow-hidden bg-slate-900 border-b">
                   <img
-                    src={`/images/guides/${g.data.tool}.svg`}
+                    src={getGuideCoverImage(g.id, g.data.tool)}
                     alt={g.data.title}
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"

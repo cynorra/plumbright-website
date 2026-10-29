@@ -3,6 +3,7 @@ import { pageDates } from "../../page-dates.js";
 import PageLayout from "../../layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import { AUTHOR, SITE } from "../../site.config.js";
+import { getGuideCoverImage } from "../../lib/guide-images.js";
 
 const guides = (await getCollection("guides", (g) => !g.data.draft))
   .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
@@ -75,7 +76,7 @@ const person = {
           <article class="bg-card hover:border-brand/60 group text-foreground flex h-full flex-col justify-between rounded-xl border overflow-hidden transition-all shadow-xs hover:shadow-md">
             <a href={`/guides/${g.id}/`} class="relative block aspect-video overflow-hidden bg-slate-900 border-b">
               <img
-                src={`/images/guides/${g.data.tool}.svg`}
+                src={getGuideCoverImage(g.id, g.data.tool)}
                 alt={g.data.title}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"

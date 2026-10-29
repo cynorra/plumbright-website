@@ -7,6 +7,7 @@ import { getCollection, render } from "astro:content";
 import { articleSchema, breadcrumbSchema } from "../../lib/schema.js";
 import { AUTHOR } from "../../site.config.js";
 import { TOOL_BY_KEY } from "../../lib/tools.js";
+import { getGuideCoverImage } from "../../lib/guide-images.js";
 
 export async function getStaticPaths() {
   const guides = await getCollection("guides", (g) => !g.data.draft);
@@ -20,6 +21,7 @@ const { title, description, published, updated, tool } = guide.data;
 const path = `/guides/${guide.id}/`;
 
 const toolInfo = TOOL_BY_KEY[tool];
+const coverImage = getGuideCoverImage(guide.id, tool);
 
 const related = (await getCollection("guides", (g) => !g.data.draft && g.data.tool === tool && g.id !== guide.id)).slice(0, 4);
 
@@ -34,7 +36,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
   title={title}
   description={description}
   ogType="article"
-  ogImage={`/images/guides/${tool}.svg`}
+  ogImage={coverImage}
   published={published}
   updated={updated}
   schema={[breadcrumbSchema(crumbs), articleSchema({ title, description, path, published, updated })]}
@@ -56,11 +58,11 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
 
   <div class="mx-auto mt-10 grid max-w-6xl gap-12 px-4 lg:grid-cols-[minmax(0,1fr)_260px]">
     <article class="prose-site min-w-0">
-      <!-- Technical Blueprint Hero Diagram -->
+      <!-- Technical Field Cover Graphic -->
       <figure class="not-prose mb-8 overflow-hidden rounded-2xl border bg-card shadow-xs">
         <div class="relative overflow-hidden aspect-video bg-slate-900">
           <img
-            src={`/images/guides/${tool}.svg`}
+            src={coverImage}
             alt={`${title} technical diagram and material reference`}
             class="w-full h-full object-cover"
             loading="eager"
@@ -93,7 +95,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
               <li class="flex items-center gap-3">
                 <a href={`/guides/${g.id}/`} class="relative block size-12 shrink-0 overflow-hidden rounded-lg border bg-slate-900">
                   <img
-                    src={`/images/guides/${g.data.tool}.svg`}
+                    src={getGuideCoverImage(g.id, g.data.tool)}
                     alt=""
                     class="h-full w-full object-cover"
                     loading="lazy"

@@ -1,0 +1,266 @@
+[
+  {
+    "slug": "how-many-tiles-in-a-box",
+    "title": "How Many Tiles in a Box? Coverage by Tile Size",
+    "tool": "tile",
+    "description": "Tiles per box vary by size and brand, but the label always gives pieces and square feet. Convert between them, see per-tile coverage by size and why grout helps."
+  },
+  {
+    "slug": "how-much-paint-for-kitchen-cabinets",
+    "title": "How Much Paint Do You Need for Kitchen Cabinets?",
+    "tool": "paint",
+    "description": "Most kitchens need about a gallon of primer and one to two gallons of cabinet paint for two coats. An estimating method by linear feet of cabinets, with a chart."
+  },
+  {
+    "slug": "how-many-rolls-of-wallpaper-do-i-need",
+    "title": "How Many Rolls of Wallpaper Do I Need? Count Strips, Not Square Feet",
+    "tool": "wallpaper",
+    "description": "Count wallpaper the way installers do: strips around the room, strips per roll from the wall height and pattern repeat. Charts by room and a worked example."
+  },
+  {
+    "slug": "how-much-grout-do-i-need",
+    "title": "How Much Grout Do You Need? Pounds per 100 Sq Ft by Tile Size",
+    "tool": "tile",
+    "description": "Grout depends on tile size, joint width and tile thickness. The formula, a chart in pounds per 100 sq ft, and why small tiles and wide joints take far more grout."
+  },
+  {
+    "slug": "stair-rise-and-run",
+    "title": "Stair Rise and Run: Code Limits and Comfortable Dimensions",
+    "tool": "stairs",
+    "description": "The IRC allows risers up to 7 3/4 in and treads down to 10 in, but comfortable stairs sit nearer 7 in by 11 in. The rules of thumb, with a chart and an example."
+  },
+  {
+    "slug": "wallpaper-pattern-repeat",
+    "title": "Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes",
+    "tool": "wallpaper",
+    "description": "What the pattern repeat on a wallpaper label means, how straight and half-drop matches change strip length, and how many extra rolls a large repeat costs."
+  },
+  {
+    "slug": "carpet-roll-width-and-seams",
+    "title": "Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go",
+    "tool": "carpet",
+    "description": "Most carpet comes 12 ft wide; some comes 13.5 or 15 ft. How roll width changes the square yards you buy and the number of seams, with a chart by room size."
+  },
+  {
+    "slug": "gravel-driveway-depth-and-layers",
+    "title": "Gravel Driveway Depth and Layers: How Much Stone to Order",
+    "tool": "gravel",
+    "description": "A durable gravel driveway is built in layers 8 to 12 inches deep in total. Layers, tons of stone per layer for common driveway sizes, and how to stop ruts."
+  },
+  {
+    "slug": "how-deep-should-mulch-be",
+    "title": "How Deep Should Mulch Be? 2 to 4 Inches, and Why Not More",
+    "tool": "mulch",
+    "description": "Wood chip and bark mulch works best 2 to 4 inches deep, kept clear of trunks. Depth by situation, what each extra inch costs and how to top up."
+  },
+  {
+    "slug": "how-much-paint-for-a-12x12-room",
+    "title": "How Much Paint for a 12x12 Room? Coverage Chart by Room Size",
+    "tool": "paint",
+    "description": "A 12x12 room with 8 ft walls takes about 2 gallons of paint for two coats. See the coverage chart for 10x10 to 20x20 rooms, with and without the ceiling."
+  },
+  {
+    "slug": "privacy-fence-materials-list",
+    "title": "Privacy Fence Materials List for 100 Feet",
+    "tool": "fence",
+    "description": "Everything to buy for a 100 ft, 6 ft tall wood privacy fence with a gate: posts, rails, pickets, concrete, gravel and fasteners, with the math behind each line."
+  },
+  {
+    "slug": "how-many-sheets-of-drywall-for-a-12x12-room",
+    "title": "How Many Sheets of Drywall for a 12x12 Room?",
+    "tool": "drywall",
+    "description": "A 12x12 room with 8 ft walls takes 12 sheets of 4x8 drywall for the walls and 5 for the ceiling. See counts for 9 and 10 ft walls and 4x12 sheets."
+  },
+  {
+    "slug": "how-many-fence-pickets-do-i-need",
+    "title": "How Many Fence Pickets Do I Need? Count per Section and per Foot",
+    "tool": "fence",
+    "description": "Divide the fence length in inches by picket width plus gap. Picket counts per 6 and 8 ft section for 1×4 and 1×6 boards, with a full-fence example."
+  },
+  {
+    "slug": "deck-joist-spacing",
+    "title": "Deck Joist Spacing: 12, 16 or 24 Inches?",
+    "tool": "deck",
+    "description": "Joist spacing depends on the decking. 16 in suits most 5/4 wood and composite boards, 12 in suits diagonal layouts and 24 in suits 2x decking. IRC tables and counts."
+  },
+  {
+    "slug": "how-many-deck-boards-do-i-need",
+    "title": "How Many Deck Boards Do I Need? Count by Rows, Not Area",
+    "tool": "deck",
+    "description": "Count deck boards row by row: rows from the board width plus gap, boards per row from the board length. Includes a chart of the best board length for each deck size."
+  },
+  {
+    "slug": "how-much-sand-under-pavers",
+    "title": "How Much Sand Do You Need Under Pavers?",
+    "tool": "gravel",
+    "description": "Pavers sit on a 1 inch layer of bedding sand over a compacted gravel base. How much sand and base to order for a patio, by size, in yards, tons and bags."
+  },
+  {
+    "slug": "concrete-bag-sizes-40-60-80-lb",
+    "title": "40 lb vs 60 lb vs 80 lb Concrete Bags: Yield and Cost",
+    "tool": "concrete",
+    "description": "How much concrete each bag size makes, how many bags fill a cubic yard, how to compare cost per cubic foot, and when 80 lb bags are worth the weight."
+  },
+  {
+    "slug": "how-many-bundles-of-shingles-in-a-square",
+    "title": "How Many Bundles of Shingles in a Square?",
+    "tool": "roofing",
+    "description": "Most asphalt shingles come 3 bundles to a 100 sq ft square; some heavier lines take 4 or 5. A bundle chart by roof size, with waste, ridge cap and starter."
+  },
+  {
+    "slug": "how-many-bricks-per-square-foot",
+    "title": "How Many Bricks per Square Foot? Modular, Queen and King",
+    "tool": "brick",
+    "description": "About 6.75 modular bricks cover a square foot of wall with 3/8 inch joints. Bricks per sq ft for common sizes, the math behind it and wall examples."
+  },
+  {
+    "slug": "how-much-soil-for-a-raised-bed",
+    "title": "How Much Soil Do I Need for a Raised Bed?",
+    "tool": "mulch",
+    "description": "Length × width × depth gives cubic feet of soil. A 4×8 bed 12 in deep holds 32 cu ft. Charts by bed size and depth, bags vs bulk and a three-bed example."
+  },
+  {
+    "slug": "how-to-calculate-stair-stringer-length",
+    "title": "How to Calculate Stair Stringer Length",
+    "tool": "stairs",
+    "description": "Stringer length is the number of risers times one step's diagonal. The formula, a chart by total rise, board length to buy and the wood left after cutting."
+  },
+  {
+    "slug": "how-many-concrete-blocks-do-i-need",
+    "title": "How Many Concrete Blocks Do I Need? Courses and Blocks per Foot",
+    "tool": "brick",
+    "description": "A standard 8×8×16 block covers 0.89 sq ft, so a wall takes 1.125 blocks per sq ft. Count by courses, see a chart of common walls and mortar bags."
+  },
+  {
+    "slug": "fence-post-spacing",
+    "title": "Fence Post Spacing: 6 or 8 Feet Apart?",
+    "tool": "fence",
+    "description": "Wood fence posts usually go 8 ft apart to match 8 ft rails; 6 ft is stiffer for heavy or windy fences. What each costs in posts, rails and concrete."
+  },
+  {
+    "slug": "how-much-mulch-do-i-need",
+    "title": "How Much Mulch Do I Need? Cubic Yards and Bags by Area",
+    "tool": "mulch",
+    "description": "Square feet × depth in inches ÷ 324 gives cubic yards of mulch. Charts by area for 2, 3 and 4 inch depths, bag counts and a whole-yard example."
+  },
+  {
+    "slug": "how-much-mortar-do-i-need",
+    "title": "How Much Mortar Do I Need for Brick or Block?",
+    "tool": "brick",
+    "description": "About 8 cu ft of mortar per 1,000 modular bricks, or one 80 lb bag for up to 37 bricks or 13 blocks. Bag charts, mortar types and mixing tips."
+  },
+  {
+    "slug": "how-much-does-a-cubic-yard-of-gravel-weigh",
+    "title": "How Much Does a Cubic Yard of Gravel Weigh?",
+    "tool": "gravel",
+    "description": "A cubic yard of gravel weighs about 1.3 to 1.5 tons. See weights for crushed stone, crusher run, pea gravel, sand and topsoil, and convert yards to tons."
+  },
+  {
+    "slug": "how-much-carpet-do-i-need",
+    "title": "How Much Carpet Do I Need? Square Yards from a 12 ft Roll",
+    "tool": "carpet",
+    "description": "Room square feet ÷ 9 gives square yards, but carpet is cut from 12 ft rolls, so you buy more. How to work out what you'll pay for, with a chart by room size."
+  },
+  {
+    "slug": "primer-and-second-coats",
+    "title": "Primer and Second Coats: When Paint Coverage Changes",
+    "tool": "paint",
+    "description": "When you need primer, when one coat is enough and when to plan three. How each choice changes the gallons for a room, with a decision table and an example."
+  },
+  {
+    "slug": "roof-pitch-multiplier-chart",
+    "title": "Roof Pitch Multiplier Chart: Turn a Footprint into Roof Area",
+    "tool": "roofing",
+    "description": "Pitch multipliers from 1/12 to 18/12 with roof angles and hip and valley factors. Multiply the footprint by the multiplier to get the real roof area."
+  },
+  {
+    "slug": "square-feet-vs-linear-feet-vs-board-feet",
+    "title": "Square Feet vs Linear Feet vs Board Feet: What Each Measures",
+    "tool": "area",
+    "description": "Square feet measure area, linear feet measure length and board feet measure lumber volume. How to convert between them, with charts for boards and lumber."
+  },
+  {
+    "slug": "4x8-vs-4x12-drywall",
+    "title": "4x8 vs 4x12 Drywall Sheets: Fewer Seams or Easier Handling?",
+    "tool": "drywall",
+    "description": "4x12 drywall cuts down on butt joints, the hardest seams to finish. 4x8 sheets are lighter and fit up stairs. Seam counts by wall length and how to choose."
+  },
+  {
+    "slug": "how-many-boxes-of-vinyl-plank-flooring",
+    "title": "How Many Boxes of Vinyl Plank Flooring Do I Need?",
+    "tool": "flooring",
+    "description": "Work out boxes of vinyl plank flooring from your square footage and the coverage on the box, with a chart for common box sizes and a worked example."
+  },
+  {
+    "slug": "concrete-slab-thickness",
+    "title": "Concrete Slab Thickness Guide: Patio, Driveway, Shed, Garage",
+    "tool": "concrete",
+    "description": "How thick to pour a concrete patio, driveway, shed pad or garage floor, what each extra inch costs in concrete, and what goes under the slab."
+  },
+  {
+    "slug": "drywall-screws-mud-and-tape",
+    "title": "Drywall Screws, Mud and Tape: Quantities per Sheet",
+    "tool": "drywall",
+    "description": "How many screws, how much joint compound and how much tape each drywall sheet needs, with per-sheet tables for 4x8, 4x10 and 4x12 board and a basement example."
+  },
+  {
+    "slug": "flooring-waste-factor",
+    "title": "Flooring Waste Factor: 5%, 10% or 15%?",
+    "tool": "flooring",
+    "description": "How much extra laminate, vinyl plank or wood flooring to buy. We modeled cutting waste row by row to show when 5% is enough and when you need 15%."
+  },
+  {
+    "slug": "how-many-pavers-do-i-need",
+    "title": "How Many Pavers Do I Need for a Patio?",
+    "tool": "brick",
+    "description": "Pavers per square foot = 144 ÷ (paver width × length in inches). Counts for common paver sizes, waste by pattern and a full patio materials example."
+  },
+  {
+    "slug": "tile-waste-factor-by-layout",
+    "title": "Tile Waste Factor by Layout: Straight, Diagonal, Herringbone",
+    "tool": "tile",
+    "description": "How much extra tile to buy for straight, offset, diagonal and herringbone layouts, why small rooms waste more, and how waste changes the box count."
+  },
+  {
+    "slug": "how-many-bags-of-concrete-for-10x10-slab",
+    "title": "How Many Bags of Concrete for a 10x10 Slab at 4 Inches?",
+    "tool": "concrete",
+    "description": "A 10x10 foot concrete slab at 4 inches thick requires 1.23 cubic yards or 56 bags of 80 lb concrete mix (75 bags of 60 lb mix) with a 10% waste buffer."
+  },
+  {
+    "slug": "deck-joist-spacing-12-vs-16-vs-24-inches",
+    "title": "Deck Post Sizing: When 4x4 Is Allowed vs When Code Requires 6x6",
+    "tool": "deck",
+    "description": "Compare 4x4 vs 6x6 deck support posts under IRC building codes. Maximum allowed heights, tributary load tables, and beam notch requirements."
+  },
+  {
+    "slug": "gravel-driveway-base-layers-depth-and-sizes",
+    "title": "Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways?",
+    "tool": "gravel",
+    "description": "Compare crushed stone vs pea gravel for driveways and walkways. Understand angular interlocking, shifting under tires, compaction, and tonnage per 100 sq ft."
+  },
+  {
+    "slug": "concrete-for-fence-posts",
+    "title": "How Many Bags of Concrete Do You Need per Fence Post?",
+    "tool": "concrete",
+    "description": "Bags of concrete per fence post by hole size and depth, for 4x4 and 6x6 posts, with the formula, a worked example for a whole fence and setting tips."
+  },
+  {
+    "slug": "concrete-slab-thickness-shed-patio-driveway",
+    "title": "Concrete Footing Depth and Width: Frost Line & Load Sizing Rules",
+    "tool": "concrete",
+    "description": "Calculate concrete footing depth and width based on frost line codes, soil bearing capacity, and post loads. Step-by-step dimensions for decks and sheds."
+  },
+  {
+    "slug": "how-many-bags-of-mulch-in-a-yard",
+    "title": "How Many Bags of Mulch Are in a Yard?",
+    "tool": "mulch",
+    "description": "One cubic yard equals 13.5 bags of 2 cu ft mulch, 9 bags of 3 cu ft or 18 of 1.5 cu ft. How to compare bag and bulk prices, with coverage per bag."
+  },
+  {
+    "slug": "how-to-measure-an-l-shaped-room",
+    "title": "How to Measure an L-Shaped Room (and Other Odd Shapes)",
+    "tool": "tile",
+    "description": "Measure the square footage of L-shaped and irregular rooms by splitting them into rectangles, with diagrams, formulas for odd shapes and a worked example."
+  }
+]

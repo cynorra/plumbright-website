@@ -8,6 +8,7 @@ import { getCollection } from "astro:content";
 import { breadcrumbSchema, calculatorSchema, faqSchema } from "../lib/schema.js";
 import { addHeadingIds, extractFaqItems } from "../lib/toc.js";
 import { AUTHOR } from "../site.config.js";
+import { getGuideCoverImage } from "../lib/guide-images.js";
 
 interface Props {
   tool: string; // a key from src/lib/tools.js
@@ -90,7 +91,7 @@ const schema = [
               <li class="flex items-center gap-3">
                 <a href={`/guides/${g.id}/`} class="relative block size-12 shrink-0 overflow-hidden rounded-lg border bg-slate-900">
                   <img
-                    src={`/images/guides/${g.data.tool}.svg`}
+                    src={getGuideCoverImage(g.id, g.data.tool)}
                     alt=""
                     class="h-full w-full object-cover"
                     loading="lazy"
