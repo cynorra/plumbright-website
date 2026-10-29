@@ -1,8 +1,9 @@
 // Automated High-Quality Article Generator for Plumbright (plumbright.com)
 // Tailored for DIY construction, material calculations, and ZERO-CLICK AI OVERVIEW RESISTANCE.
+// Features 100% Unique Topic Deduplication + Autonomous AI Topic Discovery.
 //
 // Usage:
-//   node scripts/generate-guide.mjs                                  # Picks next topic from zero-click bank
+//   node scripts/generate-guide.mjs                                  # Picks next unique topic from bank or discovers via AI
 //   node scripts/generate-guide.mjs --today                          # Sets publish date to today for immediate live display
 //   node scripts/generate-guide.mjs --topic "Concrete Slab Sizing"   # Custom topic
 //   node scripts/generate-guide.mjs --tool concrete                  # Category filter (concrete|gravel|deck|paint|drywall|...)
@@ -15,6 +16,7 @@ import https from "node:https";
 import { loadEnv } from "vite";
 import { ZERO_CLICK_TOPIC_BANK } from "./lib/topic-bank.mjs";
 import { validateGuide } from "./lib/guide-quality.mjs";
+import { checkDuplicateTopic } from "./lib/topic-dedup.mjs";
 
 const env = { ...loadEnv("production", process.cwd(), ""), ...process.env };
 const GEMINI_API_KEY = env.GEMINI_API_KEY;
@@ -36,7 +38,7 @@ const GUIDES_DIR = join(process.cwd(), "src", "content", "guides");
 const existingFiles = existsSync(GUIDES_DIR) ? readdirSync(GUIDES_DIR).filter((f) => f.endsWith(".md")) : [];
 const existingSlugs = new Set(existingFiles.map((f) => f.replace(/\.md$/, "")));
 
-// Read existing guides for internal linking context
+// Read existing guides for internal linking and strict deduplication
 const existingGuidesSummary = existingFiles.map((file) => {
   const content = readFileSync(join(GUIDES_DIR, file), "utf8");
   const title = content.match(/^title:\s*["']?([^"'\r\n]+)["']?/m)?.[1] || "";
@@ -51,12 +53,111 @@ const existingGuidesSummary = existingFiles.map((file) => {
   };
 });
 
-function getNextTopic() {
+function callGeminiAPI(payload) {
+  return new Promise((resolve, reject) => {
+    const postData = JSON.stringify(payload);
+    const options = {
+      hostname: "generativelanguage.googleapis.com",
+      port: 443,
+      path: `/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let body = "";
+      res.on("data", (chunk) => (body += chunk));
+      res.on("end", () => {
+        try {
+          const json = JSON.parse(body);
+          if (res.statusCode !== 200) {
+            return reject(new Error(`Gemini API Error (${res.statusCode}): ${JSON.stringify(json.error || json)}`));
+          }
+          const text = json.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (!text) {
+            return reject(new Error("Empty response from Gemini API"));
+          }
+          resolve(text);
+        } catch (e) {
+          reject(new Error(`Failed to parse Gemini response: ${e.message}`));
+        }
+      });
+    });
+
+    req.on("error", reject);
+    req.write(postData);
+    req.end();
+  });
+}
+
+/**
+ * Autonomous AI topic brainstorming that generates 100% unique topics
+ * when all static topics in topic-bank.mjs are exhausted or match existing articles.
+ */
+async function discoverUniqueTopicWithAI() {
+  console.log(`[AI Discovery] Searching for a high-intent, 100% unique topic not yet written...`);
+
+  const existingTitles = existingGuidesSummary.map((g) => `- [${g.tool}] ${g.title}`).join("\n");
+  const validTools = [
+    "concrete", "gravel", "deck", "roofing", "fence", "brick", "mulch",
+    "stairs", "tile", "flooring", "drywall", "carpet", "wallpaper", "paint", "area"
+  ];
+  const targetCategory = toolFilter || validTools[Math.floor(Math.random() * validTools.length)];
+
+  const discoveryPrompt = `You are a principal SEO strategist and civil estimation specialist for Plumbright (https://plumbright.com).
+We need a BRAND NEW, HIGH-INTENT, ZERO-CLICK RESISTANT calculation topic for our '${targetCategory}' tool category.
+
+STRICT MANDATE - ZERO DUPLICATION:
+Here is the complete list of ALL 44 articles currently published on Plumbright:
+${existingTitles}
+
+RULES:
+1. NEVER repeat, rephrase, or closely mirror any existing title above.
+2. Must address a real construction/DIY math problem (e.g. bag counts, thickness vs load, fastener spacing, waste factors, span tables).
+3. Return ONLY a valid JSON object (no markdown quotes, no other text):
+{
+  "topic": "Specific Keyword-Targeted Title Under 75 Chars",
+  "slug": "url-friendly-lowercase-slug-under-60-chars",
+  "tool": "${targetCategory}",
+  "primaryKeyword": "exact target search phrase",
+  "formatType": "Material Estimation & Bag Count Guide | Code & Thickness Decision Matrix | Step-by-Step Substrate & Installation Walkthrough",
+  "clickHook": "Why this needs a table and calculation rather than a 1-sentence answer"
+}`;
+
+  const payload = {
+    contents: [{ role: "user", parts: [{ text: discoveryPrompt }] }],
+    generationConfig: { temperature: 0.7, maxOutputTokens: 600 }
+  };
+
+  const raw = await callGeminiAPI(payload);
+  const cleanJson = raw.replace(/^```json\s*/i, "").replace(/^```\s*/i, "").replace(/```\s*$/i, "").trim();
+  const parsed = JSON.parse(cleanJson);
+
+  // Validate that AI did not hallucinate a duplicate
+  const dupCheck = checkDuplicateTopic(parsed.topic, existingGuidesSummary, 0.45);
+  if (dupCheck.isDuplicate || existingSlugs.has(parsed.slug)) {
+    console.warn(`[AI Discovery Retry] AI proposed topic was too similar to existing: "${parsed.topic}" -> Retrying...`);
+    return discoverUniqueTopicWithAI();
+  }
+
+  return parsed;
+}
+
+async function getNextTopic() {
   if (customTopic) {
     const slug = customTopic
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-|-$/g, "");
+    
+    const dup = checkDuplicateTopic(customTopic, existingGuidesSummary, 0.55);
+    if (dup.isDuplicate) {
+      console.warn(`[Warning] Custom topic "${customTopic}" is very similar to existing guide "${dup.matchedGuide.title}".`);
+    }
+
     return {
       topic: customTopic,
       slug,
@@ -68,18 +169,25 @@ function getNextTopic() {
     };
   }
 
-  // Filter out topics already written
-  const candidateTopics = ZERO_CLICK_TOPIC_BANK.filter((t) => {
-    if (existingSlugs.has(t.slug)) return false;
-    if (toolFilter && t.tool !== toolFilter) return false;
-    return true;
-  });
+  // 1. First, search pre-configured topic bank for non-duplicate candidates
+  for (const cand of ZERO_CLICK_TOPIC_BANK) {
+    if (existingSlugs.has(cand.slug)) continue;
+    if (toolFilter && cand.tool !== toolFilter) continue;
 
-  if (candidateTopics.length === 0) {
-    throw new Error("All pre-configured zero-click topic bank ideas have been written! Provide --topic or add more topics to scripts/lib/topic-bank.mjs.");
+    // Strict similarity check against all existing guide titles
+    const dupCheck = checkDuplicateTopic(cand.topic, existingGuidesSummary, 0.40, cand.tool);
+    if (dupCheck.isDuplicate) {
+      console.log(`[Skip Existing Concept] "${cand.topic}" skipped -> ${dupCheck.reason}`);
+      continue;
+    }
+
+    // Found a genuinely unique topic from the bank!
+    return cand;
   }
 
-  return candidateTopics[0];
+  // 2. If topic bank candidates are exhausted or all duplicate existing content,
+  // autonomously discover a brand new unique topic via AI:
+  return await discoverUniqueTopicWithAI();
 }
 
 function getNextPublishDate() {
@@ -99,34 +207,23 @@ function getNextPublishDate() {
   return nextDate.toISOString().slice(0, 10);
 }
 
-const targetTopic = getNextTopic();
-const targetDate = getNextPublishDate();
+async function generateWithRetry(targetTopic, targetDate, maxAttempts = 3) {
+  const toolSlugMap = {
+    stairs: "stair",
+    area: "square-footage"
+  };
+  const calcSlug = toolSlugMap[targetTopic.tool] || targetTopic.tool;
+  const calcPath = `/${calcSlug}-calculator/`;
 
-console.log(`\n==================================================`);
-console.log(`Zero-Click Resistant Guide: "${targetTopic.topic}"`);
-console.log(`Format Strategy: ${targetTopic.formatType || 'Actionable Guide'}`);
-console.log(`Click Hook: ${targetTopic.clickHook || 'Detailed matrix and walkthrough'}`);
-console.log(`Slug: ${targetTopic.slug}`);
-console.log(`Target Tool: ${targetTopic.tool}`);
-console.log(`Scheduled Publish Date: ${targetDate} ${forceToday ? '(TODAY - Immediate Live)' : ''}`);
-console.log(`==================================================\n`);
+  const relevantGuides = existingGuidesSummary
+    .filter((g) => (g.tool === targetTopic.tool || g.tool === "concrete") && g.date <= targetDate)
+    .slice(-6);
 
-const relevantGuides = existingGuidesSummary
-  .filter((g) => (g.tool === targetTopic.tool || g.tool === "concrete") && g.date <= targetDate)
-  .slice(-6);
+  const internalLinksContext = relevantGuides
+    .map((g) => `- "${g.title}": href="${g.href}"`)
+    .join("\n");
 
-const internalLinksContext = relevantGuides
-  .map((g) => `- "${g.title}": href="${g.href}"`)
-  .join("\n");
-
-const toolSlugMap = {
-  stairs: "stair",
-  area: "square-footage"
-};
-const calcSlug = toolSlugMap[targetTopic.tool] || targetTopic.tool;
-const calcPath = `/${calcSlug}-calculator/`;
-
-const systemInstruction = `You are a licensed building estimator and materials calculation specialist at Plumbright (https://plumbright.com), an authoritative DIY construction and home improvement platform.
+  const systemInstruction = `You are a licensed building estimator and materials calculation specialist at Plumbright (https://plumbright.com), an authoritative DIY construction and home improvement platform.
 
 PRIMARY OBJECTIVE: BEAT ZERO-CLICK SEARCH / AI OVERVIEWS
 Provide actionable formulas, dimensional tables, and waste allowances that cannot be answered by a 1-sentence AI snippet:
@@ -174,7 +271,7 @@ Formula explanation...
 Step-by-step math...
 `;
 
-const userPrompt = `Write an authoritative, high-value calculation guide for Plumbright:
+  const userPrompt = `Write an authoritative, high-value calculation guide for Plumbright:
 
 Topic: "${targetTopic.topic}"
 Target Tool: "${targetTopic.tool}"
@@ -190,63 +287,15 @@ Structure Requirements:
 4. Worked real-world project example.
 5. You MUST include the link: [${targetTopic.tool} calculator](${calcPath}).`;
 
-function callGeminiAPI(payload) {
-  return new Promise((resolve, reject) => {
-    const postData = JSON.stringify(payload);
-    const options = {
-      hostname: "generativelanguage.googleapis.com",
-      port: 443,
-      path: `/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Content-Length": Buffer.byteLength(postData)
-      }
-    };
-
-    const req = https.request(options, (res) => {
-      let body = "";
-      res.on("data", (chunk) => (body += chunk));
-      res.on("end", () => {
-        try {
-          const json = JSON.parse(body);
-          if (res.statusCode !== 200) {
-            return reject(new Error(`Gemini API Error (${res.statusCode}): ${JSON.stringify(json.error || json)}`));
-          }
-          const text = json.candidates?.[0]?.content?.parts?.[0]?.text;
-          if (!text) {
-            return reject(new Error("Empty response from Gemini API"));
-          }
-          resolve(text);
-        } catch (e) {
-          reject(new Error(`Failed to parse Gemini response: ${e.message}`));
-        }
-      });
-    });
-
-    req.on("error", reject);
-    req.write(postData);
-    req.end();
-  });
-}
-
-async function generateWithRetry(maxAttempts = 3) {
   let attempt = 0;
   while (attempt < maxAttempts) {
     attempt++;
     console.log(`[Gemini] Generating zero-click resistant guide (attempt ${attempt}/${maxAttempts})...`);
     try {
       const payload = {
-        contents: [
-          { role: "user", parts: [{ text: userPrompt }] }
-        ],
-        systemInstruction: {
-          parts: [{ text: systemInstruction }]
-        },
-        generationConfig: {
-          temperature: 0.25,
-          maxOutputTokens: 3500
-        }
+        contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+        systemInstruction: { parts: [{ text: systemInstruction }] },
+        generationConfig: { temperature: 0.25, maxOutputTokens: 3500 }
       };
 
       const rawResponse = await callGeminiAPI(payload);
@@ -282,7 +331,6 @@ async function generateWithRetry(maxAttempts = 3) {
         for (const err of validation.errors) {
           console.warn(`  - ${err}`);
         }
-        console.warn(`[Rejected Body Snippet (first 300 chars)]:\n${body.slice(0, 300)}\n---`);
         if (attempt < maxAttempts) {
           console.log(`Retrying generation with stricter constraints...`);
           continue;
@@ -313,7 +361,19 @@ async function generateWithRetry(maxAttempts = 3) {
 }
 
 async function main() {
-  const result = await generateWithRetry(3);
+  const targetTopic = await getNextTopic();
+  const targetDate = getNextPublishDate();
+
+  console.log(`\n==================================================`);
+  console.log(`Zero-Click Resistant Guide: "${targetTopic.topic}"`);
+  console.log(`Format Strategy: ${targetTopic.formatType || 'Actionable Guide'}`);
+  console.log(`Click Hook: ${targetTopic.clickHook || 'Detailed matrix and walkthrough'}`);
+  console.log(`Slug: ${targetTopic.slug}`);
+  console.log(`Target Tool: ${targetTopic.tool}`);
+  console.log(`Scheduled Publish Date: ${targetDate} ${forceToday ? '(TODAY - Immediate Live)' : ''}`);
+  console.log(`==================================================\n`);
+
+  const result = await generateWithRetry(targetTopic, targetDate, 3);
   const targetFile = join(GUIDES_DIR, `${targetTopic.slug}.md`);
 
   if (dryRun) {

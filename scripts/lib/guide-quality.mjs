@@ -1,4 +1,4 @@
-// Quality validation rules specifically tailored for Plumbright (Home Improvement & Construction Calculators).
+import { checkDuplicateTopic } from "./topic-dedup.mjs";
 // Strictly rejects hallucinated statistics, first-person fictions, clickbait hype,
 // and ensures proper Markdown format with structured calculation tables and AEO snippet.
 
@@ -109,7 +109,7 @@ export function validateGuide(frontmatter, markdownBody, options = {}) {
   // Must have a calculation table (Markdown table or HTML table)
   const hasTable = /<table[\s>]|\|(?:\s*[-:]+[-|\s:]*)\|/.test(markdownBody);
   if (!hasTable) {
-    warnings.push("No material estimation or dimension comparison table found. Tables maximize Zero-Click and AEO value.");
+    errors.push("Missing material estimation or comparison table. A table wrapped in <div class=\"table-wrap\"><table>...</table></div> is mandatory for AEO and zero-click value.");
   }
 
   // Check for internal calculator link
@@ -120,7 +120,7 @@ export function validateGuide(frontmatter, markdownBody, options = {}) {
   const calcSlug = toolSlugMap[frontmatter.tool] || frontmatter.tool;
   const hasCalculatorLink = new RegExp(`\\[[^\\]]+\\]\\(/${calcSlug}-calculator/?\\)`).test(markdownBody);
   if (!hasCalculatorLink) {
-    warnings.push(`No direct link to /${calcSlug}-calculator/ found. Always link to the corresponding calculator.`);
+    errors.push(`Missing required internal link: [${frontmatter.tool} calculator](/${calcSlug}-calculator/) must be included.`);
   }
 
   // Check for repetitive/cookie-cutter formula titles
@@ -131,21 +131,9 @@ export function validateGuide(frontmatter, markdownBody, options = {}) {
 
   // 3. Duplicate content and similarity check against existing articles
   if (Array.isArray(options.existingArticles) && options.existingArticles.length > 0) {
-    const newTitleWords = new Set(frontmatter.title.toLowerCase().replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter((w) => w.length > 3));
-    
-    for (const existing of options.existingArticles) {
-      if (existing.slug === frontmatter.slug) continue;
-      
-      const existingTitleWords = new Set(existing.title.toLowerCase().replace(/[^a-z0-9\s]/g, "").split(/\s+/).filter((w) => w.length > 3));
-      let common = 0;
-      for (const word of newTitleWords) {
-        if (existingTitleWords.has(word)) common++;
-      }
-      const similarity = common / Math.max(newTitleWords.size, existingTitleWords.size);
-      if (similarity > 0.8) {
-        errors.push(`Duplicate topic detected: Title "${frontmatter.title}" is ${Math.round(similarity * 100)}% similar to existing guide "${existing.title}".`);
-        break;
-      }
+    const dupCheck = checkDuplicateTopic(frontmatter.title, options.existingArticles, 0.55, frontmatter.tool);
+    if (dupCheck.isDuplicate) {
+      errors.push(`Duplicate topic detected: ${dupCheck.reason}`);
     }
   }
 
