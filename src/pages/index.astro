@@ -10,9 +10,14 @@ import { TOOL_BY_KEY, TOOL_GROUPS } from "../lib/tools.js";
 const ex = concreteOrder(slabVolume({ lengthFt: 10, widthFt: 10, thicknessIn: 4 }), 10);
 const bags80 = ex.bags.find((b) => b.weight === 80)!.count;
 
-const guides = (await getCollection("guides", (g) => !g.data.draft))
-  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf())
-  .slice(0, 6);
+const allGuides = (await getCollection("guides", (g) => !g.data.draft))
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+
+const leadGuide = allGuides[0];
+const subFeatured = allGuides.slice(1, 3);
+const recentGrid = allGuides.slice(3, 9);
+
+const getReadTime = (body?: string) => Math.max(3, Math.ceil((body || "").trim().split(/\s+/).length / 200));
 
 const principles = [
   {
@@ -46,7 +51,7 @@ const principles = [
         </p>
         <div class="mt-6 flex flex-wrap gap-4">
           <a href="/guides/" class="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 no-underline transition-colors">
-            Browse All Guides & Articles ({guides.length > 0 ? `${guides.length} Guides` : "Guides"}) →
+            Browse All Guides & Articles ({allGuides.length > 0 ? `${allGuides.length} Guides` : "Guides"}) →
           </a>
           <a href="/calculators/" class="inline-flex items-center justify-center rounded-lg border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground shadow-xs hover:bg-accent no-underline transition-colors">
             Explore 15 Interactive Calculators
@@ -56,40 +61,181 @@ const principles = [
     </div>
   </section>
 
-  <!-- FEATURED GUIDES (FRONT & CENTER) -->
-  {guides.length > 0 && (
+  <!-- FEATURED EDITORIAL & FIELD GUIDES -->
+  {allGuides.length > 0 && (
     <section aria-labelledby="featured-guides-h" class="mx-auto max-w-6xl px-4 py-16">
       <div class="flex flex-wrap items-baseline justify-between gap-4 border-b pb-4">
         <div>
-          <h2 id="featured-guides-h" class="text-3xl font-extrabold">Latest Guides & Analysis</h2>
-          <p class="text-muted-foreground mt-1 text-sm">In-depth mathematical breakdowns and buying guides for materials.</p>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="inline-block size-2 rounded-full bg-brand animate-pulse"></span>
+            <span class="text-xs font-bold uppercase tracking-wider text-brand">Field Reports & Mathematical Guides</span>
+          </div>
+          <h2 id="featured-guides-h" class="text-3xl font-extrabold">Latest Construction & Material Analyses</h2>
+          <p class="text-muted-foreground mt-1 text-sm">Peer-reviewed formulas, coverage equations, and step-by-step quantity guides.</p>
         </div>
-        <a href="/guides/" class="text-sm font-semibold text-brand hover:underline">View all articles →</a>
+        <a href="/guides/" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">
+          Browse all {allGuides.length} articles <span>→</span>
+        </a>
       </div>
-      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {guides.map((g) => (
-          <article class="bg-card hover:border-brand/60 group text-foreground flex h-full flex-col justify-between rounded-xl border p-6 transition-all shadow-xs hover:shadow-md">
-            <div>
-              <div class="flex items-center justify-between text-xs text-muted-foreground mb-3">
-                <span class="font-semibold uppercase tracking-wider text-brand">{TOOL_BY_KEY[g.data.tool]?.topic || g.data.tool}</span>
-                <time datetime={g.data.published.toISOString()} class="num">{g.data.published.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}</time>
+
+      <!-- MAGAZINE HERO: Lead Story + Secondary Stories -->
+      {leadGuide && (
+        <div class="mt-8 grid gap-8 lg:grid-cols-12 lg:items-stretch">
+          <!-- Main Lead Story (7 cols) -->
+          <article class="lg:col-span-7 bg-card rounded-2xl border overflow-hidden shadow-xs hover:shadow-md hover:border-brand/50 transition-all flex flex-col group">
+            <a href={`/guides/${leadGuide.id}/`} class="relative block overflow-hidden aspect-video bg-slate-900 border-b">
+              <img
+                src={`/images/guides/${leadGuide.data.tool}.svg`}
+                alt={`${leadGuide.data.title} technical blueprint`}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="eager"
+              />
+              <div class="absolute top-3 left-3 bg-brand text-brand-foreground text-xs font-extrabold px-3 py-1 rounded-full shadow-xs uppercase tracking-wider">
+                Featured Lead Analysis
               </div>
-              <h3 class="font-display group-hover:text-brand text-xl font-bold leading-snug">
-                <a href={`/guides/${g.id}/`} class="text-foreground group-hover:text-brand no-underline">
-                  {g.data.title}
+              <div class="absolute bottom-3 right-3 bg-slate-950/80 backdrop-blur-xs text-white text-[11px] font-mono px-2.5 py-1 rounded border border-white/10">
+                {getReadTime(leadGuide.body)} min read
+              </div>
+            </a>
+            <div class="p-6 md:p-8 flex flex-col justify-between flex-1">
+              <div>
+                <div class="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                  <span class="font-bold uppercase tracking-wider text-brand">{TOOL_BY_KEY[leadGuide.data.tool]?.topic || leadGuide.data.tool}</span>
+                  <span aria-hidden="true">·</span>
+                  <time datetime={leadGuide.data.published.toISOString()}>
+                    {leadGuide.data.published.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}
+                  </time>
+                </div>
+                <h3 class="font-display group-hover:text-brand text-2xl md:text-3xl font-extrabold leading-tight text-foreground">
+                  <a href={`/guides/${leadGuide.id}/`} class="no-underline hover:text-brand transition-colors">
+                    {leadGuide.data.title}
+                  </a>
+                </h3>
+                <p class="text-muted-foreground text-sm md:text-base mt-4 line-clamp-3 leading-relaxed">
+                  {leadGuide.data.description}
+                </p>
+              </div>
+              <div class="mt-6 pt-5 border-t flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                  <img
+                    src={AUTHOR.photo}
+                    alt={AUTHOR.name}
+                    class="size-8 rounded-full object-cover border"
+                  />
+                  <div class="text-xs">
+                    <span class="font-semibold block text-foreground">{AUTHOR.name}</span>
+                    <span class="text-muted-foreground">Editor & Computer Engineer</span>
+                  </div>
+                </div>
+                <a href={`/guides/${leadGuide.id}/`} class="text-sm font-bold text-brand group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Read complete analysis <span>→</span>
                 </a>
-              </h3>
-              <p class="text-muted-foreground text-sm mt-3 line-clamp-3 leading-relaxed">
-                {g.data.description}
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t flex items-center justify-between text-xs text-muted-foreground">
-              <span>By {AUTHOR.name}</span>
-              <span class="text-brand font-semibold group-hover:translate-x-1 transition-transform">Read guide →</span>
+              </div>
             </div>
           </article>
-        ))}
-      </div>
+
+          <!-- Secondary Highlights (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col gap-6 justify-between">
+            {subFeatured.map((g) => (
+              <article class="bg-card rounded-2xl border overflow-hidden shadow-xs hover:shadow-md hover:border-brand/50 transition-all flex flex-col sm:flex-row lg:flex-col flex-1 group">
+                <a href={`/guides/${g.id}/`} class="relative block sm:w-2/5 lg:w-full aspect-video bg-slate-900 border-b sm:border-b-0 sm:border-r lg:border-r-0 lg:border-b shrink-0 overflow-hidden">
+                  <img
+                    src={`/images/guides/${g.data.tool}.svg`}
+                    alt={g.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div class="absolute top-2.5 left-2.5 bg-black/70 backdrop-blur-xs text-white text-[10px] font-mono px-2 py-0.5 rounded border border-white/10 uppercase">
+                    {TOOL_BY_KEY[g.data.tool]?.topic || g.data.tool}
+                  </div>
+                  <div class="absolute bottom-2.5 right-2.5 bg-black/70 backdrop-blur-xs text-white text-[10px] font-mono px-2 py-0.5 rounded">
+                    {getReadTime(g.body)} min read
+                  </div>
+                </a>
+                <div class="p-5 flex flex-col justify-between flex-1">
+                  <div>
+                    <time datetime={g.data.published.toISOString()} class="text-xs text-muted-foreground block mb-1.5">
+                      {g.data.published.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}
+                    </time>
+                    <h3 class="font-display group-hover:text-brand text-lg font-bold leading-snug">
+                      <a href={`/guides/${g.id}/`} class="text-foreground group-hover:text-brand no-underline">
+                        {g.data.title}
+                      </a>
+                    </h3>
+                    <p class="text-muted-foreground text-xs mt-2 line-clamp-2 leading-relaxed">
+                      {g.data.description}
+                    </p>
+                  </div>
+                  <div class="mt-4 pt-3 border-t flex items-center justify-between text-xs">
+                    <span class="text-muted-foreground">By {AUTHOR.name}</span>
+                    <a href={`/guides/${g.id}/`} class="text-brand font-semibold group-hover:translate-x-0.5 transition-transform">
+                      Read guide →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- 3-COLUMN RECENT GUIDES GRID -->
+      {recentGrid.length > 0 && (
+        <div class="mt-12">
+          <div class="flex items-center justify-between border-b pb-3 mb-6">
+            <h3 class="text-xl font-bold">More Technical Field Guides</h3>
+            <span class="text-xs text-muted-foreground">Peer-tested equations & material lists</span>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {recentGrid.map((g) => (
+              <article class="bg-card hover:border-brand/60 group text-foreground flex h-full flex-col justify-between rounded-xl border overflow-hidden transition-all shadow-xs hover:shadow-md">
+                <a href={`/guides/${g.id}/`} class="relative block aspect-video overflow-hidden bg-slate-900 border-b">
+                  <img
+                    src={`/images/guides/${g.data.tool}.svg`}
+                    alt={g.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                    {TOOL_BY_KEY[g.data.tool]?.topic || g.data.tool}
+                  </div>
+                  <div class="absolute bottom-2.5 right-2.5 bg-black/75 backdrop-blur-xs text-white text-[10px] font-mono px-2 py-0.5 rounded">
+                    {getReadTime(g.body)} min read
+                  </div>
+                </a>
+                <div class="p-5 flex flex-col justify-between flex-1">
+                  <div>
+                    <time datetime={g.data.published.toISOString()} class="text-[11px] text-muted-foreground block mb-2">
+                      {g.data.published.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}
+                    </time>
+                    <h4 class="font-display group-hover:text-brand text-lg font-bold leading-snug">
+                      <a href={`/guides/${g.id}/`} class="text-foreground group-hover:text-brand no-underline">
+                        {g.data.title}
+                      </a>
+                    </h4>
+                    <p class="text-muted-foreground text-xs mt-2.5 line-clamp-2 leading-relaxed">
+                      {g.data.description}
+                    </p>
+                  </div>
+                  <div class="mt-5 pt-3.5 border-t flex items-center justify-between text-xs text-muted-foreground">
+                    <span>By {AUTHOR.name}</span>
+                    <a href={`/guides/${g.id}/`} class="text-brand font-semibold group-hover:translate-x-1 transition-transform">
+                      Read guide →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div class="mt-10 text-center">
+            <a href="/guides/" class="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-card px-8 py-4 text-sm font-bold text-foreground shadow-xs hover:border-brand hover:text-brand hover:bg-brand-soft/20 transition-all no-underline">
+              Explore All {allGuides.length} Guides in Detail
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+      )}
     </section>
   )}
 

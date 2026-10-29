@@ -86,7 +86,21 @@ const schema = [
         <div>
           <p class="text-muted-foreground mb-3 text-xs font-semibold tracking-wider uppercase">Guides for this project</p>
           <ul class="grid gap-3 text-sm">
-            {guides.map((g) => <li><a href={`/guides/${g.id}/`} class="font-medium leading-snug">{g.data.title}</a></li>)}
+            {guides.map((g) => (
+              <li class="flex items-center gap-3">
+                <a href={`/guides/${g.id}/`} class="relative block size-12 shrink-0 overflow-hidden rounded-lg border bg-slate-900">
+                  <img
+                    src={`/images/guides/${g.data.tool}.svg`}
+                    alt=""
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </a>
+                <a href={`/guides/${g.id}/`} class="font-medium leading-snug line-clamp-2 hover:text-brand transition-colors">
+                  {g.data.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       )}

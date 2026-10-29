@@ -4,40 +4,114 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { getCollection } from "astro:content";
 import { breadcrumbSchema } from "../../lib/schema.js";
 import { TOOLS } from "../../lib/tools.js";
+import { AUTHOR } from "../../site.config.js";
 
 const all = (await getCollection("guides", (g) => !g.data.draft))
   .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+
 const groups = TOOLS
-  .map((t) => ({ key: t.key, label: t.topic, href: t.href, name: t.name, items: all.filter((g) => g.data.tool === t.key) }))
+  .map((t) => ({ key: t.key, label: t.topic, href: t.href, name: t.name, blurb: t.blurb, items: all.filter((g) => g.data.tool === t.key) }))
   .filter((g) => g.items.length > 0);
+
 const crumbs = [{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" }];
+
+const getReadTime = (body?: string) => Math.max(3, Math.ceil((body || "").trim().split(/\s+/).length / 200));
 ---
 <Base
-  title="Project Guides"
-  description="Guides to measuring, estimating and buying materials for concrete, tile, flooring, drywall, decks, roofs and more, each with worked examples and tables."
+  title="Project Guides & Technical Field Manuals"
+  description="Peer-reviewed technical guides to measuring, estimating and buying materials for concrete, tile, flooring, drywall, decks, roofs and more, with worked mathematical examples."
   schema={[breadcrumbSchema(crumbs)]}
 >
-  <div class="mx-auto max-w-6xl px-4 pt-6">
-    <Breadcrumbs crumbs={crumbs} />
-    <h1 class="mt-4 text-3xl md:text-4xl font-extrabold">Project guides</h1>
-    <p class="mt-3 text-lg text-muted-foreground max-w-[60ch]">How to measure, what to watch for and how much to buy, explained with worked examples.</p>
-    <div class="tick-rule mt-6 max-w-md"></div>
+  <div class="relative overflow-hidden border-b bg-card/30">
+    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-4 pt-8 pb-12">
+      <Breadcrumbs crumbs={crumbs} />
+      <div class="mt-5 max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-soft text-brand mb-3">
+          Engineering & Material Field Manuals
+        </span>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Technical Project Guides</h1>
+        <p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+          Comprehensive, open-formula planning articles by Eren Şimşir. Each guide provides exact coverage formulas, ASTM/IRC building code parameters, real-world waste factors, and worked mathematical steps.
+        </p>
+      </div>
 
-    {groups.map((group) => (
-      <section class="mt-10" aria-labelledby={`g-${group.key}`}>
-        <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h2 id={`g-${group.key}`} class="text-xl font-extrabold">{group.label}</h2>
-          <a href={group.href} class="text-sm font-medium">{group.name} →</a>
-        </div>
-        <ul class="mt-4 grid gap-5 md:grid-cols-2">
-          {group.items.map((g) => (
-            <li class="border-t border-border pt-4">
-              <a href={`/guides/${g.id}/`} class="font-display text-lg font-bold leading-snug">{g.data.title}</a>
-              <p class="text-sm text-muted-foreground mt-1">{g.data.description}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-    ))}
+      <!-- Category Filter Pills -->
+      <div class="mt-8 flex flex-wrap gap-2 pt-2">
+        {groups.map((group) => (
+          <a
+            href={`#g-${group.key}`}
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card text-xs font-medium text-foreground hover:border-brand hover:text-brand hover:bg-brand-soft/30 transition-all no-underline"
+          >
+            <span>{group.label}</span>
+            <span class="text-muted-foreground text-[10px] font-mono">({group.items.length})</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <div class="space-y-16">
+      {groups.map((group) => (
+        <section id={`g-${group.key}`} class="scroll-mt-20" aria-labelledby={`h-${group.key}`}>
+          <div class="flex flex-wrap items-end justify-between gap-4 border-b pb-4 mb-6">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="size-2 rounded-full bg-brand"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-brand">{group.label} Standards</span>
+              </div>
+              <h2 id={`h-${group.key}`} class="text-2xl font-extrabold">{group.label} Guides</h2>
+              <p class="text-muted-foreground text-xs md:text-sm mt-1">{group.blurb}</p>
+            </div>
+            <a
+              href={group.href}
+              class="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-brand hover:underline border border-brand/30 bg-brand-soft/20 px-3 py-1.5 rounded-lg"
+            >
+              Open {group.name} <span>→</span>
+            </a>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((g) => (
+              <article class="bg-card hover:border-brand/60 group text-foreground flex h-full flex-col justify-between rounded-xl border overflow-hidden transition-all shadow-xs hover:shadow-md">
+                <a href={`/guides/${g.id}/`} class="relative block aspect-video overflow-hidden bg-slate-900 border-b">
+                  <img
+                    src={`/images/guides/${group.key}.svg`}
+                    alt={`${g.data.title} technical illustration`}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div class="absolute bottom-2.5 right-2.5 bg-black/75 backdrop-blur-xs text-white text-[10px] font-mono px-2 py-0.5 rounded">
+                    {getReadTime(g.body)} min read
+                  </div>
+                </a>
+                <div class="p-5 flex flex-col justify-between flex-1">
+                  <div>
+                    <time datetime={g.data.published.toISOString()} class="text-[11px] text-muted-foreground block mb-2 font-mono">
+                      {g.data.published.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}
+                    </time>
+                    <h3 class="font-display group-hover:text-brand text-lg font-bold leading-snug">
+                      <a href={`/guides/${g.id}/`} class="text-foreground group-hover:text-brand no-underline">
+                        {g.data.title}
+                      </a>
+                    </h3>
+                    <p class="text-muted-foreground text-xs mt-2.5 line-clamp-3 leading-relaxed">
+                      {g.data.description}
+                    </p>
+                  </div>
+                  <div class="mt-5 pt-3.5 border-t flex items-center justify-between text-xs text-muted-foreground">
+                    <span>By {AUTHOR.name}</span>
+                    <a href={`/guides/${g.id}/`} class="text-brand font-semibold group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                      Read field guide <span>→</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
   </div>
 </Base>
