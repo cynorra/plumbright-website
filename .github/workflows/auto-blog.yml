@@ -1,9 +1,9 @@
 # Automated Daily Blog Publisher for Plumbright
 # Runs every day at 04:00 UTC:
-# 1. Runs generate-guide.mjs to generate the next zero-click resistant guide
-# 2. Pushes the article to Supabase database (status: published, with published_at date)
+# 1. Runs generate-guide.mjs to generate the next zero-click resistant guide (dated today)
+# 2. Pushes the article to Supabase database (status: published, live immediately)
 # 3. Commits the newly generated markdown file back to the git repository
-# 4. Git push triggers deploy.yml which builds and deploys to Cloudflare Pages!
+# 4. Git push & triggers deploy.yml which builds and deploys to Cloudflare Pages!
 
 name: Daily Auto-Blog Generator & Publisher
 
@@ -19,6 +19,7 @@ concurrency:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   generate-and-publish:
@@ -37,8 +38,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Quality audit existing guides
+        run: npm run audit-guides
+
       - name: Generate and publish next guide
-        run: node scripts/generate-guide.mjs --publish
+        run: node scripts/generate-guide.mjs --today --publish
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -56,9 +60,10 @@ jobs:
             git push origin main
           fi
 
-      - name: Trigger and verify deploy
+      - name: Trigger site deployment
+        continue-on-error: true
         run: |
           echo "Triggering site deployment to Cloudflare Pages..."
-          gh workflow run deploy.yml --ref main
+          gh workflow run deploy.yml --ref main || echo "Workflow trigger skipped or rate-limited; deploy schedule will catch it."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

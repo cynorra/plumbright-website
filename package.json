@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "node --test tests/*.test.js",
+    "audit-guides": "node scripts/audit-guides.mjs",
     "indexnow": "node scripts/indexnow.mjs",
     "push-guides": "node scripts/push-guides.mjs",
     "generate-guide": "node scripts/generate-guide.mjs"

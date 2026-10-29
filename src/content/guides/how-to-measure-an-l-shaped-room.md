@@ -5,7 +5,7 @@ published: 2026-10-13
 tool: tile
 ---
 
-To find the area of an L-shaped room, **split it into two rectangles, find the area of each and add them together.** A room that is 14 ft on its long side, with a 6 × 5 ft corner cut out, measures 14 × 12 − 6 × 5 = 138 sq ft. Either method below gives the same answer; pick whichever needs fewer measurements in your room.
+**To find the total square footage of an L-shaped room, split the space into two simple rectangles, calculate the area of each separately, and add them together.** A room that is 14 ft on its long side, with a 6 × 5 ft corner cut out, measures 14 × 12 − 6 × 5 = 138 sq ft. Either method below gives the same accurate answer; pick whichever requires fewer tape measurements in your space.
 
 ## Method 1: split it into rectangles
 

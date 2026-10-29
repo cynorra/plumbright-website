@@ -1,10 +1,12 @@
-// Automated High-Quality Article Generator for Checkpoint Brief
-// Tailored for gaming, GTA 6, AdSense compliance, and ZERO-CLICK AI OVERVIEW RESISTANCE.
+// Automated High-Quality Article Generator for Plumbright (plumbright.com)
+// Tailored for DIY construction, material calculations, and ZERO-CLICK AI OVERVIEW RESISTANCE.
 //
 // Usage:
 //   node scripts/generate-guide.mjs                                  # Picks next topic from zero-click bank
-//   node scripts/generate-guide.mjs --topic "GTA 6 Weapons & Combat"  # Custom topic
-//   node scripts/generate-guide.mjs --tool gta6                      # Category filter (gta6|releases|deals|general)
+//   node scripts/generate-guide.mjs --today                          # Sets publish date to today for immediate live display
+//   node scripts/generate-guide.mjs --topic "Concrete Slab Sizing"   # Custom topic
+//   node scripts/generate-guide.mjs --tool concrete                  # Category filter (concrete|gravel|deck|paint|drywall|...)
+//   node scripts/generate-guide.mjs --publish                        # Generates and pushes immediately to Supabase
 //   node scripts/generate-guide.mjs --dry-run                        # Preview without saving to disk
 
 import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -24,6 +26,7 @@ if (!GEMINI_API_KEY) {
 
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
+const forceToday = args.includes("--today") || args.includes("--immediate");
 const customTopicIdx = args.indexOf("--topic");
 const customTopic = customTopicIdx !== -1 ? args[customTopicIdx + 1] : null;
 const toolFilterIdx = args.indexOf("--tool");
@@ -57,11 +60,11 @@ function getNextTopic() {
     return {
       topic: customTopic,
       slug,
-      tool: toolFilter || "gta6",
+      tool: toolFilter || "concrete",
       primaryKeyword: customTopic,
-      formatType: "In-Depth Analysis & Guide",
-      clickHook: "Provides high-value comparison and actionable steps beyond simple search snippets.",
-      sources: [{ label: "Official Documentation / Press Releases", href: "https://www.rockstargames.com" }]
+      formatType: "Material Estimation & Bag Count Guide",
+      clickHook: "Provides detailed imperial math formulas, material tables, and waste allowances.",
+      calculatorLink: `/${toolFilter || "concrete"}-calculator/`
     };
   }
 
@@ -80,8 +83,12 @@ function getNextTopic() {
 }
 
 function getNextPublishDate() {
-  const dates = existingGuidesSummary.map((g) => g.date).filter(Boolean).sort();
   const today = new Date().toISOString().slice(0, 10);
+  if (forceToday) {
+    return today;
+  }
+
+  const dates = existingGuidesSummary.map((g) => g.date).filter(Boolean).sort();
   if (!dates.length) return today;
 
   const latest = dates[dates.length - 1];
@@ -101,7 +108,7 @@ console.log(`Format Strategy: ${targetTopic.formatType || 'Actionable Guide'}`);
 console.log(`Click Hook: ${targetTopic.clickHook || 'Detailed matrix and walkthrough'}`);
 console.log(`Slug: ${targetTopic.slug}`);
 console.log(`Target Tool: ${targetTopic.tool}`);
-console.log(`Scheduled Date: ${targetDate}`);
+console.log(`Scheduled Publish Date: ${targetDate} ${forceToday ? '(TODAY - Immediate Live)' : ''}`);
 console.log(`==================================================\n`);
 
 const relevantGuides = existingGuidesSummary
@@ -112,11 +119,18 @@ const internalLinksContext = relevantGuides
   .map((g) => `- "${g.title}": href="${g.href}"`)
   .join("\n");
 
+const toolSlugMap = {
+  stairs: "stair",
+  area: "square-footage"
+};
+const calcSlug = toolSlugMap[targetTopic.tool] || targetTopic.tool;
+const calcPath = `/${calcSlug}-calculator/`;
+
 const systemInstruction = `You are a licensed building estimator and materials calculation specialist at Plumbright (https://plumbright.com), an authoritative DIY construction and home improvement platform.
 
 PRIMARY OBJECTIVE: BEAT ZERO-CLICK SEARCH / AI OVERVIEWS
 Provide actionable formulas, dimensional tables, and waste allowances that cannot be answered by a 1-sentence AI snippet:
-1. Exact Formula Breakdown: Step-by-step imperial math (cubic feet, cubic yards, square footage, bag weights).
+1. Exact Formula Breakdown: Step-by-Step imperial math (cubic feet, cubic yards, square footage, bag weights).
 2. Material Conversion Table: Must include a comprehensive Markdown/HTML table wrapped in <div class="table-wrap"><table>...</table></div>.
 3. Realistic DIY Considerations: Excavation depth, gravel base drainage, fastener spacing, and 10% waste buffer.
 
@@ -130,14 +144,14 @@ EDITORIAL QUALITY MANDATES:
 5. MANDATORY MATERIAL TABLE & HEADINGS:
    - You MUST structure the article using at least 3-4 distinct '## Section Heading' markdown headers (e.g. ## How the Formula Works, ## Material Estimation Table, ## Worked Project Example, ## Setting Tips and Waste Allowance).
    - Must include a complete Markdown/HTML table wrapped in <div class="table-wrap"><table>...</table></div>.
-6. STRICT ANTI-DUPLICATION & TEMPLATE DIVERSITY:
-   - NEVER repeat or paraphrase any topic already written. Here are existing published titles to AVOID overlapping with:
-   ${existingGuidesSummary.slice(-15).map((g) => `- "${g.title}"`).join("\n   ")}
+6. MANDATORY LENGTH: The body MUST be detailed and comprehensive, containing at least 600 words of thorough technical explanation.
+7. STRICT ANTI-DUPLICATION:
+   - NEVER repeat or paraphrase any topic already written.
    - NEVER use generic formula titles like "The Ultimate Guide to...", "Complete Guide to...", "Everything You Need to Know".
-   - You MUST tailor the headings and structure specifically to this topic's Format Type ("${targetTopic.formatType || 'Actionable Guide'}").
-7. INTERNAL LINKING:
-   - Naturally integrate link to the corresponding Plumbright calculator: [${targetTopic.tool} calculator](${targetTopic.calculatorLink || '/' + targetTopic.tool + '-calculator/'}).
-   - Also integrate 1-2 relevant internal links to existing Plumbright guides from this list:
+   - Tailor the headings and structure specifically to this topic's Format Type ("${targetTopic.formatType || 'Actionable Guide'}").
+8. INTERNAL LINKING:
+   - You MUST explicitly include this exact link in the body text: [${targetTopic.tool} calculator](${calcPath}).
+   - Also naturally integrate 1-2 relevant internal links to existing Plumbright guides from this list:
    ${internalLinksContext}
 
 FORMAT REQUIRED:
@@ -167,14 +181,14 @@ Target Tool: "${targetTopic.tool}"
 Format Type: "${targetTopic.formatType || 'Material Calculation'}"
 Strategic Hook: "${targetTopic.clickHook || 'Provide step-by-step formula math and bag conversion tables.'}"
 Target Keyword: "${targetTopic.primaryKeyword}"
-Target Word Count: 550 - 900 words.
+Target Word Count: 600 - 950 words.
 
 Structure Requirements:
 1. Opening bold AEO summary paragraph.
 2. Step-by-step formula math with real numbers.
 3. Complete material conversion table wrapped in <div class="table-wrap"><table>...</table></div>.
 4. Worked real-world project example.
-5. Direct link to [${targetTopic.tool} calculator](${targetTopic.calculatorLink || '/' + targetTopic.tool + '-calculator/'}).`;
+5. You MUST include the link: [${targetTopic.tool} calculator](${calcPath}).`;
 
 function callGeminiAPI(payload) {
   return new Promise((resolve, reject) => {

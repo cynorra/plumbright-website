@@ -10,101 +10,164 @@ export const CONTENT_FORMATS = [
     description: 'Exact formulas and bag/unit counts for slabs, walls, or rooms with waste margins',
     structureRequirements: [
       'Core math formula clearly explained step-by-step',
-      'Material conversion table in <div class=" table-wrap\> (Length/Width vs Bags/Yards needed)',
- 'Worked real-world project example'
- ]
- },
- {
- type: 'Code & Thickness Decision Matrix',
- description: 'Comparison of dimensions, thicknesses, and lumber spans against IRC building codes',
- structureRequirements: [
- 'Comparative specification table',
- 'Structural recommendations based on load requirements',
- 'Common DIY sizing mistakes to avoid'
- ]
- },
- {
- type: 'Step-by-Step Substrate & Installation Walkthrough',
- description: 'Underlayment, base preparation, spacing, and fastening instructions',
- structureRequirements: [
- 'Numbered prep steps with tools and material specs',
- 'Depth and slope requirements table',
- 'Crucial setting and curing checkpoints'
- ]
- }
+      'Material conversion table in <div class="table-wrap"> (Length/Width vs Bags/Yards needed)',
+      'Worked real-world project example'
+    ]
+  },
+  {
+    type: 'Code & Thickness Decision Matrix',
+    description: 'Comparison of dimensions, thicknesses, and lumber spans against IRC building codes',
+    structureRequirements: [
+      'Comparative specification table',
+      'Structural recommendations based on load requirements',
+      'Common DIY sizing mistakes to avoid'
+    ]
+  },
+  {
+    type: 'Step-by-Step Substrate & Installation Walkthrough',
+    description: 'Underlayment, base preparation, spacing, and fastening instructions',
+    structureRequirements: [
+      'Numbered prep steps with tools and material specs',
+      'Depth and slope requirements table',
+      'Crucial setting and curing checkpoints'
+    ]
+  }
 ];
 
 export const ZERO_CLICK_TOPIC_BANK = [
- {
- topic: 'Concrete Slab Thickness for Sheds, Patios and Driveways',
- slug: 'how-many-bags-of-concrete-for-10x10-slab',
- tool: 'concrete',
- primaryKeyword: 'concrete slab thickness shed patio driveway',
- formatType: 'Code & Thickness Decision Matrix',
- clickHook: 'Compares 4-inch vs 6-inch slabs, gravel base depth, and rebar reinforcement rules for different weight loads.',
- calculatorLink: '/concrete-calculator/'
- },
- {
- topic: 'How Many Bags of Concrete for a 10x10 Slab at 4 Inches?',
- slug: 'how-many-bags-of-concrete-for-10x10-slab',
- tool: 'concrete',
- primaryKeyword: 'bags of concrete for 10x10 slab 4 inches',
- formatType: 'Material Estimation & Bag Count Guide',
- clickHook: 'Breaks down the 1.23 cubic yard formula, converting into 40 lb, 60 lb, and 80 lb bag counts with a 10% waste buffer.',
- calculatorLink: '/concrete-calculator/'
- },
- {
- topic: 'Gravel Driveway Base Layers: Proper Depth and Stone Sizes',
- slug: 'gravel-driveway-base-layers-depth-and-sizes',
- tool: 'gravel',
- primaryKeyword: 'gravel driveway base layers depth stone size',
- formatType: 'Step-by-Step Substrate & Installation Walkthrough',
- clickHook: 'Explains the 3-layer system (#3 stone base, #57 middle, and crusher run top) with tonnage calculation per 100 feet.',
- calculatorLink: '/gravel-calculator/'
- },
- {
- topic: 'Deck Joist Spacing: 12 vs 16 vs 24 Inches on Center Explained',
- slug: 'deck-joist-spacing-12-vs-16-vs-24-inches',
- tool: 'deck',
- primaryKeyword: 'deck joist spacing 12 vs 16 vs 24 inches',
- formatType: 'Code & Thickness Decision Matrix',
- clickHook: 'Details when composite boards require 12-inch centers vs standard 16-inch framing for pressure-treated wood.',
- calculatorLink: '/deck-calculator/'
- },
- {
- topic: 'How Many Gallons of Paint for a 15x15 Room (Walls and Ceiling)?',
- slug: 'how-many-gallons-of-paint-for-15x15-room',
- tool: 'paint',
- primaryKeyword: 'paint gallons for 15x15 room walls ceiling',
- formatType: 'Material Estimation & Bag Count Guide',
- clickHook: 'Subtracts standard doors and windows from wall surface area, comparing 1-coat vs 2-coat primer coverage math.',
- calculatorLink: '/paint-calculator/'
- },
- {
- topic: 'Tile Waste Factor: How Much Extra Tile to Order by Pattern',
- slug: 'tile-waste-factor-percentage-by-pattern-layout',
- tool: 'tile',
- primaryKeyword: 'tile waste factor percentage layout',
- formatType: 'Code & Thickness Decision Matrix',
- clickHook: 'Provides exact waste allowances: 10% for straight grid, 15% for diagonal herringbone, and 20% for large-format porcelain.',
- calculatorLink: '/tile-calculator/'
- },
- {
- topic: 'Fence Post Depth and Frost Line Rules: How Deep to Dig',
- slug: 'fence-post-depth-frost-line-rules-how-deep-to-dig',
- tool: 'fence',
- primaryKeyword: 'fence post depth frost line how deep to dig',
- formatType: 'Step-by-Step Substrate & Installation Walkthrough',
- clickHook: 'Covers the 1/3 rule (post depth relative to height) and how to anchor below local frost heave zones.',
- calculatorLink: '/fence-calculator/'
- },
- {
- topic: 'How Many Drywall Screws per 4x8 Sheet (Ceilings vs Walls)?',
- slug: 'how-many-drywall-screws-per-sheet-walls-ceilings',
- tool: 'drywall',
- primaryKeyword: 'how many drywall screws per sheet walls ceilings',
- formatType: 'Material Estimation & Bag Count Guide',
- clickHook: 'Compares 12-inch spacing for ceilings (approx 32 screws) vs 16-inch spacing for walls (approx 28 screws) with pound conversions.',
- calculatorLink: '/drywall-calculator/'
- }
+  {
+    topic: 'Concrete Slab Thickness: 4 vs 6 Inches for Sheds, Patios and Driveways',
+    slug: 'concrete-slab-thickness-shed-patio-driveway',
+    tool: 'concrete',
+    primaryKeyword: 'concrete slab thickness shed patio driveway',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Compares 4-inch vs 6-inch slabs, gravel base depth, and rebar reinforcement rules for different weight loads.',
+    calculatorLink: '/concrete-calculator/'
+  },
+  {
+    topic: 'How Many Bags of Concrete for a 10x10 Slab at 4 Inches?',
+    slug: 'how-many-bags-of-concrete-for-10x10-slab',
+    tool: 'concrete',
+    primaryKeyword: 'bags of concrete for 10x10 slab 4 inches',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Breaks down the 1.23 cubic yard formula, converting into 40 lb, 60 lb, and 80 lb bag counts with a 10% waste buffer.',
+    calculatorLink: '/concrete-calculator/'
+  },
+  {
+    topic: 'Gravel Driveway Base Layers: Proper Depth and Stone Sizes',
+    slug: 'gravel-driveway-base-layers-depth-and-sizes',
+    tool: 'gravel',
+    primaryKeyword: 'gravel driveway base layers depth stone size',
+    formatType: 'Step-by-Step Substrate & Installation Walkthrough',
+    clickHook: 'Explains the 3-layer system (#3 stone base, #57 middle, and crusher run top) with tonnage calculation per 100 feet.',
+    calculatorLink: '/gravel-calculator/'
+  },
+  {
+    topic: 'Deck Joist Spacing: 12 vs 16 vs 24 Inches on Center Explained',
+    slug: 'deck-joist-spacing-12-vs-16-vs-24-inches',
+    tool: 'deck',
+    primaryKeyword: 'deck joist spacing 12 vs 16 vs 24 inches',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Details when composite boards require 12-inch centers vs standard 16-inch framing for pressure-treated wood.',
+    calculatorLink: '/deck-calculator/'
+  },
+  {
+    topic: 'How Many Gallons of Paint for a 15x15 Room (Walls and Ceiling)?',
+    slug: 'how-many-gallons-of-paint-for-15x15-room',
+    tool: 'paint',
+    primaryKeyword: 'paint gallons for 15x15 room walls ceiling',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Subtracts standard doors and windows from wall surface area, comparing 1-coat vs 2-coat primer coverage math.',
+    calculatorLink: '/paint-calculator/'
+  },
+  {
+    topic: 'Tile Waste Factor: How Much Extra Tile to Order by Pattern',
+    slug: 'tile-waste-factor-percentage-by-pattern-layout',
+    tool: 'tile',
+    primaryKeyword: 'tile waste factor percentage layout',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Provides exact waste allowances: 10% for straight grid, 15% for diagonal herringbone, and 20% for large-format porcelain.',
+    calculatorLink: '/tile-calculator/'
+  },
+  {
+    topic: 'Fence Post Depth and Frost Line Rules: How Deep to Dig',
+    slug: 'fence-post-depth-frost-line-rules-how-deep-to-dig',
+    tool: 'fence',
+    primaryKeyword: 'fence post depth frost line how deep to dig',
+    formatType: 'Step-by-Step Substrate & Installation Walkthrough',
+    clickHook: 'Covers the 1/3 rule (post depth relative to height) and how to anchor below local frost heave zones.',
+    calculatorLink: '/fence-calculator/'
+  },
+  {
+    topic: 'How Many Drywall Screws per 4x8 Sheet (Ceilings vs Walls)?',
+    slug: 'how-many-drywall-screws-per-sheet-walls-ceilings',
+    tool: 'drywall',
+    primaryKeyword: 'how many drywall screws per sheet walls ceilings',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Compares 12-inch spacing for ceilings (approx 32 screws) vs 16-inch spacing for walls (approx 28 screws) with pound conversions.',
+    calculatorLink: '/drywall-calculator/'
+  },
+  {
+    topic: 'Architectural vs 3-Tab Shingles: Bundles per Square and Lifespan',
+    slug: 'architectural-vs-3-tab-shingles-bundles-per-square',
+    tool: 'roofing',
+    primaryKeyword: 'architectural vs 3 tab shingles bundles per square',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Breaks down 3 bundles per square math, weight differences (240 lbs vs 190 lbs per square), and wind resistance ratings.',
+    calculatorLink: '/roofing-calculator/'
+  },
+  {
+    topic: 'Rebar Spacing and Size for Concrete Patios and Slabs',
+    slug: 'rebar-spacing-and-size-for-concrete-slabs',
+    tool: 'concrete',
+    primaryKeyword: 'rebar spacing size concrete slab patio grid',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Details #3 (3/8 in) vs #4 (1/2 in) rebar grids on 12-inch or 18-inch centers, chair placement, and lap splice clearance.',
+    calculatorLink: '/concrete-calculator/'
+  },
+  {
+    topic: 'Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions',
+    slug: 'mortar-mix-ratio-brick-laying-type-n-vs-s',
+    tool: 'brick',
+    primaryKeyword: 'mortar mix ratio brick laying type n type s',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Explains sand-to-cement ratios (1:1:6 vs 1:0.5:4.5) for non-bearing vs load-bearing exterior brick walls.',
+    calculatorLink: '/brick-calculator/'
+  },
+  {
+    topic: 'Paver Base Depth: How Deep to Excavate Sand and Crushed Stone',
+    slug: 'paver-base-depth-sand-and-crushed-stone-layers',
+    tool: 'gravel',
+    primaryKeyword: 'paver base depth sand crushed stone gravel',
+    formatType: 'Step-by-Step Substrate & Installation Walkthrough',
+    clickHook: 'Detailed 7-inch to 9-inch excavation blueprint: 4-6 inches compacted quarry process, 1 inch coarse bedding sand, and paver thickness.',
+    calculatorLink: '/gravel-calculator/'
+  },
+  {
+    topic: 'Deck Beam Span Rules and Sizing: 2x8, 2x10, and 2x12 Joists',
+    slug: 'deck-beam-span-rules-and-sizing-joists',
+    tool: 'deck',
+    primaryKeyword: 'deck beam span rules sizing 2x8 2x10 2x12',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'IRC span tables comparing Southern Pine vs Douglas Fir beam cantilevers and post spacing requirements.',
+    calculatorLink: '/deck-calculator/'
+  },
+  {
+    topic: 'Hardwood Flooring Waste Factor for Straight vs Diagonal Layouts',
+    slug: 'hardwood-flooring-waste-factor-straight-vs-diagonal',
+    tool: 'flooring',
+    primaryKeyword: 'hardwood flooring waste factor straight diagonal',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'How to calculate 7-10% extra for parallel runs vs 15-20% for diagonal, herringbone, and bordered room designs.',
+    calculatorLink: '/flooring-calculator/'
+  },
+  {
+    topic: 'How Many Retaining Wall Blocks Do I Need: Trench and Step Math',
+    slug: 'how-many-retaining-wall-blocks-formula',
+    tool: 'brick',
+    primaryKeyword: 'how many retaining wall blocks do i need formula',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Step-by-step wall block calculation accounting for buried starter course, capstones, and geogrid reinforcement.',
+    calculatorLink: '/brick-calculator/'
+  }
 ];

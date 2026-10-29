@@ -5,9 +5,10 @@
 //   node scripts/check-links.mjs
 import { readdirSync, readFileSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { localRows } from "../src/lib/articles-source.js";
 
-const DIST = new URL("../dist/", import.meta.url).pathname;
+const DIST = fileURLToPath(new URL("../dist/", import.meta.url));
 const problems = [];
 
 function walk(dir) {

@@ -5,7 +5,7 @@ published: 2026-10-13
 tool: concrete
 ---
 
-A 4×4 fence post in a 10 inch wide, 36 inch deep hole with 6 inches of gravel in the bottom takes about **1.15 cubic feet of concrete: 2 bags of 80 lb mix or 4 bags of 50 lb mix.** The exact number depends on the hole diameter, the depth and how much of the hole the post itself fills.
+**A standard 4×4 fence post in a 10-inch diameter, 36-inch deep hole requires 2 bags of 80 lb concrete mix (or 4 bags of 50 lb mix), equaling roughly 1.15 cubic feet of concrete.** The exact volume depends on hole width, frost line depth, and how much volume the post and gravel base displace.
 
 <div class="table-wrap">
 <table>
