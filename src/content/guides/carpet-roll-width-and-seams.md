@@ -42,4 +42,19 @@ Carpet pieces always use the full width of the roll. In a room 13 ft wide, a 12 
 
 Patterned and some textured carpets must match across seams, just like wallpaper. That adds a repeat's worth of length to each piece. Ask for the pattern repeat and add it to each cut length when you estimate.
 
+## Carpet Padding Density and Thickness Guidelines
+
+Never reuse old padding or skimp on underlayment when installing new broadloom carpet:
+
+- **Thickness Limits:** For residential cut-pile or plush carpet, the Carpet and Rug Institute (CRI Standard 105) specifies a maximum cushion thickness of 7/16 inch. Installing a pad thicker than 7/16 inch causes excessive flexing at seams and voids manufacturer warranties. For low-profile Berber or loop-pile carpet, pad thickness should not exceed 3/8 inch.
+- **Density Ratings:** Cushion density is rated in pounds per cubic foot. Choose bonded polyurethane (rebond) foam with at least an **8 lb/cu ft density** for high-traffic living rooms and hallways. Cheaper 6 lb foam crushes permanently under heavy furniture, causing broadloom carpet to ripple and buckle within 2 to 3 years.
+
+## Professional Seaming and Power-Stretching Mandates
+
+Visible seam lines and premature ripples are the two most common DIY carpet installation failures:
+
+- **Hot-Melt Seam Ironing:** When joining two roll widths, apply professional hot-melt thermoplastic seaming tape centered directly beneath the joint. Use a temperature-regulated seaming iron (set between 250°F and 300°F) to melt the adhesive, following immediately with a weighted seam roller. Never drag an iron too fast; cold joints fail when walked on.
+- **Seam Sealer Application:** Apply a continuous bead of latex edge seam sealer to both trimmed backing edges before ironing the seam together. This seals cut fibers, preventing raveling, tuft loss, and visible fraying along the joint line.
+- **Power Stretching vs. Knee Kicker:** A knee kicker is meant solely for positioning carpet onto tack strips around door jambs and corners. Wall-to-wall tensioning must be performed using a mechanical **pole-driven power stretcher**. Power-stretching pulls broadloom carpet tight across both dimensions, eliminating temperature-related rippling and wrinkles.
+
 Run your own room through the [carpet calculator](/carpet-calculator/), which compares both directions and all three roll widths. For measuring, see [how much carpet you need](/guides/how-much-carpet-do-i-need/).

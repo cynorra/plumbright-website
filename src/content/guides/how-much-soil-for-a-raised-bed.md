@@ -37,15 +37,23 @@ Three 4 × 8 ft beds made from 2×12 boards, filled to 11 in (the boards are 11 
 
 At this size bulk is usually cheaper. Ask the supplier what's in their mix, and whether they'll deliver onto a tarp near the beds. Our guide to [bags in a yard](/guides/how-many-bags-of-mulch-in-a-yard/) shows how to compare bag and bulk prices; the same math works for soil.
 
-## What to fill with
+## What to fill with: Soil Blends and the Mel's Mix Formula
 
-A raised bed needs loose, fertile soil that drains well. Common approaches:
+A raised bed needs a loose, nutrient-rich growing medium that never compacts under watering:
 
-- **A bagged or bulk "raised bed mix"** made for the purpose. Easiest, and consistent.
-- **Topsoil blended with compost**, often around two-thirds topsoil to one-third compost, adjusted for your soil and plants.
-- **Bulk filler in deep beds.** For beds deeper than about 18 in, some gardeners fill the bottom with logs, branches or coarse organic material to cut the soil bill. It decomposes and settles over time.
+- **The Proven 'Mel's Mix' Formula:** Widely popularized by Square Foot Gardening, this blend provides ideal water retention and porosity without heavy field soil:
+  - **1/3 Coarse Horticultural Vermiculite:** Keeps soil airy and holds moisture.
+  - **1/3 Sphagnum Peat Moss or Coconut Coir:** Balances pH, prevents caking, and aerates root zones.
+  - **1/3 Blended Compost:** Sourced from at least 3 to 4 different organic origins (manure, mushroom compost, worm castings, plant matter) for broad micronutrient availability.
+- **Topsoil and Compost Blend:** If buying in bulk from a local landscape yard, order a "60/40 Garden Blend" (60% screened topsoil, 40% aged organic compost). Never use pure native backyard clay in a raised bed; it turns into brick-hard adobe once dried in sun.
+- **The Hügelkultur Base Method for Deep Beds (18+ inches):** If your wooden or corrugated metal beds are 24 to 36 inches tall, filling them entirely with premium bagged potting soil is unnecessarily expensive. Fill the bottom 40% with rotting untreated logs, fallen tree branches, dry leaves, and straw. This buried organic matter sponge holds deep reservoir moisture, slowly decomposes over 5 to 7 years, and feeds beneficial mycorrhizal fungi.
 
-Garden soil from bags and bulk varies a lot. If your extension service offers soil testing, a test after the first season tells you what to add.
+## Rodent and Weed Underlayment Protection
+
+Before pouring cubic yards of soil into your raised garden beds, protect the bottom against pests:
+
+- **Galvanized Hardware Cloth:** Line the bottom of the frame with **1/2-inch galvanized steel hardware cloth** stapled securely to the bottom wooden edges. Chicken wire or plastic weed barrier will NOT stop burrowing pocket gophers, moles, or voles from tunneling up into vegetable root systems.
+- **Cardboard Base Barrier:** Place two layers of thick, unprinted corrugated cardboard directly over lawn grass before adding hardware cloth and soil. The cardboard smothers turfgrass and weed roots, breaking down naturally into earthworm food within 3 to 4 months.
 
 ## Topping up each year
 

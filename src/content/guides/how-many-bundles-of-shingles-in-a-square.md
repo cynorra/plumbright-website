@@ -54,8 +54,18 @@ A bundle is sized so one person can carry it up a ladder. Heavier shingles, with
 - **Underlayment** goes under the shingles; synthetic rolls often cover 10 squares.
 - **Drip edge, flashing and vents**, plus roofing nails: four per shingle on a standard installation, more in high-wind areas, following the manufacturer's instructions.
 
+## Fastener Specifications and High-Wind Nailing Codes
+
+Proper nailing is what prevents entire squares of shingles from blowing off in high winds:
+
+- **Nail Type and Length:** Use only **11- or 12-gauge hot-dipped galvanized barbed or ring-shank roofing nails** with a minimum 3/8-inch diameter head. Standard nail length is 1-1/4 inches for new decks; use 1-1/2 to 1-3/4 inches when installing hip and ridge caps or reroofing over existing layer. Never use staples or electro-galvanized drywall screws.
+- **Nailing Pattern (4 vs. 6 Nails per Shingle):** For standard slopes up to 60 mph wind ratings, install **4 nails per architectural shingle** driven along the designated nail line. In high-wind coastal or mountain zones (IRC requirements for 110+ mph zones), building codes mandate **6 nails per shingle** and hand-sealing tabs with roofing cement.
+- **Ice & Water Shield Barrier (IRC R905.1.2):** In regions where winter temperatures drop below freezing, local building codes mandate installing a self-adhering waterproof ice-and-water barrier along all eaves. The membrane must extend from the roof edge up the slope to a point at least **24 inches inside the interior heated wall line** to stop winter ice dams from backing water under shingles.
+
 ## Leftover bundles
 
 Keep one or two unopened bundles for repairs after storms. Store them flat in a dry place. Shingle colors change between production runs and get discontinued, so a matching bundle years later is hard to find.
+
+To calculate your exact roof pitch, squares, and all flashing accessories, use our [roofing calculator](/roofing-calculator/).
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Roof work is dangerous. Measure from the ground and the attic where you can, and use proper fall protection, or hire a licensed roofer, for any work on the roof itself.</div>

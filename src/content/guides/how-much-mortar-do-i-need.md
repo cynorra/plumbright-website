@@ -66,8 +66,21 @@ Bagged mortar comes in types defined by ASTM C270, named from the letters of "MA
 
 Stronger isn't always better: mortar should be weaker than the brick so that cracks follow the joints, which are easy to repoint. For old, soft brick, ask a mason before using Type S.
 
-## Mixing tips
+## Mixing tips and Site Proportions
 
-- **Mix small batches** you can use in about an hour and a half; mortar stiffens as it sits.
-- **Retemper once.** Mortar that's stiffened from drying can get a little water mixed back in early on. Mortar that has begun to set should be thrown out.
-- **Keep it consistent.** Measure water the same way every batch so the color and strength stay even.
+If you choose to mix your own mortar from bulk sand and masonry cement rather than buying pre-blended bagged Mason Mix, adhere strictly to ASTM C270 proportion specifications:
+
+- **Type N Site Mix Ratio:** 1 part Portland cement, 1 part hydrated lime, and 4.5 to 6 parts clean, damp masonry sand (ASTM C144).
+- **Type S Site Mix Ratio:** 1 part Portland cement, 1/2 part hydrated lime, and 3.5 to 4.5 parts masonry sand.
+- **Water Consistency:** Add clean water until the mortar clings to a vertical trowel face without sliding off, yet spreads like warm peanut butter.
+- **Mix small batches** you can lay in about 90 minutes. In hot or windy conditions, water evaporates rapidly from the mortar board.
+- **Retempering Rules:** If mortar stiffens on the board solely from surface evaporation, you may sprinkle water and rework it once within the first 60 minutes. Once chemical hydration begins (initial set at 90–120 minutes), retempering destroys compressive bond strength; discard the batch.
+
+## Joint Striking and Weather Protection
+
+How you finish the mortar joint dictates the wall's long-term resistance to water infiltration:
+
+- **Joint Profile:** Tool joints with a rounded convex jointer (creating a compressed concave joint). Concave joints compress the mortar firmly against the top and bottom brick edges, shedding rainwater like miniature shingles. Avoid raked or recessed joints on exterior walls exposed to freezing rain.
+- **Cold-Weather Masonry (Under 40°F):** Hydration slows drastically below 40°F (4°C) and halts completely below freezing. Ice crystals form inside uncured mortar joints, reducing bond strength by up to 80%. In cold weather, use warm mixing water, store bricks indoors, and tent/heat fresh masonry for at least 48 hours.
+
+Calculate your exact brick, block, and mortar requirements with our [brick calculator](/brick-calculator/).

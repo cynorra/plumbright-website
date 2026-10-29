@@ -47,8 +47,13 @@ The [brick and block calculator](/brick-calculator/) includes pavers by count.
 
 For the sand and base layers in detail, see [how much sand you need under pavers](/guides/how-much-sand-under-pavers/).
 
-## Buying tips
+## Buying and Installation Tips
 
-- **Pavers are sold by the pallet or by the square foot.** A pallet covers a fixed area for each style; ask how much, and whether a partial pallet costs more per paver.
-- **Blend from several pallets.** Color varies within a production run, so take pavers from two or three pallets at once as you lay.
-- **Keep spares.** A few extra pavers make it easy to replace a stained or cracked one later.
+- **Pavers are sold by the pallet or by the square foot.** A pallet covers a fixed area for each style (typically 90 to 110 sq ft); ask whether a broken pallet incurs surcharge fees.
+- **Blend from multiple pallets.** Color shades vary slightly across manufacturing runs. Always pull pavers diagonally from three or four separate pallets simultaneously to create a natural, harmonious color blend.
+- **Polymeric Sand vs. Plain Sand:** Always sweep polymeric sand into finished paver joints rather than regular play sand. Polymeric sand contains chemical polymers that activate with water misting, curing into a flexible rubberized joint that halts ant tunneling, weed germination, and joint erosion during torrential rain.
+- **Slope and Drainage Mandate:** Pitch the excavated sub-base and finished pavers away from home foundation walls at a minimum slope of 1 inch drop per 8 feet of run (approx. 1/8 inch per foot). Never build a dead-flat patio adjacent to a basement wall.
+- **Vibratory Compaction with Pad:** Run a vibratory plate compactor twice: first over the compacted crushed stone gravel base, and second over the dry, sand-swept pavers. Attach a polyurethane protective mat to the steel compactor plate to prevent scratching, chipping, or fracturing decorative paver surfaces.
+- **Keep Spares:** Retain 15 to 25 extra pavers in your garage. If outdoor oil, grease, or iron fertilizer stains a paver down the road, you can easily pop it out with a screwdriver and insert a pristine spare.
+
+For complete foundation and perimeter calculations, use our [brick calculator](/brick-calculator/).

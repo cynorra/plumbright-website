@@ -46,4 +46,12 @@ To install either material without migration:
 3. **Underlayment:** Lay non-woven geotextile fabric. Avoid thin plastic weed barrier, which tears under stone pressure.
 4. **Volume Formula:** Length (ft) × Width (ft) × Depth (ft) ÷ 27 = Cubic Yards. Multiply cubic yards by 1.35 to get tons.
 
+## Snow Removal and Seasonal Maintenance Differences
+
+Winter maintenance is one of the most frequently overlooked factors when choosing between crushed stone and pea gravel:
+
+- **Plowing and Snow Blowing:** Compacted crushed stone (#411 or crusher run) freezes into a rigid, monolithic slab during cold weather. A snowplow with a rubber cutting edge or a snowblower set 1/2 inch off the deck glides over the surface without throwing rocks into the lawn. Pea gravel, by contrast, never freezes solid; snowblower augers pull loose round pebbles into the impeller and throw them like shrapnel, ruining lawns and denting car doors.
+- **Raking and Leaf Clearing:** In autumn, clearing leaves from crushed stone is straightforward with a leaf blower held at a low angle. Pea gravel blows away along with dry leaves, requiring constant raking and seasonal replenishment.
+- **Stabilization Grid Alternative:** If you love the aesthetic appeal of smooth pea gravel for patios or light driving pads, consider installing permeable honeycomb stabilizer grids (such as TRUEGRID or CORE Gravel). These plastic cellular pavers lock the round pebbles into place, preventing sinking and rutting while preserving natural surface drainage.
+
 To calculate exact tonnage, cubic yards, and delivery loads for your project dimensions, use our [gravel calculator](/gravel-calculator/).

@@ -37,6 +37,13 @@ The structural posts transfer the entire live weight (people, furniture, snow) a
 </table>
 </div>
 
+## Lateral Racking and Diagonal Knee Bracing
+
+Vertical compressive strength is only one axis of structural safety. Tall decks are highly vulnerable to lateral racking (side-to-side wobble) caused by crowds walking or wind loads:
+
+- **Diagonal Knee Bracing:** The IRC dictates that all support posts taller than 4 to 6 feet must include diagonal 2x4 or 2x6 knee braces installed at a 45-degree angle between the post and the underside of the beam or joist. Braces must be fastened using 1/2-inch through-bolts with washers, not simple deck screws.
+- **Fastener Metallurgy (ACQ Corrosion):** Modern pressure-treated lumber is treated with Alkaline Copper Quaternary (ACQ) or Micronized Copper Azole (MCA), which contains high concentrations of elemental copper. Ordinary electro-galvanized or zinc-plated nails corrode through within years when exposed to copper and outdoor moisture. Use only **G185 triple-zinc hot-dipped galvanized** hardware or **Grade 304/316 stainless steel** for all post brackets, bolts, and structural structural lag screws.
+
 ## Calculating Tributary Area for Deck Posts
 
 To verify your post size:

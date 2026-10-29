@@ -48,4 +48,22 @@ The [brick and block calculator](/brick-calculator/) does this for any wall and 
 - **Half blocks** (8 × 8 face) and **cap blocks** (2 to 4 in thick) are counted separately: caps by wall length ÷ 16 in.
 - **Retaining wall blocks** have their own sizes and setbacks; use the maker's count per square foot of face.
 
+## Core Grouting and Rebar Reinforcement Rules
+
+Hollow concrete masonry units (CMU) depend on internal steel reinforcement and core-fill grout when supporting soil or structural roofs:
+
+- **Vertical Rebar Spacing:** Building codes typically specify #4 (1/2-inch) or #5 (5/8-inch) deformed rebar placed in the hollow cores every 32 to 48 inches on center, as well as on both sides of every door or window opening and at all corners. Rebar must lap at least 24 inches (48 bar diameters).
+- **Core-Fill Grout Calculation:** Standard 8x8x16 two-core blocks have approximately 0.17 cubic feet of hollow void per block. If you are grouting every third core (32-inch spacing), figure 0.057 cubic feet of high-slump fine pea-gravel grout per block. If grouting solid (required for retaining walls or below-grade foundations), calculate 1.0 cubic yard of grout for every 160 blocks.
+- **Bond Beams:** The top course of a load-bearing CMU wall should use "bond beam" trough blocks (cut-out webs). Two horizontal #4 or #5 rebar strands sit continuously in the trough, encapsulated in solid-poured grout, tying the entire perimeter wall together against tensile lateral forces.
+
+## Footing Requirements for Block Walls
+
+Concrete blocks must never be laid directly onto soil, gravel, or subgrade dirt:
+
+1. **Footing Dimensions:** The poured concrete footing must measure at least twice the width of the block wall (a minimum 16-inch wide footing for standard 8-inch CMU) and at least 8 to 12 inches thick.
+2. **Rebar Dowels:** Embed vertical L-shaped #4 rebar dowels into the wet footing concrete, extending at least 24 inches upward into the hollow cores of the first two block courses.
+3. **First Course Mortar Bed:** The starter course rests on a full 1/2 to 3/4-inch deep bed of Type S mortar directly on the leveled concrete footing. Subsequent courses use standard 3/8-inch face-shell mortar joints.
+
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Block walls that hold back soil, carry a building or rise over about 4 ft usually need a footing, reinforcement and grouted cores sized by code or an engineer. Check with your building department.</div>
+
+To estimate total block counts, pallet breakdowns, and mortar bags for any wall dimension, use our [brick calculator](/brick-calculator/).

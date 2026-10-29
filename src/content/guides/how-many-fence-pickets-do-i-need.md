@@ -49,8 +49,19 @@ The [fence calculator](/fence-calculator/) produces the whole list, including fa
 
 A shadowbox fence alternates pickets on each side of the rails, so it looks the same from both sides and lets air through. With 1×6 pickets and a 3 1/2 in gap between pickets on each side, each side takes 96 ÷ (5.5 + 3.5) = 10.7, so 11 pickets, and an 8 ft section takes **22**, about 20% more than the 18 of a plain privacy fence. Board-on-board with a 1 in overlap works out about the same. Narrow the gaps for more privacy and the count climbs quickly.
 
-## Tips
+## Fastener Sizing, Nail Gun Specs, and Ground Clearance
+
+Selecting the right nails and spacing them correctly ensures your fence pickets don't cup, twist, or tear off during storms:
+
+- **Fastener Count Formula:** Attach each picket using **two fasteners per horizontal rail**. On a 6-foot privacy fence with 3 rails, that requires **6 nails per picket**. For an 80-foot fence using 175 pickets, order at least **1,050 to 1,200 exterior nails**.
+- **Ring-Shank Nails vs. Smooth Wire:** Never use smooth-shank framing nails. Pickets expand and contract with summer humidity, working smooth nails loose within 12 months. Use **1-3/4 inch to 2-inch hot-dipped galvanized (HDG) or Grade 304 stainless steel ring-shank nails**. Ring threads bite permanently into the 2x4 rail fibers.
+- **Ground Clearance Mandate (The 2-Inch Rule):** Never install pickets touching the soil or lawn grass. Cut or snap a chalk line 2 inches above finished grade, aligning the bottom edge of every picket along this line. Direct earth contact wicks groundwater upward into end-grain wood pores, causing rot and insect infestation within 3 to 4 years.
+- **Western Red Cedar vs. Treated Pine Shrinkage:** Wet pressure-treated pine pickets arrive saturated with chemical preservatives. When installed tight, they shrink by 1/4 to 3/8 inch across a 5.5-inch board as they bake in the sun, creating unintentional sight gaps. Western Red Cedar pickets are kiln-dried and dimensionally stable, shrinking less than 1/8 inch.
+
+## Installation Tips
 
 - **Wood shrinks.** Green pressure-treated pickets shrink as they dry, opening small gaps. Many builders butt them tight for a privacy fence.
 - **Use a spacer block** cut to your gap width so the spacing stays even.
 - **Check the last picket early.** Lay out a section dry; if the last picket would be a sliver, adjust the gap slightly across the section.
+
+To calculate your complete fence bill of materials including posts, rails, and bags of concrete, use our [fence calculator](/fence-calculator/).

@@ -47,12 +47,14 @@ Compare that with what your local landscape yard charges per cubic yard, plus de
 - **Storage.** Bags can wait in the garage for a free weekend; a bulk pile on the driveway can't.
 - **Partial yards.** Many yards sell half yards; few sell less. Bags let you buy exactly what you need.
 
-## Settling and Vehicle Weight Considerations
+## Settling, Pallet Math, and Vehicle Limits
 
-When deciding between bags and bulk delivery, keep settling and weight limits in mind:
+When deciding between bags and bulk delivery, keep settling, pallet counts, and vehicle weight limits in mind:
 
+- **Commercial Pallet Quantities:** If buying bagged mulch in volume from home improvement centers (Lowe's or The Home Depot), full shrink-wrapped pallets typically contain **65 to 70 bags of 2 cu ft mulch** (approx. 5 cubic yards per pallet) or **45 to 50 bags of 3 cu ft mulch**. Many retailers offer a 10% to 15% volume discount when purchasing unbroken full pallets.
 - **Settling factor:** Freshly shredded wood mulch settles by approximately 10% to 15% within the first two weeks of watering and rain. If your target finished depth is 3 inches, spreading closer to 3.5 inches ensures full weed prevention once settled.
 - **Payload limits:** A full cubic yard of moist shredded bark weighs between 600 and 1,000 lbs (wood chips are lighter, while wet double-shredded hardwood is heavier). Most mid-size SUVs and standard passenger car trunks can safely carry 6 to 10 bags of 2 cu ft mulch per trip without sagging the suspension. Anything beyond 15 bags is best suited for a half-ton pickup truck bed or professional bulk driveway drop-off.
+- **Environmental Disposal:** Buying 5 cubic yards of bagged mulch generates 68 heavy polyethylene plastic bags that end up in municipal landfills. Bulk drop-off produces zero plastic waste and is delivered directly to your driveway.
 
 ## How many bags for your beds?
 

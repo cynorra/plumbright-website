@@ -46,4 +46,20 @@ To size and pour a footing correctly:
 2. **Determine Footing Area:** In average 2,000 psf soil, required area = 2,400 lbs ÷ 2,000 psf = 1.20 sq ft. An 18-inch round footing provides 1.77 sq ft, exceeding code minimums.
 3. **Excavation & Base Prep:** Dig down 6 inches deeper than the frost line, add 6 inches of compacted crushed stone for base drainage, and pour the concrete pad. Place two #4 rebar crosses in the lower third for tensile reinforcement.
 
+## Form Tubes (Sonotubes) vs. Trench-Poured Piers
+
+When building cylindrical post piers above the spread footing, builders use round cardboard form tubes (commonly known by the brand name Sonotube):
+
+- **Trench Pouring (Below Grade):** The spread footing pad at the base can be poured directly into clean, square-dug earth at the bottom of the trench, provided the soil sidewalls are firm and have not collapsed.
+- **Form Tubes (Above Grade):** Place the cardboard tube centered on top of the poured footing pad, extending at least 6 inches above final finished grade. Extending the concrete pier above grade protects the wood post from soil moisture, splashback rot, and termite tunnels.
+- **Backfill Consolidation:** Backfill soil around the form tube in 6-inch lifts, tamping lightly each time to keep the tube plumb before pouring concrete into the tube.
+
+## Critical Hardware: Post Anchors and Wet-Set Bolts
+
+Never bury wooden posts directly into concrete footings, even pressure-treated lumber. Chemical preservatives eventually leach into surrounding concrete, causing subterranean rot that cannot be inspected:
+
+- **Elevated Standoff Bases:** Install galvanized post bases (such as Simpson Strong-Tie ABU or ABA series) that provide a 1-inch standoff plate between the concrete surface and the bottom wood grain. This gap prevents capillary water absorption.
+- **Embedded Anchor Bolts:** Wet-set 1/2-inch hot-dipped galvanized J-bolts or threaded anchor rods directly into the center of the wet concrete pier. Leave 1.5 to 2 inches of threaded rod exposed to receive the standoff base and washer nut.
+- **Curing Time Before Loading:** Allow pier concrete to hydrate and cure for at least 72 hours before erecting posts, and a full 7 days before loading with beams and heavy deck joists.
+
 To calculate concrete volume and bag counts for any cylindrical sonotube or square pad, use our [concrete calculator](/concrete-calculator/).

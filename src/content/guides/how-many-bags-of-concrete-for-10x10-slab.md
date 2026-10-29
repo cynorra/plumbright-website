@@ -6,7 +6,7 @@ tool: concrete
 ---
 **A standard 10×10 foot concrete slab poured at 4 inches thick requires 1.23 cubic yards of concrete, which equals 56 bags of 80 lb mix or 75 bags of 60 lb mix (accounting for a standard 10% waste allowance).** Without waste, the exact volume is 1.23 cubic yards (33.33 cubic feet), but uneven excavation depth and form bowing make extra bags mandatory.
 
-## The Formula for a 10x10 Concrete Slab
+## The Cubic Yard Math for 10x10 Concrete Slabs
 
 Calculating bags for any slab uses standard volume geometry:
 
@@ -39,7 +39,7 @@ Calculating bags for any slab uses standard volume geometry:
 </table>
 </div>
 
-## Worked Project Example: 10x10 Patio with Gravel Base
+## Real-World Project Example: 10x10 Patio with Gravel Base
 
 Pouring a durable 10x10 patio requires more than just mixing bags:
 
@@ -47,6 +47,14 @@ Pouring a durable 10x10 patio requires more than just mixing bags:
 2. **Gravel Base:** Spread and compact 4 inches of #57 crushed stone or crusher run (requires approximately 0.5 tons of gravel).
 3. **Reinforcement:** Place 6x6 welded wire mesh (or #3 rebar on 18-inch centers) supported by 2-inch plastic chairs so reinforcement stays centered.
 4. **Bag Purchase Plan:** Buy **56 bags of 80 lb premix**. Mixing 56 bags by hand in a wheelbarrow takes substantial physical effort; renting an electric barrel mixer for one day saves hours and ensures uniform hydration.
+
+## Mixing Consistency: The Water-to-Cement Ratio Rule
+
+The single biggest mistake DIYers make when mixing 56 bags is adding too much water to make spreading easier:
+
+- **Exact Water Ratio:** An 80 lb bag of standard concrete requires only **3.0 to 3.5 quarts of clean water**. Adding an extra quart of water makes the concrete soupy and easy to pull with a rake, but reduces the slab's final compressive strength from 4,000 PSI down to less than 2,200 PSI, leading to premature surface spalling and winter freeze-thaw flaking.
+- **Slump Test Appearance:** Properly hydrated concrete should have a 3- to 4-inch "slump"—looking like stiff, oatmeal-like paste that holds a mounded shape without slumping into a runny puddle.
+- **Screeding and Floating Sequence:** Screed excess concrete level with the top of your 2x4 forms using a straight 12-foot 2x4 board pulled in a sawing motion. Immediately follow with a magnesium bull float to embed aggregate and bring cream to the surface. Crucially, **wait until all bleed water has completely evaporated** before finishing with a broom texture; floating while surface water is present creates a weak, powdery top layer.
 
 ## Curing Time, Form Removal, and Expansion Joints
 

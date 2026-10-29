@@ -65,3 +65,13 @@ Most beds don't need a full new layer every year. Old mulch breaks down slowly, 
 - **Pull mulch back from siding** a few inches so it doesn't hold moisture against the house or give insects a path.
 - **On slopes,** shredded bark knits together better than chips and nuggets, which wash downhill.
 - **Edging** keeps mulch from spreading onto lawn and paths and makes the depth easier to maintain.
+
+## Sour Mulch and Artillery Fungus Dangers
+
+Applying mulch improperly can introduce biological hazards to your garden beds and home exterior:
+
+- **Sour Mulch Syndrome:** When large mulch piles sit compacted at commercial landscape yards without oxygen, anaerobic bacteria produce acetic acid, alcohol, and hydrogen sulfide gas (giving off an acrid vinegar or rotten-egg odor). Applying sour mulch straight from an un-aerated pile can drop soil surface pH to 3.0, scorching tender plant foliage within hours. If a bag or bulk load smells like sour pickles or ammonia, spread it out in thin layers on the driveway and soak with a garden hose for 48 hours before placing around plants.
+- **Shotgun / Artillery Fungus (*Sphaerobolus stellatus*):** Light-colored decaying wood mulch often hosts artillery fungus, which shoots tiny, tar-like spore droplets up to 20 feet into the air. These black specks stick permanently to vinyl house siding and vehicle paint. To minimize artillery fungus, use bark mulch rather than wood chips, or blend at least 40% composted leaf mulch into landscape beds within 15 feet of building walls.
+- **Spring Application Timing:** Resist the urge to mulch during the first warm weekend of early spring. Thick mulch insulates cold winter soil, delaying the warming required for perennials to break dormancy. Wait until late spring when the ground has naturally warmed and soil moisture is balanced.
+
+Calculate your exact order with the [mulch calculator](/mulch-calculator/).

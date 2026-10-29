@@ -49,6 +49,17 @@ The 2 ft strip trimmed off the 10 ft wide room is 2 × 10.5 ft: enough for a clo
 - **Tack strip** goes around the perimeter, except across doorways: a 12 × 15 ft room with one door needs about 51 ft.
 - **Transitions**: a metal or wood strip where carpet meets another floor at each doorway.
 
+## Staircase Yardage Calculations and Pile Direction Rules
+
+Staircases consume significantly more carpet per square foot than flat rooms and require specialized cutting:
+
+- **The Tread-Riser-Nosing Formula:** Each individual stair step requires more than just the flat step surface. Calculate: 10-inch tread + 7.5-inch riser + 1.5 inches for nosing wrap and staple tuck = **19 linear inches per step**. For a standard 13-step residential staircase measuring 3 feet wide, you need a continuous runner strip: 13 × 19 in = 247 inches (20.6 feet).
+- **Stair Yardage from a 12-ft Roll:** A 12-foot wide roll can be slit lengthwise into three 3-foot wide strips or three 3.5-foot wide strips. A single 7-foot cut from a 12-ft roll produces three 7-foot runners (21 total linear feet), enough to carpet an entire 13-step flight (approx. 9.33 sq yds).
+- **Pile Direction Mandate (The 'Smile Rule'):** Carpet pile has a natural lay direction (nap). On stairs, the pile fibers MUST always point down the slope toward the bottom landing. If installed with pile brushing upward, foot traffic quickly bends the fibers backward, causing premature crushing, balding, and severe glare shading. In connecting hallways and rooms, ensure pile direction flows toward the front entryway.
+- **Doorway Threshold Transitions:** At doorways where carpet terminates against tile or hardwood, specify the proper metal transition hardware. Use a **tuck-under Z-bar** with embedded tack strip for ceramic tile transitions to prevent raw backing edges from fraying under vacuuming.
+
 ## Comparing quotes
 
 Retailers usually measure for free and price from their own seam plan, often including pad, installation and furniture moving. If a quote is much higher than your calculation, ask to see the seam diagram: extra square yards usually come from a seam plan that's easier to install, from matching a pattern, or from stairs.
+
+Calculate your exact square yards, roll waste, and cushion needs with our [carpet calculator](/carpet-calculator/).

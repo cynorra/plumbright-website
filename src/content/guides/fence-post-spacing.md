@@ -43,8 +43,19 @@ Spacing is measured center to center. Set the end and corner posts first, stretc
 
 Our [picket guide](/guides/how-many-fence-pickets-do-i-need/) covers the infill, and the [fence calculator](/fence-calculator/) shows posts, rails, pickets and concrete for either spacing.
 
-## Gate posts
+## Gate posts and Heavy Hinge Loads
 
-A gate hangs its whole weight on one post and swings, so gate posts need more: a deeper hole, a 6×6 or steel post, or both. Never stretch the spacing next to a gate to save a post.
+A gate hangs its whole dynamic cantilever weight on one single post and swings repeatedly, introducing cyclical torque that loosens standard 4x4 posts:
+
+- **Upgrade to 6x6 Timber:** Always upgrade hinge-side gate posts from 4x4 to a solid **6x6 pressure-treated post**. A 4x4 post flexes each time a 40 lb gate slams, causing latch misalignment within months.
+- **Deeper Hole and Extra Concrete:** Dig gate post holes at least 6 to 12 inches deeper than regular line posts, adding 1 to 2 extra 80 lb bags of concrete to anchor the footing against rotational torque.
+- **Never Stretch Gate Spacing:** Never stretch the spacing of adjacent panels next to a gate opening. In fact, keeping the gate-adjacent bay under 6 feet adds valuable lateral stiffness.
+
+## Concrete Collar Shaping and Drainage at Grade
+
+How concrete is finished at the top of the hole determines whether your wood posts last 7 years or 25 years:
+
+- **The Concrete Collar Crown:** Never terminate the concrete pour 2 inches below grade and cover with dirt. Wet topsoil holds moisture continuously against the wood fibers right at the oxygen-rich surface, rotting the post off at ground level. Fill concrete all the way to 1 to 2 inches above ground level, smoothing with a trowel into a slight slope (crown) away from the post so rain runs off onto the grass.
+- **Gravel Base Below Concrete:** Pour 4 to 6 inches of crushed gravel into the bottom of the augered hole before setting the post. Never encase the bottom end grain in a solid concrete "cup" with no drainage; water seeping down the wood needs an exit route into the subsoil.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Call 811 before you dig any post hole. Check your city and HOA rules on fence height, setback and permits before you set the first post.</div>

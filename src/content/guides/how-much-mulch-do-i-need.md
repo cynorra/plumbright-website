@@ -66,9 +66,20 @@ Most beds aren't rectangles. Three quick ways to get close:
 
 Total: **379 sq ft**. At 3 inches: 379 × 3 ÷ 324 = **3.51 cubic yards**. That's 48 bags of 2 cu ft or 32 bags of 3 cu ft, so bulk delivery of 4 yards makes more sense.
 
+## Bulk Delivery Logistics and Spreading Physics
+
+When shifting from bags to commercial bulk delivery, preparation saves hours of grueling physical labor:
+
+- **Wheelbarrow Trip Math:** A standard contractor wheelbarrow holds 2.5 to 3 cubic feet of loose material when heaped. One cubic yard (27 cu ft) equals approximately **9 to 11 full wheelbarrow loads**. If you order 4 cubic yards, plan on making 40 wheelbarrow trips from the driveway to your garden beds.
+- **Driveway Tarp Placement:** Always lay a large heavy-duty poly tarp on your asphalt or concrete driveway before the dump truck drops the load. Dyed mulches (carbon black or red iron oxide) contain soluble colorants that permanently stain concrete driveways if rained on before spreading. A tarp also prevents abrasive shovel scraping against driveway surfaces.
+- **The Spaded Edge Trench (Natural Border):** Professional landscapers rarely install cheap plastic edging. Instead, use an edging spade to cut a crisp 3-inch deep by 4-inch wide V-shaped trench along the boundary between the turfgrass lawn and garden bed. Mulch fills the bottom of the trench, catching stray wood chips and preventing lawn mowers from flinging mulch into the grass.
+- **Dyed vs. Natural Triple-Shredded Bark:** Carbon-dyed black or brown mulch retains its deep color for up to 12 months because the vegetable-based dyes resist UV bleaching. However, natural undyed triple-shredded cedar or hemlock decomposes into rich dark humus much faster, actively feeding beneficial earthworms and soil bacteria.
+
 ## Before you order
 
 - **Measure what's already there.** Push a trowel into an existing bed. If 1 1/2 inches of old mulch remains, a 3 inch target only needs 1 1/2 inches of new mulch, half the order.
 - **Fresh mulch settles.** Shredded mulch fluffs up when spread and settles over a few weeks. Spread it a little thicker than your target if you're measuring right after.
 - **Don't bury trunks.** Iowa State University Extension advises keeping mulch at least 6 inches away from tree trunks.
 - **Bulk needs a place to land.** A delivered pile of several yards covers a big patch of driveway or lawn; plan where it goes and how you'll move it.
+
+Calculate your exact square footage and material requirements with our [mulch calculator](/mulch-calculator/).

@@ -54,9 +54,19 @@ Same room, plain paper versus a 25 1/4 in half-drop:
 
 Our [roll-counting guide](/guides/how-many-rolls-of-wallpaper-do-i-need/) walks through the full method, and the [wallpaper calculator](/wallpaper-calculator/) takes the repeat and match type directly.
 
+## Wall Sizing (Primer) and Double-Cutting Techniques
+
+Hanging high-end patterned wallpaper without peeling seams or crooked repeats requires strict substrate preparation:
+
+- **Acrylic Wallpaper Primer (Sizing):** Never apply wallpaper paste directly onto bare painted drywall. Roll on a dedicated acrylic wallpaper primer/size (such as Roman PRO-977 or Zinsser Shieldz). Sizing seals the porous drywall paper, creates uniform tack, and allows you to slide strips horizontally for a few minutes to align delicate pattern motifs. Crucially, it ensures paper can be stripped years later without gouging the drywall.
+- **Double-Cutting Seams:** For complex botanical prints or heavy vinyl papers with overlapping edges, hang adjacent strips overlapping by 1 inch to align the pattern repeat perfectly. Then, place a 6-foot metal straightedge down the center of the overlap and slice through both layers simultaneously using a fresh break-away razor blade. Peel away the inner and outer waste strips and smooth the seam flat; the two edges will butt together with laser precision.
+- **Dye Lot Run Numbers:** Always inspect the factory run or "dye lot" number printed on every roll label. Rolls from different print runs often exhibit subtle color shifts in background ink or metallic foil that become glaringly obvious under natural window lighting. Always order all required rolls from a single run batch.
+
 ## Tips for patterned paper
 
 - **Start where it shows.** Hang the first strip in the most visible spot, often centered on the focal wall, so any pattern mismatch at the last corner lands somewhere hidden, like behind a door.
 - **Cut in order.** Number strips on the back as you cut, so the pattern runs continuously.
 - **Plan the ceiling line.** Decide where a dominant motif should sit relative to the ceiling, and cut every strip from that point.
 - **Buy for the repeat, not the room.** If the calculation lands right on a whole number of rolls, add one: a single miscut on a large repeat can eat most of a roll.
+
+Calculate exact roll counts, drop pattern offsets, and trimming waste with our [wallpaper calculator](/wallpaper-calculator/).

@@ -47,6 +47,14 @@ The [fence calculator](/fence-calculator/) redoes all of this for any length, he
 - Circular saw, drill/driver, and a nail gun if you're nailing pickets
 - Wheelbarrow and hoe for mixing concrete, and braces to hold posts plumb
 
+## Wood Preservative Ratings and Gate Diagonal Bracing
+
+Before purchasing lumber for a 100-foot installation, double check quality specs that dictate the fence's lifespan:
+
+- **Lumber Treatment Tag (AWPA UC4A):** Check the plastic end-stapled tag on every 4x4 post. Building supply stores stock both UC3B (above-ground only) and **UC4A (ground contact)**. Setting UC3B posts directly into damp concrete holes results in subterranean rot within 5 to 7 years. Demand UC4A rated timber for all posts.
+- **Gate Anti-Sag Geometry (The Compression Brace Rule):** When building the 4-foot gate frame, always install a diagonal 2x4 wood brace running from the **bottom hinge corner up to the top latch corner**. This puts the diagonal board under compression, transferring gate weight back down into the heavy hinge post. Installing the diagonal in the opposite direction puts it under tension, causing the gate to sag into the dirt within weeks.
+- **The 3-4-5 Corner Squaring Rule:** Ensure property corners form precise 90-degree right angles using basic carpentry geometry: measure 3 feet along one string line, 4 feet along the intersecting perpendicular line, and adjust the corner stake until the diagonal hypotenuse measures exactly 5 feet.
+
 ## Before you dig
 
 - **Call 811** a few days ahead to have buried utilities marked. It's free.
@@ -55,3 +63,5 @@ The [fence calculator](/fence-calculator/) redoes all of this for any length, he
 - **Tell the neighbors.** A fence on the line affects them too, and some will share the cost.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Fasteners for pressure-treated lumber should be hot-dip galvanized or stainless steel; the chemicals in treated wood corrode plain steel.</div>
+
+For custom dimensions, post depths, and fastener counts, use our [fence calculator](/fence-calculator/).
