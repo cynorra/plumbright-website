@@ -107,4 +107,4 @@ A standard 10% waste factor is recommended for cutting errors, imperfect lumber,
 Waste Allowance = 150 linear feet * 0.10 = 15 linear feet
 Total Joists Needed (with waste) = 150 linear feet + 15 linear feet = 165 linear feet
 
-Therefore, for this 10x14-foot deck with 12-inch OC composite decking, approximately 165 linear feet of joist material would be needed. This calculation does not include the rim joists or blocking, which would be additional. For
+Therefore, for this 10x14-foot deck with 12-inch OC composite decking, approximately 165 linear feet of joist material would be needed. This calculation does not include the rim joists or blocking, which would be additional. For complete project material estimates, use our [deck calculator](/deck-calculator/).
