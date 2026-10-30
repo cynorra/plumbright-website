@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CookieBanner from "../components/CookieBanner.astro";
 import { SITE, AUTHOR } from "../site.config.js";
 
 interface Props {
@@ -112,5 +113,6 @@ const allSchema = [...siteSchema, ...schema];
       <slot />
     </main>
     <Footer />
+    <CookieBanner />
   </body>
 </html>

@@ -1,0 +1,60 @@
+---
+import { SITE } from "../site.config.js";
+---
+<div
+  id="cookie-consent-banner"
+  class="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md z-50 transform translate-y-32 opacity-0 transition-all duration-500 ease-out pointer-events-none"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Cookie and Privacy Consent"
+>
+  <div class="rounded-2xl border border-border bg-card/95 backdrop-blur-md p-5 shadow-xl text-foreground">
+    <div class="flex items-start gap-3">
+      <div class="size-8 rounded-full bg-brand-soft text-brand flex items-center justify-center shrink-0 font-bold text-sm">
+        🍪
+      </div>
+      <div class="flex-1 text-xs">
+        <h3 class="font-bold text-sm text-foreground mb-1">Privacy & Cookie Choices</h3>
+        <p class="text-muted-foreground leading-relaxed">
+          {SITE.name} uses cookies and partner services (including Google AdSense) to measure traffic and serve personalized advertising. Learn more in our <a href="/privacy/" class="text-brand font-medium hover:underline">Privacy Policy</a>.
+        </p>
+        <div class="mt-4 flex items-center gap-2">
+          <button
+            id="cookie-consent-accept"
+            type="button"
+            class="px-4 py-2 rounded-lg bg-primary text-primary-foreground font-semibold text-xs hover:bg-primary/90 transition-colors shadow-xs cursor-pointer"
+          >
+            Accept & Continue
+          </button>
+          <a
+            href="/privacy/"
+            class="px-3 py-2 rounded-lg border border-border hover:bg-accent text-muted-foreground hover:text-foreground font-medium text-xs transition-colors no-underline"
+          >
+            Manage Choices
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    try {
+      var accepted = localStorage.getItem("materialguides_consent_accepted");
+      if (!accepted) {
+        var banner = document.getElementById("cookie-consent-banner");
+        if (banner) {
+          banner.classList.remove("translate-y-32", "opacity-0", "pointer-events-none");
+          var acceptBtn = document.getElementById("cookie-consent-accept");
+          if (acceptBtn) {
+            acceptBtn.addEventListener("click", function () {
+              localStorage.setItem("materialguides_consent_accepted", "true");
+              banner.classList.add("translate-y-32", "opacity-0", "pointer-events-none");
+            });
+          }
+        }
+      }
+    } catch (e) {}
+  })();
+</script>

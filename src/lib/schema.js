@@ -2,8 +2,28 @@ import { SITE, AUTHOR } from "../site.config.js";
 
 const abs = (path) => new URL(path, SITE.url).href;
 
-export const personRef = { "@id": `${SITE.url}/author/${AUTHOR.slug}/#person` };
-export const orgRef = { "@id": `${SITE.url}/#organization` };
+export const personRef = {
+  "@type": "Person",
+  "@id": `${SITE.url}/author/${AUTHOR.slug}/#person`,
+  name: AUTHOR.name,
+  url: `${SITE.url}/author/${AUTHOR.slug}/`,
+  jobTitle: AUTHOR.role,
+  image: `${SITE.url}${AUTHOR.photo}`,
+  sameAs: [AUTHOR.linkedin, AUTHOR.github].filter(Boolean),
+};
+
+export const orgRef = {
+  "@type": "Organization",
+  "@id": `${SITE.url}/#organization`,
+  name: SITE.name,
+  url: SITE.url,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE.url}/logo-512.png`,
+    width: 512,
+    height: 512,
+  },
+};
 
 /** crumbs: [{ name, path }], the last one being the current page. */
 export function breadcrumbSchema(crumbs) {
@@ -19,12 +39,13 @@ export function breadcrumbSchema(crumbs) {
   };
 }
 
-export function articleSchema({ title, description, path, published, updated }) {
+export function articleSchema({ title, description, path, published, updated, image }) {
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     headline: title,
     description,
+    image: image ? [abs(image)] : [`${SITE.url}/og.png`],
     mainEntityOfPage: abs(path),
     datePublished: published.toISOString().slice(0, 10),
     dateModified: (updated ?? published).toISOString().slice(0, 10),

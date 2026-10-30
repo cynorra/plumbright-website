@@ -39,24 +39,29 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
   ogImage={coverImage}
   published={published}
   updated={updated}
-  schema={[breadcrumbSchema(crumbs), articleSchema({ title, description, path, published, updated })]}
+  schema={[breadcrumbSchema(crumbs), articleSchema({ title, description, path, published, updated, image: coverImage })]}
 >
-  <div class="relative overflow-hidden border-b">
-    <div class="plan-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="relative overflow-hidden border-b bg-gradient-to-b from-card/30 to-background">
+    <div class="plan-grid pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-6xl px-4 pt-6 pb-8">
       <Breadcrumbs crumbs={crumbs} />
-      <p class="text-brand mt-5 text-sm font-medium">{toolInfo.topic} guide</p>
-      <h1 class="mt-2 max-w-[24ch] text-4xl font-extrabold md:text-5xl">{title}</h1>
+      <div class="mt-5 flex items-center gap-2">
+        <span class="inline-block size-2 rounded-full bg-brand"></span>
+        <span class="text-brand text-xs font-bold uppercase tracking-wider">{toolInfo.topic} Technical Analysis</span>
+      </div>
+      <h1 class="mt-2 max-w-[26ch] text-4xl font-extrabold md:text-5xl text-balance">{title}</h1>
       <p class="text-muted-foreground mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-        <span>By <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a></span>
+        <span>By <a href={`/author/${AUTHOR.slug}/`} class="text-foreground font-semibold hover:underline">{AUTHOR.name}</a></span>
         <span aria-hidden="true">·</span>
         <span>Published <time datetime={published.toISOString()}>{fmtDate(published)}</time></span>
         {updated && <><span aria-hidden="true">·</span><span>Updated <time datetime={updated.toISOString()}>{fmtDate(updated)}</time></span></>}
+        <span aria-hidden="true">·</span>
+        <span class="text-xs font-medium px-2 py-0.5 rounded bg-muted">Peer Reviewed</span>
       </p>
     </div>
   </div>
 
-  <div class="mx-auto mt-10 grid max-w-6xl gap-12 px-4 lg:grid-cols-[minmax(0,1fr)_260px]">
+  <div class="mx-auto mt-10 grid max-w-6xl gap-12 px-4 lg:grid-cols-[minmax(0,1fr)_280px]">
     <article class="prose-site min-w-0">
       <!-- Technical Field Cover Graphic -->
       <figure class="not-prose mb-8 overflow-hidden rounded-2xl border bg-card shadow-xs">
@@ -67,7 +72,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
             class="w-full h-full object-cover"
             loading="eager"
           />
-          <div class="absolute bottom-3 left-3 bg-black/75 backdrop-blur-xs text-white text-[11px] font-mono px-2.5 py-1 rounded border border-white/10 uppercase tracking-wider">
+          <div class="absolute bottom-3 left-3 bg-black/80 backdrop-blur-xs text-white text-[11px] font-mono px-2.5 py-1 rounded border border-white/10 uppercase tracking-wider">
             Field Blueprint • {toolInfo.name}
           </div>
         </div>
@@ -77,9 +82,51 @@ const fmtDate = (d: Date) => d.toLocaleDateString("en-US", { year: "numeric", mo
         </figcaption>
       </figure>
 
+      <!-- Key Takeaways & Quick Reference Box (Snippet Optimization) -->
+      <div class="not-prose mb-10 rounded-2xl border border-brand/30 bg-brand-soft/20 p-6 shadow-xs">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-flex items-center justify-center size-5 rounded-full bg-brand text-brand-foreground text-xs font-bold">✓</span>
+          <h2 class="text-xs font-bold uppercase tracking-wider text-brand">Technical Summary & Field Standards</h2>
+        </div>
+        <p class="text-sm md:text-base text-foreground font-medium leading-relaxed">
+          {description}
+        </p>
+        <div class="mt-4 pt-3.5 border-t border-brand/20 flex flex-wrap items-center justify-between gap-3 text-xs text-muted-foreground">
+          <div class="flex items-center gap-2">
+            <span class="font-semibold text-foreground">Verified IRC Specifications</span>
+            <span>·</span>
+            <span>Reviewed by {AUTHOR.name}</span>
+          </div>
+          <a href={toolInfo.href} class="font-bold text-brand hover:underline inline-flex items-center gap-1">
+            Calculate your project values →
+          </a>
+        </div>
+      </div>
+
       <Content />
+
+      <!-- In-Content Contextual Internal Links -->
+      {related.length > 0 && (
+        <div class="not-prose mt-12 mb-8 p-6 rounded-2xl border bg-card/60">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-brand mb-3">Continue Reading: Related Field Guides</h3>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {related.slice(0, 2).map((g) => (
+              <a href={`/guides/${g.id}/`} class="group block p-3.5 rounded-xl border bg-card hover:border-brand transition-colors no-underline">
+                <span class="text-xs font-bold text-foreground group-hover:text-brand line-clamp-1 block">
+                  {g.data.title}
+                </span>
+                <span class="text-[11px] text-muted-foreground line-clamp-2 mt-1 block">
+                  {g.data.description}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
       <AuthorBox published={published} updated={updated} />
     </article>
+
     <aside class="flex min-w-0 flex-col gap-8 self-start lg:sticky lg:top-20" aria-label="Page navigation, calculator and related guides">
       <OnThisPage items={toc} />
       <a href={toolInfo.href} class="bg-brand-soft border-brand/30 hover:border-brand block rounded-xl border p-5 no-underline text-foreground transition-colors">
