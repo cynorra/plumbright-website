@@ -62,3 +62,4 @@ for (const [sourceFile, targetSlug] of Object.entries(TRUE_VISUAL_MAPPING)) {
 }
 
 console.log(`Successfully mapped ${count} images to their exact visual guides.`);
+
