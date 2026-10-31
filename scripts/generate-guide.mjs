@@ -316,13 +316,18 @@ Structure Requirements:
         const kv = line.match(/^(\w+):\s*(.*)$/);
         if (kv) fm[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, "");
       }
+      let frontmatterText = fmMatch[1];
+      const setFrontmatter = (key, value) => {
+        fm[key] = value;
+        frontmatterText = frontmatterText.replace(new RegExp(`^${key}:.*$`, "m"), `${key}: "${value.replace(/"/g, '\\"')}"`);
+      };
       // Auto-trim description if model returned slightly above 165 chars
       if (fm.description && fm.description.length > 165) {
-        fm.description = fm.description.slice(0, 160).replace(/\s+\S*$/, "") + ".";
+        setFrontmatter("description", fm.description.slice(0, 160).replace(/\s+\S*$/, "") + ".");
       }
       // Auto-trim title if model returned slightly above 80 chars
       if (fm.title && fm.title.length > 80) {
-        fm.title = fm.title.slice(0, 77).replace(/\s+\S*$/, "");
+        setFrontmatter("title", fm.title.slice(0, 77).replace(/\s+\S*$/, ""));
       }
       const body = fmMatch[2].replace(/\r\n/g, "\n").trim();
       const validation = validateGuide(fm, body, { existingArticles: existingGuidesSummary });
@@ -350,7 +355,7 @@ Structure Requirements:
       return {
         frontmatter: fm,
         body,
-        fullContent: cleaned
+        fullContent: `---\n${frontmatterText}\n---\n\n${body}`
       };
     } catch (err) {
       console.error(`[Attempt ${attempt} Failed]:`, err.message);
