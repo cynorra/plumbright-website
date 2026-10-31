@@ -316,19 +316,29 @@ Structure Requirements:
         const kv = line.match(/^(\w+):\s*(.*)$/);
         if (kv) fm[kv[1]] = kv[2].trim().replace(/^["']|["']$/g, "");
       }
-      let frontmatterText = fmMatch[1];
-      const setFrontmatter = (key, value) => {
-        fm[key] = value;
-        frontmatterText = frontmatterText.replace(new RegExp(`^${key}:.*$`, "m"), `${key}: "${value.replace(/"/g, '\\"')}"`);
-      };
       // Auto-trim description if model returned slightly above 165 chars
       if (fm.description && fm.description.length > 165) {
-        setFrontmatter("description", fm.description.slice(0, 160).replace(/\s+\S*$/, "") + ".");
+        fm.description = fm.description.slice(0, 160).replace(/\s+\S*$/, "") + ".";
       }
       // Auto-trim title if model returned slightly above 80 chars
       if (fm.title && fm.title.length > 80) {
-        setFrontmatter("title", fm.title.slice(0, 77).replace(/\s+\S*$/, ""));
+        fm.title = fm.title.slice(0, 77).replace(/\s+\S*$/, "");
       }
+      // Write trimmed values back: the saved file and Supabase use the content, not `fm`
+      let finalContent = cleaned;
+      for (const key of ["description", "title"]) {
+        if (fm[key]) {
+          finalContent = finalContent.replace(
+            new RegExp(`^${key}:.*$`, "m"),
+            () => `${key}: "${fm[key].replace(/"/g, '\\"')}"`
+          );
+        }
+      }
+      // Strip hallucinated internal guide links (they break the deploy link check)
+      finalContent = finalContent.replace(
+        /\[([^\]]+)\]\(\/guides\/([a-z0-9-]+)\/?\)/g,
+        (m, text, slug) => (existingSlugs.has(slug) ? m : text)
+      );
       const body = fmMatch[2].replace(/\r\n/g, "\n").trim();
       const validation = validateGuide(fm, body, { existingArticles: existingGuidesSummary });
       if (!validation.valid) {

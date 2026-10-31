@@ -57,6 +57,7 @@ jobs:
             echo "No new guide changes to commit."
           else
             git commit -m "content: auto-generated daily zero-click guide"
+            git pull --rebase origin main
             git push origin main
           fi
 
