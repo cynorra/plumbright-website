@@ -17,6 +17,7 @@ import { loadEnv } from "vite";
 import { ZERO_CLICK_TOPIC_BANK } from "./lib/topic-bank.mjs";
 import { validateGuide } from "./lib/guide-quality.mjs";
 import { checkDuplicateTopic } from "./lib/topic-dedup.mjs";
+import { ensureCover } from "./lib/guide-cover.mjs";
 
 const env = { ...loadEnv("production", process.cwd(), ""), ...process.env };
 const GEMINI_API_KEY = env.GEMINI_API_KEY;
@@ -404,6 +405,15 @@ async function main() {
 
   writeFileSync(targetFile, result.fullContent + "\n", "utf8");
   console.log(`\nFile saved successfully to:\n  ${targetFile}`);
+
+  const cover = await ensureCover({
+    slug: targetTopic.slug,
+    title: result.frontmatter.title,
+    tool: result.frontmatter.tool,
+    description: result.frontmatter.description,
+    apiKey: GEMINI_API_KEY,
+  });
+  console.log(`Cover image: public/images/guides/${cover}`);
 
   if (args.includes("--publish")) {
     console.log(`\nPushing ${targetTopic.slug} to Supabase...`);
