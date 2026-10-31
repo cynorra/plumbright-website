@@ -369,7 +369,7 @@ Structure Requirements:
       return {
         frontmatter: fm,
         body,
-        fullContent: `---\n${frontmatterText}\n---\n\n${body}`
+        fullContent: finalContent
       };
     } catch (err) {
       console.error(`[Attempt ${attempt} Failed]:`, err.message);
