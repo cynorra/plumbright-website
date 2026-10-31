@@ -68,7 +68,7 @@ The following table provides common scenarios for fence post installation, facto
 <td>2.5 ft</td>
 <td>6.0 ft</td>
 <td>8 in</td>
-<td>0.24</td>
+<td>0.19</td>
 <td>0.77</td>
 <td>3</td>
 <td>2</td>
@@ -81,10 +81,10 @@ The following table provides common scenarios for fence post installation, facto
 <td>3.5 ft</td>
 <td>7.0 ft</td>
 <td>10 in</td>
-<td>0.40</td>
-<td>2.00</td>
-<td>6</td>
-<td>4</td>
+<td>0.30</td>
+<td>1.80</td>
+<td>5</td>
+<td>3</td>
 </tr>
 <tr>
 <td>6 ft (72 in)</td>
@@ -94,9 +94,9 @@ The following table provides common scenarios for fence post installation, facto
 <td>3.0 ft</td>
 <td>8.5 ft</td>
 <td>10 in</td>
-<td>0.40</td>
-<td>1.67</td>
-<td>5</td>
+<td>0.30</td>
+<td>1.50</td>
+<td>4</td>
 <td>3</td>
 </tr>
 <tr>
@@ -107,10 +107,10 @@ The following table provides common scenarios for fence post installation, facto
 <td>4.5 ft</td>
 <td>10.0 ft</td>
 <td>12 in</td>
-<td>0.60</td>
-<td>4.52</td>
-<td>13</td>
-<td>8</td>
+<td>0.43</td>
+<td>3.46</td>
+<td>10</td>
+<td>6</td>
 </tr>
 <tr>
 <td>8 ft (96 in)</td>
@@ -120,10 +120,10 @@ The following table provides common scenarios for fence post installation, facto
 <td>3.5 ft</td>
 <td>11.0 ft</td>
 <td>12 in</td>
-<td>0.60</td>
-<td>3.39</td>
-<td>10</td>
-<td>6</td>
+<td>0.43</td>
+<td>2.59</td>
+<td>7</td>
+<td>5</td>
 </tr>
 <tr>
 <td>8 ft (96 in)</td>
@@ -133,10 +133,10 @@ The following table provides common scenarios for fence post installation, facto
 <td>5.0 ft</td>
 <td>12.5 ft</td>
 <td>12 in</td>
-<td>0.60</td>
-<td>5.09</td>
-<td>14</td>
-<td>9</td>
+<td>0.43</td>
+<td>3.89</td>
+<td>11</td>
+<td>7</td>
 </tr>
 </tbody>
 </table></div>
@@ -160,4 +160,33 @@ Let's calculate the materials for a fence post with the following specifications
 
 **Step 3: Determine Required Post Depth**
 Compare the two depths: 2 feet (1/3 rule) vs. 2.5 feet (frost line). The greater depth is 2.5 feet.
-`Required Post Depth =
+`Required Post Depth = MAX(2 feet, 2.5 feet) = 2.5 feet`
+
+**Step 4: Calculate Total Hole Depth**
+`Total Hole Depth = 2.5 feet + 0.5 feet (gravel base) = 3.0 feet (36 inches)`
+
+**Step 5: Calculate Required Post Length**
+`Required Post Length = 6 feet + 2.5 feet = 8.5 feet`
+Round up to the next standard length and buy a 10-foot post.
+
+**Step 6: Calculate Gravel Volume**
+A 10-inch hole is 0.833 feet across, so its cross-section is π × (0.833 / 2)² ≈ 0.545 sq ft.
+`Gravel Volume = 0.545 × 0.5 feet = 0.27 cu ft; with 10% waste = 0.30 cu ft per hole`
+
+**Step 7: Calculate Concrete Volume**
+`Concrete Volume = 0.545 × 2.5 feet = 1.36 cu ft; with 10% waste = 1.50 cu ft per hole`
+
+**Step 8: Convert to Bags**
+`50 lb bags = 1.50 / 0.375 = 4.0, so 4 bags per post`
+`80 lb bags = 1.50 / 0.60 = 2.5, so 3 bags per post`
+
+For a run of 10 posts with these dimensions you need about 40 bags of 50 lb concrete (or 30 bags of 80 lb) and 3 cu ft of gravel. The figures are upper estimates because the post itself displaces some concrete.
+
+## Common Mistakes to Avoid
+
+*   **Using the 1/3 rule alone in cold climates.** If your frost line is deeper than one-third of the exposed height, the frost line decides the depth.
+*   **Skipping the gravel base.** Concrete poured directly onto soil holds water against the post bottom and speeds up rot.
+*   **Digging holes too narrow.** A hole should be about three times the post width, so a 4x4 post (3.5 in actual) fits a 10 to 12 inch hole.
+*   **Rounding down bags.** Always round up; a half-filled hole is a weak footing.
+
+Use the [fence calculator](/fence-calculator/) to run these numbers for your own post height, hole size and frost line.

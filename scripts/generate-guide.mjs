@@ -76,6 +76,10 @@ function callGeminiAPI(payload) {
           if (res.statusCode !== 200) {
             return reject(new Error(`Gemini API Error (${res.statusCode}): ${JSON.stringify(json.error || json)}`));
           }
+          const finishReason = json.candidates?.[0]?.finishReason;
+          if (finishReason === "MAX_TOKENS") {
+            return reject(new Error("Gemini output was cut off (MAX_TOKENS); refusing to publish a truncated guide"));
+          }
           const text = json.candidates?.[0]?.content?.parts?.[0]?.text;
           if (!text) {
             return reject(new Error("Empty response from Gemini API"));
@@ -295,7 +299,7 @@ Structure Requirements:
       const payload = {
         contents: [{ role: "user", parts: [{ text: userPrompt }] }],
         systemInstruction: { parts: [{ text: systemInstruction }] },
-        generationConfig: { temperature: 0.25, maxOutputTokens: 3500 }
+        generationConfig: { temperature: 0.25, maxOutputTokens: 8192 }
       };
 
       const rawResponse = await callGeminiAPI(payload);

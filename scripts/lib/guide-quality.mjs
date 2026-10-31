@@ -72,6 +72,11 @@ export function validateGuide(frontmatter, markdownBody, options = {}) {
     errors.push(`Content too short: ${wordCount} words (minimum 400 required for a quality guide).`);
   }
 
+  // A guide must end on a finished sentence, table, list item or link, not mid-thought
+  if (!/[.!?:)>*`\]]\s*$/.test(markdownBody.trim()) || /[=(,]\s*`?$/.test(markdownBody.trim())) {
+    errors.push("Guide looks truncated: it does not end on a complete sentence.");
+  }
+
   // First-person checks
   for (const re of FIRST_PERSON_CREDENTIALS) {
     const m = plain.match(re);
