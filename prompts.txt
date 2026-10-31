@@ -1,5 +1,5 @@
 ================================================================================
-PLUMBRIGHT - BLOG KAPAK GÖRSEL PROMPTLARI (44 REHBER)
+PLUMBRIGHT - BLOG KAPAK GÖRSEL PROMPTLARI (47 REHBER)
 ================================================================================
 KAYIT KLASÖRÜ: public/images/guides/
 ÖNERİLEN FORMAT: .webp (veya .jpg)
@@ -8,7 +8,7 @@ NEGATİF PROMPT:
 no corporate stock photos, no fake smiling models looking at camera, no artificial 3D cartoon, no floating text, no distorted tools, no watermark, no blurred low-res
 ================================================================================
 
-[1/44] DOSYA ADI: how-many-tiles-in-a-box.webp
+[1/47] DOSYA ADI: how-many-tiles-in-a-box.webp
 BAŞLIK: How Many Tiles in a Box? Coverage by Tile Size (tile)
 KAYDEDİLECEK YER: public/images/guides/how-many-tiles-in-a-box.webp
 PROMPT:
@@ -16,7 +16,7 @@ Unboxing opened cardboard cartons of ceramic subway tiles on a workbench, showin
 
 --------------------------------------------------------------------------------
 
-[2/44] DOSYA ADI: how-much-paint-for-kitchen-cabinets.webp
+[2/47] DOSYA ADI: how-much-paint-for-kitchen-cabinets.webp
 BAŞLIK: How Much Paint Do You Need for Kitchen Cabinets? (paint)
 KAYDEDİLECEK YER: public/images/guides/how-much-paint-for-kitchen-cabinets.webp
 PROMPT:
@@ -24,7 +24,7 @@ Close-up of a kitchen cabinet door being primed with an angled sash brush, satin
 
 --------------------------------------------------------------------------------
 
-[3/44] DOSYA ADI: how-many-rolls-of-wallpaper-do-i-need.webp
+[3/47] DOSYA ADI: how-many-rolls-of-wallpaper-do-i-need.webp
 BAŞLIK: How Many Rolls of Wallpaper Do I Need? Count Strips, Not Square Feet (wallpaper)
 KAYDEDİLECEK YER: public/images/guides/how-many-rolls-of-wallpaper-do-i-need.webp
 PROMPT:
@@ -32,7 +32,7 @@ Rolls of textured designer wallpaper unrolled on a long pasting table, metal wal
 
 --------------------------------------------------------------------------------
 
-[4/44] DOSYA ADI: how-much-grout-do-i-need.webp
+[4/47] DOSYA ADI: how-much-grout-do-i-need.webp
 BAŞLIK: How Much Grout Do You Need? Pounds per 100 Sq Ft by Tile Size (tile)
 KAYDEDİLECEK YER: public/images/guides/how-much-grout-do-i-need.webp
 PROMPT:
@@ -40,7 +40,7 @@ Close-up macro shot of a rubber grout float pressing sanded cementitious grout d
 
 --------------------------------------------------------------------------------
 
-[5/44] DOSYA ADI: stair-rise-and-run.webp
+[5/47] DOSYA ADI: stair-rise-and-run.webp
 BAŞLIK: Stair Rise and Run: Code Limits and Comfortable Dimensions (stairs)
 KAYDEDİLECEK YER: public/images/guides/stair-rise-and-run.webp
 PROMPT:
@@ -48,7 +48,7 @@ Wooden stair stringer layout on a 2x12 framing lumber plank, framing square fitt
 
 --------------------------------------------------------------------------------
 
-[6/44] DOSYA ADI: wallpaper-pattern-repeat.webp
+[6/47] DOSYA ADI: wallpaper-pattern-repeat.webp
 BAŞLIK: Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes (wallpaper)
 KAYDEDİLECEK YER: public/images/guides/wallpaper-pattern-repeat.webp
 PROMPT:
@@ -56,7 +56,7 @@ Close-up of aligning an intricate floral geometric wallpaper repeat seam on a wa
 
 --------------------------------------------------------------------------------
 
-[7/44] DOSYA ADI: carpet-roll-width-and-seams.webp
+[7/47] DOSYA ADI: carpet-roll-width-and-seams.webp
 BAŞLIK: Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go (carpet)
 KAYDEDİLECEK YER: public/images/guides/carpet-roll-width-and-seams.webp
 PROMPT:
@@ -64,7 +64,7 @@ Unrolled 12-foot broadloom textured berber carpet across a plywood subfloor, car
 
 --------------------------------------------------------------------------------
 
-[8/44] DOSYA ADI: gravel-driveway-depth-and-layers.webp
+[8/47] DOSYA ADI: gravel-driveway-depth-and-layers.webp
 BAŞLIK: Gravel Driveway Depth and Layers: How Much Stone to Order (gravel)
 KAYDEDİLECEK YER: public/images/guides/gravel-driveway-depth-and-layers.webp
 PROMPT:
@@ -72,7 +72,7 @@ Cross-section excavation edge of a gravel driveway showing geofabric underlaymen
 
 --------------------------------------------------------------------------------
 
-[9/44] DOSYA ADI: how-deep-should-mulch-be.webp
+[9/47] DOSYA ADI: how-deep-should-mulch-be.webp
 BAŞLIK: How Deep Should Mulch Be? 2 to 4 Inches, and Why Not More (mulch)
 KAYDEDİLECEK YER: public/images/guides/how-deep-should-mulch-be.webp
 PROMPT:
@@ -80,7 +80,7 @@ Gardener inserting a wooden ruler into dark organic shredded hardwood mulch arou
 
 --------------------------------------------------------------------------------
 
-[10/44] DOSYA ADI: how-much-paint-for-a-12x12-room.webp
+[10/47] DOSYA ADI: how-much-paint-for-a-12x12-room.webp
 BAŞLIK: How Much Paint for a 12x12 Room? Coverage Chart by Room Size (paint)
 KAYDEDİLECEK YER: public/images/guides/how-much-paint-for-a-12x12-room.webp
 PROMPT:
@@ -88,7 +88,7 @@ Interior painting setup in a bedroom with canvas drop cloths, painter's blue tap
 
 --------------------------------------------------------------------------------
 
-[11/44] DOSYA ADI: privacy-fence-materials-list.webp
+[11/47] DOSYA ADI: privacy-fence-materials-list.webp
 BAŞLIK: Privacy Fence Materials List for 100 Feet (fence)
 KAYDEDİLECEK YER: public/images/guides/privacy-fence-materials-list.webp
 PROMPT:
@@ -96,7 +96,7 @@ Western red cedar privacy fence under construction in a suburban backyard, plumb
 
 --------------------------------------------------------------------------------
 
-[12/44] DOSYA ADI: how-many-sheets-of-drywall-for-a-12x12-room.webp
+[12/47] DOSYA ADI: how-many-sheets-of-drywall-for-a-12x12-room.webp
 BAŞLIK: How Many Sheets of Drywall for a 12x12 Room? (drywall)
 KAYDEDİLECEK YER: public/images/guides/how-many-sheets-of-drywall-for-a-12x12-room.webp
 PROMPT:
@@ -104,7 +104,7 @@ A 12x12 room framed in 2x4 studs with partial 4x8 drywall panels hung on walls, 
 
 --------------------------------------------------------------------------------
 
-[13/44] DOSYA ADI: how-many-fence-pickets-do-i-need.webp
+[13/47] DOSYA ADI: how-many-fence-pickets-do-i-need.webp
 BAŞLIK: How Many Fence Pickets Do I Need? Count per Section and per Foot (fence)
 KAYDEDİLECEK YER: public/images/guides/how-many-fence-pickets-do-i-need.webp
 PROMPT:
@@ -112,7 +112,7 @@ Close-up of pneumatic nail gun fastening vertical cedar fence pickets to horizon
 
 --------------------------------------------------------------------------------
 
-[14/44] DOSYA ADI: deck-joist-spacing.webp
+[14/47] DOSYA ADI: deck-joist-spacing.webp
 BAŞLIK: Deck Joist Spacing: 12, 16 or 24 Inches? (deck)
 KAYDEDİLECEK YER: public/images/guides/deck-joist-spacing.webp
 PROMPT:
@@ -120,7 +120,7 @@ Underneath view of a residential deck framing showing pressure-treated 2x8 joist
 
 --------------------------------------------------------------------------------
 
-[15/44] DOSYA ADI: how-many-deck-boards-do-i-need.webp
+[15/47] DOSYA ADI: how-many-deck-boards-do-i-need.webp
 BAŞLIK: How Many Deck Boards Do I Need? Count by Rows, Not Area (deck)
 KAYDEDİLECEK YER: public/images/guides/how-many-deck-boards-do-i-need.webp
 PROMPT:
@@ -128,7 +128,7 @@ Installation of composite or cedar decking boards onto framing, hidden fastener 
 
 --------------------------------------------------------------------------------
 
-[16/44] DOSYA ADI: how-much-sand-under-pavers.webp
+[16/47] DOSYA ADI: how-much-sand-under-pavers.webp
 BAŞLIK: How Much Sand Do You Need Under Pavers? (gravel)
 KAYDEDİLECEK YER: public/images/guides/how-much-sand-under-pavers.webp
 PROMPT:
@@ -136,7 +136,7 @@ Cross-section of paver patio preparation: compacted crushed stone base, two 1-in
 
 --------------------------------------------------------------------------------
 
-[17/44] DOSYA ADI: concrete-bag-sizes-40-60-80-lb.webp
+[17/47] DOSYA ADI: concrete-bag-sizes-40-60-80-lb.webp
 BAŞLIK: 40 lb vs 60 lb vs 80 lb Concrete Bags: Yield and Cost (concrete)
 KAYDEDİLECEK YER: public/images/guides/concrete-bag-sizes-40-60-80-lb.webp
 PROMPT:
@@ -144,7 +144,7 @@ Side-by-side comparison of 40lb, 60lb, and 80lb commercial concrete mix bags sta
 
 --------------------------------------------------------------------------------
 
-[18/44] DOSYA ADI: how-many-bundles-of-shingles-in-a-square.webp
+[18/47] DOSYA ADI: how-many-bundles-of-shingles-in-a-square.webp
 BAŞLIK: How Many Bundles of Shingles in a Square? (roofing)
 KAYDEDİLECEK YER: public/images/guides/how-many-bundles-of-shingles-in-a-square.webp
 PROMPT:
@@ -152,7 +152,7 @@ Roofing jobsite showing bundles of architectural asphalt fiberglass shingles sta
 
 --------------------------------------------------------------------------------
 
-[19/44] DOSYA ADI: how-many-bricks-per-square-foot.webp
+[19/47] DOSYA ADI: how-many-bricks-per-square-foot.webp
 BAŞLIK: How Many Bricks per Square Foot? Modular, Queen and King (brick)
 KAYDEDİLECEK YER: public/images/guides/how-many-bricks-per-square-foot.webp
 PROMPT:
@@ -160,7 +160,7 @@ Masons laying standard modular red clay facing bricks with 3/8 inch concave mort
 
 --------------------------------------------------------------------------------
 
-[20/44] DOSYA ADI: how-much-soil-for-a-raised-bed.webp
+[20/47] DOSYA ADI: how-much-soil-for-a-raised-bed.webp
 BAŞLIK: How Much Soil Do I Need for a Raised Bed? (mulch)
 KAYDEDİLECEK YER: public/images/guides/how-much-soil-for-a-raised-bed.webp
 PROMPT:
@@ -168,7 +168,7 @@ Cedar raised garden bed filled with rich dark compost loam potting mix, small ga
 
 --------------------------------------------------------------------------------
 
-[21/44] DOSYA ADI: how-to-calculate-stair-stringer-length.webp
+[21/47] DOSYA ADI: how-to-calculate-stair-stringer-length.webp
 BAŞLIK: How to Calculate Stair Stringer Length (stairs)
 KAYDEDİLECEK YER: public/images/guides/how-to-calculate-stair-stringer-length.webp
 PROMPT:
@@ -176,7 +176,7 @@ Three precision-cut 2x12 stair stringers mounted with metal stringer hanger brac
 
 --------------------------------------------------------------------------------
 
-[22/44] DOSYA ADI: how-many-concrete-blocks-do-i-need.webp
+[22/47] DOSYA ADI: how-many-concrete-blocks-do-i-need.webp
 BAŞLIK: How Many Concrete Blocks Do I Need? Courses and Blocks per Foot (brick)
 KAYDEDİLECEK YER: public/images/guides/how-many-concrete-blocks-do-i-need.webp
 PROMPT:
@@ -184,7 +184,7 @@ Stack of standard 8x8x16 hollow core concrete masonry units (CMU blocks) on jobs
 
 --------------------------------------------------------------------------------
 
-[23/44] DOSYA ADI: fence-post-spacing.webp
+[23/47] DOSYA ADI: fence-post-spacing.webp
 BAŞLIK: Fence Post Spacing: 6 or 8 Feet Apart? (fence)
 KAYDEDİLECEK YER: public/images/guides/fence-post-spacing.webp
 PROMPT:
@@ -192,7 +192,7 @@ Straight line of wooden fence posts installed every 8 feet across a green lawn, 
 
 --------------------------------------------------------------------------------
 
-[24/44] DOSYA ADI: how-much-mulch-do-i-need.webp
+[24/47] DOSYA ADI: how-much-mulch-do-i-need.webp
 BAŞLIK: How Much Mulch Do I Need? Cubic Yards and Bags by Area (mulch)
 KAYDEDİLECEK YER: public/images/guides/how-much-mulch-do-i-need.webp
 PROMPT:
@@ -200,7 +200,7 @@ Freshly delivered pile of dark brown double-shredded bark mulch on driveway tarp
 
 --------------------------------------------------------------------------------
 
-[25/44] DOSYA ADI: how-much-mortar-do-i-need.webp
+[25/47] DOSYA ADI: how-much-mortar-do-i-need.webp
 BAŞLIK: How Much Mortar Do I Need for Brick or Block? (brick)
 KAYDEDİLECEK YER: public/images/guides/how-much-mortar-do-i-need.webp
 PROMPT:
@@ -208,7 +208,7 @@ Commercial electric paddle mixer inside a heavy mortar tub blending sand, portla
 
 --------------------------------------------------------------------------------
 
-[26/44] DOSYA ADI: how-much-does-a-cubic-yard-of-gravel-weigh.webp
+[26/47] DOSYA ADI: how-much-does-a-cubic-yard-of-gravel-weigh.webp
 BAŞLIK: How Much Does a Cubic Yard of Gravel Weigh? (gravel)
 KAYDEDİLECEK YER: public/images/guides/how-much-does-a-cubic-yard-of-gravel-weigh.webp
 PROMPT:
@@ -216,7 +216,7 @@ Commercial dump truck bed tipping a load of 3/4 inch clean crushed stone gravel 
 
 --------------------------------------------------------------------------------
 
-[27/44] DOSYA ADI: how-much-carpet-do-i-need.webp
+[27/47] DOSYA ADI: how-much-carpet-do-i-need.webp
 BAŞLIK: How Much Carpet Do I Need? Square Yards from a 12 ft Roll (carpet)
 KAYDEDİLECEK YER: public/images/guides/how-much-carpet-do-i-need.webp
 PROMPT:
@@ -224,7 +224,7 @@ Overhead architectural shot of a living room floor prepared for wall-to-wall car
 
 --------------------------------------------------------------------------------
 
-[28/44] DOSYA ADI: primer-and-second-coats.webp
+[28/47] DOSYA ADI: primer-and-second-coats.webp
 BAŞLIK: Primer and Second Coats: When Paint Coverage Changes (paint)
 KAYDEDİLECEK YER: public/images/guides/primer-and-second-coats.webp
 PROMPT:
@@ -232,7 +232,7 @@ Split-wall visual demonstration showing raw drywall, first coat of tinted PVA pr
 
 --------------------------------------------------------------------------------
 
-[29/44] DOSYA ADI: roof-pitch-multiplier-chart.webp
+[29/47] DOSYA ADI: roof-pitch-multiplier-chart.webp
 BAŞLIK: Roof Pitch Multiplier Chart: Turn a Footprint into Roof Area (roofing)
 KAYDEDİLECEK YER: public/images/guides/roof-pitch-multiplier-chart.webp
 PROMPT:
@@ -240,7 +240,7 @@ Close-up of a carpenter speed square measuring roof rafter pitch angle against a
 
 --------------------------------------------------------------------------------
 
-[30/44] DOSYA ADI: square-feet-vs-linear-feet-vs-board-feet.webp
+[30/47] DOSYA ADI: square-feet-vs-linear-feet-vs-board-feet.webp
 BAŞLIK: Square Feet vs Linear Feet vs Board Feet: What Each Measures (area)
 KAYDEDİLECEK YER: public/images/guides/square-feet-vs-linear-feet-vs-board-feet.webp
 PROMPT:
@@ -248,7 +248,7 @@ Woodworker workbench with dimensional 2x4 framing lumber, wide rough-sawn hardwo
 
 --------------------------------------------------------------------------------
 
-[31/44] DOSYA ADI: 4x8-vs-4x12-drywall.webp
+[31/47] DOSYA ADI: 4x8-vs-4x12-drywall.webp
 BAŞLIK: 4x8 vs 4x12 Drywall Sheets: Fewer Seams or Easier Handling? (drywall)
 KAYDEDİLECEK YER: public/images/guides/4x8-vs-4x12-drywall.webp
 PROMPT:
@@ -256,7 +256,7 @@ Comparison of stacked 4x8 and 4x12 foot gypsum boards leaning against wood stud 
 
 --------------------------------------------------------------------------------
 
-[32/44] DOSYA ADI: how-many-boxes-of-vinyl-plank-flooring.webp
+[32/47] DOSYA ADI: how-many-boxes-of-vinyl-plank-flooring.webp
 BAŞLIK: How Many Boxes of Vinyl Plank Flooring Do I Need? (flooring)
 KAYDEDİLECEK YER: public/images/guides/how-many-boxes-of-vinyl-plank-flooring.webp
 PROMPT:
@@ -264,7 +264,7 @@ Realistic living room renovation scene, stack of luxury vinyl plank (LVP) floori
 
 --------------------------------------------------------------------------------
 
-[33/44] DOSYA ADI: concrete-slab-thickness.webp
+[33/47] DOSYA ADI: concrete-slab-thickness.webp
 BAŞLIK: Concrete Slab Thickness Guide: Patio, Driveway, Shed, Garage (concrete)
 KAYDEDİLECEK YER: public/images/guides/concrete-slab-thickness.webp
 PROMPT:
@@ -272,7 +272,7 @@ Cross-section view of a poured concrete slab showing crushed stone compacted sub
 
 --------------------------------------------------------------------------------
 
-[34/44] DOSYA ADI: drywall-screws-mud-and-tape.webp
+[34/47] DOSYA ADI: drywall-screws-mud-and-tape.webp
 BAŞLIK: Drywall Screws, Mud and Tape: Quantities per Sheet (drywall)
 KAYDEDİLECEK YER: public/images/guides/drywall-screws-mud-and-tape.webp
 PROMPT:
@@ -280,7 +280,7 @@ Close-up of a stainless steel drywall taping knife smoothing joint compound over
 
 --------------------------------------------------------------------------------
 
-[35/44] DOSYA ADI: flooring-waste-factor.webp
+[35/47] DOSYA ADI: flooring-waste-factor.webp
 BAŞLIK: Flooring Waste Factor: 5%, 10% or 15%? (flooring)
 KAYDEDİLECEK YER: public/images/guides/flooring-waste-factor.webp
 PROMPT:
@@ -288,7 +288,7 @@ Hardwood floor installation scene with cut angled end pieces, measuring tape, pe
 
 --------------------------------------------------------------------------------
 
-[36/44] DOSYA ADI: how-many-pavers-do-i-need.webp
+[36/47] DOSYA ADI: how-many-pavers-do-i-need.webp
 BAŞLIK: How Many Pavers Do I Need for a Patio? (brick)
 KAYDEDİLECEK YER: public/images/guides/how-many-pavers-do-i-need.webp
 PROMPT:
@@ -296,7 +296,7 @@ Interlocking concrete herringbone patio pavers being laid on a screeded sand bed
 
 --------------------------------------------------------------------------------
 
-[37/44] DOSYA ADI: tile-waste-factor-by-layout.webp
+[37/47] DOSYA ADI: tile-waste-factor-by-layout.webp
 BAŞLIK: Tile Waste Factor by Layout: Straight, Diagonal, Herringbone (tile)
 KAYDEDİLECEK YER: public/images/guides/tile-waste-factor-by-layout.webp
 PROMPT:
@@ -304,7 +304,7 @@ Herringbone tile pattern being laid out on subfloor with cross spacers, diagonal
 
 --------------------------------------------------------------------------------
 
-[38/44] DOSYA ADI: how-many-bags-of-concrete-for-10x10-slab.webp
+[38/47] DOSYA ADI: how-many-bags-of-concrete-for-10x10-slab.webp
 BAŞLIK: How Many Bags of Concrete for a 10x10 Slab at 4 Inches? (concrete)
 KAYDEDİLECEK YER: public/images/guides/how-many-bags-of-concrete-for-10x10-slab.webp
 PROMPT:
@@ -312,7 +312,7 @@ Authentic jobsite close-up of a 10x10 wooden formwork frame for a patio slab, re
 
 --------------------------------------------------------------------------------
 
-[39/44] DOSYA ADI: deck-joist-spacing-12-vs-16-vs-24-inches.webp
+[39/47] DOSYA ADI: deck-joist-spacing-12-vs-16-vs-24-inches.webp
 BAŞLIK: Deck Post Sizing: When 4x4 Is Allowed vs When Code Requires 6x6 (deck)
 KAYDEDİLECEK YER: public/images/guides/deck-joist-spacing-12-vs-16-vs-24-inches.webp
 PROMPT:
@@ -320,7 +320,7 @@ Framing inspection shot of a deck structure with joists spaced on center, heavy 
 
 --------------------------------------------------------------------------------
 
-[40/44] DOSYA ADI: gravel-driveway-base-layers-depth-and-sizes.webp
+[40/47] DOSYA ADI: gravel-driveway-base-layers-depth-and-sizes.webp
 BAŞLIK: Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways? (gravel)
 KAYDEDİLECEK YER: public/images/guides/gravel-driveway-base-layers-depth-and-sizes.webp
 PROMPT:
@@ -328,7 +328,7 @@ Side-by-side display of gravel types: large angular road base #411 crushed stone
 
 --------------------------------------------------------------------------------
 
-[41/44] DOSYA ADI: concrete-for-fence-posts.webp
+[41/47] DOSYA ADI: concrete-for-fence-posts.webp
 BAŞLIK: How Many Bags of Concrete Do You Need per Fence Post? (concrete)
 KAYDEDİLECEK YER: public/images/guides/concrete-for-fence-posts.webp
 PROMPT:
@@ -336,7 +336,7 @@ Close-up of a 4x4 pressure-treated wooden post set in a clean cylindrical post h
 
 --------------------------------------------------------------------------------
 
-[42/44] DOSYA ADI: concrete-slab-thickness-shed-patio-driveway.webp
+[42/47] DOSYA ADI: concrete-slab-thickness-shed-patio-driveway.webp
 BAŞLIK: Concrete Footing Depth and Width: Frost Line & Load Sizing Rules (concrete)
 KAYDEDİLECEK YER: public/images/guides/concrete-slab-thickness-shed-patio-driveway.webp
 PROMPT:
@@ -344,7 +344,7 @@ Deep concrete footing trench dug into earth, sonotube cardboard form extending a
 
 --------------------------------------------------------------------------------
 
-[43/44] DOSYA ADI: how-many-bags-of-mulch-in-a-yard.webp
+[43/47] DOSYA ADI: how-many-bags-of-mulch-in-a-yard.webp
 BAŞLIK: How Many Bags of Mulch Are in a Yard? (mulch)
 KAYDEDİLECEK YER: public/images/guides/how-many-bags-of-mulch-in-a-yard.webp
 PROMPT:
@@ -352,11 +352,35 @@ Stack of 2-cubic-foot plastic mulch bags beside a garden bed edge, plastic mulch
 
 --------------------------------------------------------------------------------
 
-[44/44] DOSYA ADI: how-to-measure-an-l-shaped-room.webp
+[44/47] DOSYA ADI: how-to-measure-an-l-shaped-room.webp
 BAŞLIK: How to Measure an L-Shaped Room (and Other Odd Shapes) (tile)
 KAYDEDİLECEK YER: public/images/guides/how-to-measure-an-l-shaped-room.webp
 PROMPT:
 Interior room floor plan perspective of an L-shaped living space, digital laser distance measure emitting red beam across walls, clipboard with architectural hand sketch and dimensions, natural daylight --ar 16:9 --style raw --v 6.0
+
+--------------------------------------------------------------------------------
+
+[45/47] DOSYA ADI: how-many-gallons-of-paint-for-15x15-room.webp
+BAŞLIK: How Many Gallons of Paint for a 15x15 Room (Walls & Ceiling)? (paint)
+KAYDEDİLECEK YER: public/images/guides/how-many-gallons-of-paint-for-15x15-room.webp
+PROMPT:
+Interior painting scene in a 15x15 living room, two 1-gallon paint cans and a 5-gallon bucket on a canvas drop cloth, 9-inch roller on an extension pole against a half-painted wall, blue painter's tape along the ceiling line, laser distance measure on a stepladder, natural window light, 35mm lens, editorial home improvement photography --ar 16:9 --style raw --v 6.0
+
+--------------------------------------------------------------------------------
+
+[46/47] DOSYA ADI: fence-post-depth-frost-line-rules-how-deep-to-dig.webp
+BAŞLIK: Fence Post Depth & Frost Line Rules: How Deep to Dig (fence)
+KAYDEDİLECEK YER: public/images/guides/fence-post-depth-frost-line-rules-how-deep-to-dig.webp
+PROMPT:
+Freshly dug 10-inch fence post hole in a backyard, tape measure hooked on the edge reading 30 inches deep, 6-inch gravel base visible at the bottom, a 4x4 pressure-treated post lying beside the hole, post-hole digger and a bag of concrete mix on the lawn, crisp morning light, 50mm lens --ar 16:9 --style raw --v 6.0
+
+--------------------------------------------------------------------------------
+
+[47/47] DOSYA ADI: rebar-spacing-and-size-for-concrete-slabs.webp
+BAŞLIK: Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid (concrete)
+KAYDEDİLECEK YER: public/images/guides/rebar-spacing-and-size-for-concrete-slabs.webp
+PROMPT:
+Overhead view of a 4-inch patio slab form with a #3 rebar grid on 16-inch centers tied with wire, plastic rebar chairs under the bars, tape measure laid across the grid, wooden forms and gravel base, tie-wire twister tool resting on the rebar, bright overcast light, jobsite photography --ar 16:9 --style raw --v 6.0
 
 --------------------------------------------------------------------------------
 

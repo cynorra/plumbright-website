@@ -57,12 +57,19 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
+      # Cover-photo prompt for the new guide (never blocks publishing)
+      - name: Add cover prompt for the new guide
+        continue-on-error: true
+        run: node scripts/update-prompts.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
       - name: Commit and push new guide to repo
         id: commit
         run: |
           git config --global user.name "Plumbright Bot"
           git config --global user.email "bot@plumbright.com"
-          git add src/content/guides/ public/images/guides/
+          git add src/content/guides/ public/images/guides/ prompts.json prompts.txt GUIDE_IMAGE_PROMPTS.md
           if git diff --staged --quiet; then
             echo "No new guide changes to commit."
           else

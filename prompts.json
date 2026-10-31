@@ -394,5 +394,32 @@
     "title": "How to Measure an L-Shaped Room (and Other Odd Shapes)",
     "tool": "tile",
     "prompt": "Interior room floor plan perspective of an L-shaped living space, digital laser distance measure emitting red beam across walls, clipboard with architectural hand sketch and dimensions, natural daylight --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 45,
+    "slug": "how-many-gallons-of-paint-for-15x15-room",
+    "fileName": "how-many-gallons-of-paint-for-15x15-room.webp",
+    "targetPath": "public/images/guides/how-many-gallons-of-paint-for-15x15-room.webp",
+    "title": "How Many Gallons of Paint for a 15x15 Room (Walls & Ceiling)?",
+    "tool": "paint",
+    "prompt": "Interior painting scene in a 15x15 living room, two 1-gallon paint cans and a 5-gallon bucket on a canvas drop cloth, 9-inch roller on an extension pole against a half-painted wall, blue painter's tape along the ceiling line, laser distance measure on a stepladder, natural window light, 35mm lens, editorial home improvement photography --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 46,
+    "slug": "fence-post-depth-frost-line-rules-how-deep-to-dig",
+    "fileName": "fence-post-depth-frost-line-rules-how-deep-to-dig.webp",
+    "targetPath": "public/images/guides/fence-post-depth-frost-line-rules-how-deep-to-dig.webp",
+    "title": "Fence Post Depth & Frost Line Rules: How Deep to Dig",
+    "tool": "fence",
+    "prompt": "Freshly dug 10-inch fence post hole in a backyard, tape measure hooked on the edge reading 30 inches deep, 6-inch gravel base visible at the bottom, a 4x4 pressure-treated post lying beside the hole, post-hole digger and a bag of concrete mix on the lawn, crisp morning light, 50mm lens --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 47,
+    "slug": "rebar-spacing-and-size-for-concrete-slabs",
+    "fileName": "rebar-spacing-and-size-for-concrete-slabs.webp",
+    "targetPath": "public/images/guides/rebar-spacing-and-size-for-concrete-slabs.webp",
+    "title": "Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid",
+    "tool": "concrete",
+    "prompt": "Overhead view of a 4-inch patio slab form with a #3 rebar grid on 16-inch centers tied with wire, plastic rebar chairs under the bars, tape measure laid across the grid, wooden forms and gravel base, tie-wire twister tool resting on the rebar, bright overcast light, jobsite photography --ar 16:9 --style raw --v 6.0"
   }
 ]

@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 44 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 47 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -65,3 +65,6 @@
 | 42 | `concrete-slab-thickness-shed-patio-driveway.webp` | **Concrete Footing Depth and Width: Frost Line & Load Sizing Rules** (concrete) | `Deep concrete footing trench dug into earth, sonotube cardboard form extending above ground with rebar cage inserted, wooden stakes and level string line, early morning jobsite lighting, authentic contractor perspective --ar 16:9 --style raw --v 6.0` |
 | 43 | `how-many-bags-of-mulch-in-a-yard.webp` | **How Many Bags of Mulch Are in a Yard?** (mulch) | `Stack of 2-cubic-foot plastic mulch bags beside a garden bed edge, plastic mulch shovel, natural cedar mulch spilled slightly showing fibrous texture, warm sunny garden setting --ar 16:9 --style raw --v 6.0` |
 | 44 | `how-to-measure-an-l-shaped-room.webp` | **How to Measure an L-Shaped Room (and Other Odd Shapes)** (tile) | `Interior room floor plan perspective of an L-shaped living space, digital laser distance measure emitting red beam across walls, clipboard with architectural hand sketch and dimensions, natural daylight --ar 16:9 --style raw --v 6.0` |
+| 45 | `how-many-gallons-of-paint-for-15x15-room.webp` | **How Many Gallons of Paint for a 15x15 Room (Walls & Ceiling)?** (paint) | `Interior painting scene in a 15x15 living room, two 1-gallon paint cans and a 5-gallon bucket on a canvas drop cloth, 9-inch roller on an extension pole against a half-painted wall, blue painter's tape along the ceiling line, laser distance measure on a stepladder, natural window light, 35mm lens, editorial home improvement photography --ar 16:9 --style raw --v 6.0` |
+| 46 | `fence-post-depth-frost-line-rules-how-deep-to-dig.webp` | **Fence Post Depth & Frost Line Rules: How Deep to Dig** (fence) | `Freshly dug 10-inch fence post hole in a backyard, tape measure hooked on the edge reading 30 inches deep, 6-inch gravel base visible at the bottom, a 4x4 pressure-treated post lying beside the hole, post-hole digger and a bag of concrete mix on the lawn, crisp morning light, 50mm lens --ar 16:9 --style raw --v 6.0` |
+| 47 | `rebar-spacing-and-size-for-concrete-slabs.webp` | **Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid** (concrete) | `Overhead view of a 4-inch patio slab form with a #3 rebar grid on 16-inch centers tied with wire, plastic rebar chairs under the bars, tape measure laid across the grid, wooden forms and gravel base, tie-wire twister tool resting on the rebar, bright overcast light, jobsite photography --ar 16:9 --style raw --v 6.0` |
