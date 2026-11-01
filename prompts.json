@@ -421,5 +421,14 @@
     "title": "Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid",
     "tool": "concrete",
     "prompt": "Overhead view of a 4-inch patio slab form with a #3 rebar grid on 16-inch centers tied with wire, plastic rebar chairs under the bars, tape measure laid across the grid, wooden forms and gravel base, tie-wire twister tool resting on the rebar, bright overcast light, jobsite photography --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 48,
+    "slug": "mortar-mix-ratio-brick-laying-type-n-vs-s",
+    "fileName": "mortar-mix-ratio-brick-laying-type-n-vs-s.webp",
+    "targetPath": "public/images/guides/mortar-mix-ratio-brick-laying-type-n-vs-s.webp",
+    "title": "Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions",
+    "tool": "brick",
+    "prompt": "Close-up perspective of a bricklayer's trowel mixing fresh gray mortar in a wheelbarrow, with bags of Type N and Type S cement and lime in the background, a stack of red bricks nearby, bright overcast light, 50mm lens. --ar 16:9 --style raw --v 6.0"
   }
 ]
