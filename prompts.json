@@ -430,5 +430,14 @@
     "title": "Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions",
     "tool": "brick",
     "prompt": "Close-up perspective of a bricklayer's trowel mixing fresh gray mortar in a wheelbarrow, with bags of Type N and Type S cement and lime in the background, a stack of red bricks nearby, bright overcast light, 50mm lens. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 49,
+    "slug": "paver-base-depth-sand-and-crushed-stone-layers",
+    "fileName": "paver-base-depth-sand-and-crushed-stone-layers.webp",
+    "targetPath": "public/images/guides/paver-base-depth-sand-and-crushed-stone-layers.webp",
+    "title": "Paver Base Depth: Excavation for Sand & Crushed Stone",
+    "tool": "gravel",
+    "prompt": "Cross-section view of an excavated patio base, showing distinct layers: 4-6 inches of compacted crushed stone, 1 inch of bedding sand, and the remaining depth of excavated soil. A tape measure is held vertically, clearly indicating the 7-9 inch total depth, with a hand trowel resting nearby, bright afternoon light, 35mm lens. --ar 16:9 --style raw --v 6.0"
   }
 ]

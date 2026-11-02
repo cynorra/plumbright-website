@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 48 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 49 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -69,3 +69,4 @@
 | 46 | `fence-post-depth-frost-line-rules-how-deep-to-dig.webp` | **Fence Post Depth & Frost Line Rules: How Deep to Dig** (fence) | `Freshly dug 10-inch fence post hole in a backyard, tape measure hooked on the edge reading 30 inches deep, 6-inch gravel base visible at the bottom, a 4x4 pressure-treated post lying beside the hole, post-hole digger and a bag of concrete mix on the lawn, crisp morning light, 50mm lens --ar 16:9 --style raw --v 6.0` |
 | 47 | `rebar-spacing-and-size-for-concrete-slabs.webp` | **Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid** (concrete) | `Overhead view of a 4-inch patio slab form with a #3 rebar grid on 16-inch centers tied with wire, plastic rebar chairs under the bars, tape measure laid across the grid, wooden forms and gravel base, tie-wire twister tool resting on the rebar, bright overcast light, jobsite photography --ar 16:9 --style raw --v 6.0` |
 | 48 | `mortar-mix-ratio-brick-laying-type-n-vs-s.webp` | **Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions** (brick) | `Close-up perspective of a bricklayer's trowel mixing fresh gray mortar in a wheelbarrow, with bags of Type N and Type S cement and lime in the background, a stack of red bricks nearby, bright overcast light, 50mm lens. --ar 16:9 --style raw --v 6.0` |
+| 49 | `paver-base-depth-sand-and-crushed-stone-layers.webp` | **Paver Base Depth: Excavation for Sand & Crushed Stone** (gravel) | `Cross-section view of an excavated patio base, showing distinct layers: 4-6 inches of compacted crushed stone, 1 inch of bedding sand, and the remaining depth of excavated soil. A tape measure is held vertically, clearly indicating the 7-9 inch total depth, with a hand trowel resting nearby, bright afternoon light, 35mm lens. --ar 16:9 --style raw --v 6.0` |
