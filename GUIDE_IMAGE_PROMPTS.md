@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 49 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 50 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -70,3 +70,4 @@
 | 47 | `rebar-spacing-and-size-for-concrete-slabs.webp` | **Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid** (concrete) | `Overhead view of a 4-inch patio slab form with a #3 rebar grid on 16-inch centers tied with wire, plastic rebar chairs under the bars, tape measure laid across the grid, wooden forms and gravel base, tie-wire twister tool resting on the rebar, bright overcast light, jobsite photography --ar 16:9 --style raw --v 6.0` |
 | 48 | `mortar-mix-ratio-brick-laying-type-n-vs-s.webp` | **Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions** (brick) | `Close-up perspective of a bricklayer's trowel mixing fresh gray mortar in a wheelbarrow, with bags of Type N and Type S cement and lime in the background, a stack of red bricks nearby, bright overcast light, 50mm lens. --ar 16:9 --style raw --v 6.0` |
 | 49 | `paver-base-depth-sand-and-crushed-stone-layers.webp` | **Paver Base Depth: Excavation for Sand & Crushed Stone** (gravel) | `Cross-section view of an excavated patio base, showing distinct layers: 4-6 inches of compacted crushed stone, 1 inch of bedding sand, and the remaining depth of excavated soil. A tape measure is held vertically, clearly indicating the 7-9 inch total depth, with a hand trowel resting nearby, bright afternoon light, 35mm lens. --ar 16:9 --style raw --v 6.0` |
+| 50 | `deck-beam-span-rules-and-sizing-joists.webp` | **Deck Beam Span Rules and Sizing: 2x8, 2x10, 2x12** (deck) | `Deck construction scene showing a partially built deck frame, with 2x8, 2x10, and 2x12 lumber beams in various spans, a tape measure extended across a beam, and a level resting on a post, bright afternoon light, 50mm lens. --ar 16:9 --style raw --v 6.0` |

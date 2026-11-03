@@ -439,5 +439,14 @@
     "title": "Paver Base Depth: Excavation for Sand & Crushed Stone",
     "tool": "gravel",
     "prompt": "Cross-section view of an excavated patio base, showing distinct layers: 4-6 inches of compacted crushed stone, 1 inch of bedding sand, and the remaining depth of excavated soil. A tape measure is held vertically, clearly indicating the 7-9 inch total depth, with a hand trowel resting nearby, bright afternoon light, 35mm lens. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 50,
+    "slug": "deck-beam-span-rules-and-sizing-joists",
+    "fileName": "deck-beam-span-rules-and-sizing-joists.webp",
+    "targetPath": "public/images/guides/deck-beam-span-rules-and-sizing-joists.webp",
+    "title": "Deck Beam Span Rules and Sizing: 2x8, 2x10, 2x12",
+    "tool": "deck",
+    "prompt": "Deck construction scene showing a partially built deck frame, with 2x8, 2x10, and 2x12 lumber beams in various spans, a tape measure extended across a beam, and a level resting on a post, bright afternoon light, 50mm lens. --ar 16:9 --style raw --v 6.0"
   }
 ]
