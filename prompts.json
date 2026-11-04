@@ -448,5 +448,14 @@
     "title": "Deck Beam Span Rules and Sizing: 2x8, 2x10, 2x12",
     "tool": "deck",
     "prompt": "Deck construction scene showing a partially built deck frame, with 2x8, 2x10, and 2x12 lumber beams in various spans, a tape measure extended across a beam, and a level resting on a post, bright afternoon light, 50mm lens. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 51,
+    "slug": "how-many-retaining-wall-blocks-formula",
+    "fileName": "how-many-retaining-wall-blocks-formula.webp",
+    "targetPath": "public/images/guides/how-many-retaining-wall-blocks-formula.webp",
+    "title": "Retaining Wall Block Calculator: Trench, Capstone & Geogrid Math",
+    "tool": "brick",
+    "prompt": "Close-up of a partially constructed retaining wall, showing a buried course of blocks in a gravel trench, a tape measure extended along a geogrid layer, and a stack of capstone blocks nearby. A calculator and pencil rest on a block, bright morning light, 50mm lens. --ar 16:9 --style raw --v 6.0"
   }
 ]
