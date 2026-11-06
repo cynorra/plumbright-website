@@ -7,7 +7,7 @@ tool: fence
 
 **Fence posts require a minimum buried depth equal to one-third of their exposed height, or below the local frost line, whichever is greater.** This ensures stability against wind loads and prevents frost heave, which can lift and misalign posts over time. Always account for a 6-inch gravel base for drainage and add a 10% waste buffer to material estimates for concrete and gravel.
 
-## How the Formula Works
+## The 1/3 Rule and Frost Line Calculation Method
 
 Proper fence post depth is critical for the longevity and stability of any fence. Two primary rules dictate how deep a post hole must be: the "1/3 rule" and the "frost line rule." The greater of these two depths, plus a gravel base, determines the total excavation required.
 
@@ -39,7 +39,7 @@ Proper fence post depth is critical for the longevity and stability of any fence
 
 You can quickly estimate your materials using our [fence calculator](/fence-calculator/).
 
-## Material Estimation Table
+## Fence Post Hole Dimensions and Concrete Bags Matrix
 
 The following table provides common scenarios for fence post installation, factoring in both the 1/3 rule and typical frost line depths. All calculations include a 6-inch (0.5 ft) gravel base and assume a 10% waste allowance for both gravel and concrete.
 
@@ -143,7 +143,7 @@ The following table provides common scenarios for fence post installation, facto
 
 *Note: Post lengths are approximate; always round up to the nearest standard lumber length (e.g., 8 ft, 10 ft, 12 ft).*
 
-## Worked Project Example
+## Worked Example: 6-Foot Privacy Fence Post Installation
 
 Let's calculate the materials for a fence post with the following specifications:
 

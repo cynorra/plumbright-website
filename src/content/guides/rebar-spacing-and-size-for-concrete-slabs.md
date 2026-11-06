@@ -114,7 +114,7 @@ The appropriate rebar size and spacing depend heavily on the intended use and th
 </tbody>
 </table></div>
 
-## Worked Project Example: Patio Slab
+## Project Calculation Walkthrough: 12x18 Patio Slab
 
 Let's estimate the rebar and accessories for a 12 ft x 18 ft patio slab, 4 inches thick, intended for light to moderate use. Based on our decision matrix, #3 (3/8-inch) rebar at 16 inches on center (OC) with 2-inch chairs is a suitable choice.
 

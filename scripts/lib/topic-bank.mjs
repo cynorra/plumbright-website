@@ -169,5 +169,95 @@ export const ZERO_CLICK_TOPIC_BANK = [
     formatType: 'Material Estimation & Bag Count Guide',
     clickHook: 'Step-by-step wall block calculation accounting for buried starter course, capstones, and geogrid reinforcement.',
     calculatorLink: '/brick-calculator/'
+  },
+  {
+    topic: 'Carpet Padding Thickness and Density: 7/16 vs 1/2 Inch Rebond',
+    slug: 'carpet-padding-thickness-and-density-rebond-guide',
+    tool: 'carpet',
+    primaryKeyword: 'carpet padding thickness density rebond weight',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Compares 6 lb vs 8 lb density and 7/16 vs 1/2 inch thickness against manufacturer warranty requirements.',
+    calculatorLink: '/carpet-calculator/'
+  },
+  {
+    topic: 'Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules',
+    slug: 'thinset-mortar-coverage-per-bag-trowel-notch-guide',
+    tool: 'tile',
+    primaryKeyword: 'thinset mortar coverage per bag trowel notch size',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Covers 50 lb bag square foot yield across 1/4-inch square, 1/2-inch square, and U-notch trowels.',
+    calculatorLink: '/tile-calculator/'
+  },
+  {
+    topic: 'French Drain Gravel Depth and Trench Volume per Linear Foot',
+    slug: 'french-drain-gravel-depth-and-trench-volume',
+    tool: 'gravel',
+    primaryKeyword: 'french drain gravel depth trench volume per foot',
+    formatType: 'Step-by-Step Substrate & Installation Walkthrough',
+    clickHook: 'Details #57 washed stone volume per 50-foot run, fabric wrapping, and 1% minimum slope grading.',
+    calculatorLink: '/gravel-calculator/'
+  },
+  {
+    topic: 'Roofing Underlayment Rolls per Square: Felt vs Synthetic Coverage',
+    slug: 'roofing-underlayment-rolls-per-square-synthetic-vs-felt',
+    tool: 'roofing',
+    primaryKeyword: 'roofing underlayment rolls per square synthetic vs felt',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Compares 4-square felt rolls vs 10-square synthetic rolls, including head-lap and side-lap waste.',
+    calculatorLink: '/roofing-calculator/'
+  },
+  {
+    topic: 'Drywall Mud per Sheet: All-Purpose Joint Compound Pail Math',
+    slug: 'drywall-mud-per-sheet-joint-compound-calculator',
+    tool: 'drywall',
+    primaryKeyword: 'drywall mud per sheet gallons joint compound',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Calculates 4.5-gallon buckets needed per 100 sheets across taping, fill, and skim finishing coats.',
+    calculatorLink: '/drywall-calculator/'
+  },
+  {
+    topic: 'Exterior Paint Gallons per 1,000 Sq Ft: Siding and Stucco Coverage',
+    slug: 'exterior-paint-gallons-per-1000-sq-ft-siding-stucco',
+    tool: 'paint',
+    primaryKeyword: 'exterior paint gallons per 1000 sq ft siding stucco',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Contrasts smooth cedar lap siding (350 sq ft/gal) against porous masonry stucco (200 sq ft/gal).',
+    calculatorLink: '/paint-calculator/'
+  },
+  {
+    topic: 'Deck Stair Stringer Spacing: 12 vs 16 Inches for Wood vs Composite',
+    slug: 'deck-stair-stringer-spacing-wood-vs-composite-rules',
+    tool: 'stairs',
+    primaryKeyword: 'deck stair stringer spacing wood vs composite',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Explains why composite treads sag at 16 inches on center, requiring 10-12 inch stringer spacing under IRC.',
+    calculatorLink: '/stair-calculator/'
+  },
+  {
+    topic: 'Mulch vs Wood Chips vs Bark: Cubic Yard Weight and Breakdown Rates',
+    slug: 'mulch-vs-wood-chips-cubic-yard-weight-and-coverage',
+    tool: 'mulch',
+    primaryKeyword: 'mulch vs wood chips cubic yard weight coverage depth',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Compares double-shredded hardwood, cedar nuggets, and wood chips by cubic yard weight and settling depth.',
+    calculatorLink: '/mulch-calculator/'
+  },
+  {
+    topic: 'Wallpaper for Accent Walls: Calculating Pattern Drops Without Waste',
+    slug: 'wallpaper-accent-wall-pattern-drop-waste-guide',
+    tool: 'wallpaper',
+    primaryKeyword: 'wallpaper accent wall pattern drop repeat waste rolls',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Step-by-step strip count and vertical drop alignment math specifically for single feature accent walls.',
+    calculatorLink: '/wallpaper-calculator/'
+  },
+  {
+    topic: 'Split Rail Fence Post and Rail Counts per 100 Linear Feet',
+    slug: 'split-rail-fence-post-and-rail-counts-per-100-feet',
+    tool: 'fence',
+    primaryKeyword: 'split rail fence materials list per 100 feet',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Calculates 2-rail vs 3-rail post counts, 10-foot rail overlaps, and corner post positioning.',
+    calculatorLink: '/fence-calculator/'
   }
 ];

@@ -6,7 +6,7 @@ tool: paint
 ---
 **For a standard 15x15 foot room with 8-foot ceilings, expect to need approximately 3-4 gallons of paint for two coats on both walls and ceiling, plus an additional 1-2 gallons of primer if the surface requires it.** This estimate accounts for typical door and window deductions and a 10% waste factor. However, actual quantities can vary significantly based on ceiling height, the number of doors and windows, surface porosity, and whether a color change requires multiple coats or a dedicated primer, making a detailed calculation essential.
 
-## How the Formula Works
+## Calculating Paint Coverage: Step-by-Step Formula
 
 Accurately estimating paint quantities involves calculating the total surface area to be painted and then dividing it by the paint's coverage rate. This process accounts for both wall and ceiling surfaces, while also deducting areas that will not be painted, such as doors and windows.
 
@@ -37,7 +37,7 @@ The fundamental steps are:
 
 This systematic approach ensures that all variables are considered, providing a precise estimate for your project. For a quick estimate, you can also use our [paint calculator](/paint-calculator/).
 
-## Material Estimation Table
+## Room Dimensions & Gallon Estimation Matrix
 
 The following table provides estimated paint and primer quantities for various room sizes, assuming standard 8-foot ceilings, one standard 30"x80" door (16.7 sq ft), and one standard 36"x48" window (12 sq ft) deducted from the wall area. Paint coverage is estimated at 375 sq ft/gallon, and primer at 350 sq ft/gallon, with a 10% waste factor included.
 
@@ -130,7 +130,7 @@ The following table provides estimated paint and primer quantities for various r
 
 *Note: Gallon estimates are rounded up to the nearest tenth of a gallon. Always purchase slightly more than calculated to ensure sufficient supply for touch-ups.*
 
-## Worked Project Example
+## Worked Example: 15x15 Master Bedroom Walkthrough
 
 Let's calculate the paint and primer needed for a 15x15 foot room with an 8-foot ceiling, including one standard door and one standard window.
 

@@ -54,7 +54,7 @@ const existingGuidesSummary = existingFiles.map((file) => {
   };
 });
 
-function callGeminiAPI(payload) {
+function callGeminiAPI(payload, { checkMaxTokens = true } = {}) {
   return new Promise((resolve, reject) => {
     const postData = JSON.stringify(payload);
     const options = {
@@ -78,7 +78,7 @@ function callGeminiAPI(payload) {
             return reject(new Error(`Gemini API Error (${res.statusCode}): ${JSON.stringify(json.error || json)}`));
           }
           const finishReason = json.candidates?.[0]?.finishReason;
-          if (finishReason === "MAX_TOKENS") {
+          if (checkMaxTokens && finishReason === "MAX_TOKENS") {
             return reject(new Error("Gemini output was cut off (MAX_TOKENS); refusing to publish a truncated guide"));
           }
           const text = json.candidates?.[0]?.content?.parts?.[0]?.text;
@@ -102,53 +102,102 @@ function callGeminiAPI(payload) {
  * Autonomous AI topic brainstorming that generates 100% unique topics
  * when all static topics in topic-bank.mjs are exhausted or match existing articles.
  */
-async function discoverUniqueTopicWithAI() {
-  console.log(`[AI Discovery] Searching for a high-intent, 100% unique topic not yet written...`);
+async function discoverUniqueTopicWithAI(attempt = 1) {
+  console.log(`[AI Discovery] Searching for a high-intent, 100% unique topic not yet written (attempt ${attempt}/3)...`);
 
   const existingTitles = existingGuidesSummary.map((g) => `- [${g.tool}] ${g.title}`).join("\n");
   const validTools = [
     "concrete", "gravel", "deck", "roofing", "fence", "brick", "mulch",
     "stairs", "tile", "flooring", "drywall", "carpet", "wallpaper", "paint", "area"
   ];
-  const targetCategory = toolFilter || validTools[Math.floor(Math.random() * validTools.length)];
+
+  // Count existing articles per tool to balance content distribution
+  const toolCounts = {};
+  for (const t of validTools) toolCounts[t] = 0;
+  for (const g of existingGuidesSummary) {
+    if (toolCounts[g.tool] !== undefined) toolCounts[g.tool]++;
+  }
+
+  // If no explicit filter is given, prefer tools with the least articles
+  let targetCategory = toolFilter;
+  if (!targetCategory) {
+    const sortedTools = [...validTools].sort((a, b) => toolCounts[a] - toolCounts[b]);
+    // Pick randomly from the bottom 4 least covered categories
+    const candidateTools = sortedTools.slice(0, 4);
+    targetCategory = candidateTools[Math.floor(Math.random() * candidateTools.length)];
+  }
 
   const discoveryPrompt = `You are a principal SEO strategist and civil estimation specialist for Plumbright (https://plumbright.com).
 We need a BRAND NEW, HIGH-INTENT, ZERO-CLICK RESISTANT calculation topic for our '${targetCategory}' tool category.
 
 STRICT MANDATE - ZERO DUPLICATION:
-Here is the complete list of ALL 44 articles currently published on Plumbright:
+Here is the complete list of ALL ${existingGuidesSummary.length} articles currently published on Plumbright:
 ${existingTitles}
 
 RULES:
 1. NEVER repeat, rephrase, or closely mirror any existing title above.
 2. Must address a real construction/DIY math problem (e.g. bag counts, thickness vs load, fastener spacing, waste factors, span tables).
-3. Return ONLY a valid JSON object (no markdown quotes, no other text):
+3. Return ONLY a valid JSON object matching this schema:
 {
   "topic": "Specific Keyword-Targeted Title Under 75 Chars",
   "slug": "url-friendly-lowercase-slug-under-60-chars",
   "tool": "${targetCategory}",
   "primaryKeyword": "exact target search phrase",
-  "formatType": "Material Estimation & Bag Count Guide | Code & Thickness Decision Matrix | Step-by-Step Substrate & Installation Walkthrough",
+  "formatType": "Material Estimation & Bag Count Guide",
   "clickHook": "Why this needs a table and calculation rather than a 1-sentence answer"
 }`;
 
   const payload = {
     contents: [{ role: "user", parts: [{ text: discoveryPrompt }] }],
-    generationConfig: { temperature: 0.7, maxOutputTokens: 600 }
+    generationConfig: {
+      temperature: 0.7,
+      maxOutputTokens: 2048,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: "OBJECT",
+        properties: {
+          topic: { type: "STRING" },
+          slug: { type: "STRING" },
+          tool: { type: "STRING" },
+          primaryKeyword: { type: "STRING" },
+          formatType: { type: "STRING" },
+          clickHook: { type: "STRING" }
+        },
+        required: ["topic", "slug", "tool", "primaryKeyword", "formatType", "clickHook"]
+      }
+    }
   };
 
-  const raw = await callGeminiAPI(payload);
-  const cleanJson = raw.replace(/^```json\s*/i, "").replace(/^```\s*/i, "").replace(/```\s*$/i, "").trim();
-  const parsed = JSON.parse(cleanJson);
+  try {
+    const raw = await callGeminiAPI(payload, { checkMaxTokens: false });
+    const cleanJson = raw.replace(/^```json\s*/i, "").replace(/^```\s*/i, "").replace(/```\s*$/i, "").trim();
+    let parsed;
+    try {
+      parsed = JSON.parse(cleanJson);
+    } catch {
+      const match = cleanJson.match(/\{[\s\S]*\}/);
+      if (match) parsed = JSON.parse(match[0]);
+      else throw new Error("Could not extract JSON object from AI discovery response");
+    }
 
-  // Validate that AI did not hallucinate a duplicate
-  const dupCheck = checkDuplicateTopic(parsed.topic, existingGuidesSummary, 0.45);
-  if (dupCheck.isDuplicate || existingSlugs.has(parsed.slug)) {
-    console.warn(`[AI Discovery Retry] AI proposed topic was too similar to existing: "${parsed.topic}" -> Retrying...`);
-    return discoverUniqueTopicWithAI();
+    // Validate that AI did not hallucinate a duplicate
+    const dupCheck = checkDuplicateTopic(parsed.topic, existingGuidesSummary, 0.45);
+    if (dupCheck.isDuplicate || existingSlugs.has(parsed.slug)) {
+      console.warn(`[AI Discovery Retry] AI proposed topic was too similar to existing: "${parsed.topic}" -> Retrying...`);
+      if (attempt < 3) {
+        return discoverUniqueTopicWithAI(attempt + 1);
+      }
+    }
+
+    return parsed;
+  } catch (err) {
+    console.warn(`[AI Discovery Error on attempt ${attempt}]:`, err.message);
+    if (attempt < 3) {
+      await new Promise((r) => setTimeout(r, 2000));
+      return discoverUniqueTopicWithAI(attempt + 1);
+    }
+    throw err;
   }
-
-  return parsed;
 }
 
 async function getNextTopic() {
@@ -243,10 +292,12 @@ EDITORIAL QUALITY MANDATES:
 4. OPENING SNIPPET (AEO TEASER):
    - The very first paragraph MUST start with **bold text** summarizing the direct rule-of-thumb answer in 40-50 words.
    - Then explain why hole depth, gravel base, or waste margins dictate checking the full table below.
-5. MANDATORY MATERIAL TABLE & HEADINGS:
-   - You MUST structure the article using at least 3-4 distinct '## Section Heading' markdown headers (e.g. ## How the Formula Works, ## Material Estimation Table, ## Worked Project Example, ## Setting Tips and Waste Allowance).
+5. MANDATORY MATERIAL TABLE & TOPIC-SPECIFIC HEADINGS:
+   - Structure the article using at least 3-4 distinct '## Section Heading' markdown headers.
+   - AVOID cookie-cutter generic headings like exact "## How the Formula Works" or "## Material Estimation Table".
+   - Instead, craft topic-specific headings tailored to the topic (e.g. for rebar: "## How to Calculate Rebar Footing and Grid Needs", "## Rebar Size and Spacing Decision Matrix", "## Worked Example: 12x12 Patio Slab", "## Expansion Joints and Lap Splice Rules").
    - Must include a complete Markdown/HTML table wrapped in <div class="table-wrap"><table>...</table></div>.
-6. MANDATORY LENGTH: The body MUST be detailed and comprehensive, containing at least 600 words of thorough technical explanation.
+6. MANDATORY LENGTH: The body MUST be detailed and comprehensive, containing at least 650 words of thorough technical explanation.
 7. STRICT ANTI-DUPLICATION:
    - NEVER repeat or paraphrase any topic already written.
    - NEVER use generic formula titles like "The Ultimate Guide to...", "Complete Guide to...", "Everything You Need to Know".
@@ -266,13 +317,13 @@ tool: ${targetTopic.tool}
 ---
 **Bold rule-of-thumb answer paragraph...**
 
-## How the Formula Works
+## [Topic-Specific Calculation Header]
 Formula explanation...
 
-## Material Estimation Table
+## [Topic-Specific Estimation Matrix Header]
 <div class="table-wrap"><table>...</table></div>
 
-## Worked Project Example
+## Worked Project Example: [Realistic Project Spec]
 Step-by-step math...
 `;
 
