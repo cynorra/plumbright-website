@@ -39,6 +39,13 @@ A post hole is a cylinder with a square post standing in it. The concrete fills 
 
 The post only takes up about 15% of a 10 inch hole, so leaving it out of the math will not change the bag count much. The gravel base matters more: 6 inches of gravel saves about a sixth of the concrete in a 36 inch hole.
 
+## Concrete for Mailbox Posts vs Heavy 6x6 Gate Posts
+
+Different post types carry vastly different wind and leverage loads:
+
+- **Curbside Mailbox Posts (4x4):** USPS guidelines recommend an exposed height of 41 to 45 inches. An 8-inch wide hole dug 18 to 24 inches deep (with 3-4 inches of gravel) requires **1 to 1.5 bags of 80 lb concrete** (or two 50 lb bags). This provides ample stability against snowplow wash without over-excavating.
+- **Heavy 6x6 Fence & Gate Posts:** Swing gates exert continuous cantilever torque. Drill a 12-to-14-inch diameter hole at least 36 to 48 inches deep. A 6x6 post in a 14-inch hole at 42 inches deep takes **4 to 6 bags of 80 lb concrete** (or 7 to 9 bags of 50 lb mix) to anchor firmly.
+
 ## Worked example: a 10-post fence
 
 A 60 ft run of privacy fence with posts every 8 ft needs 9 posts. Add a gate post and you have 10 holes. Each is 10 in wide and 36 in deep with a 6 in gravel base, holding a 4×4:

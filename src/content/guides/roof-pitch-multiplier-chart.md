@@ -1,11 +1,11 @@
 ---
-title: "Roof Pitch Multiplier Chart: Turn a Footprint into Roof Area"
-description: "Pitch multipliers from 1/12 to 18/12 with roof angles and hip and valley factors. Multiply the footprint by the multiplier to get the real roof area."
+title: "Roof Pitch Factor Chart & Multiplier: Slopes from 1/12 to 18/12"
+description: "Complete roof pitch factor chart and multiplier table from 1/12 to 18/12. Convert footprint area to actual sloped roof area with hip and valley factors."
 published: 2026-10-23
 tool: roofing
 ---
 
-**To find the area of a sloped roof, multiply the area of its footprint (overhangs included) by the pitch multiplier: √(1 + (rise ÷ 12)²).** A 6/12 roof has a multiplier of 1.118, so a 1,176 sq ft footprint carries 1,315 sq ft of roof.
+**To find the area of a sloped roof using a pitch factor chart, multiply the horizontal footprint area (overhangs included) by the pitch multiplier: √(1 + (rise ÷ 12)²).** A 6/12 roof has a pitch factor multiplier of 1.118, meaning a 1,176 sq ft flat footprint requires 1,315 sq ft of roofing shingles.
 
 <figure class="my-6">
 <svg viewBox="0 0 450 210" role="img" aria-labelledby="pitch-t" class="w-full max-w-md">
@@ -20,7 +20,7 @@ tool: roofing
 <figcaption class="text-sm text-muted-foreground mt-2">A 6/12 pitch rises 6 in for every 12 in of horizontal run. The sloped side is 13.42 in, which is where the 1.118 multiplier comes from.</figcaption>
 </figure>
 
-## Pitch multiplier chart
+## Roof Pitch Factor & Multiplier Chart
 
 <div class="table-wrap">
 <table>

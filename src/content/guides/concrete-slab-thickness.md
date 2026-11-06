@@ -43,6 +43,14 @@ Thickness drives the volume directly: every extra inch on a 4 inch slab is 25% m
 
 Run your own dimensions in the [concrete calculator](/concrete-calculator/), which adds a waste allowance and gives bag counts for 40, 50, 60 and 80 lb bags.
 
+## Garage Floor Concrete Slab Thickness: 4 vs 5 vs 6 Inches
+
+Residential garage floors face continuous dynamic point loads from vehicle tires, floor jacks, and tool storage:
+
+- **4 Inches (Standard):** The standard residential specification. Building codes (IRC R506.1) mandate a 3.5-inch minimum, so a 4-inch pour provides comfortable margin. Sufficient for sedans, compact crossovers, and everyday storage over a 4-inch compacted crushed stone base.
+- **5 Inches (Heavy Trucks & Trailers):** The sweet-spot upgrade for 3/4-ton pickups, large SUVs, work vans, or storing heavy camper trailers. Resists perimeter cracking and edge spalling when wheels roll over the entry threshold.
+- **6 Inches (Automotive Lifts & Workshops):** Mandatory if installing a 2-post or 4-post vehicle lift. Most lift manufacturers specify a minimum slab thickness of 4.5 to 6.0 inches of 3,000+ PSI concrete with #4 rebar on 12-to-18-inch centers to ensure concrete expansion anchors will not pull out under load.
+
 ## What an extra inch costs on a driveway
 
 A single-car driveway 40 ft long and 12 ft wide, with 10% added for waste:

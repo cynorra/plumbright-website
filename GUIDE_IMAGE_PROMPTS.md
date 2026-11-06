@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 52 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 56 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -73,3 +73,7 @@
 | 50 | `deck-beam-span-rules-and-sizing-joists.webp` | **Deck Beam Span Rules and Sizing: 2x8, 2x10, 2x12** (deck) | `Deck construction scene showing a partially built deck frame, with 2x8, 2x10, and 2x12 lumber beams in various spans, a tape measure extended across a beam, and a level resting on a post, bright afternoon light, 50mm lens. --ar 16:9 --style raw --v 6.0` |
 | 51 | `how-many-retaining-wall-blocks-formula.webp` | **Retaining Wall Block Calculator: Trench, Capstone & Geogrid Math** (brick) | `Close-up of a partially constructed retaining wall, showing a buried course of blocks in a gravel trench, a tape measure extended along a geogrid layer, and a stack of capstone blocks nearby. A calculator and pencil rest on a block, bright morning light, 50mm lens. --ar 16:9 --style raw --v 6.0` |
 | 52 | `carpet-padding-thickness-and-density-rebond-guide.webp` | **Carpet Padding Thickness & Density: 7/16 vs 1/2 Inch Rebond** (carpet) | `Close-up of two distinct rolls of rebond carpet padding, one clearly thicker than the other, with a tape measure extended across their cut edges, showing 7/16 inch and 1/2 inch thicknesses, a weight scale nearby displaying 6 lb and 8 lb density, bright workshop lighting, 50mm lens. --ar 16:9 --style raw --v 6.0` |
+| 53 | `deck-mud-calculator-coverage-chart-shower-pan.webp` | **Deck Mud Calculator & Coverage Chart: Shower Pan Dry Pack Ratios** (tile) | `Overhead view of a partially mixed pile of dry-pack deck mud (sand and cement) on a tarp, with a measuring scoop, a stack of empty cement bags, and a trowel nearby, bright workshop lighting, 50mm lens. --ar 16:9 --style raw --v 6.0` |
+| 54 | `how-many-deck-blocks-do-i-need-floating-deck.webp` | **How Many Deck Blocks for a Floating Deck? Spacing & Layout Guide** (deck) | `Authentic jobsite close-up illustrating "How Many Deck Blocks for a Floating Deck Spacing & Layout Guide", real deck materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0` |
+| 55 | `how-much-paint-to-paint-a-door-quart-vs-gallon.webp` | **How Much Paint to Paint a Door: Quart & Gallon Guide** (paint) | `Authentic jobsite close-up illustrating "How Much Paint to Paint a Door Quart & Gallon Guide", real paint materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0` |
+| 56 | `how-to-calculate-square-feet-and-yardage-for-carpet.webp` | **Calculate Carpet Square Feet & Yardage: Full Formula Guide** (carpet) | `Authentic jobsite close-up illustrating "Calculate Carpet Square Feet & Yardage Full Formula Guide", real carpet materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0` |

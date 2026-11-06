@@ -36,6 +36,87 @@ export const CONTENT_FORMATS = [
 
 export const ZERO_CLICK_TOPIC_BANK = [
   {
+    topic: 'Deck Mud Calculator & Coverage Chart: Shower Pan Dry Pack Ratios',
+    slug: 'deck-mud-calculator-coverage-chart-shower-pan',
+    tool: 'tile',
+    primaryKeyword: 'deck mud calculator square feet coverage chart',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Calculates 4:1 and 5:1 sand-to-portland cement mix, pre-slope thickness (1/4 in per foot), and 50 lb bag counts per shower pan square foot.',
+    calculatorLink: '/tile-calculator/'
+  },
+  {
+    topic: 'Garage Floor Concrete Slab Thickness: 4 vs 5 vs 6 Inches Guide',
+    slug: 'garage-floor-concrete-slab-thickness-guide',
+    tool: 'concrete',
+    primaryKeyword: 'garage floor concrete slab thickness',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Compares 4-inch standard car floors, 5-inch SUV/truck parking, and 6-inch 2-post car lift slabs with rebar grid specs.',
+    calculatorLink: '/concrete-calculator/'
+  },
+  {
+    topic: 'How Much Paint to Paint a Door (Interior & Exterior Quart Guide)',
+    slug: 'how-much-paint-to-paint-a-door-quart-vs-gallon',
+    tool: 'paint',
+    primaryKeyword: 'how much paint to paint a door quart gallon',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Breaks down door surface area (approx 20 sq ft per side), explaining when 1 quart covers 2 coats vs when a gallon is needed.',
+    calculatorLink: '/paint-calculator/'
+  },
+  {
+    topic: 'How to Calculate Square Feet and Yardage for Carpet: Full Formula',
+    slug: 'how-to-calculate-square-feet-and-yardage-for-carpet',
+    tool: 'carpet',
+    primaryKeyword: 'how to calculate square feet for carpet yardage measurement',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Covers length x width in feet divided by 9 to get square yards, seam orientation, and waste buffer for 12 ft vs 15 ft rolls.',
+    calculatorLink: '/carpet-calculator/'
+  },
+  {
+    topic: 'How Many Bags of Concrete for a Mailbox Post and 6x6 Fence Post?',
+    slug: 'concrete-bags-for-mailbox-and-6x6-posts',
+    tool: 'concrete',
+    primaryKeyword: 'how many bags of concrete for mailbox post 6x6',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Specific bag calculations for shallow mailbox footings (18-24 in) vs deep 12-inch diameter holes for heavy 6x6 gate posts.',
+    calculatorLink: '/concrete-calculator/'
+  },
+  {
+    topic: 'How Many Deck Blocks Do I Need for a Floating Deck?',
+    slug: 'how-many-deck-blocks-do-i-need-floating-deck',
+    tool: 'deck',
+    primaryKeyword: 'how many deck blocks do i need floating deck spacing',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Calculates concrete deck block pier layout grids (5 to 6 ft spacing along beams) for freestanding low-profile decks.',
+    calculatorLink: '/deck-calculator/'
+  },
+  {
+    topic: 'Drip Edge Calculator: How Many 10-Foot Pieces for Eaves & Rakes',
+    slug: 'drip-edge-calculator-how-many-pieces-for-roof',
+    tool: 'roofing',
+    primaryKeyword: 'drip edge calculator how many pieces roof linear feet',
+    formatType: 'Material Estimation & Bag Count Guide',
+    clickHook: 'Linear footage formula for perimeter eaves and gable rakes, accounting for 2 to 3 inch corner overlaps and 10-foot stock pieces.',
+    calculatorLink: '/roofing-calculator/'
+  },
+  {
+    topic: 'Herringbone Flooring Waste Factor: How Much Extra Planks to Order',
+    slug: 'herringbone-flooring-waste-factor-and-box-math',
+    tool: 'flooring',
+    primaryKeyword: 'how much wastage does herringbone flooring have waste factor',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Explains why 45-degree herringbone layouts require 15% to 20% waste allowance due to double 45-degree perimeter wall cuts.',
+    calculatorLink: '/flooring-calculator/'
+  },
+  {
+    topic: 'Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths',
+    slug: 'concrete-sidewalk-thickness-walkway-depth-rules',
+    tool: 'concrete',
+    primaryKeyword: 'concrete sidewalk thickness how thick concrete walkway',
+    formatType: 'Code & Thickness Decision Matrix',
+    clickHook: 'Municipal code standards: 4 inches for residential sidewalks, thickened 6-inch driveway apron crossings, and 4-inch gravel bases.',
+    calculatorLink: '/concrete-calculator/'
+  },
+  {
     topic: 'Concrete Slab Thickness: 4 vs 6 Inches for Sheds, Patios and Driveways',
     slug: 'concrete-slab-thickness-shed-patio-driveway',
     tool: 'concrete',
