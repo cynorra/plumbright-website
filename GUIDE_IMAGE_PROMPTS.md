@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 51 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 52 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -72,3 +72,4 @@
 | 49 | `paver-base-depth-sand-and-crushed-stone-layers.webp` | **Paver Base Depth: Excavation for Sand & Crushed Stone** (gravel) | `Cross-section view of an excavated patio base, showing distinct layers: 4-6 inches of compacted crushed stone, 1 inch of bedding sand, and the remaining depth of excavated soil. A tape measure is held vertically, clearly indicating the 7-9 inch total depth, with a hand trowel resting nearby, bright afternoon light, 35mm lens. --ar 16:9 --style raw --v 6.0` |
 | 50 | `deck-beam-span-rules-and-sizing-joists.webp` | **Deck Beam Span Rules and Sizing: 2x8, 2x10, 2x12** (deck) | `Deck construction scene showing a partially built deck frame, with 2x8, 2x10, and 2x12 lumber beams in various spans, a tape measure extended across a beam, and a level resting on a post, bright afternoon light, 50mm lens. --ar 16:9 --style raw --v 6.0` |
 | 51 | `how-many-retaining-wall-blocks-formula.webp` | **Retaining Wall Block Calculator: Trench, Capstone & Geogrid Math** (brick) | `Close-up of a partially constructed retaining wall, showing a buried course of blocks in a gravel trench, a tape measure extended along a geogrid layer, and a stack of capstone blocks nearby. A calculator and pencil rest on a block, bright morning light, 50mm lens. --ar 16:9 --style raw --v 6.0` |
+| 52 | `carpet-padding-thickness-and-density-rebond-guide.webp` | **Carpet Padding Thickness & Density: 7/16 vs 1/2 Inch Rebond** (carpet) | `Close-up of two distinct rolls of rebond carpet padding, one clearly thicker than the other, with a tape measure extended across their cut edges, showing 7/16 inch and 1/2 inch thicknesses, a weight scale nearby displaying 6 lb and 8 lb density, bright workshop lighting, 50mm lens. --ar 16:9 --style raw --v 6.0` |
