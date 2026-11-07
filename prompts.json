@@ -502,5 +502,14 @@
     "title": "Calculate Carpet Square Feet & Yardage: Full Formula Guide",
     "tool": "carpet",
     "prompt": "Authentic jobsite close-up illustrating \"Calculate Carpet Square Feet & Yardage Full Formula Guide\", real carpet materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 57,
+    "slug": "drip-edge-calculator-how-many-pieces-for-roof",
+    "fileName": "drip-edge-calculator-how-many-pieces-for-roof.webp",
+    "targetPath": "public/images/guides/drip-edge-calculator-how-many-pieces-for-roof.webp",
+    "title": "Drip Edge Calculator: Pieces for Eaves & Rakes",
+    "tool": "roofing",
+    "prompt": "Authentic jobsite close-up illustrating \"Drip Edge Calculator: Pieces for Eaves & Rakes\", showing a stack of 10-foot drip edge pieces, a tape measure extended along a roof eave, and a calculator with a pencil nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
   }
 ]

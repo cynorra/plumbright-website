@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 56 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 57 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -77,3 +77,4 @@
 | 54 | `how-many-deck-blocks-do-i-need-floating-deck.webp` | **How Many Deck Blocks for a Floating Deck? Spacing & Layout Guide** (deck) | `Authentic jobsite close-up illustrating "How Many Deck Blocks for a Floating Deck Spacing & Layout Guide", real deck materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0` |
 | 55 | `how-much-paint-to-paint-a-door-quart-vs-gallon.webp` | **How Much Paint to Paint a Door: Quart & Gallon Guide** (paint) | `Authentic jobsite close-up illustrating "How Much Paint to Paint a Door Quart & Gallon Guide", real paint materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0` |
 | 56 | `how-to-calculate-square-feet-and-yardage-for-carpet.webp` | **Calculate Carpet Square Feet & Yardage: Full Formula Guide** (carpet) | `Authentic jobsite close-up illustrating "Calculate Carpet Square Feet & Yardage Full Formula Guide", real carpet materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0` |
+| 57 | `drip-edge-calculator-how-many-pieces-for-roof.webp` | **Drip Edge Calculator: Pieces for Eaves & Rakes** (roofing) | `Authentic jobsite close-up illustrating "Drip Edge Calculator: Pieces for Eaves & Rakes", showing a stack of 10-foot drip edge pieces, a tape measure extended along a roof eave, and a calculator with a pencil nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
