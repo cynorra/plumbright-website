@@ -511,5 +511,14 @@
     "title": "Drip Edge Calculator: Pieces for Eaves & Rakes",
     "tool": "roofing",
     "prompt": "Authentic jobsite close-up illustrating \"Drip Edge Calculator: Pieces for Eaves & Rakes\", showing a stack of 10-foot drip edge pieces, a tape measure extended along a roof eave, and a calculator with a pencil nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 58,
+    "slug": "concrete-sidewalk-thickness-walkway-depth-rules",
+    "fileName": "concrete-sidewalk-thickness-walkway-depth-rules.webp",
+    "targetPath": "public/images/guides/concrete-sidewalk-thickness-walkway-depth-rules.webp",
+    "title": "Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths",
+    "tool": "concrete",
+    "prompt": "Authentic jobsite close-up illustrating \"Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths\", showing a cross-section of a newly poured concrete sidewalk with visible gravel base and rebar, a tape measure extended vertically to indicate 4-inch depth, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
   }
 ]
