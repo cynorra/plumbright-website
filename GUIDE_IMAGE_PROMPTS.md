@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 58 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 59 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -79,3 +79,4 @@
 | 56 | `how-to-calculate-square-feet-and-yardage-for-carpet.webp` | **Calculate Carpet Square Feet & Yardage: Full Formula Guide** (carpet) | `Authentic jobsite close-up illustrating "Calculate Carpet Square Feet & Yardage Full Formula Guide", real carpet materials and the tools used for the job, tape measure for scale, natural daylight, shallow depth of field, editorial construction photography --ar 16:9 --style raw --v 6.0` |
 | 57 | `drip-edge-calculator-how-many-pieces-for-roof.webp` | **Drip Edge Calculator: Pieces for Eaves & Rakes** (roofing) | `Authentic jobsite close-up illustrating "Drip Edge Calculator: Pieces for Eaves & Rakes", showing a stack of 10-foot drip edge pieces, a tape measure extended along a roof eave, and a calculator with a pencil nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
 | 58 | `concrete-sidewalk-thickness-walkway-depth-rules.webp` | **Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths** (concrete) | `Authentic jobsite close-up illustrating "Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths", showing a cross-section of a newly poured concrete sidewalk with visible gravel base and rebar, a tape measure extended vertically to indicate 4-inch depth, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
+| 59 | `thinset-mortar-coverage-per-bag-trowel-notch-guide.webp` | **Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules** (tile) | `Authentic jobsite close-up illustrating "Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules", showing a freshly troweled thinset bed with visible notches of various sizes (1/4" to 1/2"), a 50 lb bag of thinset, and a tape measure for scale, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
