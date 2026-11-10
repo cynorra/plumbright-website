@@ -529,5 +529,14 @@
     "title": "Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules",
     "tool": "tile",
     "prompt": "Authentic jobsite close-up illustrating \"Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules\", showing a freshly troweled thinset bed with visible notches of various sizes (1/4\" to 1/2\"), a 50 lb bag of thinset, and a tape measure for scale, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 60,
+    "slug": "french-drain-gravel-depth-and-trench-volume",
+    "fileName": "french-drain-gravel-depth-and-trench-volume.webp",
+    "targetPath": "public/images/guides/french-drain-gravel-depth-and-trench-volume.webp",
+    "title": "French Drain Gravel Depth & Trench Volume Calculation Guide",
+    "tool": "gravel",
+    "prompt": "Authentic jobsite close-up illustrating \"French Drain Gravel Depth & Trench Volume Calculation Guide\", showing a partially filled french drain trench with #57 washed stone, a tape measure extended to show gravel depth, a roll of landscape fabric, and a shovel, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
   }
 ]
