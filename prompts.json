@@ -538,5 +538,14 @@
     "title": "French Drain Gravel Depth & Trench Volume Calculation Guide",
     "tool": "gravel",
     "prompt": "Authentic jobsite close-up illustrating \"French Drain Gravel Depth & Trench Volume Calculation Guide\", showing a partially filled french drain trench with #57 washed stone, a tape measure extended to show gravel depth, a roll of landscape fabric, and a shovel, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 61,
+    "slug": "roofing-underlayment-rolls-per-square-synthetic-vs-felt",
+    "fileName": "roofing-underlayment-rolls-per-square-synthetic-vs-felt.webp",
+    "targetPath": "public/images/guides/roofing-underlayment-rolls-per-square-synthetic-vs-felt.webp",
+    "title": "Roofing Underlayment Rolls: Felt vs. Synthetic Coverage & Waste",
+    "tool": "roofing",
+    "prompt": "Authentic jobsite close-up illustrating \"Roofing Underlayment Rolls: Felt vs. Synthetic Coverage & Waste\", showing rolls of felt (15lb, 30lb) and synthetic underlayment, a tape measure extended along a roof deck, and a calculator with a pencil nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
   }
 ]
