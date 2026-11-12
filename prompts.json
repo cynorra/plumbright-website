@@ -547,5 +547,14 @@
     "title": "Roofing Underlayment Rolls: Felt vs. Synthetic Coverage & Waste",
     "tool": "roofing",
     "prompt": "Authentic jobsite close-up illustrating \"Roofing Underlayment Rolls: Felt vs. Synthetic Coverage & Waste\", showing rolls of felt (15lb, 30lb) and synthetic underlayment, a tape measure extended along a roof deck, and a calculator with a pencil nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 62,
+    "slug": "exterior-paint-gallons-per-1000-sq-ft-siding-stucco",
+    "fileName": "exterior-paint-gallons-per-1000-sq-ft-siding-stucco.webp",
+    "targetPath": "public/images/guides/exterior-paint-gallons-per-1000-sq-ft-siding-stucco.webp",
+    "title": "Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco",
+    "tool": "paint",
+    "prompt": "Authentic jobsite close-up illustrating \"Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco\", showing open paint cans, a paint roller and brush near a textured stucco wall and smooth siding sample, a tape measure, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
   }
 ]

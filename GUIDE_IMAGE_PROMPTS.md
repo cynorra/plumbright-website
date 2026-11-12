@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 61 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 62 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -82,3 +82,4 @@
 | 59 | `thinset-mortar-coverage-per-bag-trowel-notch-guide.webp` | **Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules** (tile) | `Authentic jobsite close-up illustrating "Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules", showing a freshly troweled thinset bed with visible notches of various sizes (1/4" to 1/2"), a 50 lb bag of thinset, and a tape measure for scale, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
 | 60 | `french-drain-gravel-depth-and-trench-volume.webp` | **French Drain Gravel Depth & Trench Volume Calculation Guide** (gravel) | `Authentic jobsite close-up illustrating "French Drain Gravel Depth & Trench Volume Calculation Guide", showing a partially filled french drain trench with #57 washed stone, a tape measure extended to show gravel depth, a roll of landscape fabric, and a shovel, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
 | 61 | `roofing-underlayment-rolls-per-square-synthetic-vs-felt.webp` | **Roofing Underlayment Rolls: Felt vs. Synthetic Coverage & Waste** (roofing) | `Authentic jobsite close-up illustrating "Roofing Underlayment Rolls: Felt vs. Synthetic Coverage & Waste", showing rolls of felt (15lb, 30lb) and synthetic underlayment, a tape measure extended along a roof deck, and a calculator with a pencil nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
+| 62 | `exterior-paint-gallons-per-1000-sq-ft-siding-stucco.webp` | **Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco** (paint) | `Authentic jobsite close-up illustrating "Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco", showing open paint cans, a paint roller and brush near a textured stucco wall and smooth siding sample, a tape measure, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
