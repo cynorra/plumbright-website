@@ -556,5 +556,14 @@
     "title": "Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco",
     "tool": "paint",
     "prompt": "Authentic jobsite close-up illustrating \"Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco\", showing open paint cans, a paint roller and brush near a textured stucco wall and smooth siding sample, a tape measure, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 63,
+    "slug": "mulch-vs-wood-chips-cubic-yard-weight-and-coverage",
+    "fileName": "mulch-vs-wood-chips-cubic-yard-weight-and-coverage.webp",
+    "targetPath": "public/images/guides/mulch-vs-wood-chips-cubic-yard-weight-and-coverage.webp",
+    "title": "Mulch vs Wood Chips vs Bark: Cubic Yard Weight & Breakdown Rates",
+    "tool": "mulch",
+    "prompt": "Authentic jobsite close-up illustrating \"Mulch vs Wood Chips vs Bark: Cubic Yard Weight & Breakdown Rates\", showing distinct piles of double-shredded hardwood mulch, cedar nuggets, and natural wood chips, each with a small scale or weight indicator, and a tape measure extended to show varying depths, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
   }
 ]
