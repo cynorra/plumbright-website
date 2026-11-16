@@ -1,6 +1,6 @@
 ---
 title: "Privacy Fence Materials List for 100 Feet"
-description: "Everything to buy for a 100 ft, 6 ft tall wood privacy fence with a gate: posts, rails, pickets, concrete, gravel and fasteners, with the math behind each line."
+description: "Everything to buy for a 100 ft, 6 ft tall wood privacy fence with a gate: posts, rails, pickets, concrete, gravel and fasteners, with the math behind each."
 published: 2026-11-24
 tool: fence
 ---
@@ -65,3 +65,7 @@ Before purchasing lumber for a 100-foot installation, double check quality specs
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Fasteners for pressure-treated lumber should be hot-dip galvanized or stainless steel; the chemicals in treated wood corrode plain steel.</div>
 
 For custom dimensions, post depths, and fastener counts, use our [fence calculator](/fence-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

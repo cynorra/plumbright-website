@@ -2,6 +2,7 @@
 title: "Concrete Slab Thickness Guide: Patio, Driveway, Shed, Garage"
 description: "How thick to pour a concrete patio, driveway, shed pad or garage floor, what each extra inch costs in concrete, and what goes under the slab."
 published: 2026-10-14
+updated: 2026-11-17
 tool: concrete
 ---
 
@@ -48,12 +49,12 @@ Run your own dimensions in the [concrete calculator](/concrete-calculator/), whi
 Residential garage floors face continuous dynamic point loads from vehicle tires, floor jacks, and tool storage:
 
 - **4 Inches (Standard):** The standard residential specification. Building codes (IRC R506.1) mandate a 3.5-inch minimum, so a 4-inch pour provides comfortable margin. Sufficient for sedans, compact crossovers, and everyday storage over a 4-inch compacted crushed stone base.
-- **5 Inches (Heavy Trucks & Trailers):** The sweet-spot upgrade for 3/4-ton pickups, large SUVs, work vans, or storing heavy camper trailers. Resists perimeter cracking and edge spalling when wheels roll over the entry threshold.
-- **6 Inches (Automotive Lifts & Workshops):** Mandatory if installing a 2-post or 4-post vehicle lift. Most lift manufacturers specify a minimum slab thickness of 4.5 to 6.0 inches of 3,000+ PSI concrete with #4 rebar on 12-to-18-inch centers to ensure concrete expansion anchors will not pull out under load.
+- **5 Inches (Heavy Trucks & Trailers):** A common upgrade for 3/4-ton pickups, large SUVs, work vans, or storing heavy camper trailers, which helps the edges where wheels roll over the entry threshold.
+- **6 Inches (Automotive Lifts & Workshops):** Check the lift's installation manual before you pour. Manufacturers state a minimum slab thickness and concrete strength for anchoring a 2-post or 4-post lift, and it can be more than a standard garage floor needs.
 
 ## What an extra inch costs on a driveway
 
-A single-car driveway 40 ft long and 12 ft wide, with 10% added for waste:
+A single-car driveway 40 ft long and 12 ft wide (a walk that crosses a driveway is usually specified at 6 in by the local authority), with 10% added for waste:
 
 - **4 inches:** 6.52 cubic yards
 - **5 inches:** 8.15 cubic yards, 1.63 yd³ more
@@ -89,3 +90,8 @@ Slab edges carry more stress than the middle, especially under a shed wall or wh
 - **Ordering with no waste.** Uneven subgrade and spillage eat 5 to 10%. Running out mid-pour leaves a cold joint.
 - **Skipping the base on clay.** Clay swells and shrinks. A slab poured straight on it cracks sooner.
 - **Going thin to save money.** A 3 inch patio uses 25% less concrete than a 4 inch one, but it cracks far more easily and is below the code minimum for floor slabs.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.

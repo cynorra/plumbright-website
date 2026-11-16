@@ -59,3 +59,7 @@ How concrete is finished at the top of the hole determines whether your wood pos
 - **Gravel Base Below Concrete:** Pour 4 to 6 inches of crushed gravel into the bottom of the augered hole before setting the post. Never encase the bottom end grain in a solid concrete "cup" with no drainage; water seeping down the wood needs an exit route into the subsoil.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Call 811 before you dig any post hole. Check your city and HOA rules on fence height, setback and permits before you set the first post.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

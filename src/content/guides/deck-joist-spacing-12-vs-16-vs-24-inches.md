@@ -53,3 +53,9 @@ To verify your post size:
 3. **Hardware Attachment:** Always anchor the bottom of the post to the concrete footing using elevated standoff bases (e.g. Simpson Strong-Tie ABA/ABU) to keep end-grain wood 1 inch above concrete and prevent moisture rot.
 
 To calculate deck joist lengths, board quantities, and framing materials for your project, visit our [deck calculator](/deck-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive joist, beam and post tables for residential decks.
+- [Anne Arundel County deck guide, based on the 2021 IRC](https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf), Anne Arundel County. Plain-language summary of IRC Tables R507.6 and R507.7.

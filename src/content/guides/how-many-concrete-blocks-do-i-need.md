@@ -67,3 +67,9 @@ Concrete blocks must never be laid directly onto soil, gravel, or subgrade dirt:
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Block walls that hold back soil, carry a building or rise over about 4 ft usually need a footing, reinforcement and grouted cores sized by code or an engineer. Check with your building department.</div>
 
 To estimate total block counts, pallet breakdowns, and mortar bags for any wall dimension, use our [brick calculator](/brick-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
+- [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.

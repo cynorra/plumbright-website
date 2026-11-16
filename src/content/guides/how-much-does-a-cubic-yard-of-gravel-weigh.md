@@ -58,3 +58,8 @@ Weight is the reason most people get gravel delivered. A cubic yard of stone is 
 ## Bags
 
 A 0.5 cu ft bag of pea gravel weighs about 48 lb at the weight we use, and it takes 54 such bags to make one cubic yard. Bags make sense for a few square feet of decorative stone; for anything past about a yard, bulk delivery is cheaper and much less work.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.

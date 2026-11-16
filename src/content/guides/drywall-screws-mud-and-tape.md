@@ -1,6 +1,6 @@
 ---
 title: "Drywall Screws, Mud and Tape: Quantities per Sheet"
-description: "How many screws, how much joint compound and how much tape each drywall sheet needs, with per-sheet tables for 4x8, 4x10 and 4x12 board and a basement example."
+description: "How many screws, how much joint compound and tape each drywall sheet needs, with per-sheet tables for 4x8, 4x10 and 4x12 board and a basement example."
 published: 2026-10-29
 tool: drywall
 ---
@@ -50,3 +50,9 @@ About 370 ft of paper tape per 1,000 sq ft covers flat seams and inside corners.
 **A basement:** 1,100 sq ft of walls and a 600 sq ft ceiling in 4 × 12 sheets, 10% waste: 26 wall sheets and 14 ceiling sheets, 40 in total. That's about **1,740 screws**, **17.3 gallons** of compound (4 pails) and **710 ft of tape** (2 rolls of 500 ft).
 
 The [drywall calculator](/drywall-calculator/) totals all of this for any room. For a single room, see [how many sheets a 12 × 12 room takes](/guides/how-many-sheets-of-drywall-for-a-12x12-room/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [USG: how much joint compound to finish 1,000 sq ft of wallboard](https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html), USG. The joint compound planning figure.
+- [Walls & Ceilings, All things gypsum: attachment of gypsum board](https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board), Walls & Ceilings. Screw spacing from ASTM C840 and GA-216.

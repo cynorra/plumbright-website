@@ -2,6 +2,7 @@
 title: "40 lb vs 60 lb vs 80 lb Concrete Bags: Yield and Cost"
 description: "How much concrete each bag size makes, how many bags fill a cubic yard, how to compare cost per cubic foot, and when 80 lb bags are worth the weight."
 published: 2026-10-26
+updated: 2026-11-17
 tool: concrete
 ---
 
@@ -60,7 +61,7 @@ With these example prices (not current quotes, just to show the method):
 </table>
 </div>
 
-Smaller bags usually cost more per cubic foot, because packaging and handling cost the same per bag. Past roughly a cubic yard, ready-mix delivered by truck is usually cheaper than any bag, and a lot less work.
+Smaller bags usually cost more per cubic foot, because packaging and handling cost the same per bag. Past roughly a cubic yard, ready-mix delivered by truck is often cheaper per cubic yard than bags, and a lot less work. Compare local quotes, because short-load fees apply to small orders.
 
 ## 80 lb bags: fewer trips, heavier lifts
 
@@ -77,3 +78,8 @@ The 80 lb bag is the default for a reason: fewer bags to buy, carry, open and mi
 - **Fast-setting post mix** is poured dry and soaked in the hole. Its yield per bag can be lower than standard mix, so check the label before counting bags.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Wet concrete is caustic and can burn skin. Wear gloves, eye protection and long sleeves, and a dust mask when opening and pouring dry mix.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.

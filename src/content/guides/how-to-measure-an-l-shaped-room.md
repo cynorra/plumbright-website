@@ -85,3 +85,7 @@ Tape measures read in feet and inches, but the math needs decimal feet. Divide t
 - Write every measurement on your sketch as you take it.
 
 Once you have the total, enter it in the [tile calculator](/tile-calculator/) with the "I know the sq ft" option to get tile and box counts.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

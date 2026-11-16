@@ -1,6 +1,6 @@
 ---
 title: "Stair Rise and Run: Code Limits and Comfortable Dimensions"
-description: "The IRC allows risers up to 7 3/4 in and treads down to 10 in, but comfortable stairs sit nearer 7 in by 11 in. The rules of thumb, with a chart and an example."
+description: "The IRC allows risers up to 7 3/4 in and treads down to 10 in, but comfortable stairs sit nearer 7 in by 11 in. Rules of thumb, a chart and an example."
 published: 2026-10-22
 tool: stairs
 ---
@@ -91,3 +91,8 @@ The single most common stair mistake is building to the subfloor. If the top flo
 ## Outdoor and deck stairs
 
 Deck stairs follow the same IRC rules for risers, treads and handrails. Outside, slightly shallower risers and deeper treads (around 6 to 7 in by 11 to 12 in) feel safer in wet weather, and the bottom step needs a solid, level landing rather than soft ground.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Knox County: residential stair requirements, IRC R311.7](https://www.KnoxCounty.org/codes/pdfs/construction_info/Stairs.pdf), Knox County Codes Administration. Riser, tread, headroom and handrail limits.

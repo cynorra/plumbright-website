@@ -84,3 +84,9 @@ How you finish the mortar joint dictates the wall's long-term resistance to wate
 - **Cold-Weather Masonry (Under 40°F):** Hydration slows drastically below 40°F (4°C) and halts completely below freezing. Ice crystals form inside uncured mortar joints, reducing bond strength by up to 80%. In cold weather, use warm mixing water, store bricks indoors, and tent/heat fresh masonry for at least 48 hours.
 
 Calculate your exact brick, block, and mortar requirements with our [brick calculator](/brick-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
+- [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.

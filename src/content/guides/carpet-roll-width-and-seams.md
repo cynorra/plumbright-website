@@ -58,3 +58,7 @@ Visible seam lines and premature ripples are the two most common DIY carpet inst
 - **Power Stretching vs. Knee Kicker:** A knee kicker is meant solely for positioning carpet onto tack strips around door jambs and corners. Wall-to-wall tensioning must be performed using a mechanical **pole-driven power stretcher**. Power-stretching pulls broadloom carpet tight across both dimensions, eliminating temperature-related rippling and wrinkles.
 
 Run your own room through the [carpet calculator](/carpet-calculator/), which compares both directions and all three roll widths. For measuring, see [how much carpet you need](/guides/how-much-carpet-do-i-need/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

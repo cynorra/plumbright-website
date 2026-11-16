@@ -38,7 +38,7 @@ const principles = [
   },
   {
     title: "Zero Thin Content & Transparent Methodology",
-    body: "Independent analysis written by engineering graduates. No automated generic text or black-box estimates without physical derivation.",
+    body: "The author is a software and industrial engineering graduate. Many guides are drafted with AI tools, checked by automated tests and corrected by the author; the editorial policy explains how.",
   },
 ];
 ---
@@ -49,7 +49,7 @@ const principles = [
     <div class="relative mx-auto max-w-6xl px-4 pt-12 pb-14 md:pt-16 md:pb-16">
       <div class="max-w-3xl">
         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-soft text-brand mb-4">
-          Independent Engineering & Field Guides
+          Material calculators and project guides
         </span>
         <h1 class="text-4xl leading-[1.08] font-extrabold md:text-5xl lg:text-6xl text-balance">
           Technical guides and transparent formulas for home improvement.
@@ -78,8 +78,8 @@ const principles = [
             <span class="inline-block size-2 rounded-full bg-brand animate-pulse"></span>
             <span class="text-xs font-bold uppercase tracking-wider text-brand">Featured Field Analysis</span>
           </div>
-          <h2 id="featured-guides-h" class="text-3xl font-extrabold">Latest Engineering & Material Articles</h2>
-          <p class="text-muted-foreground mt-1 text-sm">Strictly verified physical formulas, installation tolerances, and real site calculations.</p>
+          <h2 id="featured-guides-h" class="text-3xl font-extrabold">Latest guides</h2>
+          <p class="text-muted-foreground mt-1 text-sm">Formulas, installation allowances and worked examples for common material estimates.</p>
         </div>
         <a href="/guides/" class="text-sm font-semibold text-brand hover:underline flex items-center gap-1">
           Browse all {allGuides.length} articles <span>→</span>
@@ -191,8 +191,8 @@ const principles = [
       {recentGrid.length > 0 && (
         <div class="mt-14">
           <div class="flex items-center justify-between border-b pb-3 mb-6">
-            <h3 class="text-xl font-bold">Recent Engineering Field Guides</h3>
-            <span class="text-xs text-muted-foreground">Peer-tested equations & practical guidelines</span>
+            <h3 class="text-xl font-bold">Recent guides</h3>
+            <span class="text-xs text-muted-foreground">Formulas & worked examples</span>
           </div>
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {recentGrid.map((g) => (
@@ -354,9 +354,9 @@ const principles = [
   <section aria-labelledby="how-h" class="mx-auto max-w-6xl px-4 py-16">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
       <div>
-        <h2 id="how-h" class="text-3xl font-extrabold">Editorial Integrity & Engineering Standards</h2>
+        <h2 id="how-h" class="text-3xl font-extrabold">How the numbers are made</h2>
         <p class="text-muted-foreground mt-3 max-w-[48ch] leading-relaxed">
-          Unlike generic content farms or unverified AI summaries, every article and calculation on {SITE.name} is governed by verifiable arithmetic, strict peer-reviewed tolerances, and documented construction codes.
+          Every calculator shows its formula and is covered by automated tests. Guides cite the code or manufacturer data they rely on, are drafted with AI tools and checked by automated rules, and are corrected when a mistake is found. See the <a href="/editorial-policy/" class="underline">editorial policy</a>.
         </p>
         <div class="tick-rule mt-6 max-w-xs"></div>
         <div class="mt-6">

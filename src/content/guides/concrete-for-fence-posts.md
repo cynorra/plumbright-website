@@ -2,6 +2,7 @@
 title: "How Many Bags of Concrete Do You Need per Fence Post?"
 description: "Bags of concrete per fence post by hole size and depth, for 4x4 and 6x6 posts, with the formula, a worked example for a whole fence and setting tips."
 published: 2026-10-13
+updated: 2026-11-17
 tool: concrete
 ---
 
@@ -43,7 +44,7 @@ The post only takes up about 15% of a 10 inch hole, so leaving it out of the mat
 
 Different post types carry vastly different wind and leverage loads:
 
-- **Curbside Mailbox Posts (4x4):** USPS guidelines recommend an exposed height of 41 to 45 inches. An 8-inch wide hole dug 18 to 24 inches deep (with 3-4 inches of gravel) requires **1 to 1.5 bags of 80 lb concrete** (or two 50 lb bags). This provides ample stability against snowplow wash without over-excavating.
+- **Curbside Mailbox Posts (4x4):** USPS guidelines recommend an exposed height of 41 to 45 inches. An 8-inch wide hole dug 18 to 24 inches deep (with 4 inches of gravel) takes 0.3 to 0.45 cu ft of concrete around a 3.5 in post, so **one 80 lb bag** (or one to two 50 lb bags). This provides ample stability against snowplow wash without over-excavating.
 - **Heavy 6x6 Fence & Gate Posts:** Swing gates exert continuous cantilever torque. Drill a 12-to-14-inch diameter hole at least 36 to 48 inches deep. A 6x6 post in a 14-inch hole at 42 inches deep takes **4 to 6 bags of 80 lb concrete** (or 7 to 9 bags of 50 lb mix) to anchor firmly.
 
 ## Worked example: a 10-post fence
@@ -83,3 +84,8 @@ Standard mix is mixed in a wheelbarrow first. It takes longer to set but often c
 - **Buying exactly the calculated amount.** Holes are never perfect cylinders. Keep a spare bag or two.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Call 811 before you dig. In the US it is free and marks buried gas, power and water lines so you do not hit them.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.

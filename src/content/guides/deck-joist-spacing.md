@@ -1,6 +1,6 @@
 ---
 title: "Deck Joist Spacing: 12, 16 or 24 Inches?"
-description: "Joist spacing depends on the decking. 16 in suits most 5/4 wood and composite boards, 12 in suits diagonal layouts and 24 in suits 2x decking. IRC tables and counts."
+description: "Joist spacing depends on the decking: 16 in suits most 5/4 boards and composites, 12 in diagonals, 24 in 2x decking. IRC span limits and joist counts."
 published: 2026-11-03
 tool: deck
 ---
@@ -72,3 +72,9 @@ For a 16 × 12 ft deck, going from 16 in to 12 in spacing adds 4 joists, and the
 Ask the board maker, not just the code: composite and PVC decking warranties often depend on following their span rating, and those ratings sometimes drop in hot climates or for diagonal layouts.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Joist size, span, beam, footing and ledger attachment are set by your local building code, and most decks need a permit. Have your plan checked by your building department before you build.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive joist, beam and post tables for residential decks.
+- [Anne Arundel County deck guide, based on the 2021 IRC](https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf), Anne Arundel County. Plain-language summary of IRC Tables R507.6 and R507.7.

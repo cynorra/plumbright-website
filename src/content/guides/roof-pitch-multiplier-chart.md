@@ -75,3 +75,7 @@ The [roofing calculator](/roofing-calculator/) turns that area into shingle bund
 Low slopes shed water slowly. Asphalt shingle makers set a minimum slope, and below about 4/12 they typically require extra underlayment, while very low slopes need a different roofing system altogether. Steep roofs, from about 8/12 up, are dangerous to walk and usually need roof jacks or harness systems, which matters if you're comparing a DIY quote with a contractor's.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Measuring and working on roofs is dangerous. Take what measurements you can from the ground or the attic, and leave steep or high roofs to a professional.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

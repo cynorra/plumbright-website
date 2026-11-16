@@ -83,3 +83,8 @@ When shifting from bags to commercial bulk delivery, preparation saves hours of 
 - **Bulk needs a place to land.** A delivered pile of several yards covers a big patch of driveway or lawn; plan where it goes and how you'll move it.
 
 Calculate your exact square footage and material requirements with our [mulch calculator](/mulch-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.

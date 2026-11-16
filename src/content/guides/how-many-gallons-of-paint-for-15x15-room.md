@@ -1,10 +1,11 @@
 ---
 title: "How Many Gallons of Paint for a 15x15 Room (Walls & Ceiling)?"
-description: "Calculate paint gallons for a 15x15 room's walls and ceiling. Learn to subtract doors/windows, account for 1-2 coats, and estimate primer needs for accurate DIY."
+description: "How many gallons of paint a 15 x 15 foot room takes for walls and ceiling: subtract doors and windows, count the coats, and add primer if you need it."
 published: 2026-10-30
+updated: 2026-11-17
 tool: paint
 ---
-**For a standard 15x15 foot room with 8-foot ceilings, expect to need approximately 3-4 gallons of paint for two coats on both walls and ceiling, plus an additional 1-2 gallons of primer if the surface requires it.** This estimate accounts for typical door and window deductions and a 10% waste factor. However, actual quantities can vary significantly based on ceiling height, the number of doors and windows, surface porosity, and whether a color change requires multiple coats or a dedicated primer, making a detailed calculation essential.
+**A 15 x 15 foot room with 8-foot ceilings, one door and one window, needs about 4 gallons of paint for two coats on the walls and ceiling (4.0 gallons with 10% waste), plus about 2 gallons of primer if the surface needs it.** This estimate accounts for typical door and window deductions and a 10% waste factor. However, actual quantities can vary significantly based on ceiling height, the number of doors and windows, surface porosity, and whether a color change requires multiple coats or a dedicated primer, making a detailed calculation essential.
 
 ## Calculating Paint Coverage: Step-by-Step Formula
 
@@ -43,88 +44,16 @@ The following table provides estimated paint and primer quantities for various r
 
 <div class="table-wrap"><table>
 <thead>
-<tr>
-<th>Room Size (L x W)</th>
-<th>Ceiling Height</th>
-<th>Net Wall Area (sq ft)</th>
-<th>Ceiling Area (sq ft)</th>
-<th>Total Paintable Area (sq ft)</th>
-<th>Paint Needed (1 Coat, gal)</th>
-<th>Paint Needed (2 Coats, gal)</th>
-<th>Primer Needed (1 Coat, gal)</th>
-</tr>
+<tr><th>Room size (L × W)</th><th>Ceiling height</th><th>Net wall area (sq ft)</th><th>Ceiling area (sq ft)</th><th>Total paintable area (sq ft)</th><th>Paint, 1 coat (gal, incl. 10% waste)</th><th>Paint, 2 coats (gal, incl. 10% waste)</th><th>Primer, 1 coat (gal, incl. 10% waste)</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>10x10 ft</td>
-<td>8 ft</td>
-<td>285</td>
-<td>100</td>
-<td>385</td>
-<td>1.2</td>
-<td>2.3</td>
-<td>1.2</td>
-</tr>
-<tr>
-<td>12x12 ft</td>
-<td>8 ft</td>
-<td>355</td>
-<td>144</td>
-<td>499</td>
-<td>1.5</td>
-<td>3.0</td>
-<td>1.6</td>
-</tr>
-<tr>
-<td>14x14 ft</td>
-<td>8 ft</td>
-<td>425</td>
-<td>196</td>
-<td>621</td>
-<td>1.8</td>
-<td>3.6</td>
-<td>1.9</td>
-</tr>
-<tr>
-<td>15x15 ft</td>
-<td>8 ft</td>
-<td>460</td>
-<td>225</td>
-<td>685</td>
-<td>2.0</td>
-<td>4.0</td>
-<td>2.2</td>
-</tr>
-<tr>
-<td>16x16 ft</td>
-<td>8 ft</td>
-<td>495</td>
-<td>256</td>
-<td>751</td>
-<td>2.2</td>
-<td>4.4</td>
-<td>2.4</td>
-</tr>
-<tr>
-<td>15x15 ft</td>
-<td>9 ft</td>
-<td>518</td>
-<td>225</td>
-<td>743</td>
-<td>2.2</td>
-<td>4.4</td>
-<td>2.3</td>
-</tr>
-<tr>
-<td>15x15 ft</td>
-<td>10 ft</td>
-<td>575</td>
-<td>225</td>
-<td>800</td>
-<td>2.3</td>
-<td>4.7</td>
-<td>2.5</td>
-</tr>
+<tr><td>10 × 10 ft</td><td>8 ft</td><td>291.3</td><td>100</td><td>391.3</td><td>1.15</td><td>2.30</td><td>1.23</td></tr>
+<tr><td>12 × 12 ft</td><td>8 ft</td><td>355.3</td><td>144</td><td>499.3</td><td>1.46</td><td>2.93</td><td>1.57</td></tr>
+<tr><td>12 × 15 ft</td><td>8 ft</td><td>403.3</td><td>180</td><td>583.3</td><td>1.71</td><td>3.42</td><td>1.83</td></tr>
+<tr><td>14 × 14 ft</td><td>8 ft</td><td>419.3</td><td>196</td><td>615.3</td><td>1.80</td><td>3.61</td><td>1.93</td></tr>
+<tr><td>15 × 15 ft</td><td>8 ft</td><td>451.3</td><td>225</td><td>676.3</td><td>1.98</td><td>3.97</td><td>2.13</td></tr>
+<tr><td>15 × 20 ft</td><td>8 ft</td><td>531.3</td><td>300</td><td>831.3</td><td>2.44</td><td>4.88</td><td>2.61</td></tr>
+<tr><td>20 × 20 ft</td><td>8 ft</td><td>611.3</td><td>400</td><td>1011.3</td><td>2.97</td><td>5.93</td><td>3.18</td></tr>
 </tbody>
 </table></div>
 
@@ -132,7 +61,7 @@ The following table provides estimated paint and primer quantities for various r
 
 ## Worked Example: 15x15 Master Bedroom Walkthrough
 
-Let's calculate the paint and primer needed for a 15x15 foot room with an 8-foot ceiling, including one standard door and one standard window.
+This example calculates the paint and primer needed for a 15x15 foot room with an 8-foot ceiling, including one standard door and one standard window.
 
 **Project Specifications:**
 *   Room Dimensions: 15 ft (Length) x 15 ft (Width)
@@ -170,5 +99,13 @@ Let's calculate the paint and primer needed for a 15x15 foot room with an 8-foot
 *   **Rounded Paint Needed:** Approximately **4 gallons** of paint.
 
 **Step 5: Estimate Primer Gallons (1 Coat)**
+*   **Primer for 1 coat:** `676.3 sq ft / 350 sq ft per gallon = 1.93 gallons`
+*   **Add 10% waste:** `1.93 gallons * 1.10 = 2.13 gallons`
+*   **Rounded primer needed:** about **2 gallons**, only if the walls and ceiling need priming.
 
-*   **Primer for 1 Coat:** `676.
+**Summary:** the 15 x 15 ft room takes about **4 gallons of paint** for two coats (3.97 gallons with waste) and about **2 gallons of primer** for one coat. Buy a little extra of the paint color for touch-ups. A different ceiling height, door and window count, or a darker color change moves these numbers, so rerun the steps or use the [paint calculator](/paint-calculator/) with your own measurements.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.

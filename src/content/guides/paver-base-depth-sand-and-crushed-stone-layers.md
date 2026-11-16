@@ -1,6 +1,6 @@
 ---
 title: "Paver Base Depth: Excavation for Sand & Crushed Stone"
-description: "Calculate paver base depth for patios and walkways. Learn to excavate 7-9 inches, including 4-6 inches of compacted crushed stone and 1 inch of bedding sand,."
+description: "How deep to excavate for pavers: 4 to 6 inches of compacted crushed stone plus 1 inch of bedding sand, and the total dig depth for patios and walkways."
 published: 2026-11-02
 tool: gravel
 ---
@@ -105,7 +105,7 @@ This table provides estimated material quantities and total excavation depths fo
 
 ## Worked Project Example
 
-Let's calculate the excavation depth and material needs for a 12 ft x 20 ft patio using 2.5-inch thick pavers. We will use a 4-inch compacted crushed stone base and a 1-inch bedding sand layer.
+This example calculates the excavation depth and material needs for a 12 ft x 20 ft patio using 2.5-inch thick pavers. We will use a 4-inch compacted crushed stone base and a 1-inch bedding sand layer.
 
 **Project Specifications:**
 *   Area: 12 ft x 20 ft
@@ -153,3 +153,8 @@ Let's calculate the excavation depth and material needs for a 12 ft x 20 ft pati
 **Drainage Considerations:** The crushed stone base, particularly quarry process, provides excellent drainage, allowing water to permeate through the paver system and into the subgrade. Ensure the subgrade itself is sloped away from any structures at a minimum of 1/8 inch per foot to prevent water pooling. For more information on material weights, consult our guide on [how much does a cubic yard of gravel weigh](/guides/how-much-does-a-cubic-yard-of-gravel-weigh/).
 
 **Edge Restraints:** After the base and sand are laid, but before pavers are fully installed, consider installing rigid edge restraints around the perimeter of your paved area. These are critical for preventing the pavers from shifting or spreading over time, maintaining the integrity of your design.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.

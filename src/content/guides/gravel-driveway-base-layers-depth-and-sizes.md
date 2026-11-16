@@ -1,6 +1,6 @@
 ---
 title: "Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways?"
-description: "Compare crushed stone vs pea gravel for driveways and walkways. Understand angular interlocking, shifting under tires, compaction, and tonnage per 100 sq ft."
+description: "Crushed stone versus pea gravel for driveways and walkways: how angular stone locks together, how each shifts under tires, and tons needed per 100 sq ft."
 published: 2026-11-28
 tool: gravel
 ---
@@ -55,3 +55,8 @@ Winter maintenance is one of the most frequently overlooked factors when choosin
 - **Stabilization Grid Alternative:** If you love the aesthetic appeal of smooth pea gravel for patios or light driving pads, consider installing permeable honeycomb stabilizer grids (such as TRUEGRID or CORE Gravel). These plastic cellular pavers lock the round pebbles into place, preventing sinking and rutting while preserving natural surface drainage.
 
 To calculate exact tonnage, cubic yards, and delivery loads for your project dimensions, use our [gravel calculator](/gravel-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.

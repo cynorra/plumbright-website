@@ -1,6 +1,6 @@
 ---
 title: "How Much Grout Do You Need? Pounds per 100 Sq Ft by Tile Size"
-description: "Grout depends on tile size, joint width and tile thickness. The formula, a chart in pounds per 100 sq ft, and why small tiles and wide joints take far more grout."
+description: "Grout depends on tile size, joint width and thickness. The formula, a chart in pounds per 100 sq ft, and why small tiles and wide joints take more grout."
 published: 2026-11-05
 tool: tile
 ---
@@ -73,3 +73,7 @@ Always check the grout maker's stated joint-width range.
 - **Mix in small batches.** Cement grout has a limited working time. Mix what you can use in 20 to 30 minutes.
 - **Buy one color lot.** Grout color varies between batches, just like tile.
 - **Keep a little extra** for repairs. A small bag of the same color makes future fixes invisible.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

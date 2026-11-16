@@ -57,3 +57,9 @@ For the sand and base layers in detail, see [how much sand you need under pavers
 - **Keep Spares:** Retain 15 to 25 extra pavers in your garage. If outdoor oil, grease, or iron fertilizer stains a paver down the road, you can easily pop it out with a screwdriver and insert a pristine spare.
 
 For complete foundation and perimeter calculations, use our [brick calculator](/brick-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
+- [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.

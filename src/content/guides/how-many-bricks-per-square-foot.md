@@ -2,6 +2,7 @@
 title: "How Many Bricks per Square Foot? Modular, Queen and King"
 description: "About 6.75 modular bricks cover a square foot of wall with 3/8 inch joints. Bricks per sq ft for common sizes, the math behind it and wall examples."
 published: 2026-11-12
+updated: 2026-11-17
 tool: brick
 ---
 
@@ -70,7 +71,7 @@ When estimating exterior brick veneer anchored to wood or steel framing, brick c
 
 - **1-Inch Clear Airspace:** Never lay brick veneer directly against wood sheathing. Building codes mandate a minimum 1-inch continuous drainage cavity between the back of the brick and the weather-resistive barrier (housewrap). This gap prevents wind-driven rain from bridging into interior wall framing.
 - **Corrugated Wall Ties:** Fasten 22-gauge galvanized metal veneer ties into wood studs using hot-dipped galvanized ring-shank nails or exterior screws. Space ties so that each tie supports no more than **2.67 square feet of wall area** (maximum spacing: 16 inches vertically and 24 inches horizontally on center). For every 1,000 modular bricks, purchase approximately 375 to 400 corrugated wall ties.
-- **Base Flashing and Weep Holes:** Water inevitably penetrates porous brick and mortar joints. Install self-adhering membrane flashing extending 8 inches up the backup sheathing and across the concrete foundation ledge. Place open head-joint weep vents or cotton rope wicks every 24 inches on center directly above the flashing ledge to let drained moisture escape.
+- **Base Flashing and Weep Holes:** Water inevitably penetrates porous brick and mortar joints. Install self-adhering membrane flashing extending 8 inches up the backup sheathing and across the concrete foundation ledge. Place open head-joint weep vents or cotton rope wicks directly above the flashing ledge to let drained moisture escape. The IRC (R703.8.6) allows weep holes up to 33 inches apart on center; many masons space them closer, around 24 inches, so follow your local code and the brick maker.
 
 ## Buying tips
 
@@ -78,3 +79,9 @@ When estimating exterior brick veneer anchored to wood or steel framing, brick c
 - **Ask about pallet quantities.** Brick is usually sold by the pallet or banded "cube" containing between 500 and 530 modular bricks (approx. 75 to 78 square feet of wall area per cube). Partial cubes often carry surcharge restocking fees.
 
 For customizable wall dimensions, openings, and mortar estimates, use our [brick calculator](/brick-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
+- [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.

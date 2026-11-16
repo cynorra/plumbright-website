@@ -1,6 +1,6 @@
 ---
 title: "How Many Tiles in a Box? Coverage by Tile Size"
-description: "Tiles per box vary by size and brand, but the label always gives pieces and square feet. Convert between them, see per-tile coverage by size and why grout helps."
+description: "Tiles per box vary by brand, but the label gives pieces and square feet. Convert between them and see per-tile coverage by size, with and without grout."
 published: 2026-10-27
 tool: tile
 ---
@@ -70,3 +70,7 @@ The two methods differ by a box, because the piece count includes the grout join
 - **Open a box before you leave the store** if you can, to check for breakage and the actual size.
 - **Ask about returns.** Many stores take back unopened boxes, which makes rounding up nearly free.
 - **Mosaic sheets** are sold by the sheet, with the sheet size (often about 12 × 12 in) and sq ft per carton on the label. Count sheets, not individual tiles.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

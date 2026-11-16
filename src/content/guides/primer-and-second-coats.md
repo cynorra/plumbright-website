@@ -71,3 +71,8 @@ A 12 × 12 ft room just drywalled, walls and ceiling: about 492 sq ft. Primer at
 - Paint: 492 × 2 ÷ 350 = 2.81 gal → **3 gal** (ceiling and wall paint bought separately in practice)
 
 Tint the primer toward your wall color if the store offers it. It helps the first topcoat cover evenly.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.

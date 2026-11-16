@@ -65,3 +65,7 @@ Selecting the right nails and spacing them correctly ensures your fence pickets 
 - **Check the last picket early.** Lay out a section dry; if the last picket would be a sliver, adjust the gap slightly across the section.
 
 To calculate your complete fence bill of materials including posts, rails, and bags of concrete, use our [fence calculator](/fence-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

@@ -19,7 +19,7 @@ const crumbs = [{ name: "Home", path: "/" }, { name: "Guides", path: "/guides/" 
 const getReadTime = (body?: string) => Math.max(3, Math.ceil((body || "").trim().split(/\s+/).length / 200));
 ---
 <Base
-  title="Project Guides & Technical Field Manuals"
+  title="Project Guides"
   description="Technical guides to measuring, estimating and buying materials for concrete, tile, flooring, drywall, decks, roofs and more, with worked mathematical examples."
   schema={[breadcrumbSchema(crumbs)]}
 >
@@ -29,7 +29,7 @@ const getReadTime = (body?: string) => Math.max(3, Math.ceil((body || "").trim()
       <Breadcrumbs crumbs={crumbs} />
       <div class="mt-5 max-w-3xl">
         <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-soft text-brand mb-3">
-          Engineering & Material Field Manuals
+          Material estimating guides
         </span>
         <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Technical Project Guides</h1>
         <p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">

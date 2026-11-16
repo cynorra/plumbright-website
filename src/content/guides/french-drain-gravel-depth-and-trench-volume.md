@@ -1,10 +1,11 @@
 ---
 title: "French Drain Gravel Depth & Trench Volume Calculation Guide"
-description: "Calculate French drain gravel depth and trench volume per linear foot. Learn how much #57 washed stone is needed for a 50-foot run, including fabric wrapping,."
+description: "How much gravel a French drain trench takes per linear foot, with a volume table, a 50-foot worked example and the geotextile fabric you need."
 published: 2026-11-10
+updated: 2026-11-17
 tool: gravel
 ---
-**To estimate French drain gravel volume, calculate the trench's cross-sectional area (width x total gravel depth) and multiply by the linear footage. For a typical 12-inch wide trench with 18 inches of gravel, expect approximately 0.167 cubic feet of gravel per linear foot, or 0.62 cubic yards per 100 linear feet, including a 10% waste factor. Actual requirements vary significantly with trench dimensions, pipe diameter, and desired gravel layers, necessitating a detailed calculation from the table below.**
+**To estimate French drain gravel, multiply the trench width (ft) by the gravel depth (ft) to get cubic feet per linear foot, subtract the pipe, and multiply by the length. A 12-inch wide trench with 18 inches of gravel is 1.5 cu ft per foot before the pipe and 1.39 cu ft after it, which is 5.7 cubic yards per 100 linear feet with 10% waste.** Trench width, gravel depth and pipe size change the answer, so use the table below or the steps that follow.
 
 ## Calculating Trench Volume and Gravel Requirements
 
@@ -56,138 +57,39 @@ A properly constructed French drain relies on specific dimensions for effective 
     *   Cubic Yards = Cubic Feet / 27
     *   *Example:* 85.8 cu ft / 27 = 3.18 cubic yards.
 
-For quick estimates, you can use our [gravel calculator](/gravel-calculator/). Remember that a minimum 1% slope (1 foot drop per 100 feet of run) is crucial for effective drainage, which may slightly alter effective depth along the run.
+For quick estimates, you can use our [gravel calculator](/gravel-calculator/). Plan for a gentle, steady slope along the pipe (about 1%, or 1 foot of drop per 100 feet, is a common minimum), which means the trench gets slightly deeper along its run.
 
 ## French Drain Gravel and Trench Volume Estimation Matrix
 
-The following table provides estimated gravel volumes for common French drain trench dimensions, assuming a 4-inch perforated pipe and a 10% waste factor for #57 washed stone. The "Gravel Depth" accounts for a 4-6 inch base layer, the pipe, and a top layer of gravel, leaving space for a 4-6 inch topsoil cap. Geotextile fabric should line the entire trench before gravel is added, wrapping over the top layer of gravel to prevent soil infiltration. For more on proper excavation, see our guide on [Paver Base Depth: Excavation for Sand & Crushed Stone](/guides/paver-base-depth-sand-and-crushed-stone-layers/).
+The following table gives gravel volumes for common trench sizes, assuming a 4-inch perforated pipe (4.5 in outside diameter, deducted at 0.11 cu ft per linear foot) and a 10% waste factor for #57 washed stone. "Gravel depth" is the depth the stone fills, so a trench 4 to 6 inches deeper leaves room for a topsoil cap. Geotextile fabric should line the entire trench before gravel is added, wrapping over the top layer of gravel to prevent soil infiltration. For more on proper excavation, see our guide on [Paver Base Depth: Excavation for Sand & Crushed Stone](/guides/paver-base-depth-sand-and-crushed-stone-layers/).
 
 <div class="table-wrap">
 <table>
 <thead>
-<tr>
-<th>Trench Width (in)</th>
-<th>Total Trench Depth (in)</th>
-<th>Gravel Depth (in)</th>
-<th>Cu Ft Gravel per Linear Foot (approx.)</th>
-<th>Cu Yds Gravel per 50 Linear Feet (with 10% waste)</th>
-<th>Cu Yds Gravel per 100 Linear Feet (with 10% waste)</th>
-</tr>
+<tr><th>Trench width (in)</th><th>Gravel depth (in)</th><th>Gravel per linear foot (cu ft, pipe deducted)</th><th>Cubic yards per 50 ft (10% waste)</th><th>Cubic yards per 100 ft (10% waste)</th></tr>
 </thead>
 <tbody>
-<tr>
-<td>6</td>
-<td>18</td>
-<td>14</td>
-<td>0.58</td>
-<td>1.18</td>
-<td>2.36</td>
-</tr>
-<tr>
-<td>6</td>
-<td>24</td>
-<td>20</td>
-<td>0.83</td>
-<td>1.69</td>
-<td>3.38</td>
-</tr>
-<tr>
-<td>6</td>
-<td>30</td>
-<td>26</td>
-<td>1.08</td>
-<td>2.20</td>
-<td>4.40</td>
-</tr>
-<tr>
-<td>8</td>
-<td>18</td>
-<td>14</td>
-<td>0.78</td>
-<td>1.58</td>
-<td>3.16</td>
-</tr>
-<tr>
-<td>8</td>
-<td>24</td>
-<td>20</td>
-<td>1.11</td>
-<td>2.26</td>
-<td>4.52</td>
-</tr>
-<tr>
-<td>8</td>
-<td>30</td>
-<td>26</td>
-<td>1.44</td>
-<td>2.93</td>
-<td>5.86</td>
-</tr>
-<tr>
-<td>12</td>
-<td>18</td>
-<td>14</td>
-<td>1.17</td>
-<td>2.38</td>
-<td>4.76</td>
-</tr>
-<tr>
-<td>12</td>
-<td>24</td>
-<td>20</td>
-<td>1.67</td>
-<td>3.40</td>
-<td>6.80</td>
-</tr>
-<tr>
-<td>12</td>
-<td>30</td>
-<td>26</td>
-<td>2.17</td>
-<td>4.41</td>
-<td>8.82</td>
-</tr>
-<tr>
-<td>12</td>
-<td>36</td>
-<td>32</td>
-<td>2.67</td>
-<td>5.43</td>
-<td>10.86</td>
-</tr>
-<tr>
-<td>18</td>
-<td>24</td>
-<td>20</td>
-<td>2.50</td>
-<td>5.09</td>
-<td>10.18</td>
-</tr>
-<tr>
-<td>18</td>
-<td>30</td>
-<td>26</td>
-<td>3.25</td>
-<td>6.61</td>
-<td>13.22</td>
-</tr>
-<tr>
-<td>18</td>
-<td>36</td>
-<td>32</td>
-<td>4.00</td>
-<td>8.14</td>
-<td>16.28</td>
-</tr>
+<tr><td>8</td><td>12</td><td>0.56</td><td>1.13</td><td>2.27</td></tr>
+<tr><td>8</td><td>18</td><td>0.89</td><td>1.81</td><td>3.62</td></tr>
+<tr><td>8</td><td>24</td><td>1.22</td><td>2.49</td><td>4.98</td></tr>
+<tr><td>8</td><td>30</td><td>1.56</td><td>3.17</td><td>6.34</td></tr>
+<tr><td>12</td><td>12</td><td>0.89</td><td>1.81</td><td>3.62</td></tr>
+<tr><td>12</td><td>18</td><td>1.39</td><td>2.83</td><td>5.66</td></tr>
+<tr><td>12</td><td>24</td><td>1.89</td><td>3.85</td><td>7.70</td></tr>
+<tr><td>12</td><td>30</td><td>2.39</td><td>4.87</td><td>9.74</td></tr>
+<tr><td>18</td><td>12</td><td>1.39</td><td>2.83</td><td>5.66</td></tr>
+<tr><td>18</td><td>18</td><td>2.14</td><td>4.36</td><td>8.72</td></tr>
+<tr><td>18</td><td>24</td><td>2.89</td><td>5.89</td><td>11.77</td></tr>
+<tr><td>18</td><td>30</td><td>3.64</td><td>7.41</td><td>14.83</td></tr>
 </tbody>
 </table>
 </div>
 
-*Note: Gravel depth is calculated as Total Trench Depth minus 4-6 inches for topsoil cap. Pipe displacement (for a 4-inch pipe) is factored into the "Cu Ft Gravel per Linear Foot" column. All cubic yard estimates include a 10% waste factor.*
+*Note: gravel per linear foot = width (ft) × gravel depth (ft) − 0.11 cu ft for the pipe. Cubic yards = per-foot volume × length × 1.10 ÷ 27.*
 
 ## Worked Project Example: 50-Foot Residential French Drain
 
-Let's calculate the materials for a 50-foot long French drain designed to intercept surface and subsurface water near a foundation.
+This example calculates the materials for a 50-foot long French drain designed to intercept surface and subsurface water near a foundation.
 
 **Project Specifications:**
 
@@ -232,4 +134,9 @@ Let's calculate the materials for a 50-foot long French drain designed to interc
     *   Required Fabric Length = Drain Length + 10% for overlap/waste = 50 ft \* 1.10 = 55 feet.
     *   Therefore, you would need a roll of geotextile fabric that is at least **6 feet wide and 55 feet long**.
 
-This detailed breakdown ensures all components are accounted for, minimizing material shortages and project delays. Remember to consider the 1% minimum slope for effective water flow, which means the trench depth will gradually increase along its run.
+This detailed breakdown ensures all components are accounted for, minimizing material shortages and project delays. Remember the slope along the run (about 1% is a common minimum), which means the trench depth will gradually increase.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.

@@ -84,3 +84,7 @@ So a 2×6 that is 12 ft long is 2 × 6 × 12 ÷ 12 = 12 board feet. If a yard qu
 ## Which one do you need?
 
 Look at how the material is sold. Flooring and tile come in boxes labeled in square feet. Trim comes in pieces of a set length, so you need linear feet and then round up to whole pieces. Hardwood for a project comes by the board foot, and you should add 20 to 30% for defects and cutting when buying rough stock.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

@@ -1,6 +1,6 @@
 ---
 title: "Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules"
-description: "Estimate thinset mortar needs with precision. A 50 lb bag covers 16-33 sq ft depending on trowel notch (1/4-inch to 1/2-inch square) and tile size. Learn how."
+description: "A 50 lb bag of thinset covers about 16 to 33 sq ft depending on trowel notch and tile size. How to estimate bags for a floor, with a kitchen example."
 published: 2026-11-09
 tool: tile
 ---
@@ -86,7 +86,7 @@ The following table provides estimated thinset coverage per bag for common trowe
 
 ## Worked Project Example: Tiling a 150 Sq Ft Kitchen Floor
 
-Let's calculate the thinset needed for a kitchen floor measuring 10 feet by 15 feet, totaling 150 square feet. We plan to use 12x24 inch porcelain tiles, which typically require a 1/2" x 1/2" square notch trowel for proper coverage and back-buttering for optimal adhesion. We will be using 50 lb bags of thinset.
+This example calculates the thinset needed for a kitchen floor measuring 10 feet by 15 feet, totaling 150 square feet. We plan to use 12x24 inch porcelain tiles, which typically require a 1/2" x 1/2" square notch trowel for proper coverage and back-buttering for optimal adhesion. We will be using 50 lb bags of thinset.
 
 **Step 1: Determine Total Area**
 The kitchen floor is 10 ft * 15 ft = 150 sq ft.
@@ -109,3 +109,7 @@ Always round up to ensure you have enough material.
 For more complex layouts or to double-check your tile quantity, you can use a [tile calculator](/tile-calculator/). Remember that the actual number of tiles you need will also depend on the specific tile dimensions and the waste factor for your chosen layout, as detailed in our guide on [Tile Waste Factor by Layout: Straight, Diagonal, Herringbone](/guides/tile-waste-factor-by-layout/). Understanding [How Many Tiles in a Box? Coverage by Tile Size](/guides/how-many-tiles-in-a-box/) can also help you plan your material purchases efficiently.
 
 By following these detailed calculations and considering the variables of trowel size, effective thickness, and waste, you can accurately estimate your thinset mortar needs, preventing costly project delays or material shortages.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

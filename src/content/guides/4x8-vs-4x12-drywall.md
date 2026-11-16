@@ -69,3 +69,9 @@ Fewer sheets to hang, 6 fewer here, also means fewer edges to screw and tape. Th
 - **4 × 9** is sometimes stocked for 9 ft walls hung vertically.
 
 If you hire a pro to finish, ask which size they prefer; most will choose the longest sheet that fits the room.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [USG: how much joint compound to finish 1,000 sq ft of wallboard](https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html), USG. The joint compound planning figure.
+- [Walls & Ceilings, All things gypsum: attachment of gypsum board](https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board), Walls & Ceilings. Screw spacing from ASTM C840 and GA-216.

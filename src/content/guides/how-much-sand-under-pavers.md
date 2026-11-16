@@ -2,6 +2,7 @@
 title: "How Much Sand Do You Need Under Pavers?"
 description: "Pavers sit on a 1 inch layer of bedding sand over a compacted gravel base. How much sand and base to order for a patio, by size, in yards, tons and bags."
 published: 2026-10-30
+updated: 2026-11-17
 tool: gravel
 ---
 
@@ -54,7 +55,7 @@ Change any depth in the [gravel calculator](/gravel-calculator/), which has sand
 
 ## Worked example: a 14 × 12 ft patio
 
-1. **Bedding sand:** 14 × 12 × 1 ÷ 12 = 14 cu ft = **0.52 yd³**, about 0.7 tons, or 28 bags of 0.5 cu ft. At this size, bags are workable, but a half yard of bulk sand is usually cheaper.
+1. **Bedding sand:** 14 × 12 × 1 ÷ 12 = 14 cu ft = **0.52 yd³**, about 0.7 tons, or 28 bags of 0.5 cu ft. At this size, bags are workable, but a half yard of bulk sand is often cheaper; compare local prices and delivery fees.
 2. **Base:** extend the base 6 in past the patio on every side so the edge pavers are supported: 15 × 13 ft. At 4 in compacted, with 15% extra: **2.77 yd³**, about 4.15 tons.
 3. **Excavation:** pavers (often about 2 3/8 in) + 1 in sand + 4 in base = about 7 1/2 in below the finished surface, deeper if your base is thicker.
 
@@ -70,3 +71,8 @@ The sand only gives the pavers a bed to settle into. Loads spread through the co
 - **Skipping drainage slope.** Build the base with a slight fall away from the house so water runs off.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Call 811 before you dig, even for a shallow patio. Utility lines are sometimes closer to the surface than you'd expect.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.

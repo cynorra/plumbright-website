@@ -5,6 +5,11 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { parseGuide } from "../src/lib/frontmatter.js";
 import { validateGuide } from "./lib/guide-quality.mjs";
+import { draftingProblems, truncationProblems, descriptionLength, linkProblems, arithmeticProblems } from "./lib/guide-audit-extra.mjs";
+
+// --strict turns the extra checks (drafting notes, half sentences, description length, sources, arithmetic) into errors.
+// Without it they are reported as warnings, so a bad new guide cannot stop the daily auto-blog run.
+const STRICT = process.argv.includes("--strict");
 
 const GUIDES_DIR = join(process.cwd(), "src", "content", "guides");
 const files = readdirSync(GUIDES_DIR).filter((f) => f.endsWith(".md"));
@@ -52,6 +57,16 @@ for (const file of files) {
   const { fm, body } = parsed;
   const otherGuides = summaryList.filter((s) => s.slug !== slug);
   const result = validateGuide(fm, body, { existingArticles: otherGuides });
+  const extra = [
+    ...draftingProblems(body),
+    ...truncationProblems(fm, body),
+    ...descriptionLength(fm),
+    ...linkProblems(body),
+    ...arithmeticProblems(body),
+  ];
+  if (extra.length) {
+    if (STRICT) { result.errors.push(...extra); result.valid = false; } else result.warnings.push(...extra);
+  }
 
   if (result.valid) {
     passedCount++;

@@ -1,6 +1,6 @@
 ---
 title: "Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions"
-description: "Calculate mortar for brick laying with Type N (1:1:6) or Type S (1:0.5:4.5) ratios. Estimate cement, lime, and sand bags per 1000 bricks, including 10% waste."
+description: "Mortar for brick laying with Type N (1:1:6) or Type S (1:0.5:4.5) ratios: how much cement, lime and sand per 1,000 bricks, with a 10% waste allowance."
 published: 2026-11-01
 tool: brick
 ---
@@ -103,7 +103,7 @@ The following table provides approximate material quantities for site-mixed Type
 
 ## Worked Project Example: Garden Wall
 
-Let's estimate the materials for a garden wall that is 20 feet long and 3 feet high, using standard bricks and Type N mortar. The wall will be built on a proper footing, as detailed in guides like our Concrete Footing Depth and Width: Frost Line & Load Sizing Rules.
+This example estimates the materials for a garden wall that is 20 feet long and 3 feet high, using standard bricks and Type N mortar. The wall will be built on a proper footing, as detailed in guides like our Concrete Footing Depth and Width: Frost Line & Load Sizing Rules.
 
 1.  **Determine Total Bricks:**
     *   Wall Area = 20 ft (length) x 3 ft (height) = 60 sq ft.
@@ -139,3 +139,9 @@ Proper mixing and application are as crucial as accurate material estimation for
 *   **Joint Thickness:** Maintain consistent 3/8-inch mortar joints for both horizontal (bed joints) and vertical (head joints). This not only looks professional but also ensures the structural integrity of the wall.
 *   **Tooling:** Tool the mortar joints when they are thumbprint hard. This compacts the mortar, improves its weather resistance, and creates a finished appearance.
 *   **Waste Allowance:** As demonstrated, always factor in a 10% waste allowance. This buffer prevents costly delays and extra trips to the store, ensuring you have enough material to complete the job without interruption.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
+- [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.

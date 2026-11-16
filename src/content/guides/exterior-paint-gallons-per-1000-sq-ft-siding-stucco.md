@@ -2,9 +2,10 @@
 title: "Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco"
 description: "Calculate exterior paint needs for siding (350-400 sq ft/gal) and stucco (150-250 sq ft/gal). Learn how many gallons per 1,000 sq ft for 1-2 coats."
 published: 2026-11-12
+updated: 2026-11-17
 tool: paint
 ---
-**For every 1,000 square feet of exterior surface, expect to need approximately 2.7 to 4 gallons of paint for a single coat on smooth siding, or 4.5 to 6 gallons for a single coat on porous stucco, before accounting for a second coat or waste.** Actual paint consumption varies significantly based on surface texture, porosity, existing color, and the number of coats applied, making a detailed calculation essential.
+**For every 1,000 square feet of exterior surface, one coat takes about 2.5 to 2.9 gallons on smooth siding and about 4 to 5 gallons on smooth stucco (up to roughly 6.7 gallons on rough, porous stucco), before a second coat or waste.** Actual use varies with surface texture, porosity, existing color and the number of coats, so divide your own area by the coverage printed on your can.
 
 ## Calculating Exterior Paint Coverage for Diverse Surfaces
 
@@ -37,39 +38,39 @@ The following table provides typical coverage rates for common exterior surfaces
     </thead>
     <tbody>
         <tr>
-            <td>**Siding (Wood/Fiber Cement)**</td>
+            <td><strong>Siding (Wood/Fiber Cement)</strong></td>
             <td>Smooth, pre-primed, or previously painted</td>
             <td>350-400</td>
-            <td>2.7 - 3.1</td>
-            <td>5.4 - 6.2</td>
+            <td>2.8 - 3.1</td>
+            <td>5.5 - 6.3</td>
         </tr>
         <tr>
-            <td>**Siding (Wood/Fiber Cement)**</td>
+            <td><strong>Siding (Wood/Fiber Cement)</strong></td>
             <td>Rough, unprimed, or heavily weathered</td>
             <td>250-300</td>
             <td>3.7 - 4.4</td>
-            <td>7.4 - 8.8</td>
+            <td>7.3 - 8.8</td>
         </tr>
         <tr>
-            <td>**Stucco/Masonry**</td>
+            <td><strong>Stucco/Masonry</strong></td>
             <td>Smooth, sealed, or previously painted</td>
             <td>200-250</td>
             <td>4.4 - 5.5</td>
             <td>8.8 - 11.0</td>
         </tr>
         <tr>
-            <td>**Stucco/Masonry**</td>
+            <td><strong>Stucco/Masonry</strong></td>
             <td>Rough, unprimed, or highly porous</td>
             <td>150-200</td>
             <td>5.5 - 7.3</td>
-            <td>11.0 - 14.6</td>
+            <td>11.0 - 14.7</td>
         </tr>
         <tr>
-            <td>**Trim (Wood/Composite)**</td>
+            <td><strong>Trim (Wood/Composite)</strong></td>
             <td>Smooth, previously painted</td>
             <td>375-450</td>
             <td>2.4 - 2.9</td>
-            <td>4.8 - 5.8</td>
+            <td>4.9 - 5.9</td>
         </tr>
     </tbody>
 </table>
@@ -90,7 +91,7 @@ Consider a single-story home with a total exterior paintable area of 2,500 squar
 
 **Step 2: Calculate Paint for Moderately Rough Stucco Area**
 *   **Stucco Area:** 700 sq ft
-*   **Assumed Coverage Rate (Moderately Rough Stucco):** 225 sq ft per gallon (from table, within 200-250 range for smooth/sealed, but we'll use a slightly lower end for "moderately rough" to be safe, as it's not "highly porous")
+*   **Assumed Coverage Rate (Moderately Rough Stucco):** 225 sq ft per gallon (the middle of the 200-250 range for sealed stucco in the table)
 *   **Paint needed for one coat:** 700 sq ft / 225 sq ft/gallon = 3.11 gallons
 *   **Paint needed for two coats:** 3.11 gallons * 2 = 6.22 gallons
 *   **Add 10% waste factor:** 6.22 gallons * 1.10 = 6.84 gallons
@@ -102,4 +103,9 @@ Consider a single-story home with a total exterior paintable area of 2,500 squar
 *   Since paint is sold in full gallons, round up to the nearest whole gallon.
 *   **Total Gallons to Purchase:** 18 gallons
 
-This detailed breakdown ensures that enough paint is purchased for the entire project, accounting for the specific characteristics of each surface and providing a buffer for unforeseen circumstances. Always review the specific coverage rates listed on your chosen paint can, as these can vary slightly by manufacturer and product line.
+This detailed breakdown ensures that enough paint is purchased for the entire project, accounting for the specific characteristics of each surface and providing a buffer for unforeseen circumstances. Always review the specific coverage rates listed on your chosen paint can, as these can vary slightly by manufacturer and product line. Every per-1,000 figure in the table is 1,000 ÷ coverage × 1.10 (10% waste).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.

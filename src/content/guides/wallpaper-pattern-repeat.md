@@ -70,3 +70,8 @@ Hanging high-end patterned wallpaper without peeling seams or crooked repeats re
 - **Buy for the repeat, not the room.** If the calculation lands right on a whole number of rolls, add one: a single miscut on a large repeat can eat most of a roll.
 
 Calculate exact roll counts, drop pattern offsets, and trimming waste with our [wallpaper calculator](/wallpaper-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Selected Wallpapers: European rolls vs double rolls](https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls), Selected Wallpapers. How roll lengths and coverage are labeled; check the label on your own paper.

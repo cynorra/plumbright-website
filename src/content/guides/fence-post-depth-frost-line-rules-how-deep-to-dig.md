@@ -1,6 +1,6 @@
 ---
 title: "Fence Post Depth & Frost Line Rules: How Deep to Dig"
-description: "Calculate fence post depth using the 1/3 rule and local frost line. Learn how much concrete, gravel, and post length you need for stable fence installation."
+description: "How deep to set fence posts: the one-third rule, the local frost line, and how much concrete, gravel and post length that means for a stable fence."
 published: 2026-10-31
 tool: fence
 ---
@@ -145,7 +145,7 @@ The following table provides common scenarios for fence post installation, facto
 
 ## Worked Example: 6-Foot Privacy Fence Post Installation
 
-Let's calculate the materials for a fence post with the following specifications:
+This example calculates the materials for a fence post with the following specifications:
 
 *   **Exposed Post Height:** 6 feet (72 inches)
 *   **Local Frost Line Depth:** 30 inches (2.5 feet)
@@ -190,3 +190,7 @@ For a run of 10 posts with these dimensions you need about 40 bags of 50 lb conc
 *   **Rounding down bags.** Always round up; a half-filled hole is a weak footing.
 
 Use the [fence calculator](/fence-calculator/) to run these numbers for your own post height, hole size and frost line.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

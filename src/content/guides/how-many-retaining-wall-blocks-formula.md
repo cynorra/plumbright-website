@@ -1,7 +1,8 @@
 ---
 title: "Retaining Wall Block Calculator: Trench, Capstone & Geogrid Math"
-description: "Calculate how many retaining wall blocks you need with our step-by-step formula, including buried courses, capstones, geogrid, gravel base, and a 10% waste."
+description: "How many retaining wall blocks you need: wall face area, the buried starter course, capstones, the gravel base, geogrid and a 10% waste allowance."
 published: 2026-11-04
+updated: 2026-11-17
 tool: brick
 ---
 **To calculate the number of retaining wall blocks needed, determine the total face area of the wall (length x height), divide by the face area of a single block, and add one full course for the buried starter layer. Account for capstones separately by dividing the wall's linear length by the capstone's length. Always include a 10% waste factor for cuts and breakage, and estimate gravel and geogrid based on wall dimensions and manufacturer specifications.**
@@ -35,7 +36,7 @@ Estimating retaining wall materials involves calculating the quantity of standar
     *   **Waste Allowance:** Add 10% to the total gravel volume.
 
 4.  **Geogrid Reinforcement:**
-    *   **Geogrid Spacing:** Consult the block manufacturer's specifications or local building codes. For walls over 3-4 feet, geogrid is typically installed every 2-3 courses.
+    *   **Geogrid Spacing:** Consult the block manufacturer's specifications or local building codes. Where geogrid is required, it is typically installed every 2 to 3 courses; short walls often need none.
     *   **Number of Geogrid Layers:** Divide the total wall height (including the buried course) by the geogrid spacing (in feet), then round up to the nearest whole number.
     *   **Total Geogrid Length (linear feet):** Multiply the number of geogrid layers by the total wall length (in feet). Geogrid typically comes in rolls of specific widths (e.g., 4 ft, 6 ft). Ensure the calculated length accounts for the required embedment depth behind the wall.
     *   **Waste Allowance:** Add 10% to the total geogrid length.
@@ -104,7 +105,7 @@ The following table provides common dimensions and calculation factors for typic
 
 ## Worked Project Example
 
-Let's estimate materials for a retaining wall that is 20 feet long and 3 feet exposed height, using standard 16" L x 8" D x 6" H blocks and 12" L x 8" D x 3" H capstones. We'll assume a 6-inch deep gravel base and geogrid every 2 courses for stability.
+This example estimates materials for a retaining wall that is 20 feet long and 3 feet exposed height, using standard 16" L x 8" D x 6" H blocks and 12" L x 8" D x 3" H capstones. We'll assume a 6-inch deep gravel base. A 3 ft wall often needs no geogrid, but this example includes it, spaced every 2 courses, to show the math; use your block maker's spacing, or skip this step if the instructions do not call for geogrid at this height.
 
 **1. Standard Retaining Wall Blocks:**
 *   **Exposed Wall Face Area:** 20 ft (length) * 3 ft (height) = 60 sq ft.
@@ -125,7 +126,7 @@ Let's estimate materials for a retaining wall that is 20 feet long and 3 feet ex
 *   **Gravel Volume per Linear Foot (from table):** 0.75 cu ft/linear ft.
 *   **Total Gravel Volume (cu ft):** 20 ft (length) * 0.75 cu ft/linear ft = 15 cu ft.
 *   **Convert to Cubic Yards:** 15 cu ft / 27 cu ft/yard = 0.555 cubic yards.
-*   **With 10% Waste:** 0.555 cubic yards * 1.10 = 0.61 cubic yards. **Round up to 0.75 cubic yards (or 1 cubic yard to be safe, as suppliers often sell in full or half-yard increments).**
+*   **With 10% Waste:** 0.555 cubic yards * 1.10 = 0.61 cubic yards. **Round up to 0.75 cubic yards (or 1 cubic yard, as suppliers often sell in full or half-yard increments).**
 
 **4. Geogrid Reinforcement:**
 *   **Total Wall Height (including buried course):** 3 ft (exposed) + 0.5 ft (buried course height, assuming 6" block) = 3.5 ft.
@@ -144,6 +145,12 @@ Let's estimate materials for a retaining wall that is 20 feet long and 3 feet ex
 
 A 10% waste allowance is a critical buffer for any construction project, especially with retaining walls. Blocks can chip or break during transport, handling, or cutting. It is always better to have a few extra blocks on hand than to halt a project waiting for a small reorder.
 
-Proper base preparation is paramount for a stable retaining wall. The trench for the gravel base should be excavated to a depth that accommodates the gravel layer and the buried starter course, ensuring the first course is fully below grade. This depth helps prevent the wall from shifting or settling. For detailed guidance on excavation and base stability, refer to resources like the [Concrete Slab Thickness Guide: Patio, Driveway, Shed, Garage](/guides/concrete-slab-thickness/). The gravel base itself must be compacted thoroughly and perfectly level to provide a uniform foundation for the first course of blocks.
+Proper base preparation is paramount for a stable retaining wall. The trench for the gravel base should be excavated to a depth that accommodates the gravel layer and the buried starter course, ensuring the first course is fully below grade. This depth helps prevent the wall from shifting or settling. For the gravel and sand layers under a block course, see the [paver base depth guide](/guides/paver-base-depth-sand-and-crushed-stone-layers/); for a wall that holds back soil, follow your block manufacturer's base specification. The gravel base itself must be compacted thoroughly and perfectly level to provide a uniform foundation for the first course of blocks.
 
-Geogrid reinforcement is essential for taller walls (typically over 3-4 feet) or walls supporting significant loads. It is laid horizontally between courses and extends back into the compacted soil behind the wall, creating a reinforced soil mass that resists lateral pressure. Always follow the manufacturer's guidelines for geogrid type, spacing, and embedment length to ensure structural integrity.
+Geogrid reinforcement is usually required for taller walls (many manufacturers start at about 3 to 4 feet, some lower) or walls supporting a slope, a driveway or other loads. Walls over 4 feet are often regulated and may need a permit or an engineer. It is laid horizontally between courses and extends back into the compacted soil behind the wall, creating a reinforced soil mass that resists lateral pressure. Always follow the manufacturer's guidelines for geogrid type, spacing, and embedment length to ensure structural integrity.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
+- [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.

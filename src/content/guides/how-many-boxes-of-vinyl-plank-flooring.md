@@ -58,3 +58,7 @@ Many vinyl plank products have a foam or cork pad attached to the back. Most of 
 - **Using the room's footprint from a listing.** Measure the actual floor, wall to wall, including closets you'll floor.
 - **Forgetting the waste allowance.** Every row ends in a cut, and some planks arrive with damaged edges.
 - **Buying exactly the rounded-up count for several rooms separately and together.** Pick one method. Counting each room separately, then adding, gives the safer number.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

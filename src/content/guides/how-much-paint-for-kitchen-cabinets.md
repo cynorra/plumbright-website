@@ -1,6 +1,6 @@
 ---
 title: "How Much Paint Do You Need for Kitchen Cabinets?"
-description: "Most kitchens need about a gallon of primer and one to two gallons of cabinet paint for two coats. An estimating method by linear feet of cabinets, with a chart."
+description: "Most kitchens need about a gallon of primer and one to two gallons of cabinet paint for two coats. Estimate by linear feet of cabinets, with a chart."
 published: 2026-11-09
 tool: paint
 ---
@@ -58,3 +58,8 @@ Three quarts cost about as much as a gallon, so the primer rounds to a gallon. F
 Remove the doors and hardware, label everything, degrease thoroughly (kitchen grease ruins adhesion), scuff-sand, vacuum and wipe down, then prime. The paint quantity is small; the surface prep is what makes the finish last.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">When sanding old cabinets, assume older finishes could contain lead if the home was built before 1978. Test first, and follow EPA lead-safe practices if the test is positive.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.

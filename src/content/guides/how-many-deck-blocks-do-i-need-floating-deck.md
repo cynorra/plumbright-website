@@ -102,7 +102,7 @@ This table provides estimated material quantities for common floating deck sizes
 
 ## Worked Project Example: 12x16 Floating Deck Foundation
 
-Let's calculate the materials needed for a 12-foot by 16-foot floating deck. We will assume the main support beams run the 16-foot length, and we'll use a 5-foot spacing for the blocks along the beams and a 6-foot spacing for the beams across the 12-foot width. We'll also plan for a 4-inch deep gravel base.
+This example calculates the materials needed for a 12-foot by 16-foot floating deck. We will assume the main support beams run the 16-foot length, and we'll use a 5-foot spacing for the blocks along the beams and a 6-foot spacing for the beams across the 12-foot width. We'll also plan for a 4-inch deep gravel base.
 
 1.  **Determine Beam Lengths:**
     *   Each main support beam will be 16 feet long.
@@ -143,3 +143,9 @@ Let's calculate the materials needed for a 12-foot by 16-foot floating deck. We 
 *   **Weed Barrier:** 212 square feet
 
 Remember that these calculations provide a solid estimate. Always double-check your local building codes for specific requirements regarding floating deck foundations and consult the [deck calculator](/deck-calculator/) for further planning assistance.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive joist, beam and post tables for residential decks.
+- [Anne Arundel County deck guide, based on the 2021 IRC](https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf), Anne Arundel County. Plain-language summary of IRC Tables R507.6 and R507.7.

@@ -2,6 +2,7 @@
 title: "How Many Bags of Mulch Are in a Yard?"
 description: "One cubic yard equals 13.5 bags of 2 cu ft mulch, 9 bags of 3 cu ft or 18 of 1.5 cu ft. How to compare bag and bulk prices, with coverage per bag."
 published: 2026-11-21
+updated: 2026-11-17
 tool: mulch
 ---
 
@@ -38,7 +39,7 @@ With example prices (not quotes; use the prices at your store):
 </table>
 </div>
 
-Compare that with what your local landscape yard charges per cubic yard, plus delivery. Bulk is usually cheaper per yard, and the gap grows with the order, but delivery fees make small orders closer. As a rough rule, bags win for under a yard or two, bulk wins beyond that.
+Compare that with what your local landscape yard charges per cubic yard, plus delivery. Bulk is often cheaper per yard where it is delivered locally, and the gap grows with the order, but delivery fees make small orders closer. As a rough rule, bags win for under a yard or two, bulk wins beyond that.
 
 ## What else to weigh
 
@@ -59,3 +60,8 @@ When deciding between bags and bulk delivery, keep settling, pallet counts, and 
 ## How many bags for your beds?
 
 Area × depth (in) ÷ 12 gives cubic feet; divide by the bag size and round up. For charts by area, see [how much mulch you need](/guides/how-much-mulch-do-i-need/), and for depth, [how deep mulch should be](/guides/how-deep-should-mulch-be/). The [mulch calculator](/mulch-calculator/) does both and shows all three bag sizes at once.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.

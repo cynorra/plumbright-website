@@ -70,3 +70,8 @@ Pea gravel and river rock are round and roll under wheels. They look nice in gar
 Even a well-built gravel driveway needs a fresh top layer every few years, usually an inch or two of crusher run. Rake or grade out potholes when they appear; small ones grow quickly once water starts pooling in them.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Call 811 before excavating, and check whether your town requires a permit for a new driveway or a curb cut onto the street.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.

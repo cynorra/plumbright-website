@@ -65,3 +65,8 @@ Pouring 56 bags of concrete requires proper finishing and curing to reach full 3
 - **Form Stripping:** 2x4 edge forms can be removed after 24 to 48 hours. Light foot traffic is safe after 48 hours; allow 7 full days before placing storage sheds or heavy patio furniture.
 
 To customize slab dimensions, bag weights, and gravel requirements, use our [concrete calculator](/concrete-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.

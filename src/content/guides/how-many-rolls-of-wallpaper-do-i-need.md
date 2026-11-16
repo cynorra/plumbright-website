@@ -1,6 +1,6 @@
 ---
 title: "How Many Rolls of Wallpaper Do I Need? Count Strips, Not Square Feet"
-description: "Count wallpaper the way installers do: strips around the room, strips per roll from the wall height and pattern repeat. Charts by room and a worked example."
+description: "Count wallpaper the way installers do: strips around the room, and strips per roll from the wall height and pattern repeat. Charts by room and an example."
 published: 2026-11-13
 tool: wallpaper
 ---
@@ -56,3 +56,8 @@ In the US, wallpaper is often priced per single roll but sold only in double rol
 ## Buy one extra
 
 Buy at least one extra roll, from the same batch or "run" number. Wallpaper from a later run can differ in shade, and if a strip tears or a wall turns out wider than measured, a matching roll is hard to find later.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Selected Wallpapers: European rolls vs double rolls](https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls), Selected Wallpapers. How roll lengths and coverage are labeled; check the label on your own paper.

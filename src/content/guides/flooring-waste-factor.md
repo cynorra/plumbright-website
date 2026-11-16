@@ -84,3 +84,7 @@ The [flooring calculator](/flooring-calculator/) sets these automatically from t
 - **Start rows with offcuts.** The cut end of one row usually starts the next, as long as the joints stay staggered.
 - **Lay out from the longest straight wall.**
 - **Open several boxes at once** and mix planks, so color and pattern variation spreads evenly and you spot damaged pieces early.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

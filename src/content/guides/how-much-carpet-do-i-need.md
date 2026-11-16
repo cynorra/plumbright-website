@@ -1,6 +1,6 @@
 ---
 title: "How Much Carpet Do I Need? Square Yards from a 12 ft Roll"
-description: "Room square feet ÷ 9 gives square yards, but carpet is cut from 12 ft rolls, so you buy more. How to work out what you'll pay for, with a chart by room size."
+description: "Room square feet divided by 9 gives square yards, but carpet is cut from 12 ft rolls, so you buy more. How to work out what you will pay for, with a chart."
 published: 2026-11-14
 tool: carpet
 ---
@@ -63,3 +63,7 @@ Staircases consume significantly more carpet per square foot than flat rooms and
 Retailers usually measure for free and price from their own seam plan, often including pad, installation and furniture moving. If a quote is much higher than your calculation, ask to see the seam diagram: extra square yards usually come from a seam plan that's easier to install, from matching a pattern, or from stairs.
 
 Calculate your exact square yards, roll waste, and cushion needs with our [carpet calculator](/carpet-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

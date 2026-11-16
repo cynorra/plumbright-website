@@ -106,7 +106,7 @@ For a quick estimate, you can also use an online tool like the [carpet calculato
 
 ## Worked Example: Estimating Padding for a Multi-Room Project
 
-Let's calculate the carpet padding needed for a project involving a living room, a hallway, and a bedroom.
+This example calculates the carpet padding needed for a project involving a living room, a hallway, and a bedroom.
 
 **Project Specifications:**
 *   Living Room: 15 feet 6 inches by 20 feet 3 inches
@@ -142,3 +142,7 @@ The longevity and performance of your carpet are directly tied to the correct se
 For loop pile carpets, such as Berbers, a thinner, denser pad (e.g., 3/8 inch, 8 lb) is often recommended or required. This prevents the loops from crushing and maintains the carpet's structural integrity. Just as precise material calculations are essential for foundational projects, such as determining the correct [Concrete Slab Thickness Guide](/guides/concrete-slab-thickness/) for a patio, similar attention to detail ensures the longevity and comfort of interior finishes like carpet padding.
 
 Proper installation also involves ensuring the padding is laid flat, trimmed accurately, and securely seamed where necessary. The padding should cover the entire subfloor area where the carpet will be installed, stopping just short of the tack strips to allow the carpet to be properly stretched and secured. Adhering to these guidelines ensures your carpet performs as intended, provides maximum comfort, and remains covered by its manufacturer's warranty for years to come.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

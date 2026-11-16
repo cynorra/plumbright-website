@@ -72,3 +72,8 @@ A deck sits 40 in above the patio. You'd like risers near 7 1/2 in and 11 in tre
 4. Cut the first stringer, test-fit it, then use it as a template for the rest.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Stair dimensions, stringer spans and attachment are checked at inspection. Confirm the design with your local building department before cutting.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Knox County: residential stair requirements, IRC R311.7](https://www.KnoxCounty.org/codes/pdfs/construction_info/Stairs.pdf), Knox County Codes Administration. Riser, tread, headroom and handrail limits.

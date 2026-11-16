@@ -62,3 +62,9 @@ For the 8 ft room with the ceiling, 17 sheets of 4 × 8:
 Many builders use 1/2 in sag-resistant board or 5/8 in board on ceilings, especially with joists 24 in apart. Regular 1/2 in board can sag between framing members over time. Check what your framing and local code call for before buying the ceiling sheets with the wall sheets.
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">If the room is a garage or shares a wall with one, the code may require fire-rated (Type X) board on that wall or ceiling. Check with your building department.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [USG: how much joint compound to finish 1,000 sq ft of wallboard](https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html), USG. The joint compound planning figure.
+- [Walls & Ceilings, All things gypsum: attachment of gypsum board](https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board), Walls & Ceilings. Screw spacing from ASTM C840 and GA-216.

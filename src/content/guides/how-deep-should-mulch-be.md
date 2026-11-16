@@ -75,3 +75,8 @@ Applying mulch improperly can introduce biological hazards to your garden beds a
 - **Spring Application Timing:** Resist the urge to mulch during the first warm weekend of early spring. Thick mulch insulates cold winter soil, delaying the warming required for perennials to break dormancy. Wait until late spring when the ground has naturally warmed and soil moisture is balanced.
 
 Calculate your exact order with the [mulch calculator](/mulch-calculator/).
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.

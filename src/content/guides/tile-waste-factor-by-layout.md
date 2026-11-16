@@ -70,3 +70,7 @@ In a straight layout, the piece you cut off at one wall can often finish the row
 ## How many spares to keep
 
 After the job, keep at least a few whole tiles, or a full box if you can. Tile lines get discontinued, and replacing one cracked tile years later is easy only if you have a match from the same lot. Count those spares inside your waste allowance, not on top of it.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.

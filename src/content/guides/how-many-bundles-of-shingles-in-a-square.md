@@ -69,3 +69,8 @@ Keep one or two unopened bundles for repairs after storms. Store them flat in a 
 To calculate your exact roof pitch, squares, and all flashing accessories, use our [roofing calculator](/roofing-calculator/).
 
 <div class="bg-note text-note-foreground my-6 rounded-lg px-4 py-3 text-sm" role="note">Roof work is dangerous. Measure from the ground and the attic where you can, and use proper fall protection, or hire a licensed roofer, for any work on the roof itself.</div>
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [GAF: how many bundles of shingles are in a square](https://www.gaf.com/en-us/blog/your-home/how-many-bundles-of-shingles-are-in-a-square---63a47862-f7e1-4e73-abcf-8d09917a8b8d), GAF. Bundles per square for standard shingles; confirm on the bundle you buy.

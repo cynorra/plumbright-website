@@ -75,3 +75,8 @@ Baseboard, door casing and the door itself take very little paint by area. For o
 - **Keep a little.** Label a small jar with the room and color for touch-ups.
 - **Prime when the color changes a lot**, or over patched drywall. Primer makes the topcoat cover in fewer coats.
 - **Count closets.** A reach-in closet adds about 60 to 80 sq ft of wall if you paint inside it.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.

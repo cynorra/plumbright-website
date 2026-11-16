@@ -1,6 +1,6 @@
 ---
 title: "How Many Deck Boards Do I Need? Count by Rows, Not Area"
-description: "Count deck boards row by row: rows from the board width plus gap, boards per row from the board length. Includes a chart of the best board length for each deck size."
+description: "Count deck boards row by row: rows from board width plus gap, boards per row from board length, and a chart of the best board length for each deck size."
 published: 2026-10-21
 tool: deck
 ---
@@ -68,3 +68,9 @@ Butt joints where two boards meet must fall on a joist, and many builders add a 
 - **Fasteners.** Two screws per board at every joist. A 14 × 12 ft deck with joists 16 in apart has 11 joists and 26 rows: about 572 screws.
 - **Hidden fastener clips** for grooved composite boards replace face screws; count clips per the maker's instructions.
 - **Gap.** Wood decking shrinks as it dries, so many builders install pressure-treated boards tight and let gaps open. Composite boards need the gap the manufacturer specifies.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive joist, beam and post tables for residential decks.
+- [Anne Arundel County deck guide, based on the 2021 IRC](https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf), Anne Arundel County. Plain-language summary of IRC Tables R507.6 and R507.7.

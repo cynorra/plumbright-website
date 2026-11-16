@@ -1,7 +1,8 @@
 ---
 title: "How Much Soil Do I Need for a Raised Bed?"
-description: "Length × width × depth gives cubic feet of soil. A 4×8 bed 12 in deep holds 32 cu ft. Charts by bed size and depth, bags vs bulk and a three-bed example."
+description: "Length × width × depth gives cubic feet of soil. A 4×8 bed 12 in deep holds 32 cu ft. Charts by bed size, bags versus bulk and a three-bed example."
 published: 2026-11-25
+updated: 2026-11-17
 tool: mulch
 ---
 
@@ -35,7 +36,7 @@ Three 4 × 8 ft beds made from 2×12 boards, filled to 11 in (the boards are 11 
 2. Three beds: **88 cu ft** = 3.26 cubic yards.
 3. In bags: 20 bags of 1.5 cu ft per bed, 60 in all. In bulk: about 3.5 cubic yards of a raised-bed or garden mix.
 
-At this size bulk is usually cheaper. Ask the supplier what's in their mix, and whether they'll deliver onto a tarp near the beds. Our guide to [bags in a yard](/guides/how-many-bags-of-mulch-in-a-yard/) shows how to compare bag and bulk prices; the same math works for soil.
+At this size bulk is often cheaper, depending on local delivery fees. Ask the supplier what's in their mix, and whether they'll deliver onto a tarp near the beds. Our guide to [bags in a yard](/guides/how-many-bags-of-mulch-in-a-yard/) shows how to compare bag and bulk prices; the same math works for soil.
 
 ## What to fill with: Soil Blends and the Mel's Mix Formula
 
@@ -58,3 +59,8 @@ Before pouring cubic yards of soil into your raised garden beds, protect the bot
 ## Topping up each year
 
 Plan on adding 1 to 2 in of compost each spring. For a 4 × 8 bed that's 2.7 to 5.3 cu ft. The [mulch calculator](/mulch-calculator/) handles top-ups: enter the target depth and what's already there, and it counts the difference in bags or yards.
+
+## Sources
+
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.
