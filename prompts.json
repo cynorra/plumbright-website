@@ -574,5 +574,14 @@
     "title": "Wallpaper for Accent Walls: Calculate Pattern Drops & Rolls Without Waste",
     "tool": "wallpaper",
     "prompt": "Authentic DIY jobsite close-up illustrating \"Wallpaper for Accent Walls: Calculate Pattern Drops & Rolls Without Waste\", showing a partially hung accent wall with a bold patterned wallpaper, a tape measure extended vertically along a wallpaper strip, a roll of wallpaper, a utility knife, and a calculator nearby, natural daylight, shallow depth of field, editorial home improvement photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 65,
+    "slug": "stair-baluster-spacing-how-many-balusters",
+    "fileName": "stair-baluster-spacing-how-many-balusters.webp",
+    "targetPath": "public/images/guides/stair-baluster-spacing-how-many-balusters.webp",
+    "title": "Stair Baluster Spacing: Code Rules & How Many Balusters You Need",
+    "tool": "stairs",
+    "prompt": "Authentic DIY jobsite close-up illustrating \"Stair Baluster Spacing: Code Rules & How Many Balusters You Need\", showing a partially installed stair railing with balusters, a tape measure extended between balusters demonstrating the 4-inch rule, a pencil marking a baluster, and a calculator nearby, natural daylight, shallow depth of field, editorial home improvement photography. --ar 16:9 --style raw --v 6.0"
   }
 ]

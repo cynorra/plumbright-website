@@ -17,7 +17,7 @@
 
 ---
 
-## Tüm 64 Blog Yazısı İçin Özel Görsel Promptları
+## Tüm 65 Blog Yazısı İçin Özel Görsel Promptları
 
 | # | Dosya Adı (`public/images/guides/`) | Konu / Başlık | Midjourney / Flux Promptu |
 |---|---|---|---|
@@ -85,3 +85,4 @@
 | 62 | `exterior-paint-gallons-per-1000-sq-ft-siding-stucco.webp` | **Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco** (paint) | `Authentic jobsite close-up illustrating "Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco", showing open paint cans, a paint roller and brush near a textured stucco wall and smooth siding sample, a tape measure, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
 | 63 | `mulch-vs-wood-chips-cubic-yard-weight-and-coverage.webp` | **Mulch vs Wood Chips vs Bark: Cubic Yard Weight & Breakdown Rates** (mulch) | `Authentic jobsite close-up illustrating "Mulch vs Wood Chips vs Bark: Cubic Yard Weight & Breakdown Rates", showing distinct piles of double-shredded hardwood mulch, cedar nuggets, and natural wood chips, each with a small scale or weight indicator, and a tape measure extended to show varying depths, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0` |
 | 64 | `wallpaper-accent-wall-pattern-drop-waste-guide.webp` | **Wallpaper for Accent Walls: Calculate Pattern Drops & Rolls Without Waste** (wallpaper) | `Authentic DIY jobsite close-up illustrating "Wallpaper for Accent Walls: Calculate Pattern Drops & Rolls Without Waste", showing a partially hung accent wall with a bold patterned wallpaper, a tape measure extended vertically along a wallpaper strip, a roll of wallpaper, a utility knife, and a calculator nearby, natural daylight, shallow depth of field, editorial home improvement photography. --ar 16:9 --style raw --v 6.0` |
+| 65 | `stair-baluster-spacing-how-many-balusters.webp` | **Stair Baluster Spacing: Code Rules & How Many Balusters You Need** (stairs) | `Authentic DIY jobsite close-up illustrating "Stair Baluster Spacing: Code Rules & How Many Balusters You Need", showing a partially installed stair railing with balusters, a tape measure extended between balusters demonstrating the 4-inch rule, a pencil marking a baluster, and a calculator nearby, natural daylight, shallow depth of field, editorial home improvement photography. --ar 16:9 --style raw --v 6.0` |
