@@ -54,6 +54,7 @@ const screwRows = Object.keys(SHEETS).map((k) => ({ k, wall16: screwsPerSheet(k,
 
   <h2>Screws per sheet</h2>
   <p>Common maximum spacing for single-layer screw attachment is 12 in on ceilings, and 16 in on walls framed 16 in on center (12 in when studs are 24 in apart). Counted for sheets hung across the framing:</p>
+  <p>Wider framing needs <strong>fewer</strong> screws per sheet even though the spacing is tighter: a 4 × 8 sheet crosses 7 studs at 16 in on center (7 × 4 = 28 screws) but only 5 at 24 in on center (5 × 5 = 25 screws), because each stud you remove takes a whole row of screws with it.</p>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Sheet</th><th>Walls, 16 in framing</th><th>Walls, 24 in framing</th><th>Ceiling, 16 in framing</th></tr></thead>

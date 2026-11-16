@@ -28,7 +28,7 @@ import { TRIM_IN as CARPET_TRIM } from "../lib/calc/carpet.js";
     <li><strong>Units:</strong> US customary. Lengths in feet or inches, areas in square feet, volumes in cubic feet and cubic yards, paint in US gallons.</li>
     <li><strong>Waste is added before rounding.</strong> Rounding happens once, at the end, and always up, so you are never told to buy less than you need.</li>
     <li><strong>Product figures are typical, not universal.</strong> When a number depends on a product, the calculator lets you change it and the page tells you to check your label.</li>
-    <li><strong>Testing:</strong> each calculator is covered by automated tests with hand-worked examples. Tables on the site are generated from the tested code.</li>
+    <li><strong>Testing:</strong> each calculator is covered by automated tests with hand-worked examples. Tables on the calculator pages are generated from the tested code. Tables in guides are written separately and are checked against the same formulas, but a guide can still contain an error; <a href="/editorial-policy/">report it</a> and it will be corrected.</li>
   </ul>
 
   <h2>Concrete</h2>
@@ -65,7 +65,7 @@ import { TRIM_IN as CARPET_TRIM } from "../lib/calc/carpet.js";
   <ul>
     <li>Walls: 2 × (length + width) × height − openings</li>
     <li>Door: {DOOR_SQFT} sq ft (a standard 3 × 7 ft interior door). Window: {WINDOW_SQFT} sq ft (a 3 × 5 ft average).</li>
-    <li>Gallons: area × coats ÷ coverage. Default coverage: {DEFAULT_COVERAGE} sq ft per gallon, the middle of the 250–400 range printed on most interior paint labels.</li>
+    <li>Gallons: area × coats ÷ coverage. Default coverage: {DEFAULT_COVERAGE} sq ft per gallon, a little above the 325 midpoint of the 250–400 range printed on most interior paint labels, because it assumes smooth, primed drywall. Rough, porous or unprimed surfaces fall nearer 250; change the value in the calculator.</li>
     <li>Buying: whole gallons plus quarts; three or more quarts round up to another gallon.</li>
   </ul>
 
@@ -99,7 +99,7 @@ import { TRIM_IN as CARPET_TRIM } from "../lib/calc/carpet.js";
   <h2>Decks</h2>
   <ul>
     <li>Rows: deck width ÷ (board width + gap), rounded up. Each row is filled with whole boards; offcuts of 2 ft or more are reused.</li>
-    <li>Joists: deck length ÷ spacing + 1. Screws: rows × joists × 2.</li>
+    <li>Joists: deck length (in) ÷ spacing, rounded up, plus 1 (the joist at the far end). Screws: rows × joists × 2.</li>
     <li>Board spans from IRC 2021 Table R507.7: {DECKING_SPANS.map((d) => `${d.decking} ${d.perpendicular} in (${d.diagonal} in diagonal)`).join("; ")}.</li>
   </ul>
 

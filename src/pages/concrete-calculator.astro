@@ -8,18 +8,19 @@ import { fmt } from "../lib/calc/util.js";
 
 // Every number in the tables below comes from the same functions the
 // calculator runs, so the page and the tool can never disagree.
+// Thickness follows the use: 4 in is the usual minimum for foot traffic, 5 to 6 in for anything that carries vehicles
+// (the FAQ below says the same). Local code and soil decide the real value.
 const slabs = [
-  [4, 4, "Shed pad, AC pad"],
-  [8, 10, "Small patio"],
-  [10, 10, "Patio"],
-  [12, 12, "Patio, hot tub base"],
-  [10, 20, "Single-car driveway apron"],
-  [12, 24, "One-car garage floor"],
-  [20, 20, "Two-car parking pad"],
-].map(([l, w, use]) => {
-  const t = 4;
+  [4, 4, "Shed pad, AC pad", 4],
+  [8, 10, "Small patio", 4],
+  [10, 10, "Patio", 4],
+  [12, 12, "Large patio, hot tub base", 5],
+  [10, 20, "Single-car driveway apron", 5],
+  [12, 24, "One-car garage floor", 5],
+  [20, 20, "Two-car parking pad", 6],
+].map(([l, w, use, t]) => {
   const o = concreteOrder(slabVolume({ lengthFt: l, widthFt: w, thicknessIn: t }), 10);
-  return { size: `${l} × ${w} ft`, use, yards: o.cubicYards, bags80: o.bags.find((b) => b.weight === 80).count };
+  return { size: `${l} × ${w} ft`, use, t, yards: o.cubicYards, bags80: o.bags.find((b) => b.weight === 80).count };
 });
 
 const example = (() => {
@@ -103,13 +104,13 @@ const postRows = [
   </div>
 
   <h2>Concrete for common slab sizes</h2>
-  <p>At 4 inches thick with 10% waste:</p>
+  <p>Thickness depends on the use (4 in for foot traffic, 5 to 6 in where vehicles drive), with 10% waste:</p>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Slab</th><th>Typical use</th><th>Cubic yards</th><th>80 lb bags</th></tr></thead>
+      <thead><tr><th>Slab</th><th>Typical use</th><th>Thickness</th><th>Cubic yards</th><th>80 lb bags</th></tr></thead>
       <tbody>
         {slabs.map((r) => (
-          <tr><td class="num">{r.size}</td><td>{r.use}</td><td class="num">{fmt(r.yards)}</td><td class="num">{r.bags80}</td></tr>
+          <tr><td class="num">{r.size}</td><td>{r.use}</td><td class="num">{r.t} in</td><td class="num">{fmt(r.yards)}</td><td class="num">{r.bags80}</td></tr>
         ))}
       </tbody>
     </table>

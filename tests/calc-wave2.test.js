@@ -70,3 +70,30 @@ test("carpet: picks the direction that buys less", () => {
   assert.equal(big.buySqFt, 2 * 12 * 15.5);
   assert.equal(carpetEstimate({ lengthFt: 18, widthFt: 15, rollWidthFt: 15 }).seams, 0);
 });
+
+// ---- AdSense-readiness fixes (2026-11) ----
+import { deckEstimate as deckEst } from "../src/lib/calc/deck.js";
+import { screwsPerSheet as screwsFor } from "../src/lib/calc/drywall.js";
+import { slabVolume as slabVol, concreteOrder as concOrder } from "../src/lib/calc/concrete.js";
+
+test("deck: joists round the spaces up, then add the far-end joist", () => {
+  const joists = (lengthFt, spacing) => deckEst({ lengthFt, widthFt: 8, boardWidthIn: 5.5, gapIn: 0.1875, boardLengthFt: 16, wastePct: 0, joistSpacingIn: spacing }).joists;
+  assert.equal(joists(10, 16), 9); // 120 / 16 = 7.5 -> 8 spaces + 1
+  assert.equal(joists(16, 16), 13); // 192 / 16 = 12 exactly -> 12 spaces + 1
+  assert.equal(joists(12, 12), 13);
+  assert.equal(joists(12, 24), 7); // 144 / 24 = 6 -> 7
+});
+
+test("drywall: 24 in framing needs fewer screws per sheet than 16 in framing", () => {
+  for (const sheet of ["4x8", "4x10", "4x12"]) {
+    assert.ok(screwsFor(sheet, "wall", 24) < screwsFor(sheet, "wall", 16), sheet);
+  }
+  assert.equal(screwsFor("4x8", "wall", 16), 28);
+  assert.equal(screwsFor("4x8", "wall", 24), 25);
+});
+
+test("concrete: a 6 in slab needs half as much again as a 4 in slab", () => {
+  const a = concOrder(slabVol({ lengthFt: 20, widthFt: 20, thicknessIn: 4 }), 10).cubicYards;
+  const b = concOrder(slabVol({ lengthFt: 20, widthFt: 20, thicknessIn: 6 }), 10).cubicYards;
+  assert.ok(Math.abs(b / a - 1.5) < 0.02);
+});

@@ -16,21 +16,26 @@ import { SITE } from "../site.config.js";
   <h2>Information you send us</h2>
   <p>If you email us or use the contact form, we receive your name, email address and message. We use them only to reply and to fix any problem you report. We do not sell or share them.</p>
 
-  <h2>Server logs</h2>
-  <p>Like most websites, our hosting provider records basic technical data for each request, such as IP address, browser type, the page requested and the time. This is used for security and to keep the site running, and is kept only for a limited time.</p>
+  <h2>Server logs and analytics</h2>
+  <p>Like most websites, our hosting provider records basic technical data for each request, such as IP address, browser type, the page requested and the time. This is used for security and to keep the site running. Hosting logs are normally kept for 30 days or less, and the email you send us is kept for as long as needed to answer you and to document a correction, and then deleted on request.</p>
+  <p>This site does not currently run an analytics service or set its own tracking cookies. If that changes, this page will name the service before it is switched on.</p>
 
-  <h2>Advertising and cookies</h2>
-  <p>This site may show ads served by Google and its advertising partners. To do so:</p>
+  <h2 id="cookies">Advertising and cookies</h2>
+  <p>This site shows ads served by Google AdSense and its advertising partners. <strong>The ad code is not loaded until you click Accept on the cookie message.</strong> If you click Reject, or make no choice, no ad script is requested and no advertising cookies are set by this site. Your choice is stored in your browser (local storage) so you are not asked again. <button type="button" id="reopen-consent" class="underline text-brand cursor-pointer">Change your choice</button> (a reload applies a withdrawal of consent).</p>
+  <p>If you accept, ads are shown, and:</p>
   <ul>
     <li>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites.</li>
+    <li>Google uses the DoubleClick advertising cookie (also called the DART cookie) on sites that use AdSense. It lets Google and its partners serve ads based on your visits to this site and others, and it is also used to measure ads and prevent fraud.</li>
     <li>Google's use of advertising cookies enables it and its partners to serve ads to you based on your visits to this site and/or other sites on the internet.</li>
     <li>You can opt out of personalized advertising by visiting Google's <a href="https://adssettings.google.com" rel="noopener" target="_blank">Ads Settings</a>. You can also opt out of some third-party vendors' use of cookies for personalized advertising at <a href="https://www.aboutads.info/choices/" rel="noopener" target="_blank">aboutads.info</a>.</li>
   </ul>
   <p>For more on how Google uses data from sites that use its services, see <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">How Google uses information from sites or apps that use our services</a>.</p>
-  <p>Visitors in the European Economic Area, the United Kingdom and Switzerland are asked for consent before personalized advertising cookies are used, through a consent message shown on the site. You can change your choice at any time from that message.</p>
+  <p>Visitors in the European Economic Area, the United Kingdom and Switzerland, and everyone else, are asked for consent before any advertising cookies are used. Ads shown after consent can be personalized. You can also turn personalization off at Google's <a href="https://adssettings.google.com" rel="noopener" target="_blank">Ads Settings</a>.</p>
 
   <h2>Your privacy rights</h2>
-  <p>Depending on where you live, including several US states such as California, you may have the right to know what personal information is collected about you, to request its deletion and to opt out of the sale or sharing of personal information for targeted advertising. To make a request, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. We will not treat you differently for exercising these rights.</p>
+  <p><strong>EU, EEA, UK and Switzerland (GDPR):</strong> the legal basis for advertising cookies is your consent, which you can withdraw at any time. You have the right to access your personal data, correct it, have it deleted, restrict or object to its processing, receive a copy of it, and complain to your data protection authority.</p>
+  <p><strong>California and other US states (CCPA/CPRA and similar laws):</strong> you may have the right to know what personal information is collected about you, to request its deletion and correction, and to opt out of the sale or sharing of personal information for targeted advertising. Choosing Reject on the cookie message, or turning off personalization at Google's Ads Settings, is such an opt-out. We do not knowingly sell personal information that we collect ourselves, and we will not treat you differently for exercising these rights.</p>
+  <p>To make a request, email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. We will answer within 30 days.</p>
 
   <h2>Children</h2>
   <p>This site is meant for adults planning home projects. It is not directed at children under 13, and we do not knowingly collect personal information from them.</p>
@@ -40,4 +45,14 @@ import { SITE } from "../site.config.js";
 
   <h2>Changes to this policy</h2>
   <p>When this policy changes, the date at the top of the page changes too.</p>
+  <script is:inline>
+    (function () {
+      var b = document.getElementById("reopen-consent");
+      if (!b) return;
+      b.addEventListener("click", function () {
+        try { localStorage.removeItem("materialguides_consent_accepted"); } catch (e) {}
+        window.dispatchEvent(new CustomEvent("materialguides:reopen-consent"));
+      });
+    })();
+  </script>
 </PageLayout>

@@ -79,7 +79,8 @@ export function deckEstimate({
   }
   const boardsWithWaste = ceilSafe(boards * (1 + wastePct / 100));
 
-  const joists = Math.floor((lengthFt * 12) / joistSpacingIn + 1e-9) + 1;
+  // Spaces between joists, rounded up, plus one for the joist at the far end: 10 ft at 16 in OC is 8 spaces, so 9 joists.
+  const joists = ceilSafe((lengthFt * 12) / joistSpacingIn) + 1;
   const crossings = rows * joists;
   return {
     areaSqFt: round(lengthFt * widthFt, 2),

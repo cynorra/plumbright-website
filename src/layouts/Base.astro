@@ -99,11 +99,25 @@ const allSchema = [...siteSchema, ...schema];
 
     {SITE.adsensePublisherId && <meta name="google-adsense-account" content={SITE.adsensePublisherId} />}
     {SITE.adsensePublisherId && (
-      <script
-        async
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsensePublisherId}`}
-        crossorigin="anonymous"
-      ></script>
+      <script is:inline define:vars={{ client: SITE.adsensePublisherId }}>
+        // The ad script is added only after the visitor accepted (localStorage "materialguides_consent_accepted" === "true").
+        // Without consent, or after "Reject", it is never requested. The cookie banner fires "materialguides:consent" on Accept.
+        (function () {
+          function load() {
+            if (document.getElementById("adsense-js")) return;
+            var s = document.createElement("script");
+            s.id = "adsense-js";
+            s.async = true;
+            s.crossOrigin = "anonymous";
+            s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" + client;
+            document.head.appendChild(s);
+          }
+          var ok = false;
+          try { ok = localStorage.getItem("materialguides_consent_accepted") === "true"; } catch (e) {}
+          if (ok) load();
+          window.addEventListener("materialguides:consent", function (e) { if (e.detail === "accepted") load(); });
+        })();
+      </script>
     )}
   </head>
   <body class="min-h-screen flex flex-col">

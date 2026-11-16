@@ -46,7 +46,7 @@ const ex20 = deckEstimate({ lengthFt: 20, widthFt: 12, boardLengthFt: 20, wasteP
     <li><strong>Rows</strong> = deck width (in) ÷ (board width + gap), rounded up</li>
     <li><strong>Boards</strong>: each row is filled with as few full boards as possible. When a row needs a short piece, an offcut of 2 ft or longer from an earlier row is used first.</li>
     <li><strong>Extra</strong>: 5% more boards for splits, warped boards and a bad cut</li>
-    <li><strong>Joists</strong> = deck length (in) ÷ joist spacing + 1, not counting rim or doubled joists</li>
+    <li><strong>Joists</strong> = deck length (in) ÷ joist spacing, rounded up, + 1 for the joist at the far end; rim and doubled joists are not counted</li>
     <li><strong>Screws</strong> = rows × joists × 2 (two screws where each board crosses each joist)</li>
   </ul>
   <p>Butt joints between boards must land on a joist, and many builders double the joist there. If you plan joints in advance, a pattern of 16 ft and 8 ft boards can stagger them neatly.</p>
