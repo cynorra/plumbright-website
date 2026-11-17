@@ -1,157 +1,65 @@
 ---
-title: "Concrete Stairs: Cubic Yards & Bags for Steps, Treads & Risers"
-description: "Calculate concrete for stairs, treads, and risers with precise formulas for cubic yards and bags. Learn to estimate volume for individual steps, landings, and."
+title: "Concrete for Solid Stairs: Cubic Yards and Bags by Number of Steps"
+description: "How much concrete a solid concrete staircase takes: the stacked-step formula, a table for 2 to 7 steps and a worked example in cubic yards and bags."
 published: 2026-11-17
-draft: true
+updated: 2026-11-17
 tool: stairs
 ---
-**Calculating concrete for stairs requires precise volume determination for each step's unique geometry, including treads, risers, and any landings or footings.** A simple square footage estimate is insufficient due to the complex three-dimensional forms. Account for a 10% waste factor and consider the specific dimensions of your stairs, as these significantly impact the total cubic yards and number of concrete bags needed.
+**A solid concrete staircase poured on the ground holds width × tread depth × riser height × N(N + 1) ÷ 2 cubic inches of concrete, where N is the number of steps.** Each step is a full block from the ground up to its own tread, so step 1 is one riser tall, step 2 is two risers tall, and so on. Counting every step as a thin wedge, a common shortcut, leaves out most of the concrete.
 
-## Deconstructing Stair Geometry for Concrete Volume
+## The formula
 
-Estimating concrete for stairs begins with understanding the individual components: the riser, tread, and any supporting elements like a landing or footing. Each step is essentially a right triangular prism of concrete, stacked to form the staircase. Accurate measurement of these dimensions is critical for precise material estimation.
+Work in inches, then divide by 1,728 to get cubic feet and by 27 to get cubic yards:
 
-1.  **Riser Height (R):** The vertical distance from the top of one tread to the top of the next. Standard residential riser heights typically range from 7 to 8 inches.
-2.  **Tread Depth (T):** The horizontal distance from the front edge of a step to the back, where it meets the next riser. Standard tread depths are usually 10 to 11 inches.
-3.  **Step Width (W):** The overall width of the staircase, measured perpendicular to the direction of travel.
-4.  **Landing:** A flat, level platform at the top or bottom of a staircase, or between flights. Its volume is calculated as a simple rectangular prism.
-5.  **Footing/Base Slab:** For freestanding staircases, a concrete footing or base slab provides structural support and prevents settling. Its volume is also a rectangular prism.
+**Cubic feet = width × tread × riser × N(N + 1) ÷ 2 ÷ 1,728**
 
-All measurements must be converted to feet before calculating volume to ensure consistent units (cubic feet, then cubic yards). For example, a 7-inch riser is `7 / 12 = 0.583` feet. For more on designing comfortable and code-compliant stairs, refer to our guide on [Stair Rise and Run: Code Limits and Comfortable Dimensions](/guides/stair-rise-and-run/).
+Add 10% for spillage and an uneven base, because the ground under a stair is never perfectly flat. This formula is for **solid stairs** poured on compacted ground or fill. A stair with a sloped slab underneath, a stair poured over a basement stairwell or one that rests on a structure uses much less concrete and needs a design for its reinforcement. Ask your building department before you pour.
 
-## Precise Volume Calculation for Individual Steps and Landings
+## Worked example: 5 steps, 42 in wide
 
-To accurately determine the total concrete required, calculate the volume of each distinct component separately and then sum them.
+Riser 7 in, tread 11 in, width 42 in, 5 steps. Both numbers sit inside the International Residential Code limits of a 7 3/4 in maximum riser and a 10 in minimum tread.
 
-### Volume of a Single Step
+1. Stacked-step factor: 5 × 6 ÷ 2 = 15 risers' worth of height in total.
+2. Volume: 42 × 11 × 7 × 15 = 48,510 cubic inches, which is 28.07 cubic feet.
+3. With 10% extra: 28.07 × 1.10 = 30.88 cubic feet, or 1.14 cubic yards.
+4. In bags (yields of 0.30, 0.45 and 0.60 cubic feet per bag for 40, 60 and 80 lb): 30.88 ÷ 0.30 = 103 bags of 40 lb, 30.88 ÷ 0.45 = 69 bags of 60 lb, 30.88 ÷ 0.60 = 52 bags of 80 lb, each rounded up.
 
-Each step's concrete volume can be calculated by treating it as a right triangular prism. This method accounts for the material that forms the riser and tread.
+At this size, 1.14 cubic yards is a job for a ready-mix truck, not for bags.
 
-**Formula for One Step's Volume:**
-`Volume_step (cubic feet) = 0.5 * Riser_Height (feet) * Tread_Depth (feet) * Step_Width (feet)`
+## Concrete by number of steps
 
-*   **Example:** For a single step with a 7-inch riser, 11-inch tread depth, and 36-inch width:
-    *   Riser Height: `7 inches / 12 = 0.583 feet`
-    *   Tread Depth: `11 inches / 12 = 0.917 feet`
-    *   Step Width: `36 inches / 12 = 3 feet`
-    *   `Volume_step = 0.5 * 0.583 ft * 0.917 ft * 3 ft = 0.803 cubic feet`
-
-### Volume of a Landing or Footing
-
-Landings and footings are simpler to calculate, as they are typically rectangular slabs.
-
-**Formula for Landing/Footing Volume:**
-`Volume_slab (cubic feet) = Length (feet) * Width (feet) * Thickness (feet)`
-
-*   **Example:** For a landing that is 4 feet long, 3 feet wide, and 6 inches thick:
-    *   Length: `4 feet`
-    *   Width: `3 feet`
-    *   Thickness: `6 inches / 12 = 0.5 feet`
-    *   `Volume_slab = 4 ft * 3 ft * 0.5 ft = 6 cubic feet`
-
-For guidance on appropriate slab thicknesses for various applications, consult our [Concrete Slab Thickness Guide: Patio, Driveway, Shed, Garage](/guides/concrete-slab-thickness/).
-
-## Total Concrete Estimation and Material Conversion Table
-
-Once the individual volumes are calculated, sum them to find the total raw concrete volume. Always add a waste factor to account for spillage, uneven subgrades, and minor measurement discrepancies. A 10% waste allowance is standard for concrete projects.
-
-**Total Raw Volume (cubic feet) = (Number of Steps * Volume_step) + Volume_landing + Volume_footing**
-
-**Total Adjusted Volume (cubic feet) = Total Raw Volume * 1.10 (for 10% waste)**
-
-Finally, convert the adjusted cubic feet into cubic yards or the number of 50-pound or 80-pound concrete bags. Remember that 1 cubic yard equals 27 cubic feet.
+Riser 7 in and tread 11 in, 10% waste included:
 
 <div class="table-wrap">
 <table>
-<thead>
-<tr>
-<th>Unit of Volume</th>
-<th>Conversion Factor</th>
-<th>Equivalent 50lb Bags (approx. 0.375 cu ft/bag)</th>
-<th>Equivalent 80lb Bags (approx. 0.60 cu ft/bag)</th>
-</tr>
-</thead>
+<thead><tr><th rowspan="2">Steps</th><th colspan="3">36 in wide</th><th colspan="3">48 in wide</th></tr>
+<tr><th>Cu ft</th><th>Cu yd</th><th>80 lb bags</th><th>Cu ft</th><th>Cu yd</th><th>80 lb bags</th></tr></thead>
 <tbody>
-<tr>
-<td>1 Cubic Foot (cu ft)</td>
-<td>1 cu ft</td>
-<td>2.67 bags</td>
-<td>1.67 bags</td>
-</tr>
-<tr>
-<td>1 Cubic Yard (cu yd)</td>
-<td>27 cu ft</td>
-<td>72 bags</td>
-<td>45 bags</td>
-</tr>
-<tr>
-<td>1 Cubic Foot (with 10% waste)</td>
-<td>1.1 cu ft</td>
-<td>2.93 bags</td>
-<td>1.83 bags</td>
-</tr>
-<tr>
-<td>1 Cubic Yard (with 10% waste)</td>
-<td>29.7 cu ft</td>
-<td>79.2 bags</td>
-<td>49.5 bags</td>
-</tr>
+<tr><td>2</td><td>5.29</td><td>0.20</td><td>9</td><td>7.06</td><td>0.26</td><td>12</td></tr>
+<tr><td>3</td><td>10.59</td><td>0.39</td><td>18</td><td>14.12</td><td>0.52</td><td>24</td></tr>
+<tr><td>4</td><td>17.65</td><td>0.65</td><td>30</td><td>23.53</td><td>0.87</td><td>40</td></tr>
+<tr><td>5</td><td>26.47</td><td>0.98</td><td>45</td><td>35.29</td><td>1.31</td><td>59</td></tr>
+<tr><td>6</td><td>37.06</td><td>1.37</td><td>62</td><td>49.41</td><td>1.83</td><td>83</td></tr>
+<tr><td>7</td><td>49.41</td><td>1.83</td><td>83</td><td>65.88</td><td>2.44</td><td>110</td></tr>
 </tbody>
 </table>
 </div>
 
-For quick calculations and to verify your manual estimates, utilize our dedicated [stairs calculator](/stair-calculator/).
+Volume grows with the square of the step count, so a 6-step stair needs about 40% more concrete than a 5-step one. The height grows only by one riser.
 
-## Worked Example: A 5-Step Outdoor Concrete Staircase
+## What the formula leaves out
 
-Let's calculate the concrete needed for a freestanding 5-step staircase with a small landing at the top and a base footing.
+- **The landing.** A flat landing at the top is a plain slab: length × width × thickness. The [concrete slab thickness guide](/guides/concrete-slab-thickness/) covers how thick to pour it.
+- **The footing.** Stairs in freezing climates may need a footing below the frost line. Depth is set locally; see the [footing depth and width guide](/guides/concrete-footing-depth-and-width/).
+- **The top step.** If the top tread is the landing itself, count it as a step in N and do not add it again.
+- **Rebar and forms.** Reinforcement and form lumber are separate costs.
 
-**Staircase Specifications:**
-*   Number of Steps: 5
-*   Riser Height: 7 inches
-*   Tread Depth: 11 inches
-*   Step Width: 42 inches
-*   Landing Dimensions: 42 inches (width) x 30 inches (depth) x 6 inches (thickness)
-*   Footing Dimensions: 42 inches (width) x 18 inches (depth) x 8 inches (thickness)
+## Related guides and tools
 
-**Step 1: Convert all dimensions to feet.**
-*   Riser Height: `7 inches / 12 = 0.583 ft`
-*   Tread Depth: `11 inches / 12 = 0.917 ft`
-*   Step Width: `42 inches / 12 = 3.5 ft`
-*   Landing Width: `42 inches / 12 = 3.5 ft`
-*   Landing Depth: `30 inches / 12 = 2.5 ft`
-*   Landing Thickness: `6 inches / 12 = 0.5 ft`
-*   Footing Width: `42 inches / 12 = 3.5 ft`
-*   Footing Depth: `18 inches / 12 = 1.5 ft`
-*   Footing Thickness: `8 inches / 12 = 0.667 ft`
+Use the [stair calculator](/stair-calculator/) to lay out the riser and tread. The [rise and run guide](/guides/stair-rise-and-run/) explains the code limits. For bag counts of any other pour, use the [concrete calculator](/concrete-calculator/).
 
-**Step 2: Calculate the volume of a single step.**
-`Volume_step = 0.5 * Riser_Height * Tread_Depth * Step_Width`
-`Volume_step = 0.5 * 0.583 ft * 0.917 ft * 3.5 ft = 0.930 cubic feet`
+## Sources
 
-**Step 3: Calculate the total volume for all steps.**
-`Total_steps_volume = Number of Steps * Volume_step`
-`Total_steps_volume = 5 * 0.930 cu ft = 4.65 cubic feet`
-
-**Step 4: Calculate the volume of the landing.**
-`Volume_landing = Landing_Width * Landing_Depth * Landing_Thickness`
-`Volume_landing = 3.5 ft * 2.5 ft * 0.5 ft = 4.375 cubic feet`
-
-**Step 5: Calculate the volume of the footing.**
-`Volume_footing = Footing_Width * Footing_Depth * Footing_Thickness`
-`Volume_footing = 3.5 ft * 1.5 ft * 0.667 ft = 3.502 cubic feet`
-
-**Step 6: Calculate the total raw concrete volume.**
-`Total_Raw_Volume = Total_steps_volume + Volume_landing + Volume_footing`
-`Total_Raw_Volume = 4.65 cu ft + 4.375 cu ft + 3.502 cu ft = 12.527 cubic feet`
-
-**Step 7: Apply the 10% waste factor.**
-`Total_Adjusted_Volume = Total_Raw_Volume * 1.10`
-`Total_Adjusted_Volume = 12.527 cu ft * 1.10 = 13.78 cubic feet`
-
-**Step 8: Convert to cubic yards and bags.**
-*   **Cubic Yards:** `13.78 cu ft / 27 cu ft/cu yd = 0.51 cubic yards`
-*   **50 lb Bags:** `13.78 cu ft / 0.375 cu ft/bag = 36.75 bags` (Round up to 37 bags)
-*   **80 lb Bags:** `13.78 cu ft / 0.60 cu ft/bag = 22.97 bags` (Round up to 23 bags)
-
-For this 5-step concrete staircase, approximately **0.51 cubic yards** of concrete, or **37 (50-pound) bags**, or **23 (80-pound) bags** will be required, including a 10% waste allowance. Always round up to the nearest whole bag to ensure sufficient material.
+- [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+- [Knox County: residential stair requirements, IRC R311.7](https://www.KnoxCounty.org/codes/pdfs/construction_info/Stairs.pdf), Knox County Codes Administration. The 7 3/4 in riser and 10 in tread limits used in the example.
+- [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.
