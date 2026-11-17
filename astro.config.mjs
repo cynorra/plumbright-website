@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -14,6 +15,15 @@ const GUIDE_DATES = Object.fromEntries(
 );
 const toIso = (d) => (d ? `${d}T00:00:00+00:00` : undefined);
 
+// A URL that public/_redirects sends elsewhere must not be in the sitemap
+// (Search Console reports it as "Page with redirect" and it wastes crawl budget).
+const REDIRECTED = new Set(
+  readFileSync(new URL("./public/_redirects", import.meta.url), "utf8")
+    .split(/\r?\n/)
+    .map((l) => l.trim().split(/\s+/)[0])
+    .filter((p) => p && p.startsWith("/") && !p.includes("*")),
+);
+
 export default defineConfig({
   site: SITE.url,
   trailingSlash: "always",
@@ -22,7 +32,8 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap({
-      filter: (page) => !/\/(404|thanks)\/?$/.test(page),
+      filter: (page) =>
+        !/\/(404|thanks)\/?$/.test(page) && !REDIRECTED.has(new URL(page).pathname),
       serialize(item) {
         const path = new URL(item.url).pathname;
         const date = GUIDE_DATES[path] ?? lastModified(path);
