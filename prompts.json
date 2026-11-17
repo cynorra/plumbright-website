@@ -583,5 +583,23 @@
     "title": "Stair Baluster Spacing: Code Rules & How Many Balusters You Need",
     "tool": "stairs",
     "prompt": "Authentic DIY jobsite close-up illustrating \"Stair Baluster Spacing: Code Rules & How Many Balusters You Need\", showing a partially installed stair railing with balusters, a tape measure extended between balusters demonstrating the 4-inch rule, a pencil marking a baluster, and a calculator nearby, natural daylight, shallow depth of field, editorial home improvement photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 66,
+    "slug": "concrete-footing-depth-and-width",
+    "fileName": "concrete-footing-depth-and-width.webp",
+    "targetPath": "public/images/guides/concrete-footing-depth-and-width.webp",
+    "title": "Concrete Footing Depth and Width: Frost Line and Load Sizing",
+    "tool": "concrete",
+    "prompt": "Authentic jobsite close-up illustrating \"Concrete Footing Depth and Width: Frost Line and Load Sizing\", showing a partially dug footing trench with a tape measure extended to show depth, rebar, a soil auger, and a calculator nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
+  },
+  {
+    "index": 67,
+    "slug": "concrete-stairs-cubic-yards-bags",
+    "fileName": "concrete-stairs-cubic-yards-bags.webp",
+    "targetPath": "public/images/guides/concrete-stairs-cubic-yards-bags.webp",
+    "title": "Concrete Stairs: Cubic Yards & Bags for Steps, Treads & Risers",
+    "tool": "stairs",
+    "prompt": "Authentic DIY jobsite close-up illustrating \"Concrete Stairs: Cubic Yards & Bags for Steps, Treads & Risers\", showing a partially formed concrete stair structure, a bag of concrete mix, a tape measure extended to show a tread depth, a calculator, and a trowel nearby, natural daylight, shallow depth of field, editorial construction photography. --ar 16:9 --style raw --v 6.0"
   }
 ]
