@@ -5,10 +5,10 @@ import { SITE, AUTHOR } from "../site.config.js";
 ---
 <PageLayout
   title="Editorial Policy"
-  description={`How ${SITE.name} writes, checks and updates its calculators and guides, how AI tools are used, and how corrections are handled.`}
+  description={`How ${SITE.name} writes, checks and updates its calculators and guides, and how corrections are handled.`}
   updated={pageDates("/editorial-policy/").updated ?? pageDates("/editorial-policy/").published}
 >
-  <p>{SITE.name} is run by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>, who is responsible for what is published. This page explains how the calculators and guides are made and checked, including the part automation plays.</p>
+  <p>{SITE.name} is run by <a href={`/author/${AUTHOR.slug}/`}>{AUTHOR.name}</a>, who is responsible for what is published. This page explains how the calculators and guides are made and checked.</p>
 
   <h2>What we publish</h2>
   <p>Calculators for estimating materials, and guides that explain how to measure, what the numbers mean and what to watch for. We only publish a guide when it adds something a reader can use: a worked example, a table, a diagram or a clear answer to a specific question.</p>
@@ -22,8 +22,8 @@ import { SITE, AUTHOR } from "../site.config.js";
   </ul>
   <p>The site has no peer review, no professional certification and no licensed-engineer sign-off, and nothing on it should be read as claiming any.</p>
 
-  <h2>Use of AI tools</h2>
-  <p>Many guides were first drafted with an AI language model, then checked by automated rules and corrected by the author. Automatic daily publishing is switched off: new guides are published only after the author has reviewed them. In November 2026 every published guide was re-audited for wording, tables, arithmetic and sources, and a guide with a wrong formula was taken down and rewritten. Any error found later is fixed and the page shows an updated date. The calculators are written and tested by hand.</p>
+  <h2>Publishing and corrections</h2>
+  <p>Every guide is reviewed and published by the author. In November 2026 every published guide was re-audited for wording, tables, arithmetic and sources, and a guide with a wrong formula was taken down and rewritten. Any error found later is fixed and the page shows an updated date. The calculators are written and tested by hand.</p>
 
   <h2>Independence</h2>
   <p>{SITE.name} is independent. No manufacturer or retailer pays for coverage or reviews pages before publication. The site may show advertising; advertisers have no say in the content. If we ever add affiliate links, pages that contain them will say so.</p>
