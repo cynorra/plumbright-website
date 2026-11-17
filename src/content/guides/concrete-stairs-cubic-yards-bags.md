@@ -2,6 +2,7 @@
 title: "Concrete Stairs: Cubic Yards & Bags for Steps, Treads & Risers"
 description: "Calculate concrete for stairs, treads, and risers with precise formulas for cubic yards and bags. Learn to estimate volume for individual steps, landings, and."
 published: 2026-11-17
+draft: true
 tool: stairs
 ---
 **Calculating concrete for stairs requires precise volume determination for each step's unique geometry, including treads, risers, and any landings or footings.** A simple square footage estimate is insufficient due to the complex three-dimensional forms. Account for a 10% waste factor and consider the specific dimensions of your stairs, as these significantly impact the total cubic yards and number of concrete bags needed.

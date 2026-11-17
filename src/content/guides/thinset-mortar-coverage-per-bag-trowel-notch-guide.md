@@ -4,7 +4,7 @@ description: "A 50 lb bag of thinset covers about 16 to 33 sq ft depending on tr
 published: 2026-11-09
 tool: tile
 ---
-**A 50 lb bag of thinset mortar typically covers between 16 and 33 square feet, while an 80 lb bag yields 26 to 52 square feet, depending on the trowel notch size used.** This range accounts for common trowel sizes from 1/4-inch square for smaller tiles to 1/2-inch square or larger U-notches for large format tiles. However, actual coverage is significantly impacted by substrate flatness, tile size, back-buttering practices, and a crucial 10% waste allowance, making a detailed calculation essential.
+**A 50 lb bag of thinset mortar typically covers between 16 and 33 square feet, while an 80 lb bag yields 26 to 52 square feet, depending on the trowel notch size used.** This range accounts for common trowel sizes from 1/4-inch square for smaller tiles to 1/2-inch square or larger U-notches for large format tiles. However, actual coverage is significantly impacted by substrate flatness, tile size, back-buttering practices, and a 10% waste allowance.
 
 ## Decoding Thinset Volume and Application Thickness
 
@@ -23,7 +23,7 @@ To account for real-world conditions like uneven substrates, minor spills, trowe
 
 ## Thinset Mortar Coverage by Trowel Notch Size and Bag Weight
 
-Selecting the correct trowel notch size is paramount for achieving proper mortar coverage and tile adhesion. Smaller tiles (under 6x6 inches) typically use smaller notches, while larger format tiles (12x24 inches and up) require larger notches to ensure adequate embedment and prevent lippage. Back-buttering large format tiles is also a common practice that effectively increases the thinset volume needed per square foot.
+Trowel notch size determines mortar coverage and tile adhesion. Smaller tiles (under 6x6 inches) typically use smaller notches, while larger format tiles (12x24 inches and up) require larger notches to ensure adequate embedment and prevent lippage. Back-buttering large format tiles is also a common practice that effectively increases the thinset volume needed per square foot.
 
 The following table provides estimated thinset coverage per bag for common trowel notch sizes, factoring in typical effective wet thicknesses and including the recommended 10% waste allowance.
 
@@ -82,7 +82,7 @@ The following table provides estimated thinset coverage per bag for common trowe
 </tbody>
 </table></div>
 
-*Note: "Approx. Wet Thickness" refers to the average thickness of the mortar bed after the tile is fully embedded. This is a crucial distinction from the nominal trowel notch depth.*
+*Note: "Approx. Wet Thickness" refers to the average thickness of the mortar bed after the tile is fully embedded. This differs from the nominal trowel notch depth.*
 
 ## Worked Project Example: Tiling a 150 Sq Ft Kitchen Floor
 

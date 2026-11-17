@@ -2,6 +2,7 @@
 title: "Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes"
 description: "What the pattern repeat on a wallpaper label means, how straight and half-drop matches change strip length, and how many extra rolls a large repeat costs."
 published: 2026-11-19
+draft: true
 tool: wallpaper
 ---
 

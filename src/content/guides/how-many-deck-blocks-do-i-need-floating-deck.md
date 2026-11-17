@@ -1,6 +1,6 @@
 ---
 title: "How Many Deck Blocks for a Floating Deck? Spacing & Layout Guide"
-description: "Calculate deck blocks for floating decks. Learn 5-6 ft beam spacing, layout grids, and how to account for perimeter support. Includes a material table and."
+description: "How many deck blocks a floating deck needs: one block every 5 to 6 feet along each beam, the layout grid, perimeter support and a material table."
 published: 2026-11-06
 tool: deck
 ---

@@ -2,6 +2,7 @@
 title: "How Many Bags of Mulch Are in a Yard?"
 description: "One cubic yard equals 13.5 bags of 2 cu ft mulch, 9 bags of 3 cu ft or 18 of 1.5 cu ft. How to compare bag and bulk prices, with coverage per bag."
 published: 2026-11-21
+draft: true
 updated: 2026-11-17
 tool: mulch
 ---

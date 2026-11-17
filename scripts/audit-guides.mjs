@@ -12,7 +12,9 @@ import { draftingProblems, truncationProblems, descriptionLength, linkProblems, 
 const STRICT = process.argv.includes("--strict");
 
 const GUIDES_DIR = join(process.cwd(), "src", "content", "guides");
-const files = readdirSync(GUIDES_DIR).filter((f) => f.endsWith(".md"));
+// Drafts (draft: true) are not published, so they are not audited until they are un-drafted.
+const isDraft = (f) => /^draft:\s*true\s*$/m.test(readFileSync(join(GUIDES_DIR, f), "utf8").slice(0, 800));
+const files = readdirSync(GUIDES_DIR).filter((f) => f.endsWith(".md") && !isDraft(f));
 
 console.log(`\n==================================================`);
 console.log(`🔍 AUDITING ${files.length} GUIDES IN src/content/guides/`);

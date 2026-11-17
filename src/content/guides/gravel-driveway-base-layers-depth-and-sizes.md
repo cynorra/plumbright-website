@@ -2,6 +2,7 @@
 title: "Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways?"
 description: "Crushed stone versus pea gravel for driveways and walkways: how angular stone locks together, how each shifts under tires, and tons needed per 100 sq ft."
 published: 2026-11-28
+draft: true
 tool: gravel
 ---
 **Crushed stone (angular gravel with sharp edges) interlocks and compacts into a firm, drivable surface that stays in place under car tires and snowplows, whereas pea gravel (rounded, smooth river rock) constantly shifts like ball bearings under foot and vehicle traffic.** For driveways and sloped paths, crushed stone (#411 or crusher run) is required; pea gravel is strictly suited for flat garden walkways, decorative borders, or playground bedding.

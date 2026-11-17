@@ -2,6 +2,7 @@
 title: "How Many Pavers Do I Need for a Patio?"
 description: "Pavers per square foot = 144 ÷ (paver width × length in inches). Counts for common paver sizes, waste by pattern and a full patio materials example."
 published: 2026-11-26
+draft: true
 tool: brick
 ---
 

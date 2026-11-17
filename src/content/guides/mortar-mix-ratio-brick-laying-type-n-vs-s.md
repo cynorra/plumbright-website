@@ -131,14 +131,14 @@ For this 20 ft x 3 ft garden wall, you would need to purchase 2 bags of 94 lb Po
 
 ## Essential Tips for Mixing and Application
 
-Proper mixing and application are as crucial as accurate material estimation for a successful bricklaying project.
+
 
 *   **Dry Mix First:** Always combine all dry ingredients (cement, lime, sand) thoroughly in a wheelbarrow or mixer before adding water. This ensures a consistent blend and uniform strength throughout the mortar.
 *   **Add Water Gradually:** Slowly add clean water while mixing, aiming for a workable, plastic consistency. The mortar should be stiff enough to hold its shape on the trowel but pliable enough to spread easily. Avoid making it too wet, as this weakens the mortar and can lead to excessive shrinkage.
 *   **Work in Batches:** Mix only as much mortar as you can use within 1 to 1.5 hours. Mortar begins to set once water is added, and remixing old, stiffened mortar by adding more water (re-tempering) significantly reduces its strength.
 *   **Joint Thickness:** Maintain consistent 3/8-inch mortar joints for both horizontal (bed joints) and vertical (head joints). This not only looks professional but also ensures the structural integrity of the wall.
 *   **Tooling:** Tool the mortar joints when they are thumbprint hard. This compacts the mortar, improves its weather resistance, and creates a finished appearance.
-*   **Waste Allowance:** As demonstrated, always factor in a 10% waste allowance. This buffer prevents costly delays and extra trips to the store, ensuring you have enough material to complete the job without interruption.
+*   **Waste Allowance:** As demonstrated, always factor in a 10% waste allowance. This buffer saves a second trip to the store.
 
 ## Sources
 

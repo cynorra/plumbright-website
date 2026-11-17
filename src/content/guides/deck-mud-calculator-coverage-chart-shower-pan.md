@@ -5,11 +5,11 @@ published: 2026-11-06
 updated: 2026-11-17
 tool: tile
 ---
-**For a 36 × 60 inch (15 sq ft) shower pan with a pre-slope and a final sloped layer, a 4:1 deck mud mix takes about 7 bags of 50 lb sand and 2 bags of 50 lb Portland cement, including 10% waste.** This estimate accounts for the critical 1/4-inch per foot slope, ensuring proper drainage, and the varying thickness from the drain to the perimeter walls. Accurate calculation is essential to prevent material shortages or excessive waste, which is why understanding the full dimensional breakdown is crucial.
+**For a 36 × 60 inch (15 sq ft) shower pan with a pre-slope and a final sloped layer, a 4:1 deck mud mix takes about 7 bags of 50 lb sand and 2 bags of 50 lb Portland cement, including 10% waste.** This estimate accounts for the critical 1/4-inch per foot slope, ensuring proper drainage, and the varying thickness from the drain to the perimeter walls. 
 
 ## Calculating Deck Mud Volume for Shower Pans
 
-Estimating deck mud for a shower pan involves calculating the volume of a sloped bed, which typically comprises two layers: a pre-slope and a final sloped layer. Both layers are designed to create a consistent 1/4-inch per foot slope towards the drain, ensuring water drains effectively beneath the tile.
+Estimating deck mud for a shower pan involves calculating the volume of a sloped bed, which typically comprises two layers: a pre-slope and a final sloped layer. Both layers create a consistent 1/4-inch per foot slope toward the drain, so water drains beneath the tile.
 
 The fundamental principle is to determine the average thickness of the sloped material over the shower pan's area. Since the thickness varies from the drain (thinnest point) to the perimeter walls (thickest point), an average thickness is used for volume calculations.
 

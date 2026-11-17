@@ -99,7 +99,7 @@ There are 9 square feet in 1 square yard. Divide the total square footage by 9 t
 `Square Yards = Total Square Footage / 9`
 
 **Step 4: Add Waste Allowance**
-It is crucial to add a waste allowance to account for cuts, seams, and potential errors. A standard waste factor for carpet and padding is 10%.
+Add a waste allowance for cuts and seams. A standard waste factor for carpet and padding is 10%.
 `Total Square Yards (with waste) = Square Yards × 1.10`
 
 For a quick estimate, you can also use an online tool like the [carpet calculator](/carpet-calculator/) to determine your material needs.
@@ -137,11 +137,11 @@ Therefore, for this multi-room project, approximately 74 square yards of carpet 
 
 ## Installation Considerations and Warranty Compliance
 
-The longevity and performance of your carpet are directly tied to the correct selection and installation of its padding. A crucial step before purchasing any padding is to consult the specific warranty requirements of your chosen carpet. Many carpet manufacturers explicitly state the maximum thickness and minimum density of padding allowed. For instance, a warranty might stipulate "padding not to exceed 7/16 inch thickness and a minimum of 6 lb density." Exceeding the maximum thickness, even with a high-density pad, can cause the carpet backing to stretch and break down prematurely, leading to buckling and voiding the warranty.
+The longevity and performance of your carpet are directly tied to the correct selection and installation of its padding. Before buying padding, check the warranty requirements of your carpet. Many carpet manufacturers explicitly state the maximum thickness and minimum density of padding allowed. For instance, a warranty might stipulate "padding not to exceed 7/16 inch thickness and a minimum of 6 lb density." Exceeding the maximum thickness, even with a high-density pad, can cause the carpet backing to stretch and break down prematurely, leading to buckling and voiding the warranty.
 
 For loop pile carpets, such as Berbers, a thinner, denser pad (e.g., 3/8 inch, 8 lb) is often recommended or required. This prevents the loops from crushing and maintains the carpet's structural integrity. Just as precise material calculations are essential for foundational projects, such as determining the correct [Concrete Slab Thickness Guide](/guides/concrete-slab-thickness/) for a patio, similar attention to detail ensures the longevity and comfort of interior finishes like carpet padding.
 
-Proper installation also involves ensuring the padding is laid flat, trimmed accurately, and securely seamed where necessary. The padding should cover the entire subfloor area where the carpet will be installed, stopping just short of the tack strips to allow the carpet to be properly stretched and secured. Adhering to these guidelines ensures your carpet performs as intended, provides maximum comfort, and remains covered by its manufacturer's warranty for years to come.
+Lay the padding flat, trim it accurately and seam it where needed. The padding should cover the entire subfloor area where the carpet will be installed, stopping just short of the tack strips to allow the carpet to be properly stretched and secured. Adhering to these guidelines ensures your carpet performs as intended, provides maximum comfort, and remains covered by its manufacturer's warranty for years to come.
 
 ## Sources
 

@@ -2,6 +2,7 @@
 title: "Deck Post Sizing: When 4x4 Is Allowed vs When Code Requires 6x6"
 description: "Compare 4x4 vs 6x6 deck support posts under IRC building codes. Maximum allowed heights, tributary load tables, and beam notch requirements."
 published: 2026-11-29
+draft: true
 tool: deck
 ---
 **The International Residential Code (IRC) permits 4x4 deck posts only up to a maximum height of 8 feet under light tributary loads (under 36 sq ft), while all second-story decks, heavy beam spans, and posts exceeding 8 feet in height strictly require 6x6 timber.** Furthermore, many local jurisdictions prohibit notched 4x4 posts entirely, requiring 6x6 lumber so beams can bear directly on solid wood rather than fastening hardware.

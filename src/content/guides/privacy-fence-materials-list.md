@@ -2,6 +2,7 @@
 title: "Privacy Fence Materials List for 100 Feet"
 description: "Everything to buy for a 100 ft, 6 ft tall wood privacy fence with a gate: posts, rails, pickets, concrete, gravel and fasteners, with the math behind each."
 published: 2026-11-24
+draft: true
 tool: fence
 ---
 

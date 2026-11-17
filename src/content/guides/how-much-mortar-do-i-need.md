@@ -2,6 +2,7 @@
 title: "How Much Mortar Do I Need for Brick or Block?"
 description: "About 8 cu ft of mortar per 1,000 modular bricks, or one 80 lb bag for up to 37 bricks or 13 blocks. Bag charts, mortar types and mixing tips."
 published: 2026-11-23
+draft: true
 tool: brick
 ---
 

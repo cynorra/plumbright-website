@@ -2,6 +2,7 @@
 title: "Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go"
 description: "Most carpet comes 12 ft wide; some comes 13.5 or 15 ft. How roll width changes the square yards you buy and the number of seams, with a chart by room size."
 published: 2026-11-20
+draft: true
 tool: carpet
 ---
 

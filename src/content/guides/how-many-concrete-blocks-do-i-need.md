@@ -2,6 +2,7 @@
 title: "How Many Concrete Blocks Do I Need? Courses and Blocks per Foot"
 description: "A standard 8×8×16 block covers 0.89 sq ft, so a wall takes 1.125 blocks per sq ft. Count by courses, see a chart of common walls and mortar bags."
 published: 2026-11-18
+draft: true
 tool: brick
 ---
 

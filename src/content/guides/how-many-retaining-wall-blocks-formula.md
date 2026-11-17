@@ -7,7 +7,7 @@ tool: brick
 ---
 **To calculate the number of retaining wall blocks needed, determine the total face area of the wall (length x height), divide by the face area of a single block, and add one full course for the buried starter layer. Account for capstones separately by dividing the wall's linear length by the capstone's length. Always include a 10% waste factor for cuts and breakage, and estimate gravel and geogrid based on wall dimensions and manufacturer specifications.**
 
-Accurate material estimation for retaining walls requires more than just a simple area calculation. Factors like the essential buried starter course, distinct capstone dimensions, the volume of gravel for a stable base, and the linear footage of geogrid reinforcement for taller walls significantly impact the final material count. This guide provides the precise formulas and a comprehensive table to ensure a successful project.
+Accurate material estimation for retaining walls requires more than just a simple area calculation. Factors like the essential buried starter course, distinct capstone dimensions, the volume of gravel for a stable base, and the linear footage of geogrid reinforcement for taller walls significantly impact the final material count. 
 
 ## How the Formula Works
 
@@ -145,7 +145,7 @@ This example estimates materials for a retaining wall that is 20 feet long and 3
 
 A 10% waste allowance is a critical buffer for any construction project, especially with retaining walls. Blocks can chip or break during transport, handling, or cutting. It is always better to have a few extra blocks on hand than to halt a project waiting for a small reorder.
 
-Proper base preparation is paramount for a stable retaining wall. The trench for the gravel base should be excavated to a depth that accommodates the gravel layer and the buried starter course, ensuring the first course is fully below grade. This depth helps prevent the wall from shifting or settling. For the gravel and sand layers under a block course, see the [paver base depth guide](/guides/paver-base-depth-sand-and-crushed-stone-layers/); for a wall that holds back soil, follow your block manufacturer's base specification. The gravel base itself must be compacted thoroughly and perfectly level to provide a uniform foundation for the first course of blocks.
+ The trench for the gravel base should be excavated to a depth that accommodates the gravel layer and the buried starter course, so the first course sits fully below grade. This depth helps prevent the wall from shifting or settling. For the gravel and sand layers under a block course, see the [paver base depth guide](/guides/paver-base-depth-sand-and-crushed-stone-layers/); for a wall that holds back soil, follow your block manufacturer's base specification. The gravel base itself must be compacted thoroughly and perfectly level to provide a uniform foundation for the first course of blocks.
 
 Geogrid reinforcement is usually required for taller walls (many manufacturers start at about 3 to 4 feet, some lower) or walls supporting a slope, a driveway or other loads. Walls over 4 feet are often regulated and may need a permit or an engineer. It is laid horizontally between courses and extends back into the compacted soil behind the wall, creating a reinforced soil mass that resists lateral pressure. Always follow the manufacturer's guidelines for geogrid type, spacing, and embedment length to ensure structural integrity.
 

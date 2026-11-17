@@ -2,6 +2,7 @@
 title: "How Many Bags of Concrete for a 10x10 Slab at 4 Inches?"
 description: "A 10x10 foot concrete slab at 4 inches thick requires 1.23 cubic yards or 56 bags of 80 lb concrete mix (75 bags of 60 lb mix) with a 10% waste buffer."
 published: 2026-11-27
+draft: true
 tool: concrete
 ---
 **A standard 10×10 foot concrete slab poured at 4 inches thick requires 1.23 cubic yards of concrete, which equals 56 bags of 80 lb mix or 75 bags of 60 lb mix (accounting for a standard 10% waste allowance).** Without waste, the exact volume is 1.23 cubic yards (33.33 cubic feet), but uneven excavation depth and form bowing make extra bags mandatory.

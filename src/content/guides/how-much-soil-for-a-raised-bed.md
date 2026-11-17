@@ -2,6 +2,7 @@
 title: "How Much Soil Do I Need for a Raised Bed?"
 description: "Length × width × depth gives cubic feet of soil. A 4×8 bed 12 in deep holds 32 cu ft. Charts by bed size, bags versus bulk and a three-bed example."
 published: 2026-11-25
+draft: true
 updated: 2026-11-17
 tool: mulch
 ---
