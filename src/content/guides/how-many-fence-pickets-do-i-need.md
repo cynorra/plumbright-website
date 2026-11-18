@@ -71,6 +71,6 @@ To calculate your complete fence bill of materials including posts, rails, and b
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 
-For related coverage, see our guide on [Privacy Fence Materials List for 100 Feet](/guides/privacy-fence-materials-list/).
+For related coverage, see our guide on [Fence Post Spacing: 6 vs 8 Feet](/guides/fence-post-spacing/).
 
 For related coverage, see our guide on [Fence Post Spacing: 6 or 8 Feet Apart?](/guides/fence-post-spacing/).

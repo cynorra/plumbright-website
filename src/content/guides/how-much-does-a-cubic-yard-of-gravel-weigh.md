@@ -65,6 +65,6 @@ A 0.5 cu ft bag of pea gravel weighs about 48 lb at the weight we use, and it ta
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.
 
-For related coverage, see our guide on [Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways?](/guides/gravel-driveway-base-layers-depth-and-sizes/).
+For related coverage, see our guide on [French Drain Gravel Depth and Trench Volume](/guides/french-drain-gravel-depth-and-trench-volume/).
 
 For related coverage, see our guide on [French Drain Gravel Depth & Trench Volume Calculation Guide](/guides/french-drain-gravel-depth-and-trench-volume/).

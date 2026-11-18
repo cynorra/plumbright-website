@@ -82,6 +82,6 @@ Calculate your exact order with the [mulch calculator](/mulch-calculator/).
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.
 
-For related coverage, see our guide on [How Many Bags of Mulch Are in a Yard?](/guides/how-many-bags-of-mulch-in-a-yard/).
+For related coverage, see our guide on [How Much Mulch Do I Need?](/guides/how-much-mulch-do-i-need/).
 
-For related coverage, see our guide on [How Much Soil Do I Need for a Raised Bed?](/guides/how-much-soil-for-a-raised-bed/).
+For related coverage, see our guide on [Mulch vs Wood Chips: Cubic Yard Weight and Coverage](/guides/mulch-vs-wood-chips-cubic-yard-weight-and-coverage/).

@@ -1,10 +1,9 @@
 ---
 title: "How Much Mortar Do I Need for Brick or Block?"
 description: "About 8 cu ft of mortar per 1,000 modular bricks, or one 80 lb bag for up to 37 bricks or 13 blocks. Bag charts, mortar types and mixing tips."
-published: 2026-11-18
-draft: false
+published: 2026-11-23
+draft: true
 tool: brick
-updated: 2026-11-18
 ---
 
 **Plan on about 8.1 cubic feet of mortar per 1,000 modular bricks with 3/8 inch joints (Brick Industry Association), plus 15 to 25% for waste. In bags, one 80 lb bag of QUIKRETE Mason Mix lays up to 37 standard bricks or 13 standard 8 × 8 × 16 blocks.** "Up to" is the best case, so allow extra.
@@ -92,7 +91,3 @@ Calculate your exact brick, block, and mortar requirements with our [brick calcu
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
 - [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.
-
-For related coverage, see our guide on [How Many Pavers Do I Need for a Patio?](/guides/how-many-pavers-do-i-need/).
-
-For related coverage, see our guide on [Retaining Wall Block Calculator: Trench, Capstone & Geogrid Math](/guides/how-many-retaining-wall-blocks-formula/).

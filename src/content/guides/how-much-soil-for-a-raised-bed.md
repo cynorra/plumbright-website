@@ -1,9 +1,9 @@
 ---
 title: "How Much Soil Do I Need for a Raised Bed?"
 description: "Length × width × depth gives cubic feet of soil. A 4×8 bed 12 in deep holds 32 cu ft. Charts by bed size, bags versus bulk and a three-bed example."
-published: 2026-11-18
-draft: false
-updated: 2026-11-18
+published: 2026-11-25
+draft: true
+updated: 2026-11-17
 tool: mulch
 ---
 
@@ -65,7 +65,3 @@ Plan on adding 1 to 2 in of compost each spring. For a 4 × 8 bed that's 2.7 to 
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.
-
-For related coverage, see our guide on [How Deep Should Mulch Be? 2 to 4 Inches, and Why Not More](/guides/how-deep-should-mulch-be/).
-
-For related coverage, see our guide on [Mulch vs Wood Chips vs Bark: Cubic Yard Weight & Breakdown Rates](/guides/mulch-vs-wood-chips-cubic-yard-weight-and-coverage/).

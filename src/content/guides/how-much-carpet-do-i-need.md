@@ -69,6 +69,6 @@ Calculate your exact square yards, roll waste, and cushion needs with our [carpe
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 
-For related coverage, see our guide on [Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go](/guides/carpet-roll-width-and-seams/).
+For related coverage, see our guide on [Carpet Padding Thickness and Density Rebond Guide](/guides/carpet-padding-thickness-and-density-rebond-guide/).
 
 For related coverage, see our guide on [Calculate Carpet Square Feet & Yardage: Full Formula Guide](/guides/how-to-calculate-square-feet-and-yardage-for-carpet/).

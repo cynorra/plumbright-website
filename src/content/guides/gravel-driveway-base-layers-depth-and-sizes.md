@@ -1,12 +1,10 @@
 ---
 title: "Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways?"
 description: "Crushed stone versus pea gravel for driveways and walkways: how angular stone locks together, how each shifts under tires, and tons needed per 100 sq ft."
-published: 2026-11-18
-draft: false
+published: 2026-11-28
+draft: true
 tool: gravel
-updated: 2026-11-18
 ---
-
 **Crushed stone (angular gravel with sharp edges) interlocks and compacts into a firm, drivable surface that stays in place under car tires and snowplows, whereas pea gravel (rounded, smooth river rock) constantly shifts like ball bearings under foot and vehicle traffic.** For driveways and sloped paths, crushed stone (#411 or crusher run) is required; pea gravel is strictly suited for flat garden walkways, decorative borders, or playground bedding.
 
 ## Angular vs Rounded Aggregate: The Engineering Difference
@@ -63,7 +61,3 @@ To calculate exact tonnage, cubic yards, and delivery loads for your project dim
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.
-
-For related coverage, see our guide on [Gravel Driveway Depth and Layers: How Much Stone to Order](/guides/gravel-driveway-depth-and-layers/).
-
-For related coverage, see our guide on [French Drain Gravel Depth & Trench Volume Calculation Guide](/guides/french-drain-gravel-depth-and-trench-volume/).

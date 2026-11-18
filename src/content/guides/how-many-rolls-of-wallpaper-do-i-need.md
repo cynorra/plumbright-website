@@ -63,7 +63,7 @@ Buy at least one extra roll, from the same batch or "run" number. Wallpaper from
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Selected Wallpapers: European rolls vs double rolls](https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls), Selected Wallpapers. How roll lengths and coverage are labeled; check the label on your own paper.
 
-For related coverage, see our guide on [Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes](/guides/wallpaper-pattern-repeat/).
+For related coverage, see our guide on [Wallpaper Accent Wall Pattern Drop & Waste Guide](/guides/wallpaper-accent-wall-pattern-drop-waste-guide/).
 
 For related coverage, see our guide on [Square Feet vs Linear Feet vs Board Feet: What Each Measures](/guides/square-feet-vs-linear-feet-vs-board-feet/).
 

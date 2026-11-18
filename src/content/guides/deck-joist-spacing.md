@@ -80,7 +80,7 @@ Ask the board maker, not just the code: composite and PVC decking warranties oft
 - [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive joist, beam and post tables for residential decks.
 - [Anne Arundel County deck guide, based on the 2021 IRC](https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf), Anne Arundel County. Plain-language summary of IRC Tables R507.6 and R507.7.
 
-For related coverage, see our guide on [Deck Post Sizing: When 4x4 Is Allowed vs When Code Requires 6x6](/guides/deck-joist-spacing-12-vs-16-vs-24-inches/).
+For related coverage, see our guide on [Deck Beam Span Rules and Sizing Joists](/guides/deck-beam-span-rules-and-sizing-joists/).
 
 For related coverage, see our guide on [How Many Deck Blocks for a Floating Deck? Spacing & Layout Guide](/guides/how-many-deck-blocks-do-i-need-floating-deck/).
 

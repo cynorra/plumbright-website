@@ -86,6 +86,6 @@ For further assistance with your project, you can use our [carpet calculator](/c
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 
-For related coverage, see our guide on [Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go](/guides/carpet-roll-width-and-seams/).
+For related coverage, see our guide on [How Much Carpet Do I Need?](/guides/how-much-carpet-do-i-need/).
 
 For related coverage, see our guide on [How Much Carpet Do I Need? Square Yards from a 12 ft Roll](/guides/how-much-carpet-do-i-need/).

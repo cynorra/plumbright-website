@@ -65,6 +65,6 @@ How concrete is finished at the top of the hole determines whether your wood pos
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 
-For related coverage, see our guide on [Privacy Fence Materials List for 100 Feet](/guides/privacy-fence-materials-list/).
+For related coverage, see our guide on [Fence Post Depth: Frost Line Rules](/guides/fence-post-depth-frost-line-rules-how-deep-to-dig/).
 
 For related coverage, see our guide on [Fence Post Depth & Frost Line Rules: How Deep to Dig](/guides/fence-post-depth-frost-line-rules-how-deep-to-dig/).

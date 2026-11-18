@@ -77,4 +77,4 @@ Add a margin for cuts and defects when you buy lumber; 10% is a common planning 
 - [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive beam, joist and post tables for residential decks.
 - [International Code Council, 2021 International Residential Code, section R507 (exterior decks)](https://codes.iccsafe.org/content/IRC2021P1/chapter-5-floors), International Code Council. Table R507.5 gives the maximum deck beam spans; local adoption varies.
 
-For related coverage, see our guide on [Deck Post Sizing: When 4x4 Is Allowed vs When Code Requires 6x6](/guides/deck-joist-spacing-12-vs-16-vs-24-inches/).
+For related coverage, see our guide on [Deck Joist Spacing: 12 vs 16 vs 24 Inches](/guides/deck-joist-spacing/).

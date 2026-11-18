@@ -1,12 +1,10 @@
 ---
 title: "Deck Post Sizing: When 4x4 Is Allowed vs When Code Requires 6x6"
 description: "Compare 4x4 vs 6x6 deck support posts under IRC building codes. Maximum allowed heights, tributary load tables, and beam notch requirements."
-published: 2026-11-18
-draft: false
+published: 2026-11-29
+draft: true
 tool: deck
-updated: 2026-11-18
 ---
-
 **The International Residential Code (IRC) permits 4x4 deck posts only up to a maximum height of 8 feet under light tributary loads (under 36 sq ft), while all second-story decks, heavy beam spans, and posts exceeding 8 feet in height strictly require 6x6 timber.** Furthermore, many local jurisdictions prohibit notched 4x4 posts entirely, requiring 6x6 lumber so beams can bear directly on solid wood rather than fastening hardware.
 
 ## Understanding IRC Deck Post Sizing Limits
@@ -62,7 +60,3 @@ To calculate deck joist lengths, board quantities, and framing materials for you
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive joist, beam and post tables for residential decks.
 - [Anne Arundel County deck guide, based on the 2021 IRC](https://www.aacounty.org/sites/default/files/2023-03/Deck_Guide.pdf), Anne Arundel County. Plain-language summary of IRC Tables R507.6 and R507.7.
-
-For related coverage, see our guide on [Deck Joist Spacing: 12, 16 or 24 Inches?](/guides/deck-joist-spacing/).
-
-For related coverage, see our guide on [How Many Deck Blocks for a Floating Deck? Spacing & Layout Guide](/guides/how-many-deck-blocks-do-i-need-floating-deck/).

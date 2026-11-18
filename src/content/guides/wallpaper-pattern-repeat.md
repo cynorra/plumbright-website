@@ -1,10 +1,9 @@
 ---
 title: "Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes"
 description: "What the pattern repeat on a wallpaper label means, how straight and half-drop matches change strip length, and how many extra rolls a large repeat costs."
-published: 2026-11-18
-draft: false
+published: 2026-11-19
+draft: true
 tool: wallpaper
-updated: 2026-11-18
 ---
 
 **The pattern repeat is the vertical distance, in inches, after which the design starts over. Every strip must begin at the same point in the pattern, so each strip is cut to a whole number of repeats, and large repeats waste paper.** A half-drop match shifts every other strip down by half a repeat, which wastes about half a repeat more per strip.
@@ -77,5 +76,3 @@ Calculate exact roll counts, drop pattern offsets, and trimming waste with our [
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Selected Wallpapers: European rolls vs double rolls](https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls), Selected Wallpapers. How roll lengths and coverage are labeled; check the label on your own paper.
-
-For related coverage, see our guide on [Wallpaper for Accent Walls: Calculate Pattern Drops & Rolls Without Waste](/guides/wallpaper-accent-wall-pattern-drop-waste-guide/).

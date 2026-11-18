@@ -182,4 +182,4 @@ Beyond the mathematical calculations, several practical steps are critical for a
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Selected Wallpapers: European rolls vs double rolls](https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls), Selected Wallpapers. How roll lengths and coverage are labeled; check the label on your own paper.
 
-For related coverage, see our guide on [Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes](/guides/wallpaper-pattern-repeat/).
+For related coverage, see our guide on [How Many Rolls of Wallpaper Do I Need?](/guides/how-many-rolls-of-wallpaper-do-i-need/).
