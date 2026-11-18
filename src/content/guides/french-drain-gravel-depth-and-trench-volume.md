@@ -2,7 +2,7 @@
 title: "French Drain Gravel Depth & Trench Volume Calculation Guide"
 description: "How much gravel a French drain trench takes per linear foot, with a volume table, a 50-foot worked example and the geotextile fabric you need."
 published: 2026-11-10
-updated: 2026-11-17
+updated: 2026-11-18
 tool: gravel
 ---
 **To estimate French drain gravel, multiply the trench width (ft) by the gravel depth (ft) to get cubic feet per linear foot, subtract the pipe, and multiply by the length. A 12-inch wide trench with 18 inches of gravel is 1.5 cu ft per foot before the pipe and 1.39 cu ft after it, which is 5.7 cubic yards per 100 linear feet with 10% waste.** Trench width, gravel depth and pipe size change the answer, so use the table below or the steps that follow.

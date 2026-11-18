@@ -1,9 +1,10 @@
 ---
 title: "How Many Pavers Do I Need for a Patio?"
 description: "Pavers per square foot = 144 ÷ (paver width × length in inches). Counts for common paver sizes, waste by pattern and a full patio materials example."
-published: 2026-11-26
-draft: true
+published: 2026-11-18
+draft: false
 tool: brick
+updated: 2026-11-18
 ---
 
 **Pavers per square foot = 144 ÷ (paver width × paver length, in inches). Multiply by the patio's square footage and add 5% for a straight pattern or 10% or more for herringbone, curves and borders.** A 4 × 8 in brick paver works out to 4.5 per square foot; a 12 × 12 in paver to 1.
@@ -64,3 +65,13 @@ For complete foundation and perimeter calculations, use our [brick calculator](/
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
 - [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.
+
+For related coverage, see our guide on [How Many Bricks per Square Foot? Modular, Queen and King](/guides/how-many-bricks-per-square-foot/).
+
+For related coverage, see our guide on [How Many Concrete Blocks Do I Need? Courses and Blocks per Foot](/guides/how-many-concrete-blocks-do-i-need/).
+
+For related coverage, see our guide on [How Much Mortar Do I Need for Brick or Block?](/guides/how-much-mortar-do-i-need/).
+
+For related coverage, see our guide on [Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions](/guides/mortar-mix-ratio-brick-laying-type-n-vs-s/).
+
+For related coverage, see our guide on [Retaining Wall Block Calculator: Trench, Capstone & Geogrid Math](/guides/how-many-retaining-wall-blocks-formula/).

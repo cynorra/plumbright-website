@@ -3,6 +3,7 @@ title: "How Much Does a Cubic Yard of Gravel Weigh?"
 description: "A cubic yard of gravel weighs about 1.3 to 1.5 tons. See weights for crushed stone, crusher run, pea gravel, sand and topsoil, and convert yards to tons."
 published: 2026-10-20
 tool: gravel
+updated: 2026-11-18
 ---
 
 **A cubic yard of gravel or crushed stone weighs about 2,600 to 3,000 pounds, or 1.3 to 1.5 tons.** Clean crushed stone like #57 is around 2,700 to 2,800 lb per yard. Crusher run, which includes stone dust, can reach about 3,000 lb. Wet material weighs more than dry.
@@ -63,3 +64,7 @@ A 0.5 cu ft bag of pea gravel weighs about 48 lb at the weight we use, and it ta
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.
+
+For related coverage, see our guide on [Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways?](/guides/gravel-driveway-base-layers-depth-and-sizes/).
+
+For related coverage, see our guide on [French Drain Gravel Depth & Trench Volume Calculation Guide](/guides/french-drain-gravel-depth-and-trench-volume/).

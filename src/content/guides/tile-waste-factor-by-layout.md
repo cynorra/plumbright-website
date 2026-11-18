@@ -3,6 +3,7 @@ title: "Tile Waste Factor by Layout: Straight, Diagonal, Herringbone"
 description: "How much extra tile to buy for straight, offset, diagonal and herringbone layouts, why small rooms waste more, and how waste changes the box count."
 published: 2026-10-16
 tool: tile
+updated: 2026-11-18
 ---
 
 **Buy 10% extra tile for a straight or offset layout, 15% for a diagonal layout and 20% for herringbone.** Add a few more percent for small rooms, rooms with many corners, and large-format tile, where one bad cut costs a big piece.
@@ -74,3 +75,5 @@ After the job, keep at least a few whole tiles, or a full box if you can. Tile l
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules](/guides/thinset-mortar-coverage-per-bag-trowel-notch-guide/).

@@ -3,6 +3,7 @@ title: "How Many Fence Pickets Do I Need? Count per Section and per Foot"
 description: "Divide the fence length in inches by picket width plus gap. Picket counts per 6 and 8 ft section for 1×4 and 1×6 boards, with a full-fence example."
 published: 2026-11-11
 tool: fence
+updated: 2026-11-18
 ---
 
 **Pickets = fence length in inches ÷ (picket width + gap).** For a privacy fence of 1×6 pickets (actual width 5.5 in) with no gap, an 8 ft section takes 96 ÷ 5.5 = 17.5, so **18 pickets**; a 100 ft run takes about 219. Add about 5% for split and warped boards.
@@ -69,3 +70,7 @@ To calculate your complete fence bill of materials including posts, rails, and b
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Privacy Fence Materials List for 100 Feet](/guides/privacy-fence-materials-list/).
+
+For related coverage, see our guide on [Fence Post Spacing: 6 or 8 Feet Apart?](/guides/fence-post-spacing/).

@@ -1,9 +1,10 @@
 ---
 title: "Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go"
 description: "Most carpet comes 12 ft wide; some comes 13.5 or 15 ft. How roll width changes the square yards you buy and the number of seams, with a chart by room size."
-published: 2026-11-20
-draft: true
+published: 2026-11-18
+draft: false
 tool: carpet
+updated: 2026-11-18
 ---
 
 **Most broadloom carpet is made 12 feet wide, and some styles also come 13 1/2 or 15 feet wide. If your room is just over 12 feet in its narrow direction, a wider roll can avoid a seam and save a lot of carpet.** A 14 × 16 ft room takes 38.67 sq yd and 1 seam from a 12 ft roll, but 27.5 sq yd and no seam from a 15 ft roll.
@@ -63,3 +64,7 @@ Run your own room through the [carpet calculator](/carpet-calculator/), which co
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Carpet Padding Thickness & Density: 7/16 vs 1/2 Inch Rebond](/guides/carpet-padding-thickness-and-density-rebond-guide/).
+
+For related coverage, see our guide on [Calculate Carpet Square Feet & Yardage: Full Formula Guide](/guides/how-to-calculate-square-feet-and-yardage-for-carpet/).

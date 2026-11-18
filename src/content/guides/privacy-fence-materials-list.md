@@ -1,9 +1,10 @@
 ---
 title: "Privacy Fence Materials List for 100 Feet"
 description: "Everything to buy for a 100 ft, 6 ft tall wood privacy fence with a gate: posts, rails, pickets, concrete, gravel and fasteners, with the math behind each."
-published: 2026-11-24
-draft: true
+published: 2026-11-18
+draft: false
 tool: fence
+updated: 2026-11-18
 ---
 
 **A 100 ft, 6 ft tall wood privacy fence with posts 8 ft apart and one 4 ft gate takes 14 posts, 36 rails, about 220 pickets plus 9 for the gate, and 24 bags of 80 lb concrete.** Here's the full list and how each number is worked out.
@@ -70,3 +71,5 @@ For custom dimensions, post depths, and fastener counts, use our [fence calculat
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Fence Post Depth & Frost Line Rules: How Deep to Dig](/guides/fence-post-depth-frost-line-rules-how-deep-to-dig/).

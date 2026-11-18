@@ -2,7 +2,7 @@
 title: "How Much Paint to Paint a Door: Quart & Gallon Guide"
 description: "Does one quart paint a door? Area for flat and paneled doors, coats, primer and waste, with a chart for one to four doors and a worked front-door example."
 published: 2026-11-06
-updated: 2026-11-17
+updated: 2026-11-18
 tool: paint
 ---
 **One quart of paint usually covers two coats on both sides of a standard flat interior door (about 88 sq ft with 10% waste, against roughly 94 sq ft per quart).** Paneled doors, exterior doors and primer coats push the total just past a quart, so for those buy two quarts or a gallon.

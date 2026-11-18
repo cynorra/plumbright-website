@@ -3,6 +3,7 @@ title: "Gravel Driveway Depth and Layers: How Much Stone to Order"
 description: "A durable gravel driveway is built in layers 8 to 12 inches deep in total. Layers, tons of stone per layer for common driveway sizes, and how to stop ruts."
 published: 2026-11-06
 tool: gravel
+updated: 2026-11-18
 ---
 
 **A new gravel driveway is usually built 8 to 12 inches deep in three layers: large crushed stone at the bottom, a middle layer of #57 stone, and a top layer of crusher run or similar dense-graded gravel that packs hard.** Each layer is about 4 inches, compacted before the next goes on. Over firm, well-drained soil you can sometimes go thinner; over soft clay, go deeper and use geotextile fabric.
@@ -75,3 +76,5 @@ Even a well-built gravel driveway needs a fresh top layer every few years, usual
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Select Stone Group: how much does a yard of crushed stone weigh](https://selectsg.com/how-much-does-a-yard-of-crushed-stone-weigh/), Select Stone Group. Typical weight per cubic yard of crushed stone; your supplier's figure governs.
+
+For related coverage, see our guide on [Crushed Stone vs Pea Gravel: Which Stays in Place for Walkways?](/guides/gravel-driveway-base-layers-depth-and-sizes/).

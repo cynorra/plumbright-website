@@ -2,7 +2,7 @@
 title: "Mulch vs Wood Chips vs Bark: Cubic Yard Weight & Breakdown Rates"
 description: "Compare double-shredded hardwood, cedar and wood chips by weight per cubic yard, coverage at 2 to 4 inches deep, and settling for mulch estimates."
 published: 2026-11-13
-updated: 2026-11-17
+updated: 2026-11-18
 tool: mulch
 ---
 **Estimating mulch needs requires understanding that a cubic yard of material can weigh anywhere from 300 to over 1000 pounds, depending on the type, moisture content, and shred size.** Different mulches like double-shredded hardwood, cedar nuggets, or standard wood chips also vary significantly in their recommended application depth, coverage per cubic yard, and decomposition rates, which directly impacts how often replenishment is needed.

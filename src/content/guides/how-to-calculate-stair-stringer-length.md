@@ -3,6 +3,7 @@ title: "How to Calculate Stair Stringer Length"
 description: "Stringer length is the number of risers times one step's diagonal. The formula, a chart by total rise, board length to buy and the wood left after cutting."
 published: 2026-10-31
 tool: stairs
+updated: 2026-11-18
 ---
 
 **Stringer length = number of risers × √(riser² + tread²).** For a stair with 4 risers of 7 in and treads of 11 in, each step's diagonal is √(49 + 121) = 13.04 in, so the stringer is 4 × 13.04 = **52.2 in**, about 4 ft 4 in. Buy the next standard board length up. For short stairs that's usually an 8 ft 2 × 12, the shortest length most yards stock.
@@ -77,3 +78,7 @@ A deck sits 40 in above the patio. You'd like risers near 7 1/2 in and 11 in tre
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Knox County: residential stair requirements, IRC R311.7](https://www.KnoxCounty.org/codes/pdfs/construction_info/Stairs.pdf), Knox County Codes Administration. Riser, tread, headroom and handrail limits.
+
+For related coverage, see our guide on [Stair Baluster Spacing: Code Rules and How Many Balusters You Need](/guides/stair-baluster-spacing-how-many-balusters/).
+
+For related coverage, see our guide on [Concrete for Solid Stairs: Cubic Yards and Bags by Number of Steps](/guides/concrete-stairs-cubic-yards-bags/).

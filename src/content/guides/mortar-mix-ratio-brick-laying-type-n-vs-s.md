@@ -2,6 +2,7 @@
 title: "Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions"
 description: "Mortar for brick laying with Type N (1:1:6) or Type S (1:0.5:4.5) ratios: how much cement, lime and sand per 1,000 bricks, with a 10% waste allowance."
 published: 2026-11-01
+updated: 2026-11-18
 tool: brick
 ---
 **For brick laying, Type N mortar typically uses a 1:1:6 ratio (1 part Portland cement, 1 part hydrated lime, 6 parts sand by volume) for non-load-bearing exterior walls, while Type S mortar uses a 1:0.5:4.5 ratio for load-bearing or below-grade applications requiring higher strength.** Understanding these precise volumetric proportions and accounting for project-specific factors like wall dimensions, joint thickness, and a crucial 10% waste allowance is essential for accurate material estimation, as detailed in the comprehensive table and calculations below.

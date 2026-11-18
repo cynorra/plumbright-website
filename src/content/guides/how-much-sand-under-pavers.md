@@ -2,7 +2,7 @@
 title: "How Much Sand Do You Need Under Pavers?"
 description: "Pavers sit on a 1 inch layer of bedding sand over a compacted gravel base. How much sand and base to order for a patio, by size, in yards, tons and bags."
 published: 2026-10-30
-updated: 2026-11-17
+updated: 2026-11-18
 tool: gravel
 ---
 

@@ -2,7 +2,7 @@
 title: "Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths"
 description: "Standard concrete sidewalk thickness for residential walkways: 4 inches for foot traffic, 6 inches at driveway crossings, plus gravel base and bag counts."
 published: 2026-11-08
-updated: 2026-11-17
+updated: 2026-11-18
 tool: concrete
 ---
 **Standard concrete sidewalks for residential foot traffic are typically 4 inches thick, requiring a minimum 4-inch compacted gravel base for drainage and stability.** Where the walk crosses a driveway or carries light vehicles, 6 inches is the common choice (the [slab thickness guide](/guides/concrete-slab-thickness/) lists thickness by use). Always account for a 10% waste factor in material calculations and check your local sidewalk specification for base depth.

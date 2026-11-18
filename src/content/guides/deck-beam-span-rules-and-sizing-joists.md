@@ -2,9 +2,10 @@
 title: "Deck Beam Span Rules and Sizing: How to Find the Right Beam"
 description: "How deck beam loads work, how to find tributary width, post load and footing size, and where to read the allowed beam span for your lumber."
 published: 2026-11-03
-updated: 2026-11-17
+updated: 2026-11-18
 tool: deck
 ---
+
 **The allowed span of a deck beam depends on the beam size, the lumber species and grade, and how long the joists are that it carries, and it must be read from a code table, not guessed.** In the International Residential Code that table is R507.5; the American Wood Council's deck guide DCA 6 publishes the same prescriptive values. This guide shows the part you can calculate yourself: how much deck area each beam carries, the load on each post and the footing it needs.
 
 ## Why this guide does not list beam spans
@@ -75,3 +76,5 @@ Add a margin for cuts and defects when you buy lumber; 10% is a common planning 
 
 - [American Wood Council, DCA 6: Prescriptive Residential Wood Deck Construction Guide](https://awc.org/publications/dca/dca6/), American Wood Council. Prescriptive beam, joist and post tables for residential decks.
 - [International Code Council, 2021 International Residential Code, section R507 (exterior decks)](https://codes.iccsafe.org/content/IRC2021P1/chapter-5-floors), International Code Council. Table R507.5 gives the maximum deck beam spans; local adoption varies.
+
+For related coverage, see our guide on [Deck Post Sizing: When 4x4 Is Allowed vs When Code Requires 6x6](/guides/deck-joist-spacing-12-vs-16-vs-24-inches/).

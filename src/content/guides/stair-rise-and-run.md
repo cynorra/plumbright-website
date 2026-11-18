@@ -2,6 +2,7 @@
 title: "Stair Rise and Run: Code Limits and Comfortable Dimensions"
 description: "The IRC allows risers up to 7 3/4 in and treads down to 10 in, but comfortable stairs sit nearer 7 in by 11 in. Rules of thumb, a chart and an example."
 published: 2026-10-22
+updated: 2026-11-18
 tool: stairs
 ---
 

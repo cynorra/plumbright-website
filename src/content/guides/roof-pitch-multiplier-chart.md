@@ -3,6 +3,7 @@ title: "Roof Pitch Factor Chart & Multiplier: Slopes from 1/12 to 18/12"
 description: "Complete roof pitch factor chart and multiplier table from 1/12 to 18/12. Convert footprint area to actual sloped roof area with hip and valley factors."
 published: 2026-10-23
 tool: roofing
+updated: 2026-11-18
 ---
 
 **To find the area of a sloped roof using a pitch factor chart, multiply the horizontal footprint area (overhangs included) by the pitch multiplier: √(1 + (rise ÷ 12)²).** A 6/12 roof has a pitch factor multiplier of 1.118, meaning a 1,176 sq ft flat footprint requires 1,315 sq ft of roofing shingles.
@@ -79,3 +80,5 @@ Low slopes shed water slowly. Asphalt shingle makers set a minimum slope, and be
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Roofing Underlayment Rolls per Square: Felt vs Synthetic](/guides/roofing-underlayment-rolls-per-square-synthetic-vs-felt/).

@@ -3,6 +3,7 @@ title: "How Many Tiles in a Box? Coverage by Tile Size"
 description: "Tiles per box vary by brand, but the label gives pieces and square feet. Convert between them and see per-tile coverage by size, with and without grout."
 published: 2026-10-27
 tool: tile
+updated: 2026-11-18
 ---
 
 **There's no standard number of tiles in a box. The label on the box lists both the number of pieces and the square feet they cover, and those are the numbers to plan with.** As a rough guide, one 12 × 12 in tile covers 1 sq ft, a 12 × 24 in tile covers 2 sq ft and a 24 × 24 in tile covers 4 sq ft; boxes are packed so they stay liftable, which is why large tiles come only a few to a box.
@@ -74,3 +75,7 @@ The two methods differ by a box, because the piece count includes the grout join
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Deck Mud Calculator & Coverage Chart: Shower Pan Dry Pack Ratios](/guides/deck-mud-calculator-coverage-chart-shower-pan/).
+
+For related coverage, see our guide on [Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules](/guides/thinset-mortar-coverage-per-bag-trowel-notch-guide/).

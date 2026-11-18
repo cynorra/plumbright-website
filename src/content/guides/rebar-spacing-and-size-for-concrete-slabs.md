@@ -2,7 +2,7 @@
 title: "Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid"
 description: "How to count rebar, chairs and ties for a slab: grid runs, 20 ft bars, #3 vs #4 spacing, lap splices and a worked 12 x 18 ft patio."
 published: 2026-10-31
-updated: 2026-11-17
+updated: 2026-11-18
 tool: concrete
 ---
 **A common residential choice for a patio slab up to 4 inches thick is #3 (3/8 in) rebar at 18 inches on center; heavier slabs such as driveways often use #4 (1/2 in) at 12 to 18 inches.** These are common practice, not a rule: the right size and spacing depend on your soil, loads and local code, so confirm them with your building department or an engineer. This guide shows how to turn a chosen spacing into a shopping list of bars, chairs and ties.

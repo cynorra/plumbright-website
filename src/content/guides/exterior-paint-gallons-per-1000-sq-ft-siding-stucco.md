@@ -2,9 +2,10 @@
 title: "Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco"
 description: "Calculate exterior paint needs for siding (350-400 sq ft/gal) and stucco (150-250 sq ft/gal). Learn how many gallons per 1,000 sq ft for 1-2 coats."
 published: 2026-11-12
-updated: 2026-11-17
+updated: 2026-11-18
 tool: paint
 ---
+
 **For every 1,000 square feet of exterior surface, one coat takes about 2.5 to 2.9 gallons on smooth siding and about 4 to 5 gallons on smooth stucco (up to roughly 6.7 gallons on rough, porous stucco), before a second coat or waste.** Actual use varies with surface texture, porosity, existing color and the number of coats, so divide your own area by the coverage printed on your can.
 
 ## Calculating Exterior Paint Coverage for Diverse Surfaces
@@ -109,3 +110,7 @@ This detailed breakdown ensures that enough paint is purchased for the entire pr
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.
+
+For related coverage, see our guide on [How Much Paint Do You Need for Kitchen Cabinets?](/guides/how-much-paint-for-kitchen-cabinets/).
+
+For related coverage, see our guide on [How Much Paint to Paint a Door: Quart & Gallon Guide](/guides/how-much-paint-to-paint-a-door-quart-vs-gallon/).

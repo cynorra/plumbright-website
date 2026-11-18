@@ -2,6 +2,7 @@
 title: "Paver Base Depth: Excavation for Sand & Crushed Stone"
 description: "How deep to excavate for pavers: 4 to 6 inches of compacted crushed stone plus 1 inch of bedding sand, and the total dig depth for patios and walkways."
 published: 2026-11-02
+updated: 2026-11-18
 tool: gravel
 ---
 **For a durable paver installation, excavate a total depth that accommodates the paver thickness, a 1-inch bedding sand layer, and a 4-6 inch compacted crushed stone base.** This typically results in an excavation depth of 7 to 9 inches for common 2-inch to 3-inch thick pavers, ensuring proper drainage and structural integrity. Always account for a 10% waste factor when ordering materials.

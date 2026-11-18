@@ -3,6 +3,7 @@ title: "How Much Paint for a 12x12 Room? Coverage Chart by Room Size"
 description: "A 12x12 room with 8 ft walls takes about 2 gallons of paint for two coats. See the coverage chart for 10x10 to 20x20 rooms, with and without the ceiling."
 published: 2026-10-15
 tool: paint
+updated: 2026-11-18
 ---
 
 **A 12 × 12 ft room with 8 ft walls, one door and one window needs about 2 gallons of paint for two coats, so buy 2 gal.** That assumes a typical 350 sq ft per gallon coverage. The ceiling, if you paint it, takes another 1 gal of ceiling paint.
@@ -80,3 +81,5 @@ Baseboard, door casing and the door itself take very little paint by area. For o
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.
+
+For related coverage, see our guide on [Exterior Paint Gallons per 1,000 Sq Ft: Siding & Stucco](/guides/exterior-paint-gallons-per-1000-sq-ft-siding-stucco/).

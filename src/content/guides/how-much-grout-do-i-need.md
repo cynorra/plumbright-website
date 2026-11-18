@@ -2,6 +2,7 @@
 title: "How Much Grout Do You Need? Pounds per 100 Sq Ft by Tile Size"
 description: "Grout depends on tile size, joint width and thickness. The formula, a chart in pounds per 100 sq ft, and why small tiles and wide joints take more grout."
 published: 2026-11-05
+updated: 2026-11-18
 tool: tile
 ---
 

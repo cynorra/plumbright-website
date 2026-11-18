@@ -2,7 +2,7 @@
 title: "How Many Bricks per Square Foot? Modular, Queen and King"
 description: "About 6.75 modular bricks cover a square foot of wall with 3/8 inch joints. Bricks per sq ft for common sizes, the math behind it and wall examples."
 published: 2026-11-12
-updated: 2026-11-17
+updated: 2026-11-18
 tool: brick
 ---
 
@@ -85,3 +85,5 @@ For customizable wall dimensions, openings, and mortar estimates, use our [brick
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
 - [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.
+
+For related coverage, see our guide on [Mortar Mix Ratio for Brick Laying: Type N vs Type S Proportions](/guides/mortar-mix-ratio-brick-laying-type-n-vs-s/).

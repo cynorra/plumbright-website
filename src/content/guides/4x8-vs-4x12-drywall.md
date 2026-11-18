@@ -3,6 +3,7 @@ title: "4x8 vs 4x12 Drywall Sheets: Fewer Seams or Easier Handling?"
 description: "4x12 drywall cuts down on butt joints, the hardest seams to finish. 4x8 sheets are lighter and fit up stairs. Seam counts by wall length and how to choose."
 published: 2026-11-07
 tool: drywall
+updated: 2026-11-18
 ---
 
 **Use 4 × 12 sheets when you have help and room to carry them: they cover 50% more per sheet and leave fewer butt joints, which are the hardest seams to finish flat. Use 4 × 8 sheets when you're working alone, carrying board up stairs or into small rooms, or hanging ceilings without a lift.** The material cost per square foot is usually about the same; the difference is labor and finish quality.
@@ -75,3 +76,5 @@ If you hire a pro to finish, ask which size they prefer; most will choose the lo
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [USG: how much joint compound to finish 1,000 sq ft of wallboard](https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html), USG. The joint compound planning figure.
 - [Walls & Ceilings, All things gypsum: attachment of gypsum board](https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board), Walls & Ceilings. Screw spacing from ASTM C840 and GA-216.
+
+For related coverage, see our guide on [How Many Sheets of Drywall for a 12x12 Room?](/guides/how-many-sheets-of-drywall-for-a-12x12-room/).

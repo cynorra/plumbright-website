@@ -2,9 +2,10 @@
 title: "Drip Edge Calculator: How Many 10 ft Pieces for Eaves and Rakes"
 description: "How many 10-foot drip edge pieces your roof needs: measure eaves and rakes, allow for the lap at each joint, add 10% waste and round up."
 published: 2026-11-07
-updated: 2026-11-17
+updated: 2026-11-18
 tool: roofing
 ---
+
 **Add up the length of every eave and rake, divide by the usable length of one piece (a 10 ft piece covers about 9.75 ft once a 3 in lap is taken out), add 10% for cuts and round up.** A 40 × 25 ft gable roof at 6/12 has about 136 linear feet of edge and needs 16 pieces.
 
 ## Measuring the edges
@@ -62,3 +63,9 @@ For the shingles, underlayment and the rest of the roof, use the [roofing calcul
 ## Sources
 
 - [International Code Council, 2021 International Residential Code, section R905 (requirements for roof coverings)](https://codes.iccsafe.org/content/IRC2021P1/chapter-9-roof-assemblies), International Code Council. R905.2.8.5 covers drip edge placement, laps and fastening; local adoption varies.
+
+For related coverage, see our guide on [Square Feet vs Linear Feet vs Board Feet: What Each Measures](/guides/square-feet-vs-linear-feet-vs-board-feet/).
+
+For related coverage, see our guide on [How Many Boxes of Vinyl Plank Flooring Do I Need?](/guides/how-many-boxes-of-vinyl-plank-flooring/).
+
+For related coverage, see our guide on [Roofing Underlayment Rolls per Square: Felt vs Synthetic](/guides/roofing-underlayment-rolls-per-square-synthetic-vs-felt/).

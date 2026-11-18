@@ -2,9 +2,10 @@
 title: "Roofing Underlayment Rolls per Square: Felt vs Synthetic"
 description: "How many rolls of 15 lb felt, 30 lb felt or synthetic underlayment you need: coverage after laps, rolls per square, waste and a worked 28 x 40 ft roof."
 published: 2026-11-11
-updated: 2026-11-17
+updated: 2026-11-18
 tool: roofing
 ---
+
 **Divide the roof area by the roll's effective coverage (the roll's area minus the overlap at each course), add about 10% for cuts, and round up.** One roofing square is 100 sq ft. A standard 15 lb felt roll is 36 in × 144 ft, which is 432 sq ft of material but only about 408 sq ft (sold as a 4-square roll) of roof once the 2 in lap is taken out, so work from the effective figure, not the raw roll area.
 
 ## Roll area versus effective coverage
@@ -58,3 +59,7 @@ For the rest of the roof, the [roofing calculator](/roofing-calculator/) estimat
 
 - [International Code Council, 2021 International Residential Code, section R905 (requirements for roof coverings)](https://codes.iccsafe.org/content/IRC2021P1/chapter-9-roof-assemblies), International Code Council. R905.1.1 sets the underlayment lap and application rules; local adoption and amendments vary.
 - [National Roofing Contractors Association](https://www.nrca.net/), NRCA. Industry guidance on roofing assemblies; follow the installation instructions printed on the underlayment you buy.
+
+For related coverage, see our guide on [Flooring Waste Factor: 5%, 10% or 15%?](/guides/flooring-waste-factor/).
+
+For related coverage, see our guide on [Drip Edge Calculator: How Many 10 ft Pieces for Eaves and Rakes](/guides/drip-edge-calculator-how-many-pieces-for-roof/).

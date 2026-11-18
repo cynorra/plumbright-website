@@ -2,9 +2,10 @@
 title: "Deck Mud Calculator & Coverage Chart: Shower Pan Dry Pack Ratios"
 description: "Calculate deck mud for shower pans. Estimate 4:1 or 5:1 sand-to-cement mix, pre-slope, and total bags per square foot for your project."
 published: 2026-11-06
-updated: 2026-11-17
+updated: 2026-11-18
 tool: tile
 ---
+
 **For a 36 × 60 inch (15 sq ft) shower pan with a pre-slope and a final sloped layer, a 4:1 deck mud mix takes about 7 bags of 50 lb sand and 2 bags of 50 lb Portland cement, including 10% waste.** This estimate accounts for the critical 1/4-inch per foot slope, ensuring proper drainage, and the varying thickness from the drain to the perimeter walls. 
 
 ## Calculating Deck Mud Volume for Shower Pans
@@ -157,3 +158,5 @@ For complex or L-shaped shower pans, accurately measuring the area is the first 
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [How Much Grout Do You Need? Pounds per 100 Sq Ft by Tile Size](/guides/how-much-grout-do-i-need/).

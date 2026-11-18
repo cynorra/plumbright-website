@@ -2,9 +2,10 @@
 title: "Stair Baluster Spacing: Code Rules and How Many Balusters You Need"
 description: "How to space balusters so no opening lets a 4-inch sphere through: the formula, a table for common rail lengths and a worked example."
 published: 2026-11-16
-updated: 2026-11-17
+updated: 2026-11-18
 tool: stairs
 ---
+
 **To find how many balusters a rail section needs, divide the clear length between posts, minus your target opening, by the opening plus one baluster width, and round up: N = (L − C) ÷ (C + W). The balusters then split the rail into N + 1 equal openings.** A 72 in section with 1 1/4 in balusters and a 3 3/4 in target opening needs 14 balusters, with openings of 3.63 in.
 
 ## The 4-inch rule is about the gap, not the center spacing
@@ -75,3 +76,5 @@ To lay out the stairs themselves, use the [stair calculator](/stair-calculator/)
 ## Sources
 
 - [International Code Council, 2021 International Residential Code, section R312 (guards and window fall protection)](https://codes.iccsafe.org/content/IRC2021P1/chapter-3-building-planning): the 4 in sphere rule for guard openings. Local adoption and amendments vary.
+
+For related coverage, see our guide on [Concrete for Solid Stairs: Cubic Yards and Bags by Number of Steps](/guides/concrete-stairs-cubic-yards-bags/).

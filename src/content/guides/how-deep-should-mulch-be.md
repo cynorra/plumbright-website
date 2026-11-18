@@ -3,6 +3,7 @@ title: "How Deep Should Mulch Be? 2 to 4 Inches, and Why Not More"
 description: "Wood chip and bark mulch works best 2 to 4 inches deep, kept clear of trunks. Depth by situation, what each extra inch costs and how to top up."
 published: 2026-11-16
 tool: mulch
+updated: 2026-11-18
 ---
 
 **Spread wood chip or shredded bark mulch 3 to 4 inches deep on well-drained soil and 2 to 3 inches on heavy clay, and keep it at least 6 inches away from tree trunks.** That's the guidance from Iowa State University Extension. Deeper than that keeps the soil too wet and cuts off air to the roots.
@@ -80,3 +81,7 @@ Calculate your exact order with the [mulch calculator](/mulch-calculator/).
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.
+
+For related coverage, see our guide on [How Many Bags of Mulch Are in a Yard?](/guides/how-many-bags-of-mulch-in-a-yard/).
+
+For related coverage, see our guide on [How Much Soil Do I Need for a Raised Bed?](/guides/how-much-soil-for-a-raised-bed/).

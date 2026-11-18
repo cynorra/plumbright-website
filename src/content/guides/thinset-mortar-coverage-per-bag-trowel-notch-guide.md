@@ -3,7 +3,9 @@ title: "Thinset Mortar Coverage per Bag: Trowel Notch Sizing Rules"
 description: "A 50 lb bag of thinset covers about 16 to 33 sq ft depending on trowel notch and tile size. How to estimate bags for a floor, with a kitchen example."
 published: 2026-11-09
 tool: tile
+updated: 2026-11-18
 ---
+
 **A 50 lb bag of thinset mortar typically covers between 16 and 33 square feet, while an 80 lb bag yields 26 to 52 square feet, depending on the trowel notch size used.** This range accounts for common trowel sizes from 1/4-inch square for smaller tiles to 1/2-inch square or larger U-notches for large format tiles. However, actual coverage is significantly impacted by substrate flatness, tile size, back-buttering practices, and a 10% waste allowance.
 
 ## Decoding Thinset Volume and Application Thickness
@@ -113,3 +115,7 @@ By following these detailed calculations and considering the variables of trowel
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [How Much Grout Do You Need? Pounds per 100 Sq Ft by Tile Size](/guides/how-much-grout-do-i-need/).
+
+For related coverage, see our guide on [Deck Mud Calculator & Coverage Chart: Shower Pan Dry Pack Ratios](/guides/deck-mud-calculator-coverage-chart-shower-pan/).

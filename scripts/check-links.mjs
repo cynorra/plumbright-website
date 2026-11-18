@@ -38,7 +38,7 @@ for (const r of rows) {
   for (const m of r.body_md.matchAll(/\]\(\/guides\/([^/)]+)\/?\)|href="\/guides\/([^/"]+)/g)) {
     const slug = m[1] ?? m[2];
     if (!(slug in date)) problems.push(`${r.slug}: links to missing guide ${slug}`);
-    else if (r.published_at && date[slug] && date[slug] > r.published_at) {
+    else if (r.published_at && date[slug] && date[slug] > (r.content_updated_at || r.published_at)) {
       problems.push(`${r.slug} (${r.published_at.slice(0, 10)}) links to ${slug}, which publishes later (${date[slug].slice(0, 10)})`);
     }
   }

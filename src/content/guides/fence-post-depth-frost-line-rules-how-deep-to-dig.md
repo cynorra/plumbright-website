@@ -2,6 +2,7 @@
 title: "Fence Post Depth & Frost Line Rules: How Deep to Dig"
 description: "How deep to set fence posts: the one-third rule, the local frost line, and how much concrete, gravel and post length that means for a stable fence."
 published: 2026-10-31
+updated: 2026-11-18
 tool: fence
 ---
 

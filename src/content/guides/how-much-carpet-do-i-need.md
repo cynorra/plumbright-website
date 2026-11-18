@@ -3,6 +3,7 @@ title: "How Much Carpet Do I Need? Square Yards from a 12 ft Roll"
 description: "Room square feet divided by 9 gives square yards, but carpet is cut from 12 ft rolls, so you buy more. How to work out what you will pay for, with a chart."
 published: 2026-11-14
 tool: carpet
+updated: 2026-11-18
 ---
 
 **Measure the room, multiply length × width for square feet and divide by 9 for square yards. Then remember that carpet is cut from a roll, usually 12 ft wide, so you pay for full-width pieces plus a few inches of trim at each end.** A 12 × 15 ft room is 20 sq yd, but the piece you buy is 12 ft × 15.5 ft = **20.67 sq yd**.
@@ -67,3 +68,7 @@ Calculate your exact square yards, roll waste, and cushion needs with our [carpe
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go](/guides/carpet-roll-width-and-seams/).
+
+For related coverage, see our guide on [Calculate Carpet Square Feet & Yardage: Full Formula Guide](/guides/how-to-calculate-square-feet-and-yardage-for-carpet/).

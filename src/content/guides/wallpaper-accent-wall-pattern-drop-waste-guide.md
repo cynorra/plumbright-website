@@ -2,9 +2,10 @@
 title: "Wallpaper for Accent Walls: Calculate Pattern Drops & Rolls Without Waste"
 description: "Precisely calculate wallpaper rolls for accent walls. Learn strip count, pattern repeat alignment, and waste allowances for a perfect feature wall."
 published: 2026-11-15
-updated: 2026-11-17
+updated: 2026-11-18
 tool: wallpaper
 ---
+
 **To calculate wallpaper for an accent wall, first determine the total number of vertical strips needed by dividing the wall's width by the wallpaper's width. Then, calculate each strip's length by adding the wall height, pattern repeat, and a 4-6 inch trim allowance. Divide the roll length by this strip length (rounding down) to find strips per roll, then divide total strips by strips per roll and round up to get the roll count.** Rounding each strip up to a pattern repeat already builds in the waste, so the roll count needs no further percentage. This method matches the pattern and keeps waste low.
 
 ## Counting Strips and Pattern Drops for an Accent Wall
@@ -180,3 +181,5 @@ Beyond the mathematical calculations, several practical steps are critical for a
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Selected Wallpapers: European rolls vs double rolls](https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls), Selected Wallpapers. How roll lengths and coverage are labeled; check the label on your own paper.
+
+For related coverage, see our guide on [Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes](/guides/wallpaper-pattern-repeat/).

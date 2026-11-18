@@ -3,6 +3,7 @@ title: "How Many Sheets of Drywall for a 12x12 Room?"
 description: "A 12x12 room with 8 ft walls takes 12 sheets of 4x8 drywall for the walls and 5 for the ceiling. See counts for 9 and 10 ft walls and 4x12 sheets."
 published: 2026-10-19
 tool: drywall
+updated: 2026-11-18
 ---
 
 **A 12 × 12 ft room with 8 ft walls takes 12 sheets of 4 × 8 drywall for the walls and 5 for the ceiling: 17 sheets in total.** That includes one door and one window subtracted and 10% added for cutting waste. With 4 × 12 sheets it's 12.
@@ -68,3 +69,7 @@ Many builders use 1/2 in sag-resistant board or 5/8 in board on ceilings, especi
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [USG: how much joint compound to finish 1,000 sq ft of wallboard](https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html), USG. The joint compound planning figure.
 - [Walls & Ceilings, All things gypsum: attachment of gypsum board](https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board), Walls & Ceilings. Screw spacing from ASTM C840 and GA-216.
+
+For related coverage, see our guide on [4x8 vs 4x12 Drywall Sheets: Fewer Seams or Easier Handling?](/guides/4x8-vs-4x12-drywall/).
+
+For related coverage, see our guide on [Drywall Screws, Mud and Tape: Quantities per Sheet](/guides/drywall-screws-mud-and-tape/).

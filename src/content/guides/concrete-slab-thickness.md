@@ -2,7 +2,7 @@
 title: "Concrete Slab Thickness Guide: Patio, Driveway, Shed, Garage"
 description: "How thick to pour a concrete patio, driveway, shed pad or garage floor, what each extra inch costs in concrete, and what goes under the slab."
 published: 2026-10-14
-updated: 2026-11-17
+updated: 2026-11-18
 tool: concrete
 ---
 

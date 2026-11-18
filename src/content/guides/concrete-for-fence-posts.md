@@ -2,7 +2,7 @@
 title: "How Many Bags of Concrete Do You Need per Fence Post?"
 description: "Bags of concrete per fence post by hole size and depth, for 4x4 and 6x6 posts, with the formula, a worked example for a whole fence and setting tips."
 published: 2026-10-13
-updated: 2026-11-17
+updated: 2026-11-18
 tool: concrete
 ---
 

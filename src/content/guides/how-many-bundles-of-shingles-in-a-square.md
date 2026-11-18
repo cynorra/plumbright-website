@@ -3,6 +3,7 @@ title: "How Many Bundles of Shingles in a Square?"
 description: "Most asphalt shingles come 3 bundles to a 100 sq ft square; some heavier lines take 4 or 5. A bundle chart by roof size, with waste, ridge cap and starter."
 published: 2026-11-02
 tool: roofing
+updated: 2026-11-18
 ---
 
 **Most asphalt shingles, both 3-tab and architectural, come 3 bundles to a square, and a square covers 100 sq ft of roof.** Some heavier designer shingles are packed 4 or even 5 bundles to a square; GAF, for example, notes its Woodland line comes 4 bundles per square. The wrapper on each bundle states its coverage, and that's the number to trust.
@@ -74,3 +75,5 @@ To calculate your exact roof pitch, squares, and all flashing accessories, use o
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [GAF: how many bundles of shingles are in a square](https://www.gaf.com/en-us/blog/your-home/how-many-bundles-of-shingles-are-in-a-square---63a47862-f7e1-4e73-abcf-8d09917a8b8d), GAF. Bundles per square for standard shingles; confirm on the bundle you buy.
+
+For related coverage, see our guide on [Drip Edge Calculator: How Many 10 ft Pieces for Eaves and Rakes](/guides/drip-edge-calculator-how-many-pieces-for-roof/).

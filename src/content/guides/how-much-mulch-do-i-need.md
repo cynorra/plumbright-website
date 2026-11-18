@@ -2,6 +2,7 @@
 title: "How Much Mulch Do I Need? Cubic Yards and Bags by Area"
 description: "Square feet × depth in inches ÷ 324 gives cubic yards of mulch. Charts by area for 2, 3 and 4 inch depths, bag counts and a whole-yard example."
 published: 2026-11-10
+updated: 2026-11-18
 tool: mulch
 ---
 

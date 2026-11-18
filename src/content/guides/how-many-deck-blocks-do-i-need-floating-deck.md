@@ -2,6 +2,7 @@
 title: "How Many Deck Blocks for a Floating Deck? Spacing & Layout Guide"
 description: "How many deck blocks a floating deck needs: one block every 5 to 6 feet along each beam, the layout grid, perimeter support and a material table."
 published: 2026-11-06
+updated: 2026-11-18
 tool: deck
 ---
 **For a typical floating deck, plan for one concrete deck block every 5 to 6 feet along each main support beam, including blocks at both ends of every beam.** This usually translates to supporting the perimeter beams and any intermediate beams. The exact number depends on the deck's dimensions, the span rating of your chosen lumber (e.g., 2x6, 2x8), and the required gravel base depth for proper drainage, which necessitates reviewing the full calculation guide and material table below.

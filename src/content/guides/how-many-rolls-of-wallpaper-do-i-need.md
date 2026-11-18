@@ -3,6 +3,7 @@ title: "How Many Rolls of Wallpaper Do I Need? Count Strips, Not Square Feet"
 description: "Count wallpaper the way installers do: strips around the room, and strips per roll from the wall height and pattern repeat. Charts by room and an example."
 published: 2026-11-13
 tool: wallpaper
+updated: 2026-11-18
 ---
 
 **Divide the width you're papering by the roll width to get the number of strips, divide the roll length by the strip length to get strips per roll, and divide the first by the second.** A 12 × 11 ft bedroom with 8 ft walls, one door and an 18 in pattern repeat needs 26 strips; a 20.5 in × 33 ft double roll yields 3 strips, so you need **9 double rolls**.
@@ -61,3 +62,9 @@ Buy at least one extra roll, from the same batch or "run" number. Wallpaper from
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Selected Wallpapers: European rolls vs double rolls](https://www.selectedwallpapers.com/pages/european-rolls-vs-double-rolls), Selected Wallpapers. How roll lengths and coverage are labeled; check the label on your own paper.
+
+For related coverage, see our guide on [Wallpaper Pattern Repeat: Straight, Half-Drop and the Paper It Wastes](/guides/wallpaper-pattern-repeat/).
+
+For related coverage, see our guide on [Square Feet vs Linear Feet vs Board Feet: What Each Measures](/guides/square-feet-vs-linear-feet-vs-board-feet/).
+
+For related coverage, see our guide on [Wallpaper for Accent Walls: Calculate Pattern Drops & Rolls Without Waste](/guides/wallpaper-accent-wall-pattern-drop-waste-guide/).

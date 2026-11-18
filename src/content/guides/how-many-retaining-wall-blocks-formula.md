@@ -2,7 +2,7 @@
 title: "Retaining Wall Block Calculator: Trench, Capstone & Geogrid Math"
 description: "How many retaining wall blocks you need: wall face area, the buried starter course, capstones, the gravel base, geogrid and a 10% waste allowance."
 published: 2026-11-04
-updated: 2026-11-17
+updated: 2026-11-18
 tool: brick
 ---
 **To calculate the number of retaining wall blocks needed, determine the total face area of the wall (length x height), divide by the face area of a single block, and add one full course for the buried starter layer. Account for capstones separately by dividing the wall's linear length by the capstone's length. Always include a 10% waste factor for cuts and breakage, and estimate gravel and geogrid based on wall dimensions and manufacturer specifications.**

@@ -2,9 +2,10 @@
 title: "Calculate Carpet Square Feet & Yardage: Full Formula Guide"
 description: "Convert room square feet to square yards, then add what the roll width and trim cost you. A chart for 12 ft and 15 ft rolls and a worked L-shaped room."
 published: 2026-11-06
-updated: 2026-11-17
+updated: 2026-11-18
 tool: carpet
 ---
+
 **To calculate carpet yardage, multiply the room's length by its width in feet to get total square feet, then divide by 9 for square yards.** This basic calculation requires significant adjustment for standard carpet roll widths (typically 12 ft or 15 ft), pattern matching, and trim at each cut end, so you buy more than the floor area. The table below shows what that means for common rooms.
 
 ## Mastering Carpet Area: Square Feet to Square Yards Conversion
@@ -84,3 +85,7 @@ For further assistance with your project, you can use our [carpet calculator](/c
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Carpet Roll Widths: 12, 13.5 and 15 ft, and Where Seams Go](/guides/carpet-roll-width-and-seams/).
+
+For related coverage, see our guide on [How Much Carpet Do I Need? Square Yards from a 12 ft Roll](/guides/how-much-carpet-do-i-need/).

@@ -1,10 +1,12 @@
 ---
 title: "How Many Bags of Concrete for a 10x10 Slab at 4 Inches?"
 description: "A 10x10 foot concrete slab at 4 inches thick requires 1.23 cubic yards or 56 bags of 80 lb concrete mix (75 bags of 60 lb mix) with a 10% waste buffer."
-published: 2026-11-27
-draft: true
+published: 2026-11-18
+draft: false
 tool: concrete
+updated: 2026-11-18
 ---
+
 **A standard 10×10 foot concrete slab poured at 4 inches thick requires 1.23 cubic yards of concrete, which equals 56 bags of 80 lb mix or 75 bags of 60 lb mix (accounting for a standard 10% waste allowance).** Without waste, the exact volume is 1.23 cubic yards (33.33 cubic feet), but uneven excavation depth and form bowing make extra bags mandatory.
 
 ## The Cubic Yard Math for 10x10 Concrete Slabs
@@ -71,3 +73,11 @@ To customize slab dimensions, bag weights, and gravel requirements, use our [con
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.
+
+For related coverage, see our guide on [40 lb vs 60 lb vs 80 lb Concrete Bags: Yield and Cost](/guides/concrete-bag-sizes-40-60-80-lb/).
+
+For related coverage, see our guide on [How Many Bags of Concrete Do You Need per Fence Post?](/guides/concrete-for-fence-posts/).
+
+For related coverage, see our guide on [Rebar Spacing & Size for Concrete Slabs & Patios: #3 vs #4 Grid](/guides/rebar-spacing-and-size-for-concrete-slabs/).
+
+For related coverage, see our guide on [Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths](/guides/concrete-sidewalk-thickness-walkway-depth-rules/).

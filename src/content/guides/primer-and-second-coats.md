@@ -3,6 +3,7 @@ title: "Primer and Second Coats: When Paint Coverage Changes"
 description: "When you need primer, when one coat is enough and when to plan three. How each choice changes the gallons for a room, with a decision table and an example."
 published: 2026-11-04
 tool: paint
+updated: 2026-11-18
 ---
 
 **Plan on two coats of paint for almost every wall. Add a coat of primer over new drywall, patches, stains, glossy surfaces and big color changes. Skip primer only when you're repainting sound, clean walls in a similar color.** One coat is enough only for a same-color refresh on walls in good shape.
@@ -76,3 +77,7 @@ Tint the primer toward your wall color if the store offers it. It helps the firs
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [PPG Sico 383-50X technical data sheet](https://buyat.ppg.com/rep_pafpainttools_files/Sico/SC_3835XX_CAEN.pdf), PPG. An example of the spread rate printed on a manufacturer's data sheet; always use the figure for your own paint.
+
+For related coverage, see our guide on [How Much Paint Do You Need for Kitchen Cabinets?](/guides/how-much-paint-for-kitchen-cabinets/).
+
+For related coverage, see our guide on [How Many Gallons of Paint for a 15x15 Room (Walls & Ceiling)?](/guides/how-many-gallons-of-paint-for-15x15-room/).

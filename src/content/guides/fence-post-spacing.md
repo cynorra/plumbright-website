@@ -3,6 +3,7 @@ title: "Fence Post Spacing: 6 or 8 Feet Apart?"
 description: "Wood fence posts usually go 8 ft apart to match 8 ft rails; 6 ft is stiffer for heavy or windy fences. What each costs in posts, rails and concrete."
 published: 2026-11-17
 tool: fence
+updated: 2026-11-18
 ---
 
 **Most wood privacy and picket fences put posts 8 feet apart, on center, because rails are sold in 8 foot lengths and one rail spans exactly one section. Use 6 foot spacing for heavy boards, tall fences, windy or exposed sites and soft soil, or when the fence panels you're buying are made 6 feet wide.**
@@ -63,3 +64,7 @@ How concrete is finished at the top of the hole determines whether your wood pos
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Privacy Fence Materials List for 100 Feet](/guides/privacy-fence-materials-list/).
+
+For related coverage, see our guide on [Fence Post Depth & Frost Line Rules: How Deep to Dig](/guides/fence-post-depth-frost-line-rules-how-deep-to-dig/).

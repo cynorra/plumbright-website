@@ -2,6 +2,7 @@
 title: "Flooring Waste Factor: 5%, 10% or 15%?"
 description: "How much extra laminate, vinyl plank or wood flooring to buy. We modeled cutting waste row by row to show when 5% is enough and when you need 15%."
 published: 2026-10-28
+updated: 2026-11-18
 tool: flooring
 ---
 

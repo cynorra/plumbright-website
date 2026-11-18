@@ -2,6 +2,7 @@
 title: "Square Feet vs Linear Feet vs Board Feet: What Each Measures"
 description: "Square feet measure area, linear feet measure length and board feet measure lumber volume. How to convert between them, with charts for boards and lumber."
 published: 2026-10-24
+updated: 2026-11-18
 tool: area
 ---
 

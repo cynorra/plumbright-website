@@ -1,9 +1,9 @@
 ---
 title: "How Many Bags of Mulch Are in a Yard?"
 description: "One cubic yard equals 13.5 bags of 2 cu ft mulch, 9 bags of 3 cu ft or 18 of 1.5 cu ft. How to compare bag and bulk prices, with coverage per bag."
-published: 2026-11-21
-draft: true
-updated: 2026-11-17
+published: 2026-11-18
+draft: false
+updated: 2026-11-18
 tool: mulch
 ---
 
@@ -66,3 +66,7 @@ Area × depth (in) ÷ 12 gives cubic feet; divide by the bag size and round up. 
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Iowa State University Extension: how deep should the mulch layer be around trees and shrubs](https://yardandgarden.extension.iastate.edu/faq/how-deep-should-mulch-layer-be-around-trees-and-shrubs), Iowa State University Extension and Outreach. Recommended mulch depths.
+
+For related coverage, see our guide on [Mulch vs Wood Chips vs Bark: Cubic Yard Weight & Breakdown Rates](/guides/mulch-vs-wood-chips-cubic-yard-weight-and-coverage/).
+
+For related coverage, see our guide on [How Much Soil Do I Need for a Raised Bed?](/guides/how-much-soil-for-a-raised-bed/).

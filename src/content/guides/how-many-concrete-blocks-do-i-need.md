@@ -2,8 +2,9 @@
 title: "How Many Concrete Blocks Do I Need? Courses and Blocks per Foot"
 description: "A standard 8×8×16 block covers 0.89 sq ft, so a wall takes 1.125 blocks per sq ft. Count by courses, see a chart of common walls and mortar bags."
 published: 2026-11-18
-draft: true
+draft: false
 tool: brick
+updated: 2026-11-18
 ---
 
 **A standard 8 × 8 × 16 inch concrete block covers 8 × 16 = 128 square inches of wall including its mortar joint, so a wall takes 144 ÷ 128 = 1.125 blocks per square foot.** Another way to count: 1 1/2 courses per foot of height and 3/4 of a block per foot of length. Add about 5% for breakage and cuts.
@@ -74,3 +75,7 @@ To estimate total block counts, pallet breakdowns, and mortar bags for any wall 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry](https://gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf), Brick Industry Association. Units per square foot and mortar per 1,000 units.
 - [Quikrete, Mason Mix 1136 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Mason%20Mix%201136.pdf), Quikrete. Yield and coverage of a bagged masonry mortar mix.
+
+For related coverage, see our guide on [How Much Mortar Do I Need for Brick or Block?](/guides/how-much-mortar-do-i-need/).
+
+For related coverage, see our guide on [How Many Pavers Do I Need for a Patio?](/guides/how-many-pavers-do-i-need/).

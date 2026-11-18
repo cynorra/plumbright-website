@@ -2,7 +2,7 @@
 title: "40 lb vs 60 lb vs 80 lb Concrete Bags: Yield and Cost"
 description: "How much concrete each bag size makes, how many bags fill a cubic yard, how to compare cost per cubic foot, and when 80 lb bags are worth the weight."
 published: 2026-10-26
-updated: 2026-11-17
+updated: 2026-11-18
 tool: concrete
 ---
 
@@ -83,3 +83,7 @@ The 80 lb bag is the default for a reason: fewer bags to buy, carry, open and mi
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.
+
+For related coverage, see our guide on [How Many Bags of Concrete for a 10x10 Slab at 4 Inches?](/guides/how-many-bags-of-concrete-for-10x10-slab/).
+
+For related coverage, see our guide on [Concrete Sidewalk Thickness: Standard Depth for Walkways & Paths](/guides/concrete-sidewalk-thickness-walkway-depth-rules/).

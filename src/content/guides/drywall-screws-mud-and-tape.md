@@ -3,6 +3,7 @@ title: "Drywall Screws, Mud and Tape: Quantities per Sheet"
 description: "How many screws, how much joint compound and tape each drywall sheet needs, with per-sheet tables for 4x8, 4x10 and 4x12 board and a basement example."
 published: 2026-10-29
 tool: drywall
+updated: 2026-11-18
 ---
 
 **A 4 × 8 sheet of drywall on walls framed 16 in on center takes about 28 screws, about 0.3 gallons of joint compound and about 12 ft of paper tape.** On a ceiling the same sheet takes about 35 screws, because screws go closer together overhead. Per 1,000 sq ft of board, plan on about 9 gallons of premixed compound and 370 ft of tape.
@@ -56,3 +57,5 @@ The [drywall calculator](/drywall-calculator/) totals all of this for any room. 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [USG: how much joint compound to finish 1,000 sq ft of wallboard](https://assemblies-tools.usg.com/content/usgcom/en/resource-center/faqs/1977.html), USG. The joint compound planning figure.
 - [Walls & Ceilings, All things gypsum: attachment of gypsum board](https://wconline.com/articles/84977-all-things-gypsum-attachment-of-gypsum-board), Walls & Ceilings. Screw spacing from ASTM C840 and GA-216.
+
+For related coverage, see our guide on [4x8 vs 4x12 Drywall Sheets: Fewer Seams or Easier Handling?](/guides/4x8-vs-4x12-drywall/).

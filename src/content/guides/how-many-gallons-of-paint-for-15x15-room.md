@@ -2,7 +2,7 @@
 title: "How Many Gallons of Paint for a 15x15 Room (Walls & Ceiling)?"
 description: "How many gallons of paint a 15 x 15 foot room takes for walls and ceiling: subtract doors and windows, count the coats, and add primer if you need it."
 published: 2026-10-30
-updated: 2026-11-17
+updated: 2026-11-18
 tool: paint
 ---
 **A 15 x 15 foot room with 8-foot ceilings, one door and one window, needs about 4 gallons of paint for two coats on the walls and ceiling (4.0 gallons with 10% waste), plus about 2 gallons of primer if the surface needs it.** This estimate accounts for typical door and window deductions and a 10% waste factor. However, actual quantities can vary significantly based on ceiling height, the number of doors and windows, surface porosity, and whether a color change requires multiple coats or a dedicated primer, making a detailed calculation essential.

@@ -2,6 +2,7 @@
 title: "Carpet Padding Thickness & Density: 7/16 vs 1/2 Inch Rebond"
 description: "Compare 7/16 vs 1/2 inch carpet padding thickness and 6 lb vs 8 lb rebond density. Learn how to calculate square yardage and meet warranty requirements."
 published: 2026-11-06
+updated: 2026-11-18
 tool: carpet
 ---
 **For most residential applications, a 7/16 inch thick, 8 lb density rebond carpet padding offers the optimal balance of comfort, durability, and support, often meeting manufacturer warranty requirements for medium to high-traffic carpets.** However, specific carpet types, expected traffic levels, and individual manufacturer stipulations may dictate a different thickness or density, making a detailed assessment crucial for both performance and warranty compliance.

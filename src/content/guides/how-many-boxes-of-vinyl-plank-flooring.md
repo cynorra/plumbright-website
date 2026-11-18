@@ -3,6 +3,7 @@ title: "How Many Boxes of Vinyl Plank Flooring Do I Need?"
 description: "Work out boxes of vinyl plank flooring from your square footage and the coverage on the box, with a chart for common box sizes and a worked example."
 published: 2026-10-17
 tool: flooring
+updated: 2026-11-18
 ---
 
 **Measure the floor in square feet, add 10%, divide by the square feet printed on one box, and round up.** A 200 sq ft room with boxes that cover 23.64 sq ft needs 200 × 1.10 ÷ 23.64 = 9.3, so **10 boxes**. Use 15% instead of 10% for diagonal layouts, small rooms and rooms with closets or many doorways.
@@ -62,3 +63,5 @@ Many vinyl plank products have a foam or cork pad attached to the back. Most of 
 ## Sources
 
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
+
+For related coverage, see our guide on [Flooring Waste Factor: 5%, 10% or 15%?](/guides/flooring-waste-factor/).

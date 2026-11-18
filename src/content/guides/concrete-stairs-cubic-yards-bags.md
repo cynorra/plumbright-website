@@ -2,9 +2,10 @@
 title: "Concrete for Solid Stairs: Cubic Yards and Bags by Number of Steps"
 description: "How much concrete a solid concrete staircase takes: the stacked-step formula, a table for 2 to 7 steps and a worked example in cubic yards and bags."
 published: 2026-11-17
-updated: 2026-11-17
+updated: 2026-11-18
 tool: stairs
 ---
+
 **A solid concrete staircase poured on the ground holds width × tread depth × riser height × N(N + 1) ÷ 2 cubic inches of concrete, where N is the number of steps.** Each step is a full block from the ground up to its own tread, so step 1 is one riser tall, step 2 is two risers tall, and so on. Counting every step as a thin wedge, a common shortcut, leaves out most of the concrete.
 
 ## The formula
@@ -63,3 +64,7 @@ Use the [stair calculator](/stair-calculator/) to lay out the riser and tread. T
 - [Material Guides methodology](/methodology/), Material Guides. Every formula, constant and rounding rule used in the calculators and the worked examples on this page.
 - [Knox County: residential stair requirements, IRC R311.7](https://www.KnoxCounty.org/codes/pdfs/construction_info/Stairs.pdf), Knox County Codes Administration. The 7 3/4 in riser and 10 in tread limits used in the example.
 - [Quikrete, Concrete Mix 1101 data sheet](https://www.quikrete.com/PDFs/DATA_SHEET-Concrete%20Mix%201101.pdf), Quikrete. The manufacturer's yield per bag of standard concrete mix, which the bag counts use.
+
+For related coverage, see our guide on [How to Calculate Stair Stringer Length](/guides/how-to-calculate-stair-stringer-length/).
+
+For related coverage, see our guide on [Stair Baluster Spacing: Code Rules and How Many Balusters You Need](/guides/stair-baluster-spacing-how-many-balusters/).

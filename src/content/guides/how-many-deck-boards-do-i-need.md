@@ -2,6 +2,7 @@
 title: "How Many Deck Boards Do I Need? Count by Rows, Not Area"
 description: "Count deck boards row by row: rows from board width plus gap, boards per row from board length, and a chart of the best board length for each deck size."
 published: 2026-10-21
+updated: 2026-11-18
 tool: deck
 ---
 

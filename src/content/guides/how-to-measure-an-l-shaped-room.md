@@ -2,6 +2,7 @@
 title: "How to Measure an L-Shaped Room (and Other Odd Shapes)"
 description: "Measure the square footage of L-shaped and irregular rooms by splitting them into rectangles, with diagrams, formulas for odd shapes and a worked example."
 published: 2026-10-13
+updated: 2026-11-18
 tool: tile
 ---
 
