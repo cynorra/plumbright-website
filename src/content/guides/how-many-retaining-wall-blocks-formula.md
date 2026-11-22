@@ -9,7 +9,7 @@ tool: brick
 
 Accurate material estimation for retaining walls requires more than just a simple area calculation. Factors like the essential buried starter course, distinct capstone dimensions, the volume of gravel for a stable base, and the linear footage of geogrid reinforcement for taller walls significantly impact the final material count. 
 
-## How the Formula Works
+## Counting Blocks by Course and Face Area
 
 Estimating retaining wall materials involves calculating the quantity of standard blocks, capstones, gravel for the base, and geogrid reinforcement. Each component requires a specific approach to ensure accuracy.
 
@@ -43,7 +43,7 @@ Estimating retaining wall materials involves calculating the quantity of standar
 
 For more complex projects or specific block types, consider using a dedicated [brick calculator](/brick-calculator/) to streamline these calculations.
 
-## Material Estimation Table
+## Blocks, Caps and Gravel by Wall Height
 
 The following table provides common dimensions and calculation factors for typical retaining wall blocks and materials. Dimensions are nominal; always verify actual block sizes from your supplier.
 
@@ -103,7 +103,7 @@ The following table provides common dimensions and calculation factors for typic
 </tbody>
 </table></div>
 
-## Worked Project Example
+## Example: A 30 ft Wall, Two Feet Tall
 
 This example estimates materials for a retaining wall that is 20 feet long and 3 feet exposed height, using standard 16" L x 8" D x 6" H blocks and 12" L x 8" D x 3" H capstones. We'll assume a 6-inch deep gravel base. A 3 ft wall often needs no geogrid, but this example includes it, spaced every 2 courses, to show the math; use your block maker's spacing, or skip this step if the instructions do not call for geogrid at this height.
 
@@ -141,7 +141,7 @@ This example estimates materials for a retaining wall that is 20 feet long and 3
 *   **Gravel Base:** 1 cubic yard
 *   **Geogrid (4 ft wide):** 90 linear feet
 
-## Setting Tips and Waste Allowance
+## Buried Course, Geogrid and Spare Blocks
 
 A 10% waste allowance is a critical buffer for any construction project, especially with retaining walls. Blocks can chip or break during transport, handling, or cutting. It is always better to have a few extra blocks on hand than to halt a project waiting for a small reorder.
 

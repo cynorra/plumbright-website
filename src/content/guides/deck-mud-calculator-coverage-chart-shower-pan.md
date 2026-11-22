@@ -8,7 +8,7 @@ tool: tile
 
 **For a 36 × 60 inch (15 sq ft) shower pan with a pre-slope and a final sloped layer, a 4:1 deck mud mix takes about 7 bags of 50 lb sand and 2 bags of 50 lb Portland cement, including 10% waste.** This estimate accounts for the critical 1/4-inch per foot slope, ensuring proper drainage, and the varying thickness from the drain to the perimeter walls. 
 
-## Calculating Deck Mud Volume for Shower Pans
+## Deck Mud Volume for a Shower Pan
 
 Estimating deck mud for a shower pan involves calculating the volume of a sloped bed, which typically comprises two layers: a pre-slope and a final sloped layer. Both layers create a consistent 1/4-inch per foot slope toward the drain, so water drains beneath the tile.
 
@@ -44,7 +44,7 @@ The fundamental principle is to determine the average thickness of the sloped ma
     *   `Volume (cu ft) = Area (sq ft) * Average Thickness (feet)`
     *   Sum the volumes of the pre-slope and final slope layers to get the `Total Deck Mud Volume (cu ft)`.
 
-## Deck Mud Mix Ratios and Material Quantities
+## Sand-to-Cement Ratio and Mix Quantities
 
 Deck mud, also known as dry pack mortar, is a stiff, low-water-content mixture of sand and Portland cement. The most common ratios are 4:1 or 5:1, meaning 4 or 5 parts sand to 1 part Portland cement by volume. A 4:1 mix is generally stronger and preferred for shower pans due to its durability and resistance to cracking.
 
@@ -74,7 +74,7 @@ Deck mud, also known as dry pack mortar, is a stiff, low-water-content mixture o
 
 For additional guidance on tile installation, including waste factors for various layouts, refer to our [Tile Waste Factor by Layout: Straight, Diagonal, Herringbone](/guides/tile-waste-factor-by-layout/).
 
-## Deck Mud Coverage Chart: Sand and Cement Bags
+## Bags of Sand and Cement by Pan Size
 
 The following table gives material quantities for common shower pan sizes, assuming a 1/4-inch per foot slope, a 1-inch minimum pre-slope thickness, a 1.25-inch minimum final slope thickness, and a 10% waste factor. Bags are 50 lb, each taken as about 0.5 cubic feet. In each bag column the unrounded count is followed by the number to buy in parentheses; the 4:1 mix uses 4 parts sand to 1 part cement (so 80% sand) and the 5:1 mix uses 83% sand, which is why its cement count is lower.
 
@@ -98,7 +98,7 @@ The following table gives material quantities for common shower pan sizes, assum
 
 *Note: Volume = area × (average pre-slope + average final slope) ÷ 12, then × 1.10. Bags = volume × part of the mix ÷ 0.5 cu ft. Actual use varies with drain position and technique, and a 50 lb bag of cement is not a standard size everywhere (94 lb is the common US bag at about 1 cu ft), so scale the cement count to the bag you buy.*
 
-## Worked Project Example: Standard 36x60 Inch Shower Pan
+## A 36x60 in Shower Pan, Worked Through
 
 This example calculates the deck mud needed for a rectangular shower pan measuring 36 inches by 60 inches, using a 4:1 sand-to-Portland cement mix.
 

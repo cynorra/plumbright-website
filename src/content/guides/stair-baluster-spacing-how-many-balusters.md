@@ -14,7 +14,7 @@ The International Residential Code requires that guards do not allow a 4 in sphe
 
 On stairs, the balusters follow the slope of the rail, and the triangular gap between the bottom rail, a tread and a riser is allowed to be larger (the code permits a 6 in sphere there). Check your local code for the stair-specific limit before you buy.
 
-## The formula
+## Working Out the Baluster Count
 
 Let L be the clear length between the two posts (or post and wall), W the baluster width and C the largest opening you will accept, all in inches.
 
@@ -58,7 +58,7 @@ Target opening C = 3 3/4 in. Every row is computed with the formula above.
 
 Every opening in the table is at or under 3.75 in, so each leaves a margin below the 4 in limit.
 
-## Worked project example: 7 ft 6 in railing
+## A 7 ft 6 in Railing, Start to Finish
 
 A deck stair railing section is 7 ft 6 in (90 in) long and uses 1 1/2 in balusters.
 

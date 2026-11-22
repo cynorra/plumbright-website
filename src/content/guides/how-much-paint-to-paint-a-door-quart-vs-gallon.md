@@ -7,7 +7,7 @@ tool: paint
 ---
 **One quart of paint usually covers two coats on both sides of a standard flat interior door (about 88 sq ft with 10% waste, against roughly 94 sq ft per quart).** Paneled doors, exterior doors and primer coats push the total just past a quart, so for those buy two quarts or a gallon.
 
-## Calculating Door Surface Area for Paint
+## Measuring a Door, Panels and Edges
 
 Accurately determining the surface area of a door is the foundational step for any paint estimation. While a standard door is often approximated at 20 square feet per side, this calculation must account for actual dimensions, both sides, and crucially, the added complexity of paneled designs.
 
@@ -44,7 +44,7 @@ Accurately determining the surface area of a door is the foundational step for a
 
 This final "Total Paintable Area" is the figure you will use to determine how much paint you need based on the paint's coverage rate. For broader project planning, you can also use our [paint calculator](/paint-calculator/) to estimate paint for entire rooms.
 
-## Paint Coverage Rates and Coat Requirements
+## Coats, Coverage and When a Quart Is Enough
 
 Paint coverage varies significantly based on paint type, sheen, color, and the porosity of the surface. Most quality paints offer a coverage rate of 350-400 square feet per gallon for a single coat.
 
@@ -78,7 +78,7 @@ The following table provides a quick reference for common door painting scenario
 
 *Note: Paint needed = area ÷ 93.75 sq ft per quart (375 sq ft per gallon); primer uses 62.5 sq ft per quart (250 sq ft per gallon). Always round up to a whole container: a result over 1 quart means buying 2 quarts or a gallon.*
 
-## Worked Project Example: Painting a Paneled Front Door
+## A Paneled Front Door, Quart or Gallon?
 
 This example calculates the paint needed for a single exterior front door that is moderately paneled, requires a significant color change (dark to light), and will be painted on both sides, including the edges.
 

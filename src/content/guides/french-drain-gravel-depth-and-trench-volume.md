@@ -7,7 +7,7 @@ tool: gravel
 ---
 **To estimate French drain gravel, multiply the trench width (ft) by the gravel depth (ft) to get cubic feet per linear foot, subtract the pipe, and multiply by the length. A 12-inch wide trench with 18 inches of gravel is 1.5 cu ft per foot before the pipe and 1.39 cu ft after it, which is 5.7 cubic yards per 100 linear feet with 10% waste.** Trench width, gravel depth and pipe size change the answer, so use the table below or the steps that follow.
 
-## Calculating Trench Volume and Gravel Requirements
+## Trench Volume and the Gravel It Takes
 
 A properly constructed French drain relies on specific dimensions for effective water diversion. The total trench volume must accommodate the perforated drain pipe, a surrounding layer of permeable gravel, and a geotextile fabric liner. The calculation begins with the trench's overall dimensions, followed by determining the volume occupied by the gravel.
 
@@ -59,7 +59,7 @@ A properly constructed French drain relies on specific dimensions for effective 
 
 For quick estimates, you can use our [gravel calculator](/gravel-calculator/). Plan for a gentle, steady slope along the pipe (about 1%, or 1 foot of drop per 100 feet, is a common minimum), which means the trench gets slightly deeper along its run.
 
-## French Drain Gravel and Trench Volume Estimation Matrix
+## Gravel Needed by Trench Width, Depth and Length
 
 The following table gives gravel volumes for common trench sizes, assuming a 4-inch perforated pipe (4.5 in outside diameter, deducted at 0.11 cu ft per linear foot) and a 10% waste factor for #57 washed stone. "Gravel depth" is the depth the stone fills, so a trench 4 to 6 inches deeper leaves room for a topsoil cap. Geotextile fabric should line the entire trench before gravel is added, wrapping over the top layer of gravel to prevent soil infiltration. For more on proper excavation, see our guide on [Paver Base Depth: Excavation for Sand & Crushed Stone](/guides/paver-base-depth-sand-and-crushed-stone-layers/).
 
@@ -87,7 +87,7 @@ The following table gives gravel volumes for common trench sizes, assuming a 4-i
 
 *Note: gravel per linear foot = width (ft) × gravel depth (ft) − 0.11 cu ft for the pipe. Cubic yards = per-foot volume × length × 1.10 ÷ 27.*
 
-## Worked Project Example: 50-Foot Residential French Drain
+## Sizing a 50 ft Drain Along a Foundation
 
 This example calculates the materials for a 50-foot long French drain designed to intercept surface and subsurface water near a foundation.
 

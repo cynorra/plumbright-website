@@ -7,7 +7,7 @@ tool: brick
 ---
 **For brick laying, Type N mortar typically uses a 1:1:6 ratio (1 part Portland cement, 1 part hydrated lime, 6 parts sand by volume) for non-load-bearing exterior walls, while Type S mortar uses a 1:0.5:4.5 ratio for load-bearing or below-grade applications requiring higher strength.** Understanding these precise volumetric proportions and accounting for project-specific factors like wall dimensions, joint thickness, and a crucial 10% waste allowance is essential for accurate material estimation, as detailed in the comprehensive table and calculations below.
 
-## Understanding Mortar Types and Ratios
+## Type N vs Type S: What Changes in the Mix
 
 Mortar is the binding agent that holds bricks together, forming a strong, durable masonry structure. It consists primarily of Portland cement, hydrated lime, and sand, mixed with water. The specific proportions of these dry ingredients determine the mortar's strength, flexibility, and workability, leading to different "types" suitable for various applications. For brick laying, Type N and Type S are the most common choices for site-mixed mortar.
 
@@ -29,7 +29,7 @@ Type S mortar is a higher-strength mortar designed for applications requiring su
 
 *   **Volumetric Ratio:** 1 part Portland cement : 0.5 parts hydrated lime : 4.5 parts sand
 
-## Calculating Mortar Volume and Material Quantities
+## From Wall Area to Bags of Mortar
 
 Accurately estimating mortar quantities begins with determining the total number of bricks required for your project, as mortar consumption is often calculated per 1000 bricks. For standard bricks (approximately 7 5/8" L x 2 1/4" H x 3 5/8" W) with typical 3/8-inch mortar joints, approximately 7 cubic feet of mixed mortar are needed per 1000 bricks.
 
@@ -65,7 +65,7 @@ Here's a step-by-step breakdown for calculating your material needs:
     *   Always add a 10% waste allowance to your final material quantities to account for spillage, mixing errors, and variations in joint thickness.
     *   `Final Material Quantity = Calculated Quantity x 1.10`.
 
-## Mortar Material Estimation Table
+## Mortar per 100 Bricks and per Block Course
 
 The following table provides approximate material quantities for site-mixed Type N and Type S mortar, based on a yield of 7 cubic feet of mortar per 1000 standard bricks with 3/8-inch joints. Quantities are rounded up for practical purchasing.
 
@@ -102,7 +102,7 @@ The following table provides approximate material quantities for site-mixed Type
 
 *Note: These quantities include a slight rounding up for practical purchase and do not yet include the 10% waste allowance.*
 
-## Worked Project Example: Garden Wall
+## Mixing for a Garden Wall
 
 This example estimates the materials for a garden wall that is 20 feet long and 3 feet high, using standard bricks and Type N mortar. The wall will be built on a proper footing, as detailed in guides like our Concrete Footing Depth and Width: Frost Line & Load Sizing Rules.
 
@@ -130,7 +130,7 @@ This example estimates the materials for a garden wall that is 20 feet long and 
 
 For this 20 ft x 3 ft garden wall, you would need to purchase 2 bags of 94 lb Portland cement, 2 bags of 50 lb hydrated lime, and 4 cubic feet of sand.
 
-## Essential Tips for Mixing and Application
+## Mixing, Tempering and Working Time
 
 
 

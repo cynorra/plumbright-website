@@ -7,7 +7,7 @@ tool: deck
 ---
 **For a typical floating deck, plan for one concrete deck block every 5 to 6 feet along each main support beam, including blocks at both ends of every beam.** This usually translates to supporting the perimeter beams and any intermediate beams. The exact number depends on the deck's dimensions, the span rating of your chosen lumber (e.g., 2x6, 2x8), and the required gravel base depth for proper drainage, which necessitates reviewing the full calculation guide and material table below.
 
-## Calculating Deck Block Layout and Support Beams
+## Laying Out Blocks, Beams and Joists
 
 Floating decks, also known as freestanding decks, are low-profile structures that do not attach to a house and rest directly on the ground via concrete deck blocks. These blocks provide a stable, rot-resistant foundation for the deck's main support beams (girders). The primary calculation involves determining how many blocks are needed to adequately support these beams, considering their span capabilities and the overall deck footprint.
 
@@ -32,7 +32,7 @@ The critical factor is the spacing of the blocks along the length of each beam. 
         *   `Weed Barrier Area (sq ft) = Deck Length (ft) * Deck Width (ft)`
 6.  **Waste Allowance:** Always add a 10% waste factor to your total deck block count, gravel volume, and weed barrier area to account for errors, cuts, or unforeseen needs.
 
-## Floating Deck Block and Material Estimation Table
+## Block Counts by Deck Size
 
 This table provides estimated material quantities for common floating deck sizes, assuming a 5-foot block spacing along beams and a 6-foot spacing between parallel beams. A 4-inch deep gravel base and a 10% waste factor are included.
 
@@ -101,7 +101,7 @@ This table provides estimated material quantities for common floating deck sizes
 
 *Note: Beam lengths are approximate and assume beams run parallel to the longer dimension for optimal support. Adjust beam count based on your specific design and local building codes.*
 
-## Worked Project Example: 12x16 Floating Deck Foundation
+## Planning the Foundation for a 12x16 Deck
 
 This example calculates the materials needed for a 12-foot by 16-foot floating deck. We will assume the main support beams run the 16-foot length, and we'll use a 5-foot spacing for the blocks along the beams and a 6-foot spacing for the beams across the 12-foot width. We'll also plan for a 4-inch deep gravel base.
 

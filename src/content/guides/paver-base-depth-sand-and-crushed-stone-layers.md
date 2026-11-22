@@ -7,7 +7,7 @@ tool: gravel
 ---
 **For a durable paver installation, excavate a total depth that accommodates the paver thickness, a 1-inch bedding sand layer, and a 4-6 inch compacted crushed stone base.** This typically results in an excavation depth of 7 to 9 inches for common 2-inch to 3-inch thick pavers, ensuring proper drainage and structural integrity. Always account for a 10% waste factor when ordering materials.
 
-## How the Formula Works
+## Why the Base Is Deeper Than the Pavers
 
 Accurately determining the excavation depth and material quantities for a paver base is crucial for a long-lasting installation. The total excavation depth is the sum of three components: the paver thickness, the bedding sand layer, and the compacted crushed stone base.
 
@@ -51,7 +51,7 @@ Similar to the crushed stone, calculate the volume of bedding sand needed.
     *   `Total Bedding Sand (cu yds) = (Volume (cu ft) × 1.10) ÷ 27`
         *   *Note:* Again, the 1.10 factor accounts for a 10% waste allowance. For more detailed sand calculations, refer to our guide on [how much sand do you need under pavers](/guides/how-much-sand-under-pavers/).
 
-## Material Estimation Table
+## Base, Sand and Paver Depths by Use
 
 This table provides estimated material quantities and total excavation depths for common paver thicknesses and base requirements, including a 10% waste factor. All quantities are per 100 square feet of paved area.
 
@@ -104,7 +104,7 @@ This table provides estimated material quantities and total excavation depths fo
 
 *Note: These calculations include a 10% waste factor for both crushed stone and bedding sand. For larger projects or specific material types, use our [gravel calculator](/gravel-calculator/) for precise estimates.*
 
-## Worked Project Example
+## Example: A 12 x 16 ft Patio, Layer by Layer
 
 This example calculates the excavation depth and material needs for a 12 ft x 20 ft patio using 2.5-inch thick pavers. We will use a 4-inch compacted crushed stone base and a 1-inch bedding sand layer.
 
@@ -141,7 +141,7 @@ This example calculates the excavation depth and material needs for a 12 ft x 20
 *   **Crushed Stone (Quarry Process):** Approximately 3.3 cubic yards
 *   **Bedding Sand:** Approximately 0.9 cubic yards
 
-## Setting Tips and Waste Allowance
+## Compaction Tips and How Much Extra to Order
 
 **Waste Allowance:** A 10% waste factor is a standard and realistic buffer for both crushed stone and bedding sand. This accounts for several common scenarios:
 *   **Compaction:** Materials compact more than initially estimated, especially crushed stone.
